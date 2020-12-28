@@ -1,0 +1,19 @@
+@font-face {
+	font-family: "GermaniaOne";
+	src: url("Font/GermaniaOne-Regular.ttf");
+}
+
+header, footer {
+	background-color: #084E80;
+}
+
+header > a {
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	font-size: 90pt;
+	font-family: "GermaniaOne";
+	color:chocolate;
+	/* color: transparent;
+	background-image: linear-gradient(to right, red, orange 50%, brown);
+  	-webkit-background-clip: text;
+	background-clip: text; */
+}
