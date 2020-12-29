@@ -210,7 +210,7 @@ class DatabaseHelper{
 										GROUP BY Birra.IdBirra");
 		$stmt->bind_param('i',$BeerId);
 		$stmt->execute();
-		$result = $stmt->get_result();		
+		$result = $stmt->get_result();
 
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
@@ -296,11 +296,11 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 
-	public function getOrder($OrderId) { //TODO FINISH
+	public function getOrder($OrderId) {
 		$stmt = $this->db->prepare ("	SELECT Ordine.*, SO.* FROM Ordine
-										JOIN StatoEvasioneOrdine AS SEO ON SEO.IdOrdine=Ordine.IdOrdine
-										JOIN StatoOrdine AS SO ON SEO.IdStatoOrdine=SO.IdStatoOrdine
-										WHERE Ordine.IdOrdine=?
+										JOIN StatoEvasioneOrdine AS SEO ON SEO.IdOrdine = Ordine.IdOrdine
+										JOIN StatoOrdine AS SO ON SEO.IdStatoOrdine = SO.IdStatoOrdine
+										WHERE Ordine.IdOrdine = ?
 										AND SEO.DaData < NOW()
 										AND SEO.AData > NOW()");
 		$stmt->bind_param('i',$OrderId);
@@ -308,6 +308,23 @@ class DatabaseHelper{
 		$result = $stmt->get_result();
 		
 		return $result->fetch_all(MYSQLI_ASSOC);	
+	}
+
+	public function getOrderProducts($OrderId) {
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Prezzo.Prezzo, SUM(Movimento.Quantita) AS `QuantitaTot`, (SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
+										JOIN Movimento ON Movimento.IdMovimento = MovimentoUtente.IdMovimento
+										JOIN Birra ON Movimento.IdBirra = Birra.IdBirra
+										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
+										JOIN Ordine ON Ordine.IdOrdine = MovimentoUtente.IdUtente
+										WHERE MovimentoUtente.IdOrdine = ?
+										AND Prezzo.DaData < Ordine.DataOrdine
+										AND Prezzo.AData > Ordine.DataOrdine
+										GROUP BY Birra.IdBirra");
+		$stmt->bind_param('i',$OrderId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);				
 	}
 
 	public function getSellerNotification($SellerId) {
