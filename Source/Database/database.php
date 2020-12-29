@@ -189,6 +189,44 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 
+	public function getAllSeller() {
+		$stmt = $this->db->prepare	("	SELECT Birrificio.IdBirrificio, Birrificio.NomeBirrificio FROM Birrificio
+										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
+										WHERE SMB.IdStatoMembership=4
+										AND SMB.DaData < NOW()
+										AND SMB.AData > NOW()");
+		$stmt->execute();
+		$result = $stmt->get_result();		
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	public function getNumberOfBeerSold($BeerId) {
+		$stmt = $this->db->prepare	("	SELECT SUM(Movimento.Quantita) AS `QuantitàVenduta` FROM MovimentoUtente
+										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
+										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
+										WHERE Birra.IdBirra=?
+										AND MovimentoUtente.IdOrdine IS NOT NULL
+										GROUP BY Birra.IdBirra");
+		$stmt->bind_param('i',$BeerId);
+		$stmt->execute();
+		$result = $stmt->get_result();		
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+
+	public function getSellerRequest() {
+		$stmt = $this->db->prepare	("	SELECT Birrificio.* FROM Birrificio
+										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
+										WHERE SMB.IdStatoMembership=1
+										AND SMB.DaData < NOW()
+										AND SMB.AData > NOW()");
+		$stmt->execute();
+		$result = $stmt->get_result();		
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+
 
 }
 	
