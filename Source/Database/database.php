@@ -296,6 +296,20 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 
+	public function getOrder($OrderId) { //TODO FINISH
+		$stmt = $this->db->prepare ("	SELECT Ordine.*, SO.* FROM Ordine
+										JOIN StatoEvasioneOrdine AS SEO ON SEO.IdOrdine=Ordine.IdOrdine
+										JOIN StatoOrdine AS SO ON SEO.IdStatoOrdine=SO.IdStatoOrdine
+										WHERE Ordine.IdOrdine=?
+										AND SEO.DaData < NOW()
+										AND SEO.AData > NOW()");
+		$stmt->bind_param('i',$OrderId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);	
+	}
+
 	public function getSellerNotification($SellerId) {
 		$stmt = $this->db->prepare ("	SELECT Notifica.* FROM Notifica
 										WHERE Notifica.IdBirrificio=?
