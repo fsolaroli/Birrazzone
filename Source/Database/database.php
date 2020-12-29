@@ -227,6 +227,45 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 
+	public function getUser($UserId) {
+		$stmt = $this->db->prepare	("	SELECT Utente.* FROM Utente
+										WHERE Utente.IdUtente=?");
+		$stmt->bind_param('i',$UserId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);	
+	}
+
+	public function getUsedEmail() {
+		$extractMail = function($WrappedValue) {
+			return $WrappedValue["Email"];
+		};
+		$stmt = $this->db->prepare	("SELECT Utente.EmailUtente AS Email FROM Utente");
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$UsersEmail = $result->fetch_all(MYSQLI_ASSOC);
+		$stmt = $this->db->prepare	("SELECT Birrificio.EmailBirrificio AS Email FROM Birrificio");
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$SellersEmail = $result->fetch_all(MYSQLI_ASSOC);
+		$UsersEmail=array_map($extractMail, $UsersEmail);
+		$SellersEmail=array_map($extractMail, $SellersEmail);
+		return array_merge($UsersEmail, $SellersEmail);
+	}
+
+	public function registerUser($name, $email, $password) {
+		$stmt = $this->db->prepare	("	INSERT INTO birrazzone.Utente 	(
+																			NomeUtente,
+																			EmailUtente,
+																			PasswordUtente
+																		)
+																values	(?, ?, ?)");
+		$stmt->bind_param('sss',$name, $email, $password);
+		return $stmt->execute();	
+	}
+
+
 
 }
 	
