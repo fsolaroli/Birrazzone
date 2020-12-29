@@ -249,3 +249,27 @@ insert into birrazzone.MovimentoUtente	(
 											4,
 											1
 										);
+
+insert into birrazzone.Movimento	(
+										IdMovimento,
+										IdBirra,
+										DataMovimento,
+										Quantita,
+										TipoMovimento
+									)
+							values	(
+										5,
+										1,
+										'2020-12-28 15:15:00',
+										10,
+										1
+									);
+
+insert into birrazzone.MovimentoUtente	(
+											IdMovimento,
+											IdUtente
+										)
+								values	(
+											5,
+											1
+										);
