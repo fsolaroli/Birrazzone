@@ -102,7 +102,8 @@ class DatabaseHelper{
 	}
 
 	public function getSeller($SellerId) {
-		$stmt = $this->db->prepare	("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.DescrizioneBirrificio, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
+		// $stmt = $this->db->prepare	("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.DescrizioneBirrificio, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
+		$stmt = $this->db->prepare	("	SELECT B.* FROM StatoMembershipBirrificio AS SMB
 										JOIN Birrificio AS B ON B.IdBirrificio=SMB.IdBirrificio
 										JOIN StatoMembership AS SM ON SM.IdStatoMembership=SMB.IdStatoMembership
 										WHERE B.IdBirrificio=?
@@ -165,7 +166,6 @@ class DatabaseHelper{
 
 		return $result->fetch_all(MYSQLI_ASSOC);		
 	}
-
 
 }
 	
