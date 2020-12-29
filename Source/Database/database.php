@@ -147,7 +147,7 @@ class DatabaseHelper{
 										AND Prezzo.DaData < NOW()
 										AND Prezzo.AData > NOW()
 										GROUP BY Birra.IdBirra");
-		$stmt->bind_param('ii',$SellerId, $n);
+		$stmt->bind_param('i',$UserId);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
