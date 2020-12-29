@@ -276,6 +276,20 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 	
+	public function getAddress($AddressId) {
+		$stmt = $this->db->prepare ("	SELECT Indirizzo.* FROM Indirizzo
+										WHERE Indirizzo.IdIndirizzo=?");
+		$stmt->bind_param('i',$AddressId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);	
+	}
+
+	public function getAllUserOrders($UserId) {
+
+	}
+
 	public function getSellerNotification($SellerId) {
 		$stmt = $this->db->prepare ("	SELECT Notifica.* FROM Notifica
 										WHERE Notifica.IdBirrificio=?
