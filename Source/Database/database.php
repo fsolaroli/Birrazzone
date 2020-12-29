@@ -286,8 +286,14 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 
-	public function getAllUserOrders($UserId) {
-
+	public function getAllUserOrders($UserId) {			
+		$stmt = $this->db->prepare ("	SELECT Ordine.* FROM Ordine
+										WHERE Ordine.IdUtente=?");
+		$stmt->bind_param('i',$UserId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 
 	public function getSellerNotification($SellerId) {
