@@ -64,7 +64,7 @@ create table if not exists birrazzone.Prezzo (
 create table if not exists birrazzone.Indirizzo (
 	IdIndirizzo				int				not null auto_increment,
 	Via						varchar(40)		not null,
-	Città					varchar(30)		not null,
+	Citta					varchar(30)		not null,
 	Provincia				varchar(20)		not null,
 	CAP						char(5)			not null,
 	primary key (IdIndirizzo)
