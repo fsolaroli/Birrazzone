@@ -96,6 +96,19 @@ insert into birrazzone.Utente	(
 									"password"
 								);
 
+insert into birrazzone.Utente	(
+									IdUtente,
+									NomeUtente,
+									EmailUtente,
+									PasswordUtente
+								)
+						values	(
+									2,
+									"Gennaro Bullo",
+									"gennaro.bullo@example.com",
+									"password"
+								);
+
 insert into birrazzone.Ordine	(
 									IdOrdine,
 									IdIndirizzoSpedizione,
