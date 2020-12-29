@@ -19,7 +19,7 @@ class DatabaseHelper{
 	}
 
 	public function getRandomBeer($n=4) {
-		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Prezzo.IdBirra=Birra.IdBirra
 										JOIN Birrificio ON Birra.IdBirrificio=Birrificio.IdBirrificio
 										WHERE Prezzo.DaData < NOW()
@@ -34,7 +34,7 @@ class DatabaseHelper{
 	}
 	
 	public function getRandomSeller($n=4) {
-		$stmt = $this->db->prepare	("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.DescrizioneBirrificio, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
+		$stmt = $this->db->prepare ("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.DescrizioneBirrificio, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
 										JOIN Birrificio AS B ON B.IdBirrificio=SMB.IdBirrificio
 										JOIN StatoMembership AS SM ON SM.IdStatoMembership=SMB.IdStatoMembership
 										WHERE SM.Codice='ATTIVA'
@@ -58,7 +58,7 @@ class DatabaseHelper{
 		// 	$sqlReplace = 'REPLACE(' . ($sqlReplace ? $sqlReplace : 'replace_field') . ', "' . $key . '", "' . $val . '")';
 		// }
 
-		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
 										WHERE LOCATE(?, Birra.NomeBirra)!=0
@@ -73,7 +73,7 @@ class DatabaseHelper{
 	}
 
 	public function searchSeller($searchTag) {
-		$stmt = $this->db->prepare	("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
+		$stmt = $this->db->prepare ("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
 										JOIN Birrificio AS B ON B.IdBirrificio=SMB.IdBirrificio
 										JOIN StatoMembership AS SM ON SM.IdStatoMembership=SMB.IdStatoMembership
 										WHERE LOCATE(?, B.NomeBirrificio)!=0
@@ -88,7 +88,7 @@ class DatabaseHelper{
 	}
 
 	public function getBeer($BeerId) {
-		$stmt = $this->db->prepare	("	SELECT Birra.*, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
+		$stmt = $this->db->prepare ("	SELECT Birra.*, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
 										WHERE Birra.IdBirra=?
@@ -102,8 +102,8 @@ class DatabaseHelper{
 	}
 
 	public function getSeller($SellerId) {
-		// $stmt = $this->db->prepare	("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.DescrizioneBirrificio, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
-		$stmt = $this->db->prepare	("	SELECT B.* FROM StatoMembershipBirrificio AS SMB
+		// $stmt = $this->db->prepare ("	SELECT B.IdBirrificio, B.NomeBirrificio, B.Localita, B.DescrizioneBirrificio, B.FotoBirrificio FROM StatoMembershipBirrificio AS SMB
+		$stmt = $this->db->prepare ("	SELECT B.* FROM StatoMembershipBirrificio AS SMB
 										JOIN Birrificio AS B ON B.IdBirrificio=SMB.IdBirrificio
 										JOIN StatoMembership AS SM ON SM.IdStatoMembership=SMB.IdStatoMembership
 										WHERE B.IdBirrificio=?
@@ -118,7 +118,7 @@ class DatabaseHelper{
 	}
 
 	public function getSellerBeer($SellerId) {
-		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
 										WHERE Birra.IdBirrificio=?
@@ -132,7 +132,7 @@ class DatabaseHelper{
 	}
 
 	public function getBestSellerBeer($SellerId, $n=4) {
-		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Prezzo.Prezzo FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Prezzo.Prezzo FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
@@ -151,7 +151,7 @@ class DatabaseHelper{
 	}
 
 	public function getShoppingCart($UserId) {
-		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.FotoBirra, Prezzo.Prezzo, SUM(Movimento.Quantita) AS `QuantitaTot`, (SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.FotoBirra, Prezzo.Prezzo, SUM(Movimento.Quantita) AS `QuantitaTot`, (SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
@@ -168,7 +168,7 @@ class DatabaseHelper{
 	}
 
 	public function checkUserLogin($email, $password) {
-		$stmt = $this->db->prepare	("	SELECT Utente.IdUtente FROM Utente
+		$stmt = $this->db->prepare ("	SELECT Utente.IdUtente FROM Utente
 										WHERE Utente.EmailUtente=?
 										AND Utente.PasswordUtente=?");
 		$stmt->bind_param('ss',$email, $password);
@@ -179,7 +179,7 @@ class DatabaseHelper{
 	}
 	
 	public function checkSellerLogin($email, $password) {
-		$stmt = $this->db->prepare	("	SELECT Birrificio.IdBirrificio FROM Birrificio
+		$stmt = $this->db->prepare ("	SELECT Birrificio.IdBirrificio FROM Birrificio
 										WHERE Birrificio.EmailBirrificio=?
 										AND Birrificio.PasswordBirrificio=?");
 		$stmt->bind_param('ss',$email, $password);
@@ -190,7 +190,7 @@ class DatabaseHelper{
 	}
 
 	public function getAllSeller() {
-		$stmt = $this->db->prepare	("	SELECT Birrificio.IdBirrificio, Birrificio.NomeBirrificio FROM Birrificio
+		$stmt = $this->db->prepare ("	SELECT Birrificio.IdBirrificio, Birrificio.NomeBirrificio FROM Birrificio
 										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
 										WHERE SMB.IdStatoMembership=4
 										AND SMB.DaData < NOW()
@@ -202,7 +202,7 @@ class DatabaseHelper{
 	}
 	
 	public function getNumberOfBeerSold($BeerId) {
-		$stmt = $this->db->prepare	("	SELECT SUM(Movimento.Quantita) AS `QuantitàVenduta` FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT SUM(Movimento.Quantita) AS `QuantitàVenduta` FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
 										WHERE Birra.IdBirra=?
@@ -216,7 +216,7 @@ class DatabaseHelper{
 	}
 
 	public function getSellerRequest() {
-		$stmt = $this->db->prepare	("	SELECT Birrificio.* FROM Birrificio
+		$stmt = $this->db->prepare ("	SELECT Birrificio.* FROM Birrificio
 										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
 										WHERE SMB.IdStatoMembership=1
 										AND SMB.DaData < NOW()
@@ -228,7 +228,7 @@ class DatabaseHelper{
 	}
 
 	public function getUser($UserId) {
-		$stmt = $this->db->prepare	("	SELECT Utente.* FROM Utente
+		$stmt = $this->db->prepare ("	SELECT Utente.* FROM Utente
 										WHERE Utente.IdUtente=?");
 		$stmt->bind_param('i',$UserId);
 		$stmt->execute();
@@ -241,11 +241,11 @@ class DatabaseHelper{
 		$extractMail = function($WrappedValue) {
 			return $WrappedValue["Email"];
 		};
-		$stmt = $this->db->prepare	("SELECT Utente.EmailUtente AS Email FROM Utente");
+		$stmt = $this->db->prepare ("SELECT Utente.EmailUtente AS Email FROM Utente");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$UsersEmail = $result->fetch_all(MYSQLI_ASSOC);
-		$stmt = $this->db->prepare	("SELECT Birrificio.EmailBirrificio AS Email FROM Birrificio");
+		$stmt = $this->db->prepare ("SELECT Birrificio.EmailBirrificio AS Email FROM Birrificio");
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$SellersEmail = $result->fetch_all(MYSQLI_ASSOC);
@@ -255,7 +255,7 @@ class DatabaseHelper{
 	}
 
 	public function registerUser($name, $email, $password) {
-		$stmt = $this->db->prepare	("	INSERT INTO birrazzone.Utente 	(
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Utente 	(
 																			NomeUtente,
 																			EmailUtente,
 																			PasswordUtente
@@ -265,6 +265,27 @@ class DatabaseHelper{
 		return $stmt->execute();	
 	}
 
+	public function getUserNotification($UserId) {
+		$stmt = $this->db->prepare ("	SELECT Notifica.* FROM Notifica
+										WHERE Notifica.IdUtente=?
+										AND Notifica.DataLettura > NOW()");
+		$stmt->bind_param('i',$UserId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);	
+	}
+	
+	public function getSellerNotification($SellerId) {
+		$stmt = $this->db->prepare ("	SELECT Notifica.* FROM Notifica
+										WHERE Notifica.IdBirrificio=?
+										AND Notifica.DataLettura > NOW()");
+		$stmt->bind_param('i',$SellerId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);		
+	}
 
 
 }
