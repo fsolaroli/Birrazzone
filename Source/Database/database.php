@@ -167,6 +167,29 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);		
 	}
 
+	public function checkUserLogin($email, $password) {
+		$stmt = $this->db->prepare	("	SELECT Utente.IdUtente FROM Utente
+										WHERE Utente.EmailUtente=?
+										AND Utente.PasswordUtente=?");
+		$stmt->bind_param('ss',$email, $password);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	public function checkSellerLogin($email, $password) {
+		$stmt = $this->db->prepare	("	SELECT Birrificio.IdBirrificio FROM Birrificio
+										WHERE Birrificio.EmailBirrificio=?
+										AND Birrificio.PasswordBirrificio=?");
+		$stmt->bind_param('ss',$email, $password);
+		$stmt->execute();
+		$result = $stmt->get_result();		
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+
+
 }
 	
 ?>
