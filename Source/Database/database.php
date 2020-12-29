@@ -116,8 +116,22 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 
+	public function getSellerBeer($SellerId) {
+		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
+										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
+										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
+										WHERE Birra.IdBirrificio=?
+										AND Prezzo.DaData < NOW()
+										AND Prezzo.AData > NOW()");
+		$stmt->bind_param('i',$SellerId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+
 	public function getBestSellerBeer($SellerId, $n=4) {
-		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Prezzo.Prezzo, SUM(Movimento.Quantita) FROM MovimentoUtente
+		$stmt = $this->db->prepare	("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Prezzo.Prezzo FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
@@ -133,8 +147,6 @@ class DatabaseHelper{
 		$result = $stmt->get_result();
 
 		return $result->fetch_all(MYSQLI_ASSOC);		
-
-		//TODO Test query
 	}
 
 	public function getShoppingCart($UserId) {
