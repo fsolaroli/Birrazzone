@@ -12,6 +12,8 @@ class DatabaseHelper{
 	private $db;
 	private $EmailPlaceHolder = "EmailPlaceholder";
 	private $NamePlaceHolder = "NamePlaceholder";
+	private $DistantPast = '1000-01-01 00:00:00';
+	private $DistantFuture = '4000-01-01 00:00:00';
 
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
@@ -229,6 +231,61 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 
+	public function getUsedToken(){
+		$extractToken = function($WrappedValue) {
+			return $WrappedValue["Token"];
+		};		
+		$stmt = $this->db->prepare ("	SELECT SMB.Token FROM StatoMembershipBirrificio AS SMB
+										WHERE SMB.Token IS NOT NULL");
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$Tokens = $result->fetch_all(MYSQLI_ASSOC);
+		return array_map($extractToken, $Tokens);
+	}
+
+	public function acceptSellerRequest($SellerId, $token) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoMembershipBirrificio AS SMB
+										SET SMB.AData=NOW()
+										WHERE SMB.IdBirrificio=?
+										AND SMB.IdStatoMembership=1
+										AND SMB.DaData < NOW()
+										AND SMB.AData > NOW()");
+		$stmt->bind_param('i', $SellerId);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoMembershipBirrificio	(
+																							IdBirrificio,
+																							IdStatoMembership,
+																							DaData,
+																							AData,
+																							Token
+																						)
+																				values	(?, 2, NOW(), ?, ?)");
+		$stmt->bind_param('iss', $SellerId, $this->DistantFuture, $token);
+		return $stmt->execute();
+	}
+
+	public function rejectSellerRequest($SellerId) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoMembershipBirrificio AS SMB
+										SET SMB.AData=NOW()
+										WHERE SMB.IdBirrificio=?
+										AND SMB.IdStatoMembership=1
+										AND SMB.DaData < NOW()
+										AND SMB.AData > NOW()");
+		$stmt->bind_param('i', $SellerId);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoMembershipBirrificio	(
+																							IdBirrificio,
+																							IdStatoMembership,
+																							DaData,
+																							AData
+																						)
+																				values	(?, 3, NOW(), ?)");
+		$stmt->bind_param('iss', $SellerId, $this->DistantFuture);
+		$stmt->execute();
+	}
+
 	public function getUser($UserId) {
 		$stmt = $this->db->prepare ("	SELECT Utente.* FROM Utente
 										WHERE Utente.IdUtente=?");
@@ -372,6 +429,91 @@ class DatabaseHelper{
 		$result = $stmt->get_result();
 
 		return $result->fetch_all(MYSQLI_ASSOC);				
+	}
+
+	public function getUsedIVA() {
+		$extractIVA = function($WrappedValue) {
+			return $WrappedValue["PartitaIVA"];
+		};		
+		$stmt = $this->db->prepare ("	SELECT Birrificio.PartitaIVA FROM Birrificio
+										WHERE Birrificio.PartitaIVA IS NOT NULL");
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$IVA = $result->fetch_all(MYSQLI_ASSOC);
+		return array_map($extractIVA, $IVA);
+	}
+
+	public function requestSellerAccount($name, $email, $IVA) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Birrificio	(
+																				NomeBirrificio,
+																				EmailBirrificio,
+																				PartitaIVA
+																			)
+																	values	(?, ?, ?)");
+		$stmt->bind_param('sss',$name, $email, $IVA);
+		$stmt->execute();
+		
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoMembershipBirrificio	(
+																								IdBirrificio,
+																								IdStatoMembership,
+																								DaData,
+																								AData
+																							)
+																					values	(
+																								LAST_INSERT_ID(),
+																								1,
+																								NOW(),
+																								?
+																							)");
+		$stmt->bind_param('s', $this->DistantFuture);
+		return $stmt->execute();
+	}
+
+	public function getSellerFromRegistrationToken($token) {
+		$stmt = $this->db->prepare ("	SELECT Birrificio.* FROM StatoMembershipBirrificio AS SMB
+										JOIN Birrificio ON SMB.IdBirrificio=Birrificio.IdBirrificio
+										JOIN StatoMembership ON SMB.IdStatoMembership=StatoMembership.IdStatoMembership
+										WHERE StatoMembership.Codice='ACCETTATA'
+										AND SMB.Token=?
+										AND SMB.DaData < NOW()
+										AND SMB.AData > NOW()");
+		$stmt->bind_param('s',$token);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);				
+	}
+
+	public function completeSellerRegistration($SellerId, $password) {		
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoMembershipBirrificio AS SMB
+										SET SMB.AData=NOW()
+										WHERE SMB.IdBirrificio=?
+										AND SMB.IdStatoMembership=2
+										AND SMB.DaData < NOW()
+										AND SMB.AData > NOW()");
+		$stmt->bind_param('i',$SellerId);
+		$stmt->execute();
+		
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoMembershipBirrificio	(
+																								IdBirrificio,
+																								IdStatoMembership,
+																								DaData,
+																								AData
+																							)
+																					value	(
+																								?,
+																								4,
+																								NOW(),
+																								?
+																							)");
+		$stmt->bind_param('is',$SellerId, $this->DistantFuture);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
+										SET Birrificio.PasswordBirrificio=?
+										WHERE Birrificio.IdBirrificio=?");
+		$stmt->bind_param('si',$password, $SellerId);
+		return $stmt->execute();
 	}
 
 	public function getSellerNotification($SellerId) {
