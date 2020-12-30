@@ -286,6 +286,24 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 
+	public function updateAddress($UserId, $Via, $Citta, $Provincia, $CAP) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Indirizzo 	(
+																				Via,
+																				Citta,
+																				Provincia,
+																				CAP
+																			)
+																	values	(?, ?, ?, ?)");
+		$stmt->bind_param('ssss',$Via, $Citta, $Provincia, $CAP);
+		$stmt->execute();
+		
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
+										SET Utente.IdIndirizzo=LAST_INSERT_ID()
+										WHERE Utente.IdUtente=?");
+		$stmt->bind_param('i', $UserId);
+		return $stmt->execute();
+	}
+
 	public function getAllUserOrders($UserId) {			
 		$stmt = $this->db->prepare ("	SELECT Ordine.* FROM Ordine
 										WHERE Ordine.IdUtente=?");
