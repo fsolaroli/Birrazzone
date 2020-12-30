@@ -9,7 +9,9 @@ return $result->fetch_all(MYSQLI_ASSOC);
 */
 
 class DatabaseHelper{
-    private $db;
+	private $db;
+	private $EmailPlaceHolder = "EmailPlaceholder";
+	private $NamePlaceHolder = "NamePlaceholder";
 
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
@@ -293,6 +295,15 @@ class DatabaseHelper{
 											Utente.PasswordUtente=?
 										WHERE Utente.IdUtente=?");
 		$stmt->bind_param('sssi', $name, $email, $password, $UserId);
+		return $stmt->execute();
+	}
+
+	public function deleteUser($UserId) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
+										SET Utente.NomeUtente=?,
+											Utente.EmailUtente=CONCAT(?, Utente.IdUtente)
+										WHERE Utente.IdUtente=?");
+		$stmt->bind_param('ssi', $this->NamePlaceHolder, $this->EmailPlaceHolder, $UserId);
 		return $stmt->execute();
 	}
 
