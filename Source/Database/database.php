@@ -286,7 +286,17 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 
-	public function updateAddress($UserId, $Via, $Citta, $Provincia, $CAP) {
+	public function updateUserData($UserId, $name, $email, $password) {				
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
+										SET Utente.NomeUtente=?,
+											Utente.EmailUtente=?,
+											Utente.PasswordUtente=?
+										WHERE Utente.IdUtente=?");
+		$stmt->bind_param('sssi', $name, $email, $password, $UserId);
+		return $stmt->execute();
+	}
+
+	public function updateUserAddress($UserId, $Via, $Citta, $Provincia, $CAP) {
 		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Indirizzo 	(
 																				Via,
 																				Citta,
