@@ -277,6 +277,14 @@ class DatabaseHelper{
 		
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
+
+	public function readNotification($NotificationId) {		
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Notifica
+										SET Notifica.DataLettura=NOW(),
+										WHERE Notifica.IdNotifica=?");
+		$stmt->bind_param('i',$NotificationId);
+		return $stmt->execute();
+	}
 	
 	public function getAddress($AddressId) {
 		$stmt = $this->db->prepare ("	SELECT Indirizzo.* FROM Indirizzo
