@@ -624,16 +624,16 @@ class DatabaseHelper{
 
 	public function addBeer($SellerId, $name, $type, $foto, $price, $format, $alchoolVolume, $color, $description) {
 		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Birra	(
-																		NomeBirra,
-																		Tipologia,
-																		FotoBirra,
-																		Formato,
-																		GradoAlcolico,
-																		Colore,
-																		DescrizioneBirra,
-																		IdBirrificio
-																	)
-															values	(?, ?, ?, ?, ?, ?, ?, ?)");
+																			NomeBirra,
+																			Tipologia,
+																			FotoBirra,
+																			Formato,
+																			GradoAlcolico,
+																			Colore,
+																			DescrizioneBirra,
+																			IdBirrificio
+																		)
+																values	(?, ?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param('sssddssi', $name, $type, $foto, $format, $alchoolVolume, $color, $description, $SellerId);
 		$stmt->execute();
 
@@ -645,6 +645,37 @@ class DatabaseHelper{
 																		)
 																values	(NOW(), ?, ?, LAST_INSERT_ID())");
 		$stmt->bind_param('sd', $this->DistantFuture, $price);
+		return $stmt->execute();
+	}
+
+	public function finalizeOrder($UserId, $AddressId) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Ordine	(
+																			IdIndirizzoSpedizione,
+																			IdUtente,
+																			DataOrdine
+																		)
+																values	(?, ?, NOW())");
+		$stmt->bind_param('ii',$AddressId, $UserId);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.MovimentoUtente
+										SET MovimentoUtente.IdOrdine=LAST_INSERT_ID()
+										WHERE MovimentoUtente.IdOrdine IS NULL");
+		$stmt->execute();
+		
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoEvasioneOrdine	(
+																						IdOrdine,
+																						IdStatoOrdine,
+																						DaData,
+																						AData
+																					)
+																			values	(
+																						LAST_INSERT_ID(),
+																						1,
+																						NOW(),
+																						?
+																					)");
+		$stmt->bind_param('s',$this->DistantFuture);
 		return $stmt->execute();
 	}
 
