@@ -366,7 +366,7 @@ class DatabaseHelper{
 	public function deleteUser($UserId) {
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
 										SET Utente.NomeUtente=?,
-											Utente.EmailUtente=CONCAT(?, Utente.IdUtente)
+											Utente.EmailUtente=CONCAT(?, '0', Utente.IdUtente)
 										WHERE Utente.IdUtente=?");
 		$stmt->bind_param('ssi', $this->NamePlaceHolder, $this->EmailPlaceHolder, $UserId);
 		return $stmt->execute();
@@ -527,6 +527,39 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);		
 	}
 
+	public function updateSellerAccountData($SellerId, $name, $email, $IVA, $password) {				
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
+										SET Birrificio.NomeBirrificio=?,
+											Birrificio.EmailBirrificio=?,
+											Birrificio.PartitaIVA=?,
+											Birrificio.PasswordBirrificio=?
+										WHERE Birrificio.IdBirrificio=?");
+		$stmt->bind_param('ssssi', $name, $email, $IVA, $password, $SellerId);
+		return $stmt->execute();
+	}
+
+	public function deleteSeller($SellerId) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
+										SET Birrificio.NomeBirrificio=?,
+											Birrificio.EmailBirrificio=CONCAT(?, '1', Birrificio.IdBirrificio),
+											Birrificio.PartitaIVA=Birrificio.IdBirrificio,
+											Birrificio.Localita=NULL,
+											Birrificio.DescrizioneBirrificio=NULL,
+											Birrificio.FotoBirrificio=NULL
+										WHERE Birrificio.IdBirrificio=?");
+		$stmt->bind_param('ssi', $this->NamePlaceHolder, $this->EmailPlaceHolder, $SellerId);
+		return $stmt->execute();
+	}
+
+	public function updateSellerData($SellerId, $localita, $photo, $description) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
+										SET Birrificio.Localita=?,
+											Birrificio.FotoBirrificio=?,
+											Birrificio.DescrizioneBirrificio=?
+										WHERE Birrificio.IdBirrificio=?");
+		$stmt->bind_param('sssi', $localita, $photo, $description, $SellerId);
+		return $stmt->execute();
+	}
 
 }
 	
