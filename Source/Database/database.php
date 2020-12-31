@@ -145,7 +145,7 @@ class DatabaseHelper{
 										AND Prezzo.DaData < NOW()
 										AND Prezzo.AData > NOW()
 										GROUP BY Birra.IdBirra
-										ORDER BY SUM(Movimento.Quantita) DESC
+										ORDER BY -SUM(Movimento.Quantita) DESC
 										LIMIT ?");
 		$stmt->bind_param('ii',$SellerId, $n);
 		$stmt->execute();
@@ -155,7 +155,7 @@ class DatabaseHelper{
 	}
 
 	public function getShoppingCart($UserId) {
-		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.FotoBirra, Prezzo.Prezzo, SUM(Movimento.Quantita) AS `QuantitaTot`, (SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.FotoBirra, Prezzo.Prezzo, -SUM(Movimento.Quantita) AS `QuantitaTot`, (-SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
@@ -204,9 +204,20 @@ class DatabaseHelper{
 
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
+
+	public function getBeerQuantity($BeerId) {		
+		$stmt = $this->db->prepare ("	SELECT SUM(Movimento.Quantita) AS `Quantità` FROM Movimento
+										WHERE Movimento.IdBirra=?
+										GROUP BY Movimento.IdBirra");
+		$stmt->bind_param('i',$BeerId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
 	
 	public function getNumberOfBeerSold($BeerId) {
-		$stmt = $this->db->prepare ("	SELECT SUM(Movimento.Quantita) AS `QuantitàVenduta` FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT -SUM(Movimento.Quantita) AS `QuantitàVenduta` FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
 										WHERE Birra.IdBirra=?
@@ -415,7 +426,7 @@ class DatabaseHelper{
 	}
 
 	public function getOrderProducts($OrderId) {
-		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Prezzo.Prezzo, SUM(Movimento.Quantita) AS `QuantitaTot`, (SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Prezzo.Prezzo, -SUM(Movimento.Quantita) AS `QuantitaTot`, (-SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento = MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra = Birra.IdBirra
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
@@ -558,6 +569,56 @@ class DatabaseHelper{
 											Birrificio.DescrizioneBirrificio=?
 										WHERE Birrificio.IdBirrificio=?");
 		$stmt->bind_param('sssi', $localita, $photo, $description, $SellerId);
+		return $stmt->execute();
+	}
+
+	public function updateBeerData($BeerId, $foto, $price, $description) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birra
+										SET Birra.FotoBirra=?,
+											Birra.DescrizioneBirra=?
+										WHERE Birra.IdBirra=?");
+		$stmt->bind_param('ssi', $foto, $description, $BeerId);
+		$stmt->execute();
+		
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Prezzo
+										SET Prezzo.AData=NOW()
+										WHERE Prezzo.IdBirra=?
+										AND Prezzo.DaData<NOW()
+										AND Prezzo.AData>NOW()");
+		$stmt->bind_param('i', $BeerId);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Prezzo	(
+																			DaData,
+																			AData,
+																			Prezzo,
+																			IdBirra
+																		)
+																values	(
+																			NOW(),
+																			?, ?, ?
+																		)");
+		$stmt->bind_param('sdi', $this->DistantFuture, $price, $BeerId);
+		return $stmt->execute();
+	}
+
+	public function updateBeerQuantity($SellerId, $BeerId, $quantity) {		
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Movimento	(
+																				IdBirra,
+																				DataMovimento,
+																				Quantita,
+																				TipoMovimento
+																			)
+																	values	(?, NOW(), ?, 2)");
+		$stmt->bind_param('ii', $BeerId, $quantity);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.MovimentoBirrificio	(
+																						IdMovimento,
+																						IdBirrificio
+																					)
+																			values	(LAST_INSERT_ID(), ?)");
+		$stmt->bind_param('i', $SellerId);
 		return $stmt->execute();
 	}
 
