@@ -622,6 +622,32 @@ class DatabaseHelper{
 		return $stmt->execute();
 	}
 
+	public function addBeer($SellerId, $name, $type, $foto, $price, $format, $alchoolVolume, $color, $description) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Birra	(
+																		NomeBirra,
+																		Tipologia,
+																		FotoBirra,
+																		Formato,
+																		GradoAlcolico,
+																		Colore,
+																		DescrizioneBirra,
+																		IdBirrificio
+																	)
+															values	(?, ?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param('sssddssi', $name, $type, $foto, $format, $alchoolVolume, $color, $description, $SellerId);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Prezzo	(
+																			DaData,
+																			AData,
+																			Prezzo,
+																			IdBirra
+																		)
+																values	(NOW(), ?, ?, LAST_INSERT_ID())");
+		$stmt->bind_param('sd', $this->DistantFuture, $price);
+		return $stmt->execute();
+	}
+
 }
 	
 ?>
