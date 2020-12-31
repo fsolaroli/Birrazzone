@@ -171,6 +171,51 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);		
 	}
 
+	public function addBeerToShoppingCart($UserId, $BeerId, $quantity) {		
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Movimento	(
+																				IdBirra,
+																				DataMovimento,
+																				Quantita,
+																				TipoMovimento
+																			)
+																	values	(?, NOW(), -?, 1)");
+		$stmt->bind_param('ii', $BeerId, $quantity);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.MovimentoUtente	(
+																					IdMovimento,
+																					IdUtente
+																				)
+																		values	(LAST_INSERT_ID(), ?)");
+		$stmt->bind_param('i', $UserId);
+		return $stmt->execute();
+	}
+
+	public function removeBeerFromShoppingCart($UserId, $BeerId) {	
+		$extractMovementId = function($WrappedValue) {
+			return $WrappedValue["IdMovimento"];
+		};
+		
+		$stmt = $this->db->prepare ("	SELECT Movimento.IdMovimento FROM birrazzone.Movimento	
+										JOIN birrazzone.MovimentoUtente ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
+										WHERE MovimentoUtente.IdUtente=?
+										AND MovimentoUtente.IdOrdine IS NULL
+										AND Movimento.IdBirra=?");
+		$stmt->bind_param('ii', $UserId, $BeerId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$result = $result->fetch_all(MYSQLI_ASSOC);
+		$MovementToRemove = "(".implode(",", array_map($extractMovementId, $result)).")";
+
+		$stmt = $this->db->prepare ("	DELETE FROM birrazzone.MovimentoUtente	
+										WHERE MovimentoUtente.IdMovimento IN ".$MovementToRemove);
+		$stmt->execute();
+
+		$stmt = $this->db->prepare ("	DELETE FROM birrazzone.Movimento	
+										WHERE Movimento.IdMovimento IN ".$MovementToRemove);
+		return $stmt->execute();
+	}
+
 	public function checkUserLogin($email, $password) {
 		$stmt = $this->db->prepare ("	SELECT Utente.IdUtente FROM Utente
 										WHERE Utente.EmailUtente=?
