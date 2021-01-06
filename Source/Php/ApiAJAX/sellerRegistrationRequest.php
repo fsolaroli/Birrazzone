@@ -14,7 +14,6 @@ if (isset($_POST["ragioneSociale"]) && isset($_POST["email"]) && isset($_POST["I
 		$dbh->requestSellerAccount($_POST["ragioneSociale"], $_POST["email"], $_POST["IVA"]);
 		echo json_encode(null);
 	} else {
-		header("Content-Type: application/json");
 		echo json_encode($errors);
 	}
 }

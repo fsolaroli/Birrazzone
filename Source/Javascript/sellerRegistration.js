@@ -14,7 +14,7 @@ $(function() {
 			} else {
 				$("main").html(`
 				<h1>Registrazione birrificio</h1>
-				<h2>Registrazione Completata</h2>
+				<h2>Richiesta completata</h2>
 				<form action="home.php">
 					<input type="submit" value="OK"/>
 				</form>
