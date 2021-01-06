@@ -34,6 +34,6 @@ $(function() {
 				`);
 			}
 		}
-		$.post(	"api-sellerRegistrationRequest.php", PostData, PostFunction, "json");		
+		$.post(	"../ApiAJAX/sellerRegistrationRequest.php", PostData, PostFunction, "json");		
 	});
 });

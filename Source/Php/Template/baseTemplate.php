@@ -1,5 +1,5 @@
 <?php
-	$imagePath = "../../Immagini/";
+	$imagePath = "../../../Immagini/";
 ?>
 
 <!DOCTYPE html>
@@ -8,12 +8,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $templateParams["Titolo"]; ?></title>
-    <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../CSS/style.css" />
 	<?php
 	if(isset($templateParams["Javascript"])):
 		foreach ($templateParams["Javascript"] as $script):
 	?>
-		<script src= "../Javascript/<?php echo $script; ?>"></script>
+		<script src= "../../Javascript/<?php echo $script; ?>"></script>
 	<?php
 		endforeach;
 	endif;
