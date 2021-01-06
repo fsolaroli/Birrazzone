@@ -15,7 +15,7 @@ $(function() {
 				$("main").html(`
 				<h1>Registrazione birrificio</h1>
 				<h2>Registrazione Completata</h2>
-				<form action="home.php">
+				<form action="sellerAccount.php">
 					<input type="submit" value="OK"/>
 				</form>
 				`);

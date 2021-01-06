@@ -1,9 +1,5 @@
 <?php
 
-function isUserLoggedIn(){
-    return !empty($_SESSION['idautore']);
-}
-
 function checkEmailValidity($email) {
 	global $dbh;
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)===false || in_array($email, $dbh->getUsedEmail())) {
@@ -27,7 +23,16 @@ function checkPasswordValidity($password) {
 }
 
 function registerLoggedSeller($sellerId){
-    $_SESSION["sellerId"] = $sellerId;
+	$_SESSION["userId"] = null;
+	$_SESSION["sellerId"] = $sellerId;
+}
+
+function isSellerLoggedIn(){
+    return !empty($_SESSION['sellerId']);
+}
+
+function isUserLoggedIn(){
+    return !empty($_SESSION['userId']);
 }
 
 ?>
