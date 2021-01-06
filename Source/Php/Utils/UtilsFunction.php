@@ -26,4 +26,8 @@ function checkPasswordValidity($password) {
 	return strlen($password) >= 8;
 }
 
+function registerLoggedSeller($sellerId){
+    $_SESSION["sellerId"] = $sellerId;
+}
+
 ?>

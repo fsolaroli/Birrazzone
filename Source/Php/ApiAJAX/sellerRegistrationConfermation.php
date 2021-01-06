@@ -12,6 +12,7 @@ if (isset($_POST["sellerId"]) && isset($_POST["password"]) && isset($_POST["pass
 	
 	if(!isset($errors)) {
 		$dbh->completeSellerRegistration($_POST["sellerId"], $_POST["password"]);
+		registerLoggedSeller($_POST["sellerId"]);
 		echo json_encode(null);
 	} else {
 		echo json_encode($errors);
