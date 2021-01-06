@@ -528,8 +528,7 @@ class DatabaseHelper{
 	public function getSellerFromRegistrationToken($token) {
 		$stmt = $this->db->prepare ("	SELECT Birrificio.* FROM StatoMembershipBirrificio AS SMB
 										JOIN Birrificio ON SMB.IdBirrificio=Birrificio.IdBirrificio
-										JOIN StatoMembership ON SMB.IdStatoMembership=StatoMembership.IdStatoMembership
-										WHERE StatoMembership.Codice='ACCETTATA'
+										WHERE SMB.IdStatoMembership=2
 										AND SMB.Token=?
 										AND SMB.DaData < NOW()
 										AND SMB.AData > NOW()");
