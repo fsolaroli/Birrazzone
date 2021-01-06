@@ -22,4 +22,8 @@ function checkIVAValidity($IVA) {
 	}
 }
 
+function checkPasswordValidity($password) {
+	return strlen($password) >= 8;
+}
+
 ?>
