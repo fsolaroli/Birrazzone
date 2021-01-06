@@ -33,8 +33,18 @@
 		<?php endif; ?>
 
 		<?php if($templateParams["HeaderType"] == "Global"): ?>
-			<a href="login.php"><img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/></a>
-			<?php if(!isUserLoggedIn() || $_SESSION["UserType"] == "Buyer"): ?>
+			<a href="
+					<?php
+					if(isUserLoggedIn()) {
+						echo "userProfile.php";
+					} else if(isSellerLoggedIn()) {
+						echo "sellerProfile.php";
+					} else {
+						echo "login.php";
+					}
+					?>
+			"><img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/></a>
+			<?php if(!isSellerLoggedIn()): ?>
 				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"/></a>
 			<?php endif; ?>
 			<form action="search.php" method="POST">
