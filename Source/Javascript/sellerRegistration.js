@@ -9,7 +9,7 @@ $(function() {
 			if(errors!=null) {
 				$(".errori").html("")
 				$.each(errors, function (i, val) { 
-					$(".errori").append("<p><strong class='error'>"+val+"</strong></p>");	 
+					$(".errori").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
 				$("main").html(`
