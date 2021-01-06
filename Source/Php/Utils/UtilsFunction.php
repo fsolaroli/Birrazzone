@@ -1,8 +1,5 @@
 <?php
 
-require_once("../Database/database.php");
-$dbh = new DatabaseHelper("localhost", "root", "", "birrazzone", 3306);
-
 function isUserLoggedIn(){
     return !empty($_SESSION['idautore']);
 }
@@ -24,6 +21,5 @@ function checkIVAValidity($IVA) {
 		return false;
 	}
 }
-
 
 ?>
