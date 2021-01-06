@@ -24,18 +24,18 @@
 		<a href="home.php">Birrazzone</a>
 
 		<?php if($templateParams["HeaderType"] == "Profile"): ?>
-			<img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/>
+			<a href="home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
 			<img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/>
 		<?php endif; ?>
 
 		<?php if($templateParams["HeaderType"] == "Login"): ?>
-			<img src="<?php echo $imagePath?>Icone/Home.png" alt="Home"/>
+			<a href="home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt="Home"/></a>
 		<?php endif; ?>
 
 		<?php if($templateParams["HeaderType"] == "Global"): ?>
-			<img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/>
+			<a href="login.php"><img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/></a>
 			<?php if(!isUserLoggedIn() || $_SESSION["UserType"] == "Buyer"): ?>
-				<img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"/>
+				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"/></a>
 			<?php endif; ?>
 			<form action="search.php" method="POST">
 				<label>Search:<input type="text" name="search" /></label>
