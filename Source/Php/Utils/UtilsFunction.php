@@ -25,6 +25,7 @@ function checkPasswordValidity($password) {
 function registerLoggedSeller($sellerId){
 	$_SESSION["userId"] = null;
 	$_SESSION["sellerId"] = $sellerId;
+	$_SESSION["sellerProfilePage"]="Notification";
 }
 
 function isSellerLoggedIn(){
