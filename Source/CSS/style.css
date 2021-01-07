@@ -3,19 +3,28 @@
 	src: url("Font/GermaniaOne-Regular.ttf");
 }
 
-body>header, footer {
+body > header, footer {
 	background-color: #084E80;
 }
 
-header > a {
+header > h1 {
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-	font-size: 90pt;
+	font-size: 80pt;
 	font-family: "GermaniaOne";
 	color:chocolate;
 	/* color: transparent;
 	background-image: linear-gradient(to right, red, orange 50%, brown);
   	-webkit-background-clip: text;
 	background-clip: text; */
+}
+
+header > h1 {
+	width: 50%;
+}
+
+header > h1 > a:link, header > h1 > a:visited {
+	text-decoration: none;
+	color:chocolate;	
 }
 
 .product {

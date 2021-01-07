@@ -21,8 +21,7 @@
 </head>
 <body>
 	<header>
-		<a href="home.php">Birrazzone</a>
-
+		<h1><a href="home.php">Birrazzone</a></h1>
 		<?php if($templateParams["HeaderType"] == "Profile"): ?>
 			<a href="home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
 			<img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/>
@@ -51,7 +50,7 @@
 				<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
 			<?php endif; ?>
 			<?php if(isSellerLoggedIn()): ?>
-				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"/></a>
+				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"></a>
 			<?php endif; ?>
 			<form action="search.php" method="POST">
 				<label>Search:<input type="text" name="search" /></label>
