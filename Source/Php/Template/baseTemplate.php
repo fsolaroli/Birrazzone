@@ -54,14 +54,16 @@
 		<?php endif; ?>	
 	</header>
 	<main>
-	<?php
-	if(isset($templateParams["Template"])) {
-		require($templateParams["Template"]);
-	}
-	?>
+		<?php
+		if(isset($templateParams["Template"])) {
+			require($templateParams["Template"]);
+		}
+		?>
 	</main>
+	<aside></aside>
 	<footer>
-		<p> Progetto Tecnologie Web - A.A. 2020/21 Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli </p>
+		<p>Progetto Tecnologie Web - A.A. 2020/21</p>
+		<p>Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli</p>
 	</footer>
 </body>
 </html>
