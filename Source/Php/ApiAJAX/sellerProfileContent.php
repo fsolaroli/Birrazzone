@@ -18,10 +18,10 @@ if (isSellerLoggedIn()) {
 			echo json_encode(array("Type" => "AccountData", "Data" => array($sellerData["NomeBirrificio"], $sellerData["EmailBirrificio"], $sellerData["PartitaIVA"])));
 			break;
 		case 'SellerData':
-			echo json_encode(array($sellerData["Localita"], $sellerData["FotoBirrificio"], $sellerData["DescrizioneBirrificio"]));
+			echo json_encode(array("Type" => "SellerData", "Data" => array($sellerData["Localita"], $sellerData["FotoBirrificio"], $sellerData["DescrizioneBirrificio"])));
 			break;
 		case 'Products':
-			echo json_encode($dbh->getSellerBeer($_SESSION["sellerId"]));
+			echo json_encode(array("Type" => "Products", "Data" => $dbh->getSellerBeer($_SESSION["sellerId"])));
 			break;
 		default:
 			break;
