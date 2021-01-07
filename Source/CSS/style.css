@@ -17,3 +17,9 @@ header > a {
   	-webkit-background-clip: text;
 	background-clip: text; */
 }
+
+.product {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #084E80;
+}
