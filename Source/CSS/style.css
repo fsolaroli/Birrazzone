@@ -3,7 +3,7 @@
 	src: url("Font/GermaniaOne-Regular.ttf");
 }
 
-header, footer {
+body>header, footer {
 	background-color: #084E80;
 }
 
