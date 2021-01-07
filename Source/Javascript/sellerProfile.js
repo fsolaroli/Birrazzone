@@ -1,19 +1,18 @@
-function loadContent() {
-	$.getJSON("../ApiAJAX/sellerProfileContent.php", drawContent);
-}
-
-function drawNotification(notification) {
-
-}
-
-function drawProduct(product) {
-	$("main > section").append(`
-			<div class="product">
-				<p>` + product["NomeBirra"] + `</p>
-				<p><span>Disponibilità:</span><span class="quantity">` + product["Quantita"] + `</span></p>
-				<button class="modify">Visualizza</button>
-			</div>
+function setAside() {
+	$("aside").html(`
+		<ul>
+			<li><button id="notification" class="buttonMenu">Notifiche</button><img src="../../../Immagini/Icone/Notification.png" alt="Notification"/></li>
+			<li><button id="accountData" class="buttonMenu">Dati Account</button></li>
+			<li><button id="sellerData" class="buttonMenu">Dati Birrificio</button></li>
+			<li><button id="products" class="buttonMenu">Prodotti</button></li>
+		</ul>
 	`);
+	if ($("header > img[alt='Notification']").html()!=null) {
+		$("aside > ul > li:first-of-type > img").show();
+	} else {
+		$("aside > ul > li:first-of-type > img").hide();
+	}
+	$("aside").hide();
 }
 
 function drawContent(data) {
@@ -29,7 +28,7 @@ function drawContent(data) {
 			} else {
 				$.each(data["Data"], function (i, notification) { 
 					drawNotification(notification);
-			   	});   
+				});   
 			}
 			break;
 		case "AccountData":
@@ -39,7 +38,7 @@ function drawContent(data) {
 				<p>` 		+ data["Data"]["EmailBirrificio"]	+ `</p>
 				<p>P.IVA: ` + data["Data"]["PartitaIVA"] 		+ `</p>
 				<button id="modifyAccountData" class="modify">Modifica</button>
-				<button class="delete">Elimina account</button>
+				<button id="deleteAccount" class="delete">Elimina account</button>
 			`);
 			break;
 		case "SellerData":
@@ -49,48 +48,44 @@ function drawContent(data) {
 				<img class="sellerPhoto" src="../../../Immagini/Birrifici/` + data["Data"]["FotoBirrificio"] + `" alt="FotoBirrificio"/>
 				<p>` + data["Data"]["DescrizioneBirrificio"] + `</p>
 				<button id="modifySellerData" class="modify">Modifica</button>
-				`);
+			`);
 			break;
 		case "Products":
 			$("main > section").html(`
 				<h2>Prodotti</h2>
 			`);
 			$.each(data["Data"], function (i, product) { 
-				drawProduct(product);
+				drawProductOverview(product);
 			});
 			$("main > section").append(`
 				<button class="modify">Aggiungi</button>
 			`);
-		   break;
+			break;
 		default:
 			console.log(data);
 			break;
 	}
 }
+					
+function drawNotification(notification) {
+	//TODO
+}
 
-function setAside() {
-	$("aside").html(`
-		<ul>
-			<li><button id="notification" class="buttonMenu">Notifiche</button><img src="../../../Immagini/Icone/Notification.png" alt="Notification"/></li>
-			<li><button id="accountData" class="buttonMenu">Dati Account</button></li>
-			<li><button id="sellerData" class="buttonMenu">Dati Birrificio</button></li>
-			<li><button id="products" class="buttonMenu">Prodotti</button></li>
-		</ul>
+function drawProductOverview(product) {
+	$("main > section").append(`
+			<div class="product">
+				<p>` + product["NomeBirra"] + `</p>
+				<p><span>Disponibilità:</span><span class="quantity">` + product["Quantita"] + `</span></p>
+				<button class="modify">Visualizza</button>
+			</div>
 	`);
-	if ($("header > img[alt='Notification']").html()!=null) {
-		$("aside > ul > li:first-of-type > img").show();
-		// $("aside > ul > li:first-of-type").append(`
-		// 	<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
-		// `);
-	} else {
-		$("aside > ul > li:first-of-type > img").hide();
-	}
-	$("aside").hide();
 }
 
 $(function () {
 	setAside();
-	loadContent();
+	
+	$.getJSON("../ApiAJAX/sellerProfileContent.php", drawContent);
+	
 	$("header > img[alt='Menu']").click(function () { 
 		if($("aside").is(":hidden")) {
 			$("aside").show('slide'); //TODOMAYBE add animations
@@ -98,6 +93,7 @@ $(function () {
 			$("aside").hide('slide');
 		}
 	});
+
 	$("#notification").click(function() { 
 		$.post("../ApiAJAX/sellerProfileContent.php", { sellerProfilePage: "Notification" }, drawContent, "json");	
 	});

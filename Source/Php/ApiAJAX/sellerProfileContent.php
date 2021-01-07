@@ -21,7 +21,7 @@ if (isSellerLoggedIn()) {
 			echo json_encode(array("Type" => "Notification", "Data" => $dbh->getSellerNotification($_SESSION["sellerId"])));
 			break;
 		case 'AccountData':
-			echo json_encode(array("Type" => "AccountData", "Data" => array("NomeBirrificio" => $sellerData["NomeBirrificio"], "EmailBirrificio" => $sellerData["EmailBirrificio"], "PartitaIVA" => $sellerData["PartitaIVA"])));
+			echo json_encode(array("Type" => "AccountData", "Data" => array("NomeBirrificio" => $sellerData["NomeBirrificio"], "EmailBirrificio" => $sellerData["EmailBirrificio"], "PartitaIVA" => $sellerData["PartitaIVA"], "Password" => $sellerData["PasswordBirrificio"])));
 			break;
 		case 'SellerData':
 			echo json_encode(array("Type" => "SellerData", "Data" => array("Localita" => $sellerData["Localita"], "FotoBirrificio" => $sellerData["FotoBirrificio"], "DescrizioneBirrificio" => $sellerData["DescrizioneBirrificio"])));
