@@ -28,12 +28,23 @@ function registerLoggedSeller($sellerId){
 	$_SESSION["sellerProfilePage"]="Notification";
 }
 
-function isSellerLoggedIn(){
+function isSellerLoggedIn() {
     return !empty($_SESSION['sellerId']);
 }
 
-function isUserLoggedIn(){
+function isUserLoggedIn() {
     return !empty($_SESSION['userId']);
+}
+
+function hasNotification() {
+	global $dbh;
+	if(isSellerLoggedIn()) {
+		return !empty($dbh->getSellerNotification($_SESSION["sellerId"]));
+	} else if(isUserLoggedIn()) {
+		return !empty($dbh->getUserNotification($_SESSION["userId"]));
+	} else {
+		return false;
+	}
 }
 
 ?>

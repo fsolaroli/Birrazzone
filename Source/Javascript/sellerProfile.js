@@ -38,21 +38,18 @@ function drawContent(data) {
 				<p>` 		+ data["Data"]["NomeBirrificio"] 	+ `</p>
 				<p>` 		+ data["Data"]["EmailBirrificio"]	+ `</p>
 				<p>P.IVA: ` + data["Data"]["PartitaIVA"] 		+ `</p>
-				<button class="modify">Modifica</button>
+				<button id="modifyAccountData" class="modify">Modifica</button>
 				<button class="delete">Elimina account</button>
 			`);
-
 			break;
 		case "SellerData":
 			$("main > section").html(`
 				<h2>Dati birrificio</h2>
 				<p>` + data["Data"]["Localita"] + `</p>
-				<img class="sellerPhoto" src="../../../Immagini/Birrifici/` + data["Data"]["FotoBirrificio"] + `" alt="FotoBirrificio"></img>
+				<img class="sellerPhoto" src="../../../Immagini/Birrifici/` + data["Data"]["FotoBirrificio"] + `" alt="FotoBirrificio"/>
 				<p>` + data["Data"]["DescrizioneBirrificio"] + `</p>
+				<button id="modifySellerData" class="modify">Modifica</button>
 				`);
-			$("main > section").append(`
-				
-			`);
 			break;
 		case "Products":
 			$("main > section").html(`
@@ -62,7 +59,7 @@ function drawContent(data) {
 				drawProduct(product);
 			});
 			$("main > section").append(`
-			<button class="modify">Aggiungi</button>
+				<button class="modify">Aggiungi</button>
 			`);
 		   break;
 		default:
@@ -74,12 +71,20 @@ function drawContent(data) {
 function setAside() {
 	$("aside").html(`
 		<ul>
-		<li><button id="notification" class="buttonMenu">Notifiche</button></li>
-		<li><button id="accountData" class="buttonMenu">Dati Account</button></li>
-		<li><button id="sellerData" class="buttonMenu">Dati Birrificio</button></li>
-		<li><button id="products" class="buttonMenu">Prodotti</button></li>
+			<li><button id="notification" class="buttonMenu">Notifiche</button><img src="../../../Immagini/Icone/Notification.png" alt="Notification"/></li>
+			<li><button id="accountData" class="buttonMenu">Dati Account</button></li>
+			<li><button id="sellerData" class="buttonMenu">Dati Birrificio</button></li>
+			<li><button id="products" class="buttonMenu">Prodotti</button></li>
 		</ul>
 	`);
+	if ($("header > img[alt='Notification']").html()!=null) {
+		$("aside > ul > li:first-of-type > img").show();
+		// $("aside > ul > li:first-of-type").append(`
+		// 	<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
+		// `);
+	} else {
+		$("aside > ul > li:first-of-type > img").hide();
+	}
 	$("aside").hide();
 }
 

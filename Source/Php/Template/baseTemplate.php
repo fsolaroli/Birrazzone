@@ -26,6 +26,9 @@
 		<?php if($templateParams["HeaderType"] == "Profile"): ?>
 			<a href="home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
 			<img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/>
+			<?php if(hasNotification()): ?>
+				<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
+			<?php endif; ?>
 		<?php endif; ?>
 
 		<?php if($templateParams["HeaderType"] == "Login"): ?>
@@ -44,7 +47,10 @@
 					}
 					?>
 			"><img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/></a>
-			<?php if(!isSellerLoggedIn()): ?>
+			<?php if(hasNotification()): ?>
+				<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
+			<?php endif; ?>
+			<?php if(isSellerLoggedIn()): ?>
 				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"/></a>
 			<?php endif; ?>
 			<form action="search.php" method="POST">
