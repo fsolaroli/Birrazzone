@@ -7,7 +7,7 @@ body > header, footer {
 	background-color: #084E80;
 }
 
-header > h1 {
+body > header > h1 {
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 	font-size: 80pt;
 	font-family: "GermaniaOne";
