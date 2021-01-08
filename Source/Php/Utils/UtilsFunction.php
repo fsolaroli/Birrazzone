@@ -1,17 +1,35 @@
 <?php
 
-function checkEmailValidity($email) {
+function checkEmailValidity($email, $userId=-1, $sellerId=-1) {
 	global $dbh;
-	if (filter_var($email, FILTER_VALIDATE_EMAIL)===false || in_array($email, $dbh->getUsedEmail())) {
+	$sellerData = $dbh->getSeller($sellerId);
+	$userData = $dbh->getUser($userId);
+	if (!empty($sellerData)) {
+		$sellerEmail = $sellerData[0]["EmailBirrificio"];
+	} else {
+		$sellerEmail = "";
+	}
+	if (!empty($userData)) {
+		$userEmail = $userData[0]["EmailUtente"];
+	} else {
+		$userEmail = "";
+	}
+	if (filter_var($email, FILTER_VALIDATE_EMAIL)===false || in_array($email, array_diff($dbh->getUsedEmail(), array($sellerEmail, $userEmail)))) {
 		return false;
 	} else {
 		return true;
 	}
 }
 
-function checkIVAValidity($IVA) {
+function checkIVAValidity($IVA, $sellerId=0) {
 	global $dbh;
-	if (strlen($IVA)==11 && is_numeric($IVA) && !in_array($IVA, $dbh->getUsedIVA())) {
+	$sellerData = $dbh->getSeller($sellerId);
+	if (!empty($sellerData)) {
+		$sellerIVA = $sellerData[0]["PartitaIVA"];
+	} else {
+		$sellerIVA = "";
+	}
+	if (strlen($IVA)==11 && is_numeric($IVA) && !in_array($IVA, array_diff($dbh->getUsedIVA(), array($sellerIVA)))) {
 		return true;
 	} else {
 		return false;
@@ -29,7 +47,8 @@ function registerLoggedSeller($sellerId){
 }
 
 function isSellerLoggedIn() {
-    return !empty($_SESSION['sellerId']);
+	global $dbh;
+    return (!empty($_SESSION['sellerId']) && !empty($dbh->getSeller($_SESSION["sellerId"])));
 }
 
 function isUserLoggedIn() {
