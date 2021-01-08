@@ -1,7 +1,7 @@
 <?php
 require_once("baseConfiguration.php");
 
-if(empty($dbh->getSeller($_SESSION["sellerId"])) || !isSellerLoggedIn()){
+if(!isSellerLoggedIn()){
 	header("Location: home.php");
 } else {
 	$templateParams["Titolo"] = "Home";

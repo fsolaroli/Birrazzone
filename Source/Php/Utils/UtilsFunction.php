@@ -46,6 +46,10 @@ function registerLoggedSeller($sellerId){
 	$_SESSION["sellerProfilePage"]="Notification";
 }
 
+function logOutSeller() {
+	$_SESSION["sellerId"] = null;
+}
+
 function isSellerLoggedIn() {
 	global $dbh;
     return (!empty($_SESSION['sellerId']) && !empty($dbh->getSeller($_SESSION["sellerId"])));

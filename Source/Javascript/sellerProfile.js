@@ -33,13 +33,39 @@ function drawContent(data) {
 			break;
 		case "AccountData":
 			$("main > section").html(`
-				<h2>Dati account</h2>
-				<p>` 		+ data["Data"]["NomeBirrificio"] 	+ `</p>
-				<p>` 		+ data["Data"]["EmailBirrificio"]	+ `</p>
-				<p>P.IVA: ` + data["Data"]["PartitaIVA"] 		+ `</p>
-				<button id="modifyAccountData" class="modify">Modifica</button>
-				<button id="deleteAccount" class="delete">Elimina account</button>
+				<div class="data">
+					<h2>Dati account</h2>
+					<p>` 		+ data["Data"]["NomeBirrificio"] 	+ `</p>
+					<p>` 		+ data["Data"]["EmailBirrificio"]	+ `</p>
+					<p>P.IVA: ` + data["Data"]["PartitaIVA"] 		+ `</p>
+					<button id="modifyAccountData" class="modify">Modifica</button>
+					<button id="deleteAccount" class="delete">Elimina account</button>
+				</div>
+				<div class="alert"></div>
 			`);
+			$("#modifyAccountData").click(function() {
+				window.location.href = "modifySellerAccountData.php";			
+			});
+			$("main").click(function (e) { 
+				$("div.alert").html("");	
+			});
+			$("#deleteAccount").click(function(e) {
+				e.stopPropagation();
+				$("div.alert").html(`
+					<h2>Elimina account</h2>
+					<button id="deleteAccountConfermation" class="delete">Conferma eliminazione account</button>
+				`);
+				$("#deleteAccountConfermation").click(function() { 
+					$.post("../ApiAJAX/deleteSellerAccount.php", function() {
+						$("main > section").html(`
+							<h2>Account cancellato</h2>
+							<form action="home.php">
+								<input type="submit" value="OK"/>
+							</form>
+						`);
+					});				
+				});
+			});
 			break;
 		case "SellerData":
 			$("main > section").html(`
