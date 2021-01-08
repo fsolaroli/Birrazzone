@@ -8,7 +8,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $templateParams["Titolo"]; ?></title>
-    <link rel="stylesheet" type="text/css" href="../../CSS/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../CSS/style.css" />
+	<script src="../../Javascript/jquery-3.4.1.min.js"></script>
+	<script src="../../Javascript/baseScript.js"></script>
 	<?php
 	if(isset($templateParams["Javascript"])):
 		foreach ($templateParams["Javascript"] as $script):
@@ -52,10 +54,12 @@
 			<?php if(isSellerLoggedIn()): ?>
 				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"></a>
 			<?php endif; ?>
-			<form action="search.php" method="POST">
-				<label>Search:<input type="text" name="search" /></label>
-				<input type="image" src="<?php echo $imagePath?>Icone/Search.png" alt="Search" />		
-			</form>
+			<div class="search">
+				<form action="search.php" method="POST">
+					<label>Search:<input type="text" name="search" /></label>
+					<input type="image" src="<?php echo $imagePath?>Icone/Search.png" alt="Search" />		
+				</form>
+			</div>
 		<?php endif; ?>	
 	</header>
 	<main>
