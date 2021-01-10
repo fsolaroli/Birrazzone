@@ -11,7 +11,7 @@
 		<li><label for="email">Email:</label></li>
 		<li><input type="text" name="email" value="<?php echo $sellerData["EmailBirrificio"] ?>" autocomplete="email"/></li>
 		
-		<li><label for="IVA">Ragione Sociale:</label></li>
+		<li><label for="IVA">Partita IVA:</label></li>
 		<li><input type="text" name="IVA" value="<?php echo $sellerData["PartitaIVA"] ?>" autocomplete="off"/></li>
 
 		<li><label for="password">Password:</label></li>

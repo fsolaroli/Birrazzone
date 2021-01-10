@@ -4,7 +4,7 @@ require_once("../Site/baseConfiguration.php");
 
 if (isSellerLoggedIn()) {
 	if (isset($_POST["sellerName"]) && isset($_POST["email"]) && isset($_POST["IVA"]) && isset($_POST["password"]) && isset($_POST["passwordConfermation"])) {
-		if(!checkEmailValidity($_POST["email"], $_SESSION["sellerId"])) {
+		if(!checkEmailValidity($_POST["email"], null, $_SESSION["sellerId"])) {
 			$errors["email"] = "EMAIL ERRATA O GIÀ UTILIZZATA";
 		}
 		if(!checkIVAValidity($_POST["IVA"], $_SESSION["sellerId"])) {
