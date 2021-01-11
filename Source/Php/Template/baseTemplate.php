@@ -51,7 +51,7 @@
 			<?php if(hasNotification()): ?>
 				<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
 			<?php endif; ?>
-			<?php if(isSellerLoggedIn()): ?>
+			<?php if(!isSellerLoggedIn()): ?>
 				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"></a>
 			<?php endif; ?>
 			<div class="search">
