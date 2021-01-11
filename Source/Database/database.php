@@ -55,7 +55,7 @@ class DatabaseHelper{
 	
 	public function searchBeer($searchTag) {
 
-		// POSSIBLE TODO
+		// POSSIBLE TODO (replace special character)
 		// $dataToReplace = [1 => 'one', 2 => 'two', 3 => 'three'];
 		// $sqlReplace = '';
 		// foreach ($dataToReplace as $key => $val) {

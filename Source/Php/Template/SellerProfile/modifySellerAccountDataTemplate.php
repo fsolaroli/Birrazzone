@@ -22,7 +22,7 @@
 
 		<li><input type="submit" name="update" value="Aggiorna"/></li>
 
-		<li><input type="submit" name="cancel" value="Annulla"/></li>
 	</ul>
 </form>
+<a href="sellerAccountData.php"><button>Annulla</button></a>
 <div class="errori"></div>

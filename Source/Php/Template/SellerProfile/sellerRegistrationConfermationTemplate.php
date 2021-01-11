@@ -3,7 +3,7 @@
 <?php
 $sellerData = $dbh->getSellerFromRegistrationToken($_GET["token"]);
 if(empty($sellerData)){
-	header("Location: home.php");
+	header("Location: ../Home/home.php");
 } else {
 	$sellerData = $sellerData[0];
 }
