@@ -21,10 +21,10 @@
 			<div class="product">
 				<p><?php echo $product["NomeBirra"] ?></p>
 				<p><span>Disponibilità:</span><span class="quantity"><?php echo $product["Quantita"] ?></span></p>
-				<button class="modify">Visualizza</button>
+				<a href="productPage.php?productId=<?php echo $product["IdBirra"] ?>"><button class="modify">Visualizza</button></a>
 			</div>
 		<?php endforeach; ?>
 	<?php endif; ?>
 
-	<button class="modify">Aggiungi</button>
+	<a href="newProduct.php"><button class="modify">Aggiungi</button></a>
 </section>

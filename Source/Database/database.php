@@ -272,7 +272,12 @@ class DatabaseHelper{
 		$stmt->execute();
 		$result = $stmt->get_result();
 
-		return $result->fetch_all(MYSQLI_ASSOC);
+		$beerSold = $result->fetch_all(MYSQLI_ASSOC);
+		if (empty($beerSold)) {
+			return 0;
+		} else {
+			return $beerSold[0]["QuantitàVenduta"];
+		}
 	}
 
 	public function getSellerRequest() {
