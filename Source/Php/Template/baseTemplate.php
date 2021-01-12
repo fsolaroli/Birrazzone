@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="../../../CSS/style.css" />
 	<script src="../../../Javascript/jquery-3.4.1.min.js"></script>
 	<script src="../../../Javascript/baseScript.js"></script>
+	<script src="../../../Javascript/utilsScript.js"></script>
 	<?php
 	if(isset($templateParams["Javascript"])):
 		foreach ($templateParams["Javascript"] as $script):

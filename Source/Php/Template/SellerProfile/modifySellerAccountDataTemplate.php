@@ -3,7 +3,7 @@
 <h1><?php echo $sellerData["NomeBirrificio"]?></h1>
 
 <form onsubmit="return false;">
-	<input type="hidden" name="sellerId" value="<?php echo $sellerData["IdBirrificio"] ?>">
+	<!-- <input type="hidden" name="sellerId" value="<?php echo $sellerData["IdBirrificio"] ?>"> -->
 	<ul>
 		<li><label for="sellerName">Ragione Sociale:</label></li>
 		<li><input type="text" name="sellerName" value="<?php echo $sellerData["NomeBirrificio"] ?>" autocomplete="organization"/></li>

@@ -14,14 +14,9 @@ $(function() {
 					$(".errori").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				window.location="SellerProfile.php"
+				window.location="SellerAccountData.php"
 			}
 		}
-		$.post(	"../ApiAJAX/modifySellerAccountData.php", PostData, PostFunction, "json");
+		$.post(	"../../ApiAJAX/SellerProfile/modifySellerAccountData.php", PostData, PostFunction, "json");
 	});
-	
-	$(":submit[name='cancel']").click(function() {
-		window.location="SellerProfile.php"	
-	});
-
 });

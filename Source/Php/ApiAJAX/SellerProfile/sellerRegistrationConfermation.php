@@ -1,6 +1,6 @@
 <?php
 
-require_once("../Site/baseConfiguration.php");
+require_once("../../Site/baseConfiguration.php");
 
 if (isset($_POST["sellerId"]) && isset($_POST["password"]) && isset($_POST["passwordConfermation"])) {
 	if(!checkPasswordValidity($_POST["password"])) {

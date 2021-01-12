@@ -21,6 +21,6 @@ $(function() {
 				`);
 			}
 		}
-		$.post(	"../ApiAJAX/sellerRegistrationRequest.php", PostData, PostFunction, "json");		
+		$.post(	"../../ApiAJAX/SellerProfile/sellerRegistrationRequest.php", PostData, PostFunction, "json");		
 	});
 });

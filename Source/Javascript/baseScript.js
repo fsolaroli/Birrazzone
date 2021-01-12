@@ -1,5 +1,3 @@
-const UPLOAD_DIR = "../../../Immagini/";
-
 function hideSearchBar(event) {
 	if (event.deltaY < 0) {
 		// Scroll up

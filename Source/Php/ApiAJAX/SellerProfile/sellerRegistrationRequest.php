@@ -1,6 +1,6 @@
 <?php
 
-require_once("../Site/baseConfiguration.php");
+require_once("../../Site/baseConfiguration.php");
 
 if (isset($_POST["ragioneSociale"]) && isset($_POST["email"]) && isset($_POST["IVA"])) {
 	if(!checkEmailValidity($_POST["email"])) {

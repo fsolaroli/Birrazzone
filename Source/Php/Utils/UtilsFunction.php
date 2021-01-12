@@ -70,4 +70,49 @@ function hasNotification() {
 	}
 }
 
+function uploadImage($path, $image){
+    $imageName = basename($image["name"]);
+    $fullPath = $path.$imageName;
+    
+    // $maxKB = 300;
+    $maxKB = 5000;
+    $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
+    $errors = [];
+    //Controllo se immagine è veramente un'immagine
+    $imageSize = getimagesize($image["tmp_name"]);
+    if($imageSize === false) {
+        $errors[] = "File caricato non è un'immagine! ";
+    }
+    //Controllo dimensione dell'immagine < 500KB
+    if ($image["size"] > $maxKB * 1024) {
+        $errors[] = "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
+    }
+
+    //Controllo estensione del file
+    $imageFileType = strtolower(pathinfo($fullPath,PATHINFO_EXTENSION));
+    if(!in_array($imageFileType, $acceptedExtensions)){
+        $errors[] = "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
+    }
+
+    //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
+    if (file_exists($fullPath)) {
+        $i = 1;
+        do{
+            $i++;
+            $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."_$i.".$imageFileType;
+        }
+        while(file_exists($path.$imageName));
+        $fullPath = $path.$imageName;
+    }
+
+    //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
+    if(empty($errors)){
+        if(!move_uploaded_file($image["tmp_name"], $fullPath)){
+            $errors[] = "Errore nel caricamento dell'immagine.";
+        }
+	}
+
+    return array("Name" => $imageName, "Errors" => $errors);
+}
+
 ?>

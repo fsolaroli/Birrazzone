@@ -1,6 +1,6 @@
 <?php
 
-require_once("../Site/baseConfiguration.php");
+require_once("../../Site/baseConfiguration.php");
 
 if (isSellerLoggedIn()) {
 	if (isset($_POST["sellerName"]) && isset($_POST["email"]) && isset($_POST["IVA"]) && isset($_POST["password"]) && isset($_POST["passwordConfermation"])) {

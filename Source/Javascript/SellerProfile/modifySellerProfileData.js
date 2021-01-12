@@ -1,20 +1,24 @@
 $(function() {
-	$(":submit[name='update']").click(function() {
-		let PostData = 	{
+	$(":file").change(function (e) {
+		uploadImage();
+	});
+
+	$(":submit").click(function() {
+		let PostData = {
 			location: $("input[name='location']").val(),
-			image: $("input[name='image']").val(),
+			imagePath: $("form > ul > li > img").attr("src"),
 			description: $("input[name='description']").val(),
 		}
 		let PostFunction = function(errors) {
 			if(errors!=null) {
 				$(".errori").html("")
-				$.each(errors, function (i, val) { 
+				$.each(errors, function(i, val) { 
 					$(".errori").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				window.location="sellerAccountData.php"
+				window.location="sellerProfileData.php"
 			}
 		}
-		$.post(	"../ApiAJAX/modifySellerProfileData.php", PostData, PostFunction, "json");
+		$.post(	"../../ApiAJAX/SellerProfile/modifySellerProfileData.php", PostData, PostFunction, "json");
 	});
 });
