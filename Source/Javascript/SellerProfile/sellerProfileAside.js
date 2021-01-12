@@ -5,6 +5,7 @@ function setAside() {
 			<li><a href="sellerAccountData.php"><button class="buttonMenu">Dati Account</button></a></li>
 			<li><a href="sellerProfileData.php"><button class="buttonMenu">Dati Birrificio</button></a></li>
 			<li><a href="sellerProducts.php"><button class="buttonMenu">Prodotti</button></a></li>
+			<li><a href="../../ApiAJAX/Utils/logOut.php"><button class"logOut">Log Out</button></a></li>
 		</ul>
 	`);
 	if ($("header > img[alt='Notification']").html()!=null) {
