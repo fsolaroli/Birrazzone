@@ -57,7 +57,7 @@
 			<?php endif; ?>
 			<div class="search">
 				<form action="../Search/search.php" method="POST">
-					<label>Search:<input type="text" name="search" /></label>
+					<label>Search:<input type="search" name="search" /></label>
 					<input type="image" src="<?php echo $imagePath?>Icone/Search.png" alt="Search" />		
 				</form>
 			</div>
