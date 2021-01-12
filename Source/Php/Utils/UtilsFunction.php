@@ -43,11 +43,15 @@ function checkPasswordValidity($password) {
 function registerLoggedSeller($sellerId){
 	$_SESSION["userId"] = null;
 	$_SESSION["sellerId"] = $sellerId;
-	$_SESSION["sellerProfilePage"]="Notification";
+	// $_SESSION["sellerProfilePage"]="Notification";
 }
 
-function logOutSeller() {
-	$_SESSION["sellerId"] = null;
+function logOut() {
+	if (isSellerLoggedIn()) {
+		$_SESSION["sellerId"] = null;
+	} else if (isUserLoggedIn()) {
+		$_SESSION["userId"] = null;
+	}
 }
 
 function isSellerLoggedIn() {
