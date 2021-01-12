@@ -697,6 +697,16 @@ class DatabaseHelper{
 		return $stmt->execute();
 	}
 
+	public function deleteBeer($BeerId) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Prezzo
+										SET Prezzo.AData=NOW()
+										WHERE Prezzo.IdBirra=?
+										AND Prezzo.DaData<NOW()
+										AND Prezzo.AData>NOW()");
+		$stmt->bind_param('i', $BeerId);
+		$stmt->execute();
+	}
+
 	public function finalizeOrder($UserId, $AddressId) {
 		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Ordine	(
 																			IdIndirizzoSpedizione,

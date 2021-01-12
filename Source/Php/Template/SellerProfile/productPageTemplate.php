@@ -13,6 +13,7 @@
 <section>
 	<div class="data">
 		<h2>Dati birra</h2>
+		<p id="productId" hidden> <?php echo $productData["IdBirra"] ?></p>
 		<p> <?php echo $productData["NomeBirra"] ?></p>
 		<p> <?php echo $productData["Tipologia"] ?></p>
 		<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"] ?>" alt="FotoBirra"/>
@@ -40,5 +41,6 @@
 		</form>
 		<p>Nº vendute: <?php echo $dbh->getNumberOfBeerSold($productData["IdBirra"]) ?></p>
 	</div>
+	<button id="deleteProduct" class="delete">Elimina prodotto</button>
 	<div class="alert"></div>
 </section>
