@@ -1,6 +1,6 @@
 $(function() {
 	$(":file").change(function (e) {
-		uploadImage();
+		uploadImage("Birrifici");
 	});
 
 	$(":submit").click(function() {

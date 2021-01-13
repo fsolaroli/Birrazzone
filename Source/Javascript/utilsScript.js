@@ -1,9 +1,9 @@
-const UPLOAD_DIR = "../../../Uploads/";
+const UPLOAD_DIR = "../../../../Uploads/";
 
-function uploadImage() {
+function uploadImage(destination) {
 	let formData = new FormData();
 	formData.append("image", $(":file")[0].files[0]);
-	console.log("change")		
+	formData.append("destination", destination);
 	$.ajax({
 		url : '../../ApiAJAX/Utils/imageUpload.php',
 		type : 'POST',
@@ -18,7 +18,7 @@ function uploadImage() {
 					$(".imageErrors").append("<p><strong>" + error + "</strong></p>");	 
 				});
 			} else {
-				$("form > ul > li > img").attr("src", UPLOAD_DIR + "Birrifici/" + imageName);
+				$("form > ul > li > img").attr("src", UPLOAD_DIR + destination + "/" + data["Name"]);
 			}
 		}
 	});
