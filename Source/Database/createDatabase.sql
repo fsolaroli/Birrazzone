@@ -42,7 +42,7 @@ create table if not exists birrazzone.Birra (
 	NomeBirra			varchar(50)				not null,
 	Tipologia			varchar(50) 			not null,
 	Formato				tinyint unsigned 		not null,
-	GradoAlcolico		decimal(2, 1) unsigned 	not null,
+	GradoAlcolico		decimal(3, 1) unsigned 	not null,
 	Colore				varchar(50)				not null,
 	DescrizioneBirra	varchar(300)			not null,
 	FotoBirra			varchar(100)			not null,
@@ -55,7 +55,7 @@ create table if not exists birrazzone.Prezzo (
 	IdPrezzo			int						not null auto_increment,
 	DaData				datetime				not null,
 	AData				datetime				not null,
-	Prezzo				decimal(4, 2) unsigned	not null,
+	Prezzo				decimal(6, 2) unsigned	not null,
 	IdBirra				int						not null,
 	primary key (IdPrezzo),
 	foreign key (IdBirra) references birrazzone.Birra (IdBirra)
