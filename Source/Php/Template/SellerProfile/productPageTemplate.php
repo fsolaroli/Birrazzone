@@ -21,7 +21,7 @@
 		<p> <?php echo $productData["GradoAlcolico"] ?>º</p>
 		<p> <?php echo $productData["Colore"] ?></p>
 		<p> <?php echo $productData["DescrizioneBirra"] ?></p>
-		<a href="modifyProduct.php?productId?<?php $productData["IdBirra"] ?>"><button id="modifyAccountData" class="modify">Modifica</button></a>
+		<a href="modifyProduct.php?productId=<?php echo $productData["IdBirra"] ?>"><button id="modifyAccountData" class="modify">Modifica</button></a>
 	</div>
 	<div class="quantity">
 		<h2>Quantità birra</h2>
