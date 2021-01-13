@@ -4,7 +4,6 @@
 	if (isset($_GET["productId"])) {
 		$productData = $dbh->getBeer($_GET["productId"])[0];
 		$productData["Quantita"] = $dbh->getBeerQuantity($_GET["productId"])[0]["Quantità"];
-		// var_dump($productData);
 	} else {
 		header("Location: sellerProducts.php");
 	}
@@ -26,12 +25,12 @@
 	</div>
 	<div class="quantity">
 		<h2>Quantità birra</h2>
-		<p>Disponibilità: <?php echo $productData["Quantita"] ?></p>
+		<p id="disponibilita">Disponibilità: <?php echo $productData["Quantita"] ?></p>
 		<form onsubmit="return false;">
 			<ul>
 				<li>
 					<label for="changeQuantity">Modifica disponibilità
-					<input type="number" name="changeQuantity" min="1" autocomplete="off"/>
+					<input type="number" name="changeQuantity" value="1" min="1" autocomplete="off"/>
 					</label>
 				</li>
 
