@@ -94,7 +94,7 @@ class DatabaseHelper{
 	public function getBeer($BeerId) {
 		$stmt = $this->db->prepare ("	SELECT Birra.*, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
-										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
+										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirrificio
 										WHERE Birra.IdBirra=?
 										AND Prezzo.DaData < NOW()
 										AND Prezzo.AData > NOW()");
@@ -122,9 +122,9 @@ class DatabaseHelper{
 	}
 
 	public function getSellerBeer($SellerId) {
-		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
+		$stmt = $this->db->prepare ("	SELECT Birra.*, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
-										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
+										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirrificio
 										WHERE Birra.IdBirrificio=?
 										AND Prezzo.DaData < NOW()
 										AND Prezzo.AData > NOW()");

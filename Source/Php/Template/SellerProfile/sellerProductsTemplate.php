@@ -3,7 +3,13 @@
 
 	function addQuantity($product) {
 		global $dbh;
-		$product["Quantita"] = $dbh->getBeerQuantity($product["IdBirra"])[0]["Quantità"];
+		$queryResult = $dbh->getBeerQuantity($product["IdBirra"]);
+		if (empty($queryResult)) {
+			$quantity = 0;
+		} else {
+			$quantity = $queryResult[0]["Quantità"];
+		}
+		$product["Quantita"] = $quantity;
 		return $product;
 	}
 	$sellerProducts = array_map("addQuantity", $dbh->getSellerBeer($_SESSION["sellerId"]));
