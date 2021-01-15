@@ -5,8 +5,8 @@ function updateBeerQuantity(method) {
 		method: method
 	}
 	$.post("../../ApiAJAX/SellerProfile/updateBeerQuantity.php", PostData,
-		function (data) {
-			$("#disponibilita").text("Disponibilità: " + data[0]["Quantità"]);	
+		function (quantity) {
+			$("#disponibilita").text("Disponibilità: " + quantity);	
 		},
 		"json"
 	);
