@@ -26,7 +26,7 @@ class DatabaseHelper{
 		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Prezzo.IdBirra=Birra.IdBirra
 										JOIN Birrificio ON Birra.IdBirrificio=Birrificio.IdBirrificio
-										WHERE Prezzo.DaData < NOW()
+										WHERE Prezzo.DaData <= NOW()
 										AND Prezzo.AData > NOW()
 										ORDER BY RAND()
 										LIMIT ?");
@@ -42,7 +42,7 @@ class DatabaseHelper{
 										JOIN Birrificio AS B ON B.IdBirrificio=SMB.IdBirrificio
 										JOIN StatoMembership AS SM ON SM.IdStatoMembership=SMB.IdStatoMembership
 										WHERE SM.Codice='ATTIVA'
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()
 										ORDER BY RAND()
 										LIMIT ?");
@@ -67,7 +67,7 @@ class DatabaseHelper{
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
 										WHERE LOCATE(?, Birra.NomeBirra)!=0
 										OR LOCATE(?, Birrificio.NomeBirrificio)!=0
-										AND Prezzo.DaData < NOW()
+										AND Prezzo.DaData <= NOW()
 										AND Prezzo.AData > NOW()");
 		$stmt->bind_param('ss',$searchTag, $searchTag);
 		$stmt->execute();
@@ -82,7 +82,7 @@ class DatabaseHelper{
 										JOIN StatoMembership AS SM ON SM.IdStatoMembership=SMB.IdStatoMembership
 										WHERE LOCATE(?, B.NomeBirrificio)!=0
 										AND SM.Codice='ATTIVA'
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->bind_param('s',$searchTag);
 		$stmt->execute();
@@ -96,7 +96,7 @@ class DatabaseHelper{
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirrificio
 										WHERE Birra.IdBirra=?
-										AND Prezzo.DaData < NOW()
+										AND Prezzo.DaData <= NOW()
 										AND Prezzo.AData > NOW()");
 		$stmt->bind_param('i',$BeerId);
 		$stmt->execute();
@@ -112,7 +112,7 @@ class DatabaseHelper{
 										JOIN StatoMembership AS SM ON SM.IdStatoMembership=SMB.IdStatoMembership
 										WHERE B.IdBirrificio=?
 										AND SM.Codice='ATTIVA'
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->bind_param('i',$SellerId);
 		$stmt->execute();
@@ -126,7 +126,7 @@ class DatabaseHelper{
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirrificio
 										WHERE Birra.IdBirrificio=?
-										AND Prezzo.DaData < NOW()
+										AND Prezzo.DaData <= NOW()
 										AND Prezzo.AData > NOW()");
 		$stmt->bind_param('i',$SellerId);
 		$stmt->execute();
@@ -142,7 +142,7 @@ class DatabaseHelper{
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
 										WHERE Birra.IdBirrificio=?
 										AND MovimentoUtente.IdOrdine IS NOT NULL
-										AND Prezzo.DaData < NOW()
+										AND Prezzo.DaData <= NOW()
 										AND Prezzo.AData > NOW()
 										GROUP BY Birra.IdBirra
 										ORDER BY -SUM(Movimento.Quantita) DESC
@@ -161,7 +161,7 @@ class DatabaseHelper{
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
 										WHERE MovimentoUtente.IdUtente=?
 										AND MovimentoUtente.IdOrdine IS NULL
-										AND Prezzo.DaData < NOW()
+										AND Prezzo.DaData <= NOW()
 										AND Prezzo.AData > NOW()
 										GROUP BY Birra.IdBirra");
 		$stmt->bind_param('i',$UserId);
@@ -242,7 +242,7 @@ class DatabaseHelper{
 		$stmt = $this->db->prepare ("	SELECT Birrificio.IdBirrificio, Birrificio.NomeBirrificio FROM Birrificio
 										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
 										WHERE SMB.IdStatoMembership=4
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->execute();
 		$result = $stmt->get_result();		
@@ -291,7 +291,7 @@ class DatabaseHelper{
 		$stmt = $this->db->prepare ("	SELECT Birrificio.* FROM Birrificio
 										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
 										WHERE SMB.IdStatoMembership=1
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->execute();
 		$result = $stmt->get_result();		
@@ -316,7 +316,7 @@ class DatabaseHelper{
 										SET SMB.AData=NOW()
 										WHERE SMB.IdBirrificio=?
 										AND SMB.IdStatoMembership=1
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->bind_param('i', $SellerId);
 		$stmt->execute();
@@ -338,7 +338,7 @@ class DatabaseHelper{
 										SET SMB.AData=NOW()
 										WHERE SMB.IdBirrificio=?
 										AND SMB.IdStatoMembership=1
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->bind_param('i', $SellerId);
 		$stmt->execute();
@@ -473,7 +473,7 @@ class DatabaseHelper{
 										JOIN StatoEvasioneOrdine AS SEO ON SEO.IdOrdine = Ordine.IdOrdine
 										JOIN StatoOrdine AS SO ON SEO.IdStatoOrdine = SO.IdStatoOrdine
 										WHERE Ordine.IdOrdine = ?
-										AND SEO.DaData < NOW()
+										AND SEO.DaData <= NOW()
 										AND SEO.AData > NOW()");
 		$stmt->bind_param('i',$OrderId);
 		$stmt->execute();
@@ -542,7 +542,7 @@ class DatabaseHelper{
 										JOIN Birrificio ON SMB.IdBirrificio=Birrificio.IdBirrificio
 										WHERE SMB.IdStatoMembership=2
 										AND SMB.Token=?
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->bind_param('s',$token);
 		$stmt->execute();
@@ -556,7 +556,7 @@ class DatabaseHelper{
 										SET SMB.AData=NOW()
 										WHERE SMB.IdBirrificio=?
 										AND SMB.IdStatoMembership=2
-										AND SMB.DaData < NOW()
+										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->bind_param('i',$SellerId);
 		$stmt->execute();
