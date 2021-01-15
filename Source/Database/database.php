@@ -257,8 +257,15 @@ class DatabaseHelper{
 		$stmt->bind_param('i',$BeerId);
 		$stmt->execute();
 		$result = $stmt->get_result();
+		$result = $result->fetch_all(MYSQLI_ASSOC);
 
-		return $result->fetch_all(MYSQLI_ASSOC);
+		if (empty($result)) {
+			$quantity = 0;
+		} else {
+			$quantity = $result[0]["Quantità"];
+		}
+
+		return $quantity;
 	}
 	
 	public function getNumberOfBeerSold($BeerId) {

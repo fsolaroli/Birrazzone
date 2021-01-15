@@ -3,13 +3,7 @@
 	
 	if (isset($_GET["productId"])) {
 		$productData = $dbh->getBeer($_GET["productId"])[0];
-		$queryResult = $dbh->getBeerQuantity($productData["IdBirra"]);
-		if (empty($queryResult)) {
-			$quantity = 0;
-		} else {
-			$quantity = $queryResult[0]["Quantità"];
-		}
-		$productData["Quantita"] = $quantity;
+		$productData["Quantita"] = $dbh->getBeerQuantity($productData["IdBirra"]);
 	} else {
 		header("Location: sellerProducts.php");
 	}
