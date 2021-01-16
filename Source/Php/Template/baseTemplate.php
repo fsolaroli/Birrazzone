@@ -41,7 +41,7 @@
 			<a href="
 					<?php
 					if(isUserLoggedIn()) {
-						echo "userProfile.php";
+						echo "userProfile.php"; //TODO change to correct link
 					} else if(isSellerLoggedIn()) {
 						echo "../SellerProfile/sellerNotifications.php";
 					} else {
