@@ -4,7 +4,7 @@ require_once("../baseConfiguration.php");
 if(!isSellerLoggedIn()){
 	header("Location: ../Home/home.php");
 } else {
-	$templateParams["Titolo"] = "ProfilePage - Notification";
+	$templateParams["Titolo"] = "ProfilePage - Products";
 	$templateParams["Javascript"] = array("SellerProfile/sellerProfileAside.js");
 	$templateParams["Template"] = "SellerProfile/sellerProductsTemplate.php";
 	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global

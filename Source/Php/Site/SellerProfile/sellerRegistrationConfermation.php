@@ -2,7 +2,7 @@
 
 require_once("../baseConfiguration.php");
 
-$templateParams["Titolo"] = "Registrazione birrificio";
+$templateParams["Titolo"] = "SellerRegistrationConfermation";
 $templateParams["Javascript"] = array("SellerProfile/sellerRegistrationConfermation.js");
 $templateParams["Template"] = "SellerProfile/sellerRegistrationConfermationTemplate.php";
 $templateParams["HeaderType"] = "Login"; //Profile, Login, Global
