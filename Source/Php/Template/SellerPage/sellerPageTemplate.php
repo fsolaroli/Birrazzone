@@ -47,11 +47,19 @@
 		<?php foreach ($beersToShow as $product): ?>
 			<div id="<?php echo $product["IdBirra"] ?>" class="product">
 				<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$product["FotoBirra"] ?>" width="300px" alt="FotoBirra"/>
-				<p><?php echo $product["NomeBirra"] ?></p>
-				<p><?php echo $product["Tipologia"] ?></p>
-				<p><?php echo $product["NomeBirrificio"] ?></p>
-				<p><?php echo $product["Formato"] ?> cl</p>
-				<p><?php echo $product["Prezzo"] ?>€ cad</p>
+				<div class="productInfo">
+					<ul>
+						<li><?php echo $product["NomeBirra"] ?></li>
+						<li><?php echo $product["Tipologia"] ?></li>
+						<li><?php echo $product["NomeBirrificio"] ?></li>
+					</ul>
+				</div>
+				<div class="productData">
+					<ul>
+						<li><?php echo $product["Formato"] ?> cl</li>
+						<li><?php echo $product["Prezzo"] ?>€ cad</li>
+					</ul>
+				</div>
 			</div>
 		<?php endforeach; ?>
 	<?php endif; ?>
