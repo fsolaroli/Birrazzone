@@ -1,13 +1,12 @@
 function hideSearchBar(event) {
-	if (event.deltaY < 0) {
+	if (event.deltaY < -5) {
 		// Scroll up
 		$("div.search").show("slide");
-	} else {
+	} else if (event.deltaY > 5) {
 		// Scroll down
 		$("div.search").hide("slide");
 	}
 }
-
 
 $(function() {
 	document.onwheel = hideSearchBar;
