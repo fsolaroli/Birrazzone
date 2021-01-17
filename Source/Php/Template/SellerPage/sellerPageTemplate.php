@@ -21,7 +21,6 @@
 	} else {
 		header("Location: ../Home/home.php"); //404
 	}
-
 ?>
 
 <h1><?php echo $sellerData["NomeBirrificio"] ?></h1>
@@ -29,11 +28,10 @@
 	<p> <?php echo $sellerData["Localita"] ?></p>
 	<img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 	<div class="description">
-		<p id="shortDescription"> <?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
+		<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
 		<?php if($sellerData["DescrizioneBirrificio"] != substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght)) : ?>
-			<p id="fullDescription" hidden> <?php echo $sellerData["DescrizioneBirrificio"] ?></p>
+			<p id="fullDescription" class="hidden"><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
 			<a href="javascript:void(0);" class="show">Mostra tutto</a>
-			<a href="javascript:void(0);" class="hide" hidden>Riduci</a>
 		<?php endif; ?>
 	</div>
 </section>
