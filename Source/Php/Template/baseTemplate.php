@@ -77,11 +77,11 @@
 			}
 			?>
 		</main>
-		<aside></aside>
 		<footer>
 			<p>Progetto Tecnologie Web - A.A. 2020/21</p>
 			<p>Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli</p>
 		</footer>
 	</div>
+	<aside></aside>
 </body>
 </html>
