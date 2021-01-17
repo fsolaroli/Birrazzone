@@ -1,10 +1,11 @@
+let shortDescriptionLenght = 50;
+
 $(function() {
 	$(":file").change(function (e) {
 		uploadImage("Birre");
 	});
-	if($("a.show") != null) {
+	if($("a.show").html() != null) {
 		let show = 0;
-		let shortDescriptionLenght = 50;
 		let description = $("#fullDescription").text();
 		$(".description > p").append("...");
 		$("a.show").click(function (e) { 
