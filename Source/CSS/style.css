@@ -97,8 +97,6 @@ div.scroll {
 body > header {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
-	/* align-content: center; */
 	width: 100%;
 }
 
@@ -106,14 +104,12 @@ body > header > div.icons {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	/* flex-wrap: nowrap; */
 	align-items: center;
-	/* align-content: center; */
-	height: 100px;
 }
 
 body > header a.profile, body > header a.home {
 	order: 0;
+	margin: 5px 5px;
 }
 
 body > header h1 {
@@ -122,6 +118,7 @@ body > header h1 {
 
 body > header a.shoppingCart, body > header a.menu {
 	order: 3;
+	margin: 5px 5px;
 }
 
 body > header h1 > a, header h1 > a:link, header h1 > a:visited {
