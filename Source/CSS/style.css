@@ -1,3 +1,54 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*----------------------------------------------------------------------------*/
+
 @font-face {
 	font-family: "GermaniaOne";
 	src: url("Font/GermaniaOne-Regular.ttf");
@@ -7,28 +58,140 @@ body > header, footer {
 	background-color: #084E80;
 }
 
-body > header > h1 {
-	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-	font-size: 80pt;
+h1, h2, h3 {
 	font-family: "GermaniaOne";
+}
+
+ul {
+	list-style: none;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+/* ----------------------------------------------- */
+/* Scroll with header on top */
+/* ----------------------------------------------- */
+
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+}
+
+div.scroll {
+	height: 100%;
+	overflow-y: auto;
+}
+
+/* ----------------------------------------------- */
+/* Header */
+/* ----------------------------------------------- */
+
+body > header {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	/* align-content: center; */
+	width: 100%;
+}
+
+body > header > div.icons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* flex-wrap: nowrap; */
+	align-items: center;
+	/* align-content: center; */
+	height: 100px;
+}
+
+body > header a.profile, body > header a.home {
+	order: 0;
+}
+
+body > header h1 {
+	order: 1;
+}
+
+body > header a.shoppingCart, body > header a.menu {
+	order: 3;
+}
+
+body > header h1 > a, header h1 > a:link, header h1 > a:visited {
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	font-size: 50pt;
+	text-decoration: none;
 	color:chocolate;
 	/* color: transparent;
 	background-image: linear-gradient(to right, red, orange 50%, brown);
-  	-webkit-background-clip: text;
+	  -webkit-background-clip: text;
 	background-clip: text; */
 }
 
-header > h1 {
-	width: 50%;
+body > header img {
+	border-style: none;
+	border-radius: 0;
+	width: 80px;
 }
 
-header > h1 > a:link, header > h1 > a:visited {
-	text-decoration: none;
-	color:chocolate;	
+body > header > div.search {
+	align-self: center;
+	display: flex;
+	justify-content: space-around;
+	height: 30px;
+	width: 80%;
+	background-color: white;
+	border-radius: 30px;
+	margin: 5px 0;
+}
+
+body > header > div.search > form {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+
+body > header > div.search > form > input:first-of-type {
+	width: 90%;
+	height: 90%;
+	border: 0;
+}
+
+body > header > div.search > form > input:nth-of-type(2) {
+	height: 90%;
+	border: 5px;
+	border-color: black;
+}
+
+/* ----------------------------------------------- */
+/* Prodotti */
+/* ----------------------------------------------- */
+
+.product > img {
+	width: 20%;
+	margin: 5px;
+}
+
+img, .product {
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 20px;
+	border-color: #084E80;	
 }
 
 .product {
-	border-style: solid;
-	border-width: 2px;
-	border-color: #084E80;
+	display: flex;
+	flex-direction: row;
+}
+
+.product > img {
+
 }

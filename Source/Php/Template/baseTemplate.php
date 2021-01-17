@@ -24,56 +24,64 @@
 </head>
 <body>
 	<header>
-		<h1><a href="home.php">Birrazzone</a></h1>
-		<?php if($templateParams["HeaderType"] == "Profile"): ?>
-			<a href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
-			<img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/>
-			<?php if(hasNotification()): ?>
-				<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
+		<div class="icons">
+			<h1><a href="../Home/home.php">Birrazzone</a></h1>
+			<?php if($templateParams["HeaderType"] == "Profile"): ?>
+				<a class="home" href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
+				<a class="menu"><img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/></a>
+				<?php if(hasNotification()): ?>
+					<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
+				<?php endif; ?>
 			<?php endif; ?>
-		<?php endif; ?>
 
-		<?php if($templateParams["HeaderType"] == "Login"): ?>
-			<a href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt="Home"/></a>
-		<?php endif; ?>
+			<?php if($templateParams["HeaderType"] == "Login"): ?>
+				<a class="home" href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt="Home"/></a>
+				<a class="menu hidden"><img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/></a>
+			<?php endif; ?>
 
-		<?php if($templateParams["HeaderType"] == "Global"): ?>
-			<a href="
+			<?php if($templateParams["HeaderType"] == "Global"): ?>
+				<a class="profile" href="
 					<?php
-					if(isUserLoggedIn()) {
-						echo "userProfile.php"; //TODO change to correct link
-					} else if(isSellerLoggedIn()) {
-						echo "../SellerProfile/sellerNotifications.php";
-					} else {
-						echo "../Login/login.php";
-					}
+						if(isUserLoggedIn()) {
+							echo "userProfile.php"; //TODO change to correct link
+						} else if(isSellerLoggedIn()) {
+							echo "../SellerProfile/sellerNotifications.php";
+						} else {
+							echo "../Login/login.php";
+						}
 					?>
-			"><img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/></a>
-			<?php if(hasNotification()): ?>
-				<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
-			<?php endif; ?>
-			<?php if(!isSellerLoggedIn()): ?>
-				<a href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"></a>
-			<?php endif; ?>
+				"><img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/></a>
+				<?php if(hasNotification()): ?>
+					<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
+				<?php endif; ?>
+				<a class="shoppingCart<?php if(isSellerLoggedIn()){ echo " hidden";} ?>" href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"></a>
+				<?php if(!isSellerLoggedIn()): ?>
+				<?php endif; ?>
+			<?php endif; ?>	
+		</div>
+		<?php if($templateParams["HeaderType"] == "Global"): ?>
 			<div class="search">
 				<form action="../Search/search.php" method="POST">
-					<label>Search:<input type="search" name="search" /></label>
+					<!-- <label for="search" class="hidden">Search:</label> -->
+					<input type="search" placeholder="Ricerca" name="search"/>
 					<input type="image" src="<?php echo $imagePath?>Icone/Search.png" alt="Search" />		
 				</form>
 			</div>
-		<?php endif; ?>	
+		<?php endif; ?>
 	</header>
-	<main>
-		<?php
-		if(isset($templateParams["Template"])) {
-			require($templateParams["Template"]);
-		}
-		?>
-	</main>
-	<aside></aside>
-	<footer>
-		<p>Progetto Tecnologie Web - A.A. 2020/21</p>
-		<p>Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli</p>
-	</footer>
+	<div class="scroll">
+		<main>
+			<?php
+			if(isset($templateParams["Template"])) {
+				require($templateParams["Template"]);
+			}
+			?>
+		</main>
+		<aside></aside>
+		<footer>
+			<p>Progetto Tecnologie Web - A.A. 2020/21</p>
+			<p>Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli</p>
+		</footer>
+	</div>
 </body>
 </html>
