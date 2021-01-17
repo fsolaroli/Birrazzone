@@ -54,12 +54,30 @@ table {
 	src: url("Font/GermaniaOne-Regular.ttf");
 }
 
-body > header, footer {
-	background-color: #084E80;
+/* ----------------------------------------------- */
+/* General */
+/* ----------------------------------------------- */
+
+html {
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 h1, h2, h3 {
 	font-family: "GermaniaOne";
+}
+
+h1 {
+	font-size: 35pt;
+	margin: 20px 0 0 0;
+}
+
+h2 {
+	font-size: 25pt;
+	margin: 15px 0 0 0;
+}
+
+h3 {
+	font-size: 15pt;
 }
 
 ul {
@@ -68,6 +86,34 @@ ul {
 
 .hidden {
 	visibility: hidden;
+}
+
+img, .product, button {
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 20px;
+	border-color: #084E80;	
+}
+
+button {
+	background-color: white;
+}
+
+button:hover {
+	background-color: #084E80;
+	color: white;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+:focus {
+	outline: none;
+	/* filter: contrast(80%); */
 }
 
 /* ----------------------------------------------- */
@@ -81,7 +127,6 @@ html {
 body {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	height: 100%;
 }
 
@@ -98,6 +143,7 @@ body > header {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	background-color: #084E80;
 }
 
 body > header > div.icons {
@@ -107,13 +153,14 @@ body > header > div.icons {
 	align-items: center;
 }
 
+body > header h1 {
+	order: 1;
+	margin: 0;
+}
+
 body > header a.profile, body > header a.home {
 	order: 0;
 	margin: 5px 5px;
-}
-
-body > header h1 {
-	order: 1;
 }
 
 body > header a.shoppingCart, body > header a.menu {
@@ -121,15 +168,15 @@ body > header a.shoppingCart, body > header a.menu {
 	margin: 5px 5px;
 }
 
+body > header a.profile > img:hover, body > header a.home > img:hover, body > header a.shoppingCart > img:hover, body > header a.menu > img:hover {
+	filter: invert(30%);
+}
+
 body > header h1 > a, header h1 > a:link, header h1 > a:visited {
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 	font-size: 50pt;
 	text-decoration: none;
 	color:chocolate;
-	/* color: transparent;
-	background-image: linear-gradient(to right, red, orange 50%, brown);
-	  -webkit-background-clip: text;
-	background-clip: text; */
 }
 
 body > header img {
@@ -160,35 +207,71 @@ body > header > div.search > form > input:first-of-type {
 	width: 90%;
 	height: 90%;
 	border: 0;
+	border-radius: 30px 0 0 30px;
 }
 
 body > header > div.search > form > input:nth-of-type(2) {
 	height: 90%;
 	border: 5px;
-	border-color: black;
+}
+
+body > header > div.search > form > input:nth-of-type(2):hover {
+	filter: drop-shadow(0px 0px 2px black);	
 }
 
 /* ----------------------------------------------- */
-/* Prodotti */
+/* Footer */
 /* ----------------------------------------------- */
 
-.product > img {
-	width: 20%;
-	margin: 5px;
+body footer {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 4px 0;
+
+	background-color: #084E80;
 }
 
-img, .product {
-	border-style: solid;
-	border-width: 2px;
-	border-radius: 20px;
-	border-color: #084E80;	
+body footer > p {
+	margin: 1px 0;
+}
+
+/* ----------------------------------------------- */
+/* SellerPage */
+/* ----------------------------------------------- */
+
+main > section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 90%;
+}
+
+a.show, a.hide {
+	display: block;
+	text-align: right;
+}
+
+main > section > img {
+	width: 100%;
+	margin: 15px 0;
+}
+
+main > section > div.description {
+	width: 100%;
 }
 
 .product {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 7px 0;
 }
 
 .product > img {
-
+	width: 20%;
+	margin: 5px;
 }
