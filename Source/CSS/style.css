@@ -174,7 +174,7 @@ body > header a.profile > img:hover, body > header a.home > img:hover, body > he
 
 body > header h1 > a, header h1 > a:link, header h1 > a:visited {
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-	font-size: 50pt;
+	font-size: 40pt;
 	text-decoration: none;
 	color:chocolate;
 }
@@ -182,7 +182,7 @@ body > header h1 > a, header h1 > a:link, header h1 > a:visited {
 body > header img {
 	border-style: none;
 	border-radius: 0;
-	width: 80px;
+	width: 40pt;
 }
 
 body > header > div.search {
