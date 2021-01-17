@@ -27,5 +27,5 @@ function showAside() {
 
 $(function () {
 	setAside();
-	$("header > img[alt='Menu']").click(showAside);
+	$("header img[alt='Menu']").click(showAside);
 });
