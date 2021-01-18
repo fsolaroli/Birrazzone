@@ -30,7 +30,7 @@
 	<div class="description">
 		<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
 		<?php if($sellerData["DescrizioneBirrificio"] != substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght)) : ?>
-			<p id="fullDescription" class="hidden"><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
+			<p id="fullDescription" hidden><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
 			<a href="javascript:void(0);" class="show">Mostra tutto</a>
 		<?php endif; ?>
 	</div>
