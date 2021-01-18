@@ -69,7 +69,7 @@
 			</div>
 		<?php endif; ?>
 	</header>
-	<aside></aside>
+	<aside hidden></aside>
 	<div class="scroll">
 		<main>
 			<?php
