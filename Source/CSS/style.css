@@ -229,18 +229,61 @@ body > header > div.search > form > input:nth-of-type(2):hover {
 /* ----------------------------------------------- */
 
 body footer {
-	color: white;
-	text-align: center;
-
 	padding: 10px;
 	margin: 10px 0 0 0;
-
+	
+	color: white;
+	text-align: center;
 	background-color: #084E80;
 }
 
 body footer > p:first-of-type {
 	margin: 0 0 10px 0;
 }
+
+/* ----------------------------------------------- */
+/* Aside */
+/* ----------------------------------------------- */
+
+body > aside {
+	height: 100%;
+
+	align-self: flex-end;
+	position: fixed;
+	margin: 60px 0 0 0;
+
+	text-align: center;
+	
+	background-color: #084E80;
+}
+
+body > aside > ul > li {
+	padding: 10px 60px;
+}
+
+body > aside > ul > li > a { 
+	word-wrap: normal;
+	
+}
+
+body > aside > ul > li > a > button {
+	width: 100%;
+	background-color: #084E80;
+	color: white;
+	border: 0;
+	padding: 0;
+	font-size: 30pt;
+}
+
+body > aside button:hover {
+	color: #e4e2e2c6;	
+}
+
+
+/* ----------------------------------------------- */
+/* SellerProfile */
+/* ----------------------------------------------- */
+
 
 /* ----------------------------------------------- */
 /* SellerPage */
@@ -254,10 +297,12 @@ main > section {
 	/* padding: 0 15px; */
 }
 
-a.show, a.hide {
+a.show {
 	display: block;
-	color: #084E80;
+	padding: 5px 0;
 	text-align: right;
+
+	color: #084E80;
 }
 
 main > section > img {
