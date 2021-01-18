@@ -101,7 +101,7 @@ button {
 	background-color: white;
 }
 
-button:hover, input:hover {
+button:hover, input[type="submit"]:hover {
 	background-color: #084E80;
 	color: white;
 }
@@ -129,6 +129,7 @@ body {
 body > div.scroll {
 	height: 100%;
 	overflow-y: auto;
+	width: 100%;
 }
 
 body > div.scroll > main {
@@ -219,6 +220,7 @@ body > header > div.search > form > input:nth-of-type(2) {
 }
 
 body > header > div.search > form > input:nth-of-type(2):hover {
+	background-color: none;
 	filter: drop-shadow(0px 0px 2px black);	
 }
 
@@ -228,18 +230,16 @@ body > header > div.search > form > input:nth-of-type(2):hover {
 
 body footer {
 	color: white;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	
+	text-align: center;
+
 	padding: 10px;
 	margin: 10px 0 0 0;
 
 	background-color: #084E80;
 }
 
-body footer > p {
-	margin: 0 0 3px 0;
+body footer > p:first-of-type {
+	margin: 0 0 10px 0;
 }
 
 /* ----------------------------------------------- */

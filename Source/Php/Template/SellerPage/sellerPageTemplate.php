@@ -44,7 +44,7 @@
 	<?php if (!empty($beersToShow)): ?>
 		<?php foreach ($beersToShow as $product): ?>
 			<div id="<?php echo $product["IdBirra"] ?>" class="product">
-				<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$product["FotoBirra"] ?>" width="300px" alt="FotoBirra"/>
+				<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$product["FotoBirra"] ?>" alt="FotoBirra"/>
 				<div class="productInfo">
 					<ul>
 						<li><?php echo $product["NomeBirra"] ?></li>
