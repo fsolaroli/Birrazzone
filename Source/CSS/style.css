@@ -105,6 +105,15 @@ button {
 	margin: 5px 0;
 }
 
+button.delete {
+	font-weight: bold;
+	color: red;
+}
+
+button.delete:hover {
+	color: red;
+}
+
 button:hover, input[type="submit"]:hover {
 	background-color: #084E80;
 	color: white;
@@ -113,6 +122,10 @@ button:hover, input[type="submit"]:hover {
 :focus {
 	outline: none;
 	/* filter: contrast(80%); */
+}
+
+a {
+	display: block;
 }
 
 /* ----------------------------------------------- */
@@ -311,7 +324,6 @@ main > section {
 }
 
 a.show {
-	display: block;
 	padding: 5px 0;
 	text-align: right;
 
@@ -322,10 +334,6 @@ main > section > img {
 	display: block;
 	width: 100%;
 	margin: 15px 0;
-}
-
-.description {
-	align-self: stretch;
 }
 
 .product {
@@ -386,5 +394,9 @@ div.delete {
 	bottom: 0pt;
 	right: 0;
 	left: 0;
+	text-align: center;
+}
+
+div.delete > h2 {
 	text-align: center;
 }
