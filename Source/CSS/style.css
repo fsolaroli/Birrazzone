@@ -76,6 +76,7 @@ h1 {
 h2 {
 	font-size: 25pt;
 	margin: 15px 0 0 0;
+	text-align: left;
 }
 
 h3 {
@@ -305,7 +306,7 @@ body > aside button:hover {
 main > section {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: stretch;
 	width: 95%;
 }
 
