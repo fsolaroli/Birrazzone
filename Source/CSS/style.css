@@ -265,24 +265,21 @@ body footer > p:first-of-type {
 body > aside {
 	align-self: flex-end;
 	position: fixed;
-	/* top: 45pt;
-	bottom: 0; */
-	margin: 45pt 0 0 0;
+	
+	top: 45pt;
 	height: 100%;
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	flex-wrap: wrap-reverse;
 	background-color: #084E80;
+
 }
 
 body > aside > ul {
-	height: 90%;
 	display: flex;
 	align-items: stretch;
 	flex-direction: column;
-	flex-wrap: wrap-reverse;
+	
+	height: 85%;
+	overflow-y: auto;
 }
 
 body > aside > ul > li {
@@ -292,10 +289,6 @@ body > aside > ul > li {
 
 body > aside > ul > li:last-of-type > a > button {
 	color: #ff3b3b;
-}
-
-body > aside > ul > li > a { 
-	word-wrap: normal;	
 }
 
 body > aside > ul > li > a > button {
