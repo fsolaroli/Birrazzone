@@ -12,7 +12,7 @@
 		<a href="modifySellerAccountData.php"><button id="modifyAccountData" class="modify">Modifica</button></a>
 		<button id="deleteAccount" class="delete">Elimina account</button>
 	</div>
-	<div class="alert" hidden>
+	<div class="delete" hidden>
 		<h2>Elimina account</h2>
 		<button id="deleteAccountConfermation" class="delete">Conferma eliminazione account</button>
 	</div>

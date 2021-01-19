@@ -41,5 +41,5 @@
 		<p>Nº vendute: <?php echo $dbh->getNumberOfBeerSold($productData["IdBirra"]) ?></p>
 	</div>
 	<button id="deleteProduct" class="delete">Elimina prodotto</button>
-	<div class="alert"></div>
+	<div class="delete" hidden></div>
 </section>

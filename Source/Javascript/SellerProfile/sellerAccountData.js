@@ -1,6 +1,6 @@
 $(function() {
 	$("main").click(function (e) {
-		$("div.alert").hide();
+		$("div.delete").hide();
 		// $("div.alert").html("");	
 	});
 	$("#deleteAccount").click(function(e) {
@@ -9,7 +9,7 @@ $(function() {
 		// 	<h2>Elimina account</h2>
 		// 	<button id="deleteAccountConfermation" class="delete">Conferma eliminazione account</button>
 		// `);
-		$("div.alert").show();
+		$("div.delete").show();
 		$("#deleteAccountConfermation").click(function() { 
 			$.post("../ApiAJAX/SellerProfile/deleteSellerAccount.php", function() {
 				$("main > section").html(`

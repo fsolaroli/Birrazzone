@@ -376,4 +376,14 @@ div.productInfo {
 main > section > a {
 	align-self: flex-end;
 }
+
+div.delete {
+	/* height: 100%;
+	width: 100%; */
+	background-color: white;
+	position: fixed;
+	top: 110pt;
+	bottom: 0pt;
+	right: 0;
+	left: 0;
 }
