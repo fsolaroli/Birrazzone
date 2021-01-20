@@ -95,12 +95,13 @@ img, .product, button, input {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 20px;
+	
 	border-color: #084E80;
 
 	font-size: 12pt;
 }
 
-button {
+button, input[type="submit"] {
 	background-color: white;
 	margin: 5px 0;
 }
@@ -383,7 +384,7 @@ div.delete {
 	width: 100%; */
 	background-color: white;
 	position: fixed;
-	top: 110pt;
+	top: 105pt;
 	bottom: 0pt;
 	right: 0;
 	left: 0;
