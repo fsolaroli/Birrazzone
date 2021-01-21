@@ -69,6 +69,7 @@
 			</div>
 		<?php endif; ?>
 	</header>
+	<aside hidden></aside>
 	<div class="scroll">
 		<main>
 			<?php
@@ -82,6 +83,5 @@
 			<p>Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli</p>
 		</footer>
 	</div>
-	<aside></aside>
 </body>
 </html>

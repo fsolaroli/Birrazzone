@@ -30,7 +30,7 @@
 	<div class="description">
 		<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
 		<?php if($sellerData["DescrizioneBirrificio"] != substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght)) : ?>
-			<p id="fullDescription" class="hidden"><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
+			<p id="fullDescription" hidden><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
 			<a href="javascript:void(0);" class="show">Mostra tutto</a>
 		<?php endif; ?>
 	</div>
@@ -44,7 +44,7 @@
 	<?php if (!empty($beersToShow)): ?>
 		<?php foreach ($beersToShow as $product): ?>
 			<div id="<?php echo $product["IdBirra"] ?>" class="product">
-				<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$product["FotoBirra"] ?>" width="300px" alt="FotoBirra"/>
+				<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$product["FotoBirra"] ?>" alt="FotoBirra"/>
 				<div class="productInfo">
 					<ul>
 						<li><?php echo $product["NomeBirra"] ?></li>
