@@ -322,7 +322,10 @@ main > section {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	
 	width: 90%;
+
+	margin: 10px 0;
 }
 
 a.show {
