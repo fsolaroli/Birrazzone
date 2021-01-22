@@ -16,10 +16,11 @@
 
 <section>
 	<ul>
-		<li><p>Non sei ancora registrato?</p></li>
+		<li>Non sei ancora registrato?</li>
 		<li><a href="../UserProfile/userRegistration.php">Registrati</a></li>
 
-		<li><p>Vuoi registrare il tuo birrificio?</p></li>
+		<li>Vuoi registrare il tuo birrificio?</li>
 		<li><a href="../SellerProfile/sellerRegistration.php">Invia la richiesta</a></li>
 	</ul>
 </section>
+<div class="error"></div>
