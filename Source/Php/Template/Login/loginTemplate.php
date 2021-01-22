@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
 <section>
-	<form>
+	<form onsubmit="return false;">
 		<ul>
 			<li><label for="email">Email:</label></li>
 			<li><input type="email" name="email" required="true" /></li>
