@@ -11,11 +11,9 @@ if(isset($_POST["email"]) && isset($_POST["pw"])) {
 		$error = null;
 
 		if(!empty($possibleSeller)) {
-			$_SESSION["userId"] = null;
-			$_SESSION["sellerId"] = $possibleSeller["IdBirrificio"];
+			registerLoggedSeller($possibleSeller["IdBirrificio"]);
 		} else {
-			$_SESSION["userId"] = $possibleUser["IdUtente"];
-			$_SESSION["sellerId"] = null;
+			registerLoggedUser($possibleUser["IdUtente"]);
 		}
 	} else {
 		$error = true;

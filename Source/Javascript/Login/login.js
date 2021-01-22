@@ -9,10 +9,10 @@ $(function() {
 			if (error != null) {
 				$(".errori").html("<p><strong>Attenzione, e-mail o password errati</p></strong>");
 			} else {
-				Windows.location(".../.../Site/Home/home.php");
+				Windows.location("../../Site/Home/home.php");
 			}
 		}
 
-		$.post(".../.../ApiAJAX/Login/loginCheck.php", LoginData, ManageLogin, "json");
+		$.post("../../ApiAJAX/Login/loginCheck.php", LoginData, ManageLogin, "json");
 	});
 });
