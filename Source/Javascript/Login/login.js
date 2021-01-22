@@ -7,7 +7,7 @@ $(function() {
 		
 		let ManageLogin = function (error) {
 			if (error != null) {
-				alert("Email e/o password errati!");
+				$(".errori").html("<p><strong>Attenzione, e-mail o password errati</p></strong>");
 			} else {
 				Windows.location(".../.../PHP/Site/Monkas/Home/home.php");
 			}
