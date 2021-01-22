@@ -10,7 +10,7 @@
 		<!-- <input type="hidden" name="sellerId" value="<?php echo $sellerData["IdBirrificio"] ?>"> -->
 		<ul>
 			<li class="label"><label for="location">Località:</label></li>
-			<li><input type="text" name="location" value="<?php echo $sellerData["Localita"] ?>" autocomplete="off"/></li>
+			<li class="input"><input type="text" name="location" value="<?php echo $sellerData["Localita"] ?>" autocomplete="off"/></li>
 	
 			<li class="label"><label for="image">Foto</label></li>
 			<li class="photoInput">
@@ -20,9 +20,7 @@
 			<li><div class="imageErrors"></div></li>
 	
 			<li class="label"><label for="description">Descrizione:</label></li>
-			<li><textarea name="description"><?php echo $sellerData["DescrizioneBirrificio"] ?></textarea>
-				<!-- <input type="text" name="description" value="<?php //echo $sellerData["DescrizioneBirrificio"] ?>" autocomplete="off"/> -->
-			</li>
+			<li class="input"><textarea name="description"><?php echo $sellerData["DescrizioneBirrificio"] ?></textarea></li>
 	
 			<li class="submit">
 				<input type="submit" name="update" value="Aggiorna"/>

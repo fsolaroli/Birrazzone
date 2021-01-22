@@ -91,13 +91,20 @@ ul {
 	visibility: hidden;
 }
 
-img, .product, button, input, textarea {
+input {
+	border-width: 0;
+	width: 98%;
+}
+
+img, .product, button, li.input, input[type="submit"], input[type="file"] {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
 	
 	border-color: #084E80;
+}
 
+.product, button, input {
 	font-size: 13pt;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -407,7 +414,7 @@ button.modify {
 /* ----------------------------------------------- */
 
 form > ul > li > input, form > ul > li > label {
-	width: 100%;
+	/* width: 100%; */
 	border-radius: 8px;
 }
 
@@ -435,9 +442,16 @@ form > ul > li > img {
 
 form > ul > li > textarea[name="description"] {
 	resize: none;
-	width: 100%;
+	
+	width: 95%;
 	height: 100px;
+	
 	padding: 5px;
+	margin: 5px;
+	border-width: 0;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13pt;
 }
 
 ul > li.label {
