@@ -91,19 +91,32 @@ ul {
 	visibility: hidden;
 }
 
-img, .product, button, input {
+input {
+	border-width: 0;
+	width: 98%;
+}
+
+img, .product, button, li.input, input[type="submit"], input[type="file"] {
 	border-style: solid;
 	border-width: 2px;
-	border-radius: 20px;
+	border-radius: 8px;
 	
 	border-color: #084E80;
+}
 
-	font-size: 12pt;
+.product, button, input {
+	font-size: 13pt;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 button, input[type="submit"] {
 	background-color: white;
-	/* margin: 5px 0; */
+	border-radius: 20px;
+}
+
+button:hover, input[type="submit"]:hover {
+	background-color: #084E80;
+	color: white;
 }
 
 button.delete {
@@ -116,14 +129,8 @@ button.delete:hover {
 	color: red;
 }
 
-button:hover, input[type="submit"]:hover {
-	background-color: #084E80;
-	color: white;
-}
-
 :focus {
 	outline: none;
-	/* filter: contrast(80%); */
 }
 
 a {
@@ -381,13 +388,17 @@ main > section > a {
 }
 
 div.delete {
-	background-color: white;
 	position: fixed;
-	top: 105pt;
+	
+	top: 45pt;
 	bottom: 0pt;
 	right: 0;
 	left: 0;
+	
+	background-color: white;
 	text-align: center;
+
+
 }
 
 div.delete > h2 {
@@ -403,7 +414,7 @@ button.modify {
 /* ----------------------------------------------- */
 
 form > ul > li > input, form > ul > li > label {
-	width: 100%;
+	/* width: 100%; */
 	border-radius: 8px;
 }
 
@@ -429,9 +440,18 @@ form > ul > li > img {
 	width: 50%;
 }
 
-form > ul > li > input[name="description"] {
+form > ul > li > textarea[name="description"] {
+	resize: none;
+	
+	width: 95%;
 	height: 100px;
+	
+	padding: 5px;
+	margin: 5px;
+	border-width: 0;
 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13pt;
 }
 
 ul > li.label {

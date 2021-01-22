@@ -41,5 +41,8 @@
 </section>
 <section>
 	<button id="deleteProduct" class="delete">Elimina prodotto</button>
-	<div class="delete" hidden></div>
 </section>
+<div class="delete" hidden>
+	<h2>Elimina birra</h2>
+	<button id="deleteProductConfermation" class="delete">Conferma eliminazione birra</button>
+</div>
