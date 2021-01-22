@@ -9,7 +9,7 @@ $(function() {
 			if (error != null) {
 				$(".error").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
 			} else {
-				Windows.location("../../Site/Home/home.php");
+				window.location = "../Home/home.php";
 			}
 		}
 
