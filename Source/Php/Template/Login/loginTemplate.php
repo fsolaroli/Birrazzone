@@ -13,6 +13,7 @@
 		</ul>
 	</form>
 </section>
+<div class="error"></div>
 
 <section>
 	<ul>
@@ -23,4 +24,3 @@
 		<li><a href="../SellerProfile/sellerRegistration.php">Invia la richiesta</a></li>
 	</ul>
 </section>
-<div class="error"></div>
