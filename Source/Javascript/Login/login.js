@@ -2,7 +2,7 @@ $(function() {
 	$(":submit").click(function() {
 		let LoginData = {
 			email: $("input[name='email']").val(),
-			password: $("input[name='pw']").val()
+			pw: $("input[name='pw']").val()
 		}
 		
 		let ManageLogin = function (error) {
