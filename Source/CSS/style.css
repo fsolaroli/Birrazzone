@@ -407,6 +407,10 @@ div.delete > h2 {
 	flex-direction: column;
 } */
 
+/* form > ul > li {
+	display: flex;	
+} */
+
 form > ul > li > input, form > ul > li > label {
 	width: 100%;
 	border-radius: 8px;
@@ -419,11 +423,38 @@ form > ul > li.submit {
 	justify-content: space-between;
 }
 
+form > ul > li.photoInput {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
 form > ul > li > input[type="submit"] {
 	width: auto;
 	border-radius: 30px;
 }
 
+form > ul > li > img {
+	width: 50%;
+}
+
+form > ul > li > input[name="description"] {
+	height: 100px;
+
+}
+
 ul > li.label {
 	margin: 10px 0 5px 0;
+}
+
+input[type="file"] {
+	align-self: center;
+	height: fit-content;
+	width: fit-content;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+	border: inherit;
+	border-width: 0 2px 0 0;
+	background-color: inherit;
 }
