@@ -21,4 +21,8 @@ $(function() {
 		}
 		$.post(	"../../ApiAJAX/SellerProfile/modifySellerProfileData.php", PostData, PostFunction, "json");
 	});
+	
+	$(":submit[name='cancel']").click(function (e) { 
+		window.location="SellerAccountData.php"
+	});
 });
