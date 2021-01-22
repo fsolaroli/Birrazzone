@@ -91,7 +91,7 @@ ul {
 	visibility: hidden;
 }
 
-input {
+form > ul > li > input {
 	border-width: 0;
 	width: 98%;
 }
