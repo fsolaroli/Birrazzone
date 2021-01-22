@@ -7,7 +7,7 @@ $(function() {
 		
 		let ManageLogin = function (error) {
 			if (error != null) {
-				$(".errori").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
+				$(".error").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
 			} else {
 				Windows.location("../../Site/Home/home.php");
 			}
