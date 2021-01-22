@@ -8,7 +8,7 @@
 	<p> <?php echo $sellerData["NomeBirrificio"] ?></p>
 	<p> <?php echo $sellerData["EmailBirrificio"] ?></p>
 	<p> P.IVA: <?php echo $sellerData["PartitaIVA"] ?></p>
-	<a href="modifySellerAccountData.php"><button id="modifyAccountData" class="modify">Modifica</button></a>
+	<a href="modifySellerAccountData.php"><button class="modify">Modifica</button></a>
 	<button id="deleteAccount" class="delete">Elimina account</button>
 </section>
 <div class="delete" hidden>

@@ -381,8 +381,6 @@ main > section > a {
 }
 
 div.delete {
-	/* height: 100%;
-	width: 100%; */
 	background-color: white;
 	position: fixed;
 	top: 105pt;
@@ -396,20 +394,13 @@ div.delete > h2 {
 	text-align: center;
 }
 
+button.modify {
+	margin: 10px 0 0 0;
+}
+
 /* ----------------------------------------------- */
 /* Form */
 /* ----------------------------------------------- */
-
-/* form > ul {
-	display: flex;
-	align-items: stretch;
-	justify-content: stretch;
-	flex-direction: column;
-} */
-
-/* form > ul > li {
-	display: flex;	
-} */
 
 form > ul > li > input, form > ul > li > label {
 	width: 100%;
