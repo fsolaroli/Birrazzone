@@ -9,7 +9,7 @@ $(function() {
 			if (error != null) {
 				alert("Email e/o password errati!");
 			} else {
-				Windows.location(".../.../Site/Home/home.php");
+				Windows.location(".../.../PHP/Site/Monkas/Home/home.php");
 			}
 		}
 
