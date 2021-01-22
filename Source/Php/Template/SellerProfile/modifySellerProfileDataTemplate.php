@@ -20,7 +20,9 @@
 			<li><div class="imageErrors"></div></li>
 	
 			<li class="label"><label for="description">Descrizione:</label></li>
-			<li><input type="text" name="description" value="<?php echo $sellerData["DescrizioneBirrificio"] ?>" autocomplete="off"/></li>
+			<li><textarea name="description"><?php echo $sellerData["DescrizioneBirrificio"] ?></textarea>
+				<!-- <input type="text" name="description" value="<?php //echo $sellerData["DescrizioneBirrificio"] ?>" autocomplete="off"/> -->
+			</li>
 	
 			<li class="submit">
 				<input type="submit" name="update" value="Aggiorna"/>
