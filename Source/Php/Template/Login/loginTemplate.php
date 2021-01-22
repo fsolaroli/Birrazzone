@@ -3,13 +3,13 @@
 <section>
 	<form onsubmit="return false;">
 		<ul>
-			<li><label for="email">Email:</label></li>
-			<li><input type="email" name="email" required="true" /></li>
+			<li class="label"><label for="email">Email:</label></li>
+			<li class="input"><input type="email" name="email" required="true" /></li>
 
-			<li><label for="pw">Password:</label></li>
-			<li><input type="password" name="pw" required="true" /></li>
+			<li class="label"><label for="pw">Password:</label></li>
+			<li class="input"><input type="password" name="pw" required="true" /></li>
 
-			<li><input type="submit" value="Accedi" /></li>
+			<li class="submit"><input type="submit" value="Accedi" /></li>
 		</ul>
 	</form>
 </section>
