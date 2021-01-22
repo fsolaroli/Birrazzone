@@ -46,6 +46,11 @@ function registerLoggedSeller($sellerId){
 	// $_SESSION["sellerProfilePage"]="Notification";
 }
 
+function registerLoggedUser($userId){
+	$_SESSION["userId"] = $userId;
+	$_SESSION["sellerId"] = null;
+}
+
 function logOut() {
 	if (isSellerLoggedIn()) {
 		$_SESSION["sellerId"] = null;
