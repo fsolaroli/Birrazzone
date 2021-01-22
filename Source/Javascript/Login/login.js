@@ -5,11 +5,15 @@ $(function() {
 			pw: $("input[name='pw']").val()
 		}
 		
-		let ManageLogin = function (error) {
-			if (error != null) {
+		let ManageLogin = function (data) {
+			if (data[0] != null) {
 				$(".error").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
 			} else {
-				window.location = "../Home/home.php";
+				if (data[1] === "u") {
+					window.location = "../UserProfile/userNotifications.php";
+				} else {
+					window.location = "../SellerProfile/sellerNotifications.php";
+				}
 			}
 		}
 

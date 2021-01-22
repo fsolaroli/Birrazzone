@@ -12,14 +12,17 @@ if(isset($_POST["email"]) && isset($_POST["pw"])) {
 
 		if(!empty($possibleSeller)) {
 			registerLoggedSeller($possibleSeller[0]["IdBirrificio"]);
+			$accountType = "s";
 		} else {
 			registerLoggedUser($possibleUser[0]["IdUtente"]);
+			$accountType = "u";
 		}
 	} else {
 		$error = true;
 	}
 
-	echo json_encode($error);
+	$data = array($error, $accountType);
+	echo json_encode($data);
 }
 
 ?>
