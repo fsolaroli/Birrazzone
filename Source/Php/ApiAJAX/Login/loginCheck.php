@@ -11,9 +11,9 @@ if(isset($_POST["email"]) && isset($_POST["pw"])) {
 		$error = null;
 
 		if(!empty($possibleSeller)) {
-			registerLoggedSeller($possibleSeller[0]);
+			registerLoggedSeller($possibleSeller[0]["IdBirrificio"]);
 		} else {
-			registerLoggedUser($possibleUser[0]);
+			registerLoggedUser($possibleUser[0]["IdUtente"]);
 		}
 	} else {
 		$error = true;
