@@ -14,14 +14,11 @@ function updateBeerQuantity(method) {
 
 $(function() {
 	$("main").click(function (e) { 
-		$("div.alert").html("");	
+		$("div.delete").hide();
 	});
 	$("#deleteProduct").click(function(e) {
 		e.stopPropagation();
-		$("div.alert").html(`
-			<h2>Elimina birra</h2>
-			<button id="deleteProductConfermation" class="delete">Conferma eliminazione birra</button>
-		`);
+		$("div.delete").show();
 		$("#deleteProductConfermation").click(function() { 
 			$.post("../../ApiAJAX/SellerProfile/deleteProduct.php", { productId: $("p#productId").text()}, function() {
 				$("main > section").html(`
