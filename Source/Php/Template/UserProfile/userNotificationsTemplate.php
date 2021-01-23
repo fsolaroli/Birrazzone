@@ -11,11 +11,11 @@
 	?>
 
 	<?php if(!empty(getUserNotification($userNotification))): ?>
-		<?php foreach($sellerNotification as $notification): ?>
-			<div class="notification">
-
-			</div>
-		<?php endforeach; ?>
+		<ul class="notification">
+			<?php foreach($userNotification as $notification): ?>
+				<li><p><?php $dbh->readNotification($userNotification[0]["IdNotifica"]); ?></p></li>
+			<?php endforeach; ?>
+		</ul>
 	<?php endif; ?>
 </section>
 		
