@@ -12,7 +12,7 @@ $(function() {
 
 	$("#deleteAccountConfermation").click(function (e) { 
 		$.post("../../ApiAJAX/UserProfile/deleteUser.php", function() {
-			$("main > section").html(`
+			$("main").html(`
 				<h2>Account cancellato</h2>
 				<a href="../Home/home.php"><button>OK</button></a>
 			`);
