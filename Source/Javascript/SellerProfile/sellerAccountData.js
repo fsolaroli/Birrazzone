@@ -1,13 +1,13 @@
 $(function() {
 	$("main").click(function (e) {
-		$("#deleteAccount").show();
-		$("#deleteAccountConfermation").hide();
+		$("#deleteAccount").removeAttr("disabled");
+		$("#deleteAccountConfermation").hide("slide");
 	});
 
 	$("#deleteAccount").click(function(e) {
 		e.stopPropagation();
-		$("#deleteAccountConfermation").show();
-		$(this).hide();
+		$("#deleteAccountConfermation").show("slide");
+		$(this).attr("disabled", "true");
 	});
 
 	$("#deleteAccountConfermation").click(function (e) { 
