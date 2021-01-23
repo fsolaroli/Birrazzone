@@ -3,10 +3,10 @@
 <section>
 	<form onsubmit="return false;">
 		<ul>
-			<li class="label"><label for="email">Email:</label></li>
+			<li class="label"><label for="email">Email</label></li>
 			<li class="input"><input type="email" name="email" autocomplete="username" required="true" /></li>
 
-			<li class="label"><label for="pw">Password:</label></li>
+			<li class="label"><label for="pw">Password</label></li>
 			<li class="input"><input type="password" name="pw" autocomplete="current-password" required="true" /></li>
 
 			<li class="submit"><input type="submit" value="Accedi" /></li>
