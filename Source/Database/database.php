@@ -425,6 +425,14 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);	
 	}
 
+	public function deleteAddress($UserId) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
+										SET Utente.IdIndirizzo=NULL
+										WHERE Utente.IdUtente=?");
+		$stmt->bind_param('s', $UserId);
+		return $stmt->execute();		
+	}
+
 	public function updateUserData($UserId, $name, $email, $password) {				
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
 										SET Utente.NomeUtente=?,
