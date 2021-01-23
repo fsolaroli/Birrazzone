@@ -23,6 +23,6 @@ $(function() {
 	});
 	
 	$(":submit[name='cancel']").click(function (e) { 
-		window.location="SellerAccountData.php"
+		window.location="SellerProfileData.php"
 	});
 });
