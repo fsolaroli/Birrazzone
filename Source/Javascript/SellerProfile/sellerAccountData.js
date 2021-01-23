@@ -12,9 +12,9 @@ $(function() {
 
 	$("#deleteAccountConfermation").click(function (e) { 
 		$.post("../ApiAJAX/SellerProfile/deleteSellerAccount.php", function() {
-			$("main > section").html(`
+			$("main").html(`
 				<h2>Account cancellato</h2>
-				<a href="home.php"><button>OK</button></a>
+				<a href="../Home/home.php"><button>OK</button></a>
 			`);
 		});	
 	});

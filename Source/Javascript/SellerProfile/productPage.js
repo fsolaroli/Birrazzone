@@ -25,8 +25,8 @@ $(function() {
 	});
 	
 	$("#deleteProductConfermation").click(function (e) { 
-		$.post("../../ApiAJAX/SellerProfile/deleteProduct.php", { productId: $("p#productId").text()}, function() {
-			$("main > section").html(`
+		$.post("../../ApiAJAX/SellerProfile/deleteProduct.php", { productId: $("#productId").text()}, function() {
+			$("main").html(`
 			<h2>Birra cancellata</h2>
 			<a href="sellerProducts.php"><button>OK</button></a>
 			`);
