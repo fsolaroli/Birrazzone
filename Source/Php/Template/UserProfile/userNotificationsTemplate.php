@@ -4,11 +4,9 @@
 <section>
 	<h2>Notifiche</h2>
 	
-	<?php 
-		if(empty($dbh->getUserNotification($userNotification))) {
-			echo "<p>Non ci sono nuove notifiche</p>";
-		}
-	?>
+	<?php  if(empty($dbh->getUserNotification($userNotification))): ?>
+		<p>Nessuna nuova notifica</p>
+	<?php endif; ?>
 
 	<?php if(!empty($dbh->getUserNotification($userNotification))): ?>
 		<ul class="notification">
