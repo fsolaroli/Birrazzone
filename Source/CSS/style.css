@@ -143,13 +143,18 @@ button:hover, input[type="submit"]:hover {
 
 /* button delete */
 
-button.delete, button.delete:hover {
-	margin: 40px 0 0 0;
+button.delete {
+	/* margin: 40px 0 0 0; */
 	font-weight: bold;
 	font-size: 15pt;
 	color: red;
 	width: fit-content;
 	align-self: center;
+}
+
+button.delete:hover {
+	background-color: red;
+	color: white;
 }
 
 /* ----------------------------------------------- */
@@ -532,28 +537,6 @@ div.productInfo {
 main > section > a {
 	align-self: flex-end;
 }
-
-div.delete {
-	position: fixed;
-	
-	top: 45pt;
-	bottom: 0pt;
-	right: 0;
-	left: 0;
-	
-	background-color: white;
-	text-align: center;
-}
-
-div.delete > h2 {
-	text-align: center;
-	
-	margin-top: 100px;
-}
-
-/* button.modify {
-	margin: 10px 0 0 0;
-} */
 
 div.sellerProduct {
 	display: flex;

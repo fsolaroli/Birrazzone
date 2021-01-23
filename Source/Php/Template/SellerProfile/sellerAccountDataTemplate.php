@@ -9,9 +9,8 @@
 	<p> <?php echo $sellerData["EmailBirrificio"] ?></p>
 	<p> P.IVA: <?php echo $sellerData["PartitaIVA"] ?></p>
 	<a href="modifySellerAccountData.php"><button class="modify">Modifica</button></a>
-	<button id="deleteAccount" class="delete">Elimina account</button>
 </section>
-<div class="delete" hidden>
-	<h2>Elimina account</h2>
-	<button id="deleteAccountConfermation" class="delete">Conferma eliminazione account</button>
-</div>
+<section>
+	<button id="deleteAccount" class="delete">Elimina account</button>
+	<button id="deleteAccountConfermation" class="delete" hidden>Conferma eliminazione account</button>
+</section>
