@@ -15,15 +15,18 @@
 	<?php if (empty($sellerProducts)): ?>
 		<p>Nessun prodotto</p>
 	<?php endif; ?>
-
 	<?php if (!empty($sellerProducts)): ?>
+	<ul class="sellerProducts">
 		<?php foreach ($sellerProducts as $product): ?>
-			<div class="sellerProduct">
-				<p><?php echo $product["NomeBirra"] ?></p>
-				<p><span>Disponibilità:</span><span class="<?php if($product["Quantita"] < 10) { echo "attention";} ?>"><?php echo $product["Quantita"] ?></span></p>
-				<a href="productPage.php?productId=<?php echo $product["IdBirra"] ?>"><button class="modify">Visualizza</button></a>
-			</div>
+			<li>
+				<div>
+					<p><?php echo $product["NomeBirra"] ?></p>
+					<p><span>Disponibilità:</span><span class="<?php if($product["Quantita"] < 10) { echo "attention";} ?>"><?php echo $product["Quantita"] ?></span></p>
+					<a href="productPage.php?productId=<?php echo $product["IdBirra"] ?>"><button class="modify">Visualizza</button></a>
+				</div>
+			</li>
 		<?php endforeach; ?>
+	</ul>
 	<?php endif; ?>
 
 	<a href="newProduct.php"><button class="modify">Aggiungi</button></a>

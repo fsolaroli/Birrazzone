@@ -21,7 +21,7 @@ $(function() {
 		});
 	}
 
-	$("div.product").click(function (e) { 
+	$("ul.products > li").click(function (e) { 
 		console.log($(this).attr("id"));		
 	});
 });
