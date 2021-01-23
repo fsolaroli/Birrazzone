@@ -63,6 +63,10 @@ function isUserLoggedIn() {
     return !empty($_SESSION['userId']);
 }
 
+function isAdminLoggedIn(){
+	return (!empty($_SESSION["username"]) && !empty($_SESSION["password"]));
+}
+
 function hasNotification() {
 	global $dbh;
 	if(isSellerLoggedIn()) {

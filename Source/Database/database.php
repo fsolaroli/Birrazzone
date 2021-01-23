@@ -744,7 +744,6 @@ class DatabaseHelper{
 		$stmt->bind_param('s',$this->DistantFuture);
 		return $stmt->execute();
 	}
-
 }
 	
 ?>
