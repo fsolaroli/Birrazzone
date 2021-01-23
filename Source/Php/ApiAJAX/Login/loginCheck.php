@@ -6,7 +6,7 @@ if(isset($_POST["email"]) && isset($_POST["pw"])) {
 	$possibleSeller = $dbh->checkSellerLogin($_POST["email"], $_POST["pw"]);
 	$possibleUser = $dbh->checkUserLogin($_POST["email"], $_POST["pw"]);
 	$accountType = null;
-	$error = null;
+	$errors = null;
 
 	if(!empty($possibleSeller) || !empty($possibleUser)) {
 
@@ -18,10 +18,10 @@ if(isset($_POST["email"]) && isset($_POST["pw"])) {
 			$accountType = "u";
 		}
 	} else {
-		$error = true;
+		$errors = true;
 	}
 
-	$data = array($error, $accountType);
+	$data = array($errors, $accountType);
 	echo json_encode($data);
 }
 
