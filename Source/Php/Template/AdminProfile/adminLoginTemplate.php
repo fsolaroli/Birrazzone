@@ -1,9 +1,6 @@
 <h1>Login</h1>
-	<form action="#" method="POST">
+	<form method="POST">
 		<section>
-		<?php if(isset($templateParams["errorelogin"])): ?>
-		<p><?php echo $templateParams["errorelogin"];?></p>
-		<?php endif; ?>
 		<ul>
 			<li><label for="username">Username</label> </li>
 			<li><input type="text" name="username" required="true" /> </li>
@@ -15,3 +12,4 @@
 		</ul>
 	</section>
 </form>
+<div class = "error" ></div>

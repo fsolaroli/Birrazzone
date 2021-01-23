@@ -4,7 +4,7 @@ require_once("../baseConfiguration.php");
 if(isAdminLoggedIn()){
 	$templateParams["Titolo"] = "AdminPage";
 	//$templateParams["Javascript"] = array("AdminPage/adminPage.js");
-	$templateParams["Template"] = "../../Template/AdminPage/adminPageTemplate.php";
+	//$templateParams["Template"] = "../../Template/AdminPage/adminPageTemplate.php";
 	$templateParams["HeaderType"] = "Login"; //Profile, Login, Global
 }else{
 	$templateParams["Titolo"] = "AdminLogin";

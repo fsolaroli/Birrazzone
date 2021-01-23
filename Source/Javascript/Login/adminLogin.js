@@ -1,18 +1,18 @@
 $(function() {
 	$("form").submit(function() {
 		let LoginData = {
-			email: $("input[name='username']").val(),
-			password: $("input[name='pw']").val()
+			username: $("input[name='username']").val(),
+			pw: $("input[name='pw']").val()
 		}
-		
-		let ManageLogin = function(error, name) {
-			if(error != null) {
-				alert("Username e/o password errati!");
+
+		let ManageLogin = function (data) {
+			if (!empty(data)) {
+				$(".error").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
 			} else {
-				$("main").html(`<h2>Benvenuto${name}!</h2>`);
-				$("main").html(`a href='home.php'>Vai alla home</a>`);
+				window.location = "../Site/AdminPage/adminPage.php";
 			}
 		}
-		$.post(".../.../ApiAJAX/Login/loginCheck.php", LoginData, ManageLogin, "json");
+
+		$.post("../../ApiAJAX/Login/adminLoginCheck.php", LoginData, ManageLogin, "json");
 	});
 });

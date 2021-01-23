@@ -69,7 +69,7 @@ function isUserLoggedIn() {
 }
 
 function isAdminLoggedIn(){
-	return (!empty($_SESSION["username"]) && !empty($_SESSION["password"]));
+	return (!empty($_SESSION["username"]) && !empty($_SESSION["pw"]));
 }
 
 function hasNotification() {
