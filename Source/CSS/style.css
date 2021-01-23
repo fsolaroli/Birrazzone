@@ -177,6 +177,10 @@ form > ul > li.checkbox {
 	justify-content: flex-end;
 }
 
+form > ul > li.checkbox > label {
+	margin: 0 0 0 10px;
+}
+
 form > ul > li > img {
 	width: 50%;
 }
