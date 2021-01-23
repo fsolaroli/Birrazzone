@@ -14,14 +14,14 @@ function updateBeerQuantity(method) {
 
 $(function() {
 	$("main").click(function (e) {
-		$("#deleteProduct").show();
-		$("#deleteProductConfermation").hide();
+		$("#deleteProduct").removeAttr("disabled");
+		$("#deleteProductConfermation").hide("slide");
 	});
 	
 	$("#deleteProduct").click(function(e) {
 		e.stopPropagation();
-		$("#deleteProductConfermation").show();
-		$(this).hide();
+		$("#deleteProductConfermation").show("slide");
+		$(this).attr("disabled", "true");
 	});
 	
 	$("#deleteProductConfermation").click(function (e) { 

@@ -144,7 +144,7 @@ button:hover, input[type="submit"]:hover {
 /* button delete */
 
 button.delete {
-	/* margin: 40px 0 0 0; */
+	margin: 5px 0;
 	font-weight: bold;
 	font-size: 15pt;
 	color: red;
@@ -156,6 +156,12 @@ button.delete:hover {
 	background-color: red;
 	color: white;
 }
+
+button.delete:disabled, button.delete:disabled:hover {
+	background-color: grey;
+	color: white;
+}
+
 
 /* ----------------------------------------------- */
 /* Div errors */

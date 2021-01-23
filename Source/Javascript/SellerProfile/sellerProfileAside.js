@@ -17,23 +17,6 @@ function setAside() {
 
 }
 
-function showAside() {
-	if($("aside").is(":hidden")) {
-		$("aside").show('slide'); //TODOMAYBE add animations
-	} else {
-		$("aside").hide('slide');
-	}
-}
-
 $(function () {
 	setAside();
-
-	$("div.scroll").click(function (e) { 
-		$("aside").hide('slide');
-	});
-
-	$("header img[alt='Menu']").click(function(e) {
-		showAside();
-	});
-	
 });
