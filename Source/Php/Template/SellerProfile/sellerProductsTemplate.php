@@ -18,9 +18,9 @@
 
 	<?php if (!empty($sellerProducts)): ?>
 		<?php foreach ($sellerProducts as $product): ?>
-			<div class="product">
+			<div class="sellerProduct">
 				<p><?php echo $product["NomeBirra"] ?></p>
-				<p><span>Disponibilità:</span><span class="quantity"><?php echo $product["Quantita"] ?></span></p>
+				<p><span>Disponibilità:</span><span class="<?php if($product["Quantita"] < 10) { echo "attention";} ?>"><?php echo $product["Quantita"] ?></span></p>
 				<a href="productPage.php?productId=<?php echo $product["IdBirra"] ?>"><button class="modify">Visualizza</button></a>
 			</div>
 		<?php endforeach; ?>
