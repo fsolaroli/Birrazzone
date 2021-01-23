@@ -93,7 +93,9 @@ ul {
 
 form > ul > li > input {
 	border-width: 0;
-	width: 98%;
+	border-radius: 0;
+	width: 95%;
+	margin: 0;
 }
 
 img, .product, button, li.input, input[type="submit"], input[type="file"], input[type="checkbox"] {
