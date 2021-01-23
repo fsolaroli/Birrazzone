@@ -5,7 +5,7 @@ $(function() {
 			email: $("input[name='email']").val(),
 			pw: $("input[name='pw']").val(),
 			confirmpw: $("input[name='confirmpw']").val(),
-			confirmage: $("input[name='adultconfirmation']").val()
+			confirmage: $("input[name='adultconfirmation']").val().checked
 		}
 
 		let ManageRegistration = function(errors) {
