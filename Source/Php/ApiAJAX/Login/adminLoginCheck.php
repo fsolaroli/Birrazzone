@@ -1,5 +1,5 @@
 <?php
-require_once("../baseConfiguration.php");
+require_once("../../Site/baseConfiguration.php");
 $data = null;
 
 if(isset($_POST["username"]) && isset($_POST["pw"])){

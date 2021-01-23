@@ -8,8 +8,8 @@ if(isAdminLoggedIn()){
 	$templateParams["HeaderType"] = "Login"; //Profile, Login, Global
 }else{
 	$templateParams["Titolo"] = "AdminLogin";
-	$templateParams["Javascript"] = array("Login/login.js");
-	$templateParams["Template"] = "AdminProfile/adminLoginTemplate.php";
+	$templateParams["Javascript"] = array("Login/adminLogin.js");
+	$templateParams["Template"] = "Login/adminLoginTemplate.php";
 	$templateParams["HeaderType"] = "Login"; //Profile, Login, Global
 }
 require("../../Template/baseTemplate.php");

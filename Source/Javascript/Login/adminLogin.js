@@ -6,10 +6,10 @@ $(function() {
 		}
 
 		let ManageLogin = function (data) {
-			if (!empty(data)) {
+			if (data != null) {
 				$(".error").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
 			} else {
-				window.location = "../Site/AdminPage/adminPage.php";
+				window.location = "../AdminPage/adminPage.php";
 			}
 		}
 
