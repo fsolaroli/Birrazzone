@@ -561,23 +561,27 @@ ul.sellerProducts {
 }
 
 ul.sellerProducts > li {
-	margin: 7px 0;
-	padding: 5px;	
-	border-radius: 30px;
-}
-
-ul.sellerProducts > li > div {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 
-	font-size: 14pt;
-
+	margin: 7px 0;
+	padding: 5px;	
+	border-radius: 30px;
+	
 	text-align: center;
 }
 
-ul.sellerProducts > li > div > p:nth-of-type(2) > span:nth-of-type(2).attention {
+ul.sellerProducts > li > div:first-of-type {
+	margin: 0 20px;
+}
+
+ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) {
+	font-size: 12pt;
+}
+
+ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) > span:nth-of-type(2).attention {
 	color: red;
 }
 

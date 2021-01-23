@@ -22,6 +22,8 @@
 				<div>
 					<p><?php echo $product["NomeBirra"] ?></p>
 					<p><span>Disponibilità:</span><span class="<?php if($product["Quantita"] < 10) { echo "attention";} ?>"><?php echo $product["Quantita"] ?></span></p>
+				</div>
+				<div>
 					<a href="productPage.php?productId=<?php echo $product["IdBirra"] ?>"><button class="modify">Visualizza</button></a>
 				</div>
 			</li>
