@@ -11,15 +11,17 @@
 
 <section>
 	<h2>Dati birra</h2>
-	<p id="productId" hidden> <?php echo $productData["IdBirra"] ?></p>
-	<p> <?php echo $productData["NomeBirra"] ?></p>
-	<p> <?php echo $productData["Tipologia"] ?></p>
-	<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"] ?>" alt="FotoBirra"/>
-	<p> <?php echo $productData["Prezzo"] ?> €</p>
-	<p> <?php echo $productData["Formato"] ?> cl</p>
-	<p> <?php echo $productData["GradoAlcolico"] ?>º</p>
-	<p> <?php echo $productData["Colore"] ?></p>
-	<p> <?php echo $productData["DescrizioneBirra"] ?></p>
+	<ul>
+		<li id="productId" hidden><?php echo $productData["IdBirra"] ?></li>
+		<li><?php echo $productData["NomeBirra"] ?></li>
+		<li><?php echo $productData["Tipologia"] ?></li>
+		<li><img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"] ?>" alt="FotoBirra"/></li>
+		<li><?php echo $productData["Prezzo"] ?> €</li>
+		<li><?php echo $productData["Formato"] ?> cl</li>
+		<li><?php echo $productData["GradoAlcolico"] ?>º</li>
+		<li><?php echo $productData["Colore"] ?></li>
+		<li><?php echo $productData["DescrizioneBirra"] ?></li>
+	</ul>
 	<a href="modifyProduct.php?productId=<?php echo $productData["IdBirra"] ?>"><button id="modifyAccountData" class="modify">Modifica</button></a>
 </section>
 <section>
