@@ -13,7 +13,7 @@
 		</ul>
 	</form>
 </section>
-<div class="error"></div>
+<div class="errors"></div>
 
 <section>
 	<ul>

@@ -7,7 +7,6 @@
 <section>
 	<h2>Modifica dati account</h2>
 	<form onsubmit="return false;">
-		<!-- <input type="hidden" name="sellerId" value="<?php echo $sellerData["IdBirrificio"] ?>"> -->
 		<ul>
 			<li class="label"><label for="sellerName">Ragione Sociale:</label></li>
 			<li class="input"><input type="text" name="sellerName" value="<?php echo $sellerData["NomeBirrificio"] ?>" autocomplete="organization"/></li>
@@ -27,11 +26,10 @@
 			<li class="submit">
 				<input type="submit" name="update" value="Aggiorna"/>
 				<input type="submit" name="cancel" value="Annulla"/>
-				<!-- <a href="sellerAccountData.php"><button>Annulla</button></a> -->
 			</li>
 	
 		</ul>
 	</form>
 	
 </section>
-<div class="errori"></div>
+<div class="errors"></div>

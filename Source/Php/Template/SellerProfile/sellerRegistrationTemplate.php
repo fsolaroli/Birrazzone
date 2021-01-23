@@ -15,4 +15,4 @@
 		</ul>
 	</form>
 </section>
-<div class="errori"></div>
+<div class="errors"></div>
