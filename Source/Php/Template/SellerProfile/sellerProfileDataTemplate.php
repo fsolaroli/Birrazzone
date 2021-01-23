@@ -9,5 +9,4 @@
 	<img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 	<p class="description"> <?php echo $sellerData["DescrizioneBirrificio"] ?></p>
 	<a href="modifySellerProfileData.php"><button id="modifyAccountData" class="modify">Modifica</button></a>
-	<div class="alert"></div>
 </section>

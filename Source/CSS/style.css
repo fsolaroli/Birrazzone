@@ -48,6 +48,8 @@ table {
 }
 
 /*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
 @font-face {
 	font-family: "GermaniaOne";
@@ -62,6 +64,31 @@ html {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+ul {
+	list-style: none;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+:focus {
+	outline: none;
+}
+
+a {
+	display: block;
+	color: #084E80;
+}
+
+a:visited {
+	color: #084E80;
+}
+
+/* ----------------------------------------------- */
+/* h */
+/* ----------------------------------------------- */
+
 h1, h2, h3 {
 	font-family: "GermaniaOne";
 }
@@ -75,7 +102,7 @@ h1 {
 
 h2 {
 	font-size: 25pt;
-	margin: 15px 0 0 0;
+	margin: 15px 0 5px 0;
 	text-align: left;
 }
 
@@ -83,20 +110,11 @@ h3 {
 	font-size: 15pt;
 }
 
-ul {
-	list-style: none;
-}
+/* ----------------------------------------------- */
+/* Element border styling */
+/* ----------------------------------------------- */
 
-.hidden {
-	visibility: hidden;
-}
-
-form > ul > li > input {
-	border-width: 0;
-	width: 98%;
-}
-
-img, .product, button, li.input, input[type="submit"], input[type="file"] {
+img, .product, .sellerProduct, button, li.input, input[type="submit"], input[type="file"], input[type="checkbox"] {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
@@ -106,7 +124,11 @@ img, .product, button, li.input, input[type="submit"], input[type="file"] {
 
 .product, button, input {
 	font-size: 13pt;
-	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+
+button {
+	padding: 2px 15px;
 }
 
 button, input[type="submit"] {
@@ -119,22 +141,148 @@ button:hover, input[type="submit"]:hover {
 	color: white;
 }
 
+/* button delete */
+
 button.delete {
-	margin: 40px 0 0 0;
+	/* margin: 40px 0 0 0; */
 	font-weight: bold;
+	font-size: 15pt;
 	color: red;
+	width: fit-content;
+	align-self: center;
 }
 
 button.delete:hover {
+	background-color: red;
+	color: white;
+}
+
+/* ----------------------------------------------- */
+/* Div errors */
+/* ----------------------------------------------- */
+
+div.errors {
+	font-weight: bolder;
+	font-size: 15pt;
 	color: red;
+	margin: 20px 0;
 }
 
-:focus {
-	outline: none;
+div.errors > p {
+	margin-top: 5px;
 }
 
-a {
+/* ----------------------------------------------- */
+/* Form */
+/* ----------------------------------------------- */
+
+form > ul {
 	display: block;
+}
+
+form > ul > li.submit {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	
+	margin: 15px 0 0 0;
+}
+
+form > ul > li.photoInput {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+form > ul > li.label {
+	margin: 10px 0 5px 0;
+}
+
+form > ul > li.input {
+	padding: 3px;
+}
+
+form > ul > li.checkbox {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+}
+
+form > ul > li.modify {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	margin: 15px 0 0 0;
+}
+
+form > ul > li.checkbox > label {
+	margin: 0 0 0 10px;
+}
+
+form > ul > li > img {
+	width: 50%;
+	height: 100%;
+}
+
+form > ul > li > input {
+	border-width: 0;
+	border-radius: 0;
+	padding: 0;
+	
+	width: 95%;
+}
+
+form > ul > li > input[name="remove"] {
+	border-color: red;
+}
+form > ul > li > input[name="remove"]:hover {
+	background-color: red;
+	color: white;
+}
+
+form > ul > li > input[name="add"] {
+	border-color: green;
+}
+form > ul > li > input[name="add"]:hover {
+	background-color: green;
+	color: white;
+}
+
+form > ul > li > input[type="submit"] {
+	width: auto;
+	border-radius: 30px;
+	padding: 2px 20px;
+}
+
+form > ul > li > input[type="checkbox"] {
+	width: auto;
+}
+
+form > ul > li > textarea[name="description"] {
+	resize: none;
+	
+	width: 95%;
+	height: 100px;
+	
+	padding: 5px;
+	margin: 5px;
+	border-width: 0;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13pt;
+}
+
+form > ul > li > input[type="file"] {
+	align-self: center;
+	height: fit-content;
+	width: fit-content;
+}
+
+form > ul > li > input[type="file"]::-webkit-file-upload-button {
+	border: inherit;
+	border-width: 0 2px 0 0;
+	background-color: inherit;
 }
 
 /* ----------------------------------------------- */
@@ -325,7 +473,7 @@ main > section {
 	
 	width: 90%;
 
-	margin: 10px 0;
+	margin: 15px 0;
 }
 
 a.show {
@@ -390,85 +538,41 @@ main > section > a {
 	align-self: flex-end;
 }
 
-div.delete {
-	position: fixed;
-	
-	top: 45pt;
-	bottom: 0pt;
-	right: 0;
-	left: 0;
-	
-	background-color: white;
-	text-align: center;
-
-
-}
-
-div.delete > h2 {
-	text-align: center;
-}
-
-button.modify {
-	margin: 10px 0 0 0;
-}
-
-/* ----------------------------------------------- */
-/* Form */
-/* ----------------------------------------------- */
-
-form > ul > li > input, form > ul > li > label {
-	/* width: 100%; */
-	border-radius: 8px;
-}
-
-form > ul > li.submit {
-	margin: 15px 0 0 0;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
-}
-
-form > ul > li.photoInput {
+div.sellerProduct {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-}
-
-form > ul > li > input[type="submit"] {
-	width: auto;
+	align-items: center;
+	
+	margin: 7px 0;
+	padding: 5px;	
 	border-radius: 30px;
-}
-
-form > ul > li > img {
-	width: 50%;
-}
-
-form > ul > li > textarea[name="description"] {
-	resize: none;
 	
-	width: 95%;
-	height: 100px;
-	
-	padding: 5px;
-	margin: 5px;
-	border-width: 0;
-
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13pt;
+	text-align: center;
 }
 
-ul > li.label {
-	margin: 10px 0 5px 0;
+div.sellerProduct > p:nth-of-type(2) > span:nth-of-type(2).attention {
+	color: red;
 }
 
-input[type="file"] {
-	align-self: center;
-	height: fit-content;
-	width: fit-content;
+/* ----------------------------------------------- */
+/* Other */
+/* ----------------------------------------------- */
+
+ul {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
-input[type="file"]::-webkit-file-upload-button {
-	border: inherit;
-	border-width: 0 2px 0 0;
-	background-color: inherit;
+ul > li > a {
+	margin-bottom: 20px;
+}
+
+ul {
+	margin: 10px 0;
+}
+
+section > p {
+	margin: 10px 0;
 }

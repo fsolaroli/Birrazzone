@@ -27,22 +27,18 @@
 	<p id="disponibilita">Disponibilità: <?php echo $productData["Quantita"] ?></p>
 	<form onsubmit="return false;">
 		<ul>
-			<li>
+			<li class="label">
 				<label for="changeQuantity">Modifica disponibilità
 				<input type="number" name="changeQuantity" value="1" min="1" autocomplete="off"/>
 				</label>
 			</li>
 
-			<li><input type="submit" name="add" value="Aggiungi"/></li>
-			<li><input type="submit" name="remove" value="Rimuovi"/></li>
+			<li class="modify"><input type="submit" name="remove" value="Rimuovi"/><input type="submit" name="add" value="Aggiungi"/></li>
 		</ul>
 	</form>
 	<p>Nº vendute: <?php echo $dbh->getNumberOfBeerSold($productData["IdBirra"]) ?></p>
 </section>
 <section>
 	<button id="deleteProduct" class="delete">Elimina prodotto</button>
+	<button id="deleteProductConfermation" class="delete" hidden>Conferma eliminazione birra</button>
 </section>
-<div class="delete" hidden>
-	<h2>Elimina birra</h2>
-	<button id="deleteProductConfermation" class="delete">Conferma eliminazione birra</button>
-</div>
