@@ -203,6 +203,14 @@ form > ul > li.checkbox {
 	justify-content: flex-end;
 }
 
+form > ul > li.modify {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	margin: 15px 0 0 0;
+}
+
 form > ul > li.checkbox > label {
 	margin: 0 0 0 10px;
 }
@@ -218,6 +226,22 @@ form > ul > li > input {
 	padding: 0;
 	
 	width: 95%;
+}
+
+form > ul > li > input[name="remove"] {
+	border-color: red;
+}
+form > ul > li > input[name="remove"]:hover {
+	background-color: red;
+	color: white;
+}
+
+form > ul > li > input[name="add"] {
+	border-color: green;
+}
+form > ul > li > input[name="add"]:hover {
+	background-color: green;
+	color: white;
 }
 
 form > ul > li > input[type="submit"] {
@@ -562,6 +586,10 @@ ul > li > a {
 	margin-bottom: 20px;
 }
 
+ul {
+	margin: 10px 0;
+}
+
 section > p {
-	margin: 5px 0;
+	margin: 10px 0;
 }
