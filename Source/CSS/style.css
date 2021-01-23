@@ -123,7 +123,11 @@ img, .products > li, .sellerProducts > li, button, li.input, input[type="submit"
 	border-color: #084E80;
 }
 
-.product, button, input {
+/* ----------------------------------------------- */
+/* Buttons/inputs styling */
+/* ----------------------------------------------- */
+
+button, input {
 	font-size: 13pt;
 	margin: 0;
 }
@@ -141,8 +145,6 @@ button:hover, input[type="submit"]:hover {
 	background-color: #084E80;
 	color: white;
 }
-
-/* button delete */
 
 button.delete {
 	margin: 5px 0;
@@ -162,7 +164,6 @@ button.delete:disabled, button.delete:disabled:hover {
 	background-color: grey;
 	color: white;
 }
-
 
 /* ----------------------------------------------- */
 /* Div errors */
@@ -587,13 +588,7 @@ ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) > span:nth-of-type
 
 /* ----------------------------------------------- */
 /* Other */
-/* ----------------------------------------------- */
-
-/* ul {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-} */
+/* ----------------------------------------------- */w
 
 ul > li > a {
 	margin-bottom: 20px;
