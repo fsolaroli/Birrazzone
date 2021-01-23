@@ -7,7 +7,7 @@ $(function() {
 		
 		let ManageLogin = function (data) {
 			if (data[0] != null) {
-				$(".error").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
+				$(".errors").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
 			} else {
 				if (data[1] === "u") {
 					window.location = "../UserProfile/userNotifications.php";

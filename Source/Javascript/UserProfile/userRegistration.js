@@ -10,14 +10,14 @@ $(function() {
 
 		let ManageRegistration = function(errors) {
 			if(errors!=null) {
-				$(".errori").html("")
+				$(".errors").html("")
 				$.each(errors, function (i, val) { 
-					$(".errori").append("<p><strong>"+val+"</strong></p>");	 
+					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
 				$("main").html(`
 				<h1>Ti sei registrato con successo! Benvenuto su Birrazzone!</h1>
-				<form action="home.php">
+				<form action="../Home/home.php">
 					<input type="submit" value="Vai alla home" />
 				</form>`);
 			}

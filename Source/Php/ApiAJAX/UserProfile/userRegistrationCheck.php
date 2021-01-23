@@ -17,7 +17,7 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pw"]) && iss
 		$errors[2] = "Attenzione: la password non è stata confermata correttamente";
 	}
 
-	if(strcmp($_POST["confirmage"], "confirm-adult-age") !== 0) {
+	if($_POST["confirmage"] != "confirm-adult-age") {
 		$errors[3] = "Attenzione: devi confermare di essere maggiorenne per poterti registrare";
 	}
 
