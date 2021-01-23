@@ -62,6 +62,7 @@ table {
 
 html {
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
 }
 
 ul {
@@ -114,7 +115,7 @@ h3 {
 /* Element border styling */
 /* ----------------------------------------------- */
 
-img, .product, .sellerProduct, button, li.input, input[type="submit"], input[type="file"], input[type="checkbox"] {
+img, .products > li, .sellerProducts > li, button, li.input, input[type="submit"], input[type="file"], input[type="checkbox"] {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
@@ -146,7 +147,7 @@ button:hover, input[type="submit"]:hover {
 button.delete {
 	margin: 5px 0;
 	font-weight: bold;
-	font-size: 15pt;
+	font-size: 18pt;
 	color: red;
 	width: fit-content;
 	align-self: center;
@@ -495,44 +496,55 @@ main > section > img {
 	margin: 15px 0;
 }
 
-.product {
+ul.products > li {
+	margin: 7px 0;
+	padding: 5px;
+
+	border-radius: 15px;
+}
+
+ul.products > li {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	margin: 7px 0;
+	
 	text-align: center;
-	padding: 5px;
 }
 
-.product:hover {
+ul.products > li:hover {
 	background-color: #e4e2e2c6;
+	cursor: pointer;
 }
 
-.product > img {
+ul.products > li > img {
 	width: 20%;
 }
 
-div.productInfo {
+ul.products > li > div.productInfo {
 	max-width: 50%;
 	word-wrap: break-word;
 }
 
-.product > div.productInfo > ul > li:first-of-type {
+ul.products > li > div.productInfo > ul {
+	margin: 0;
+}
+
+ul.products > li > div.productInfo > ul > li:first-of-type {
 	font-size: 5vw;
 }
 
-.product > div.productInfo > ul > li:nth-of-type(3) {
+ul.products > li > div.productInfo > ul > li:nth-of-type(3) {
 	margin: 10px 0 0 0;
 	font-size: 15pt;
 }
 
-.product > div.productData {
+ul.products > li > div.productData {
 	max-width: 30%;
 	word-wrap: break-word;
 }
 
-.product > div.productData > ul > li {
+ul.products > li > div.productData > ul > li {
 	margin: 0 0 5px 0;
 }
 
@@ -544,20 +556,28 @@ main > section > a {
 	align-self: flex-end;
 }
 
-div.sellerProduct {
+ul.sellerProducts {
+	display: block;
+}
+
+ul.sellerProducts > li {
+	margin: 7px 0;
+	padding: 5px;	
+	border-radius: 30px;
+}
+
+ul.sellerProducts > li > div {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	
-	margin: 7px 0;
-	padding: 5px;	
-	border-radius: 30px;
-	
+
+	font-size: 14pt;
+
 	text-align: center;
 }
 
-div.sellerProduct > p:nth-of-type(2) > span:nth-of-type(2).attention {
+ul.sellerProducts > li > div > p:nth-of-type(2) > span:nth-of-type(2).attention {
 	color: red;
 }
 
