@@ -12,22 +12,24 @@
 	<form onsubmit="return false;">
 		<input type="hidden" name="productId" value="<?php echo $_GET["productId"] ?>">
 		<ul>
-			<li><label for="image">Foto</label></li>
-			<li>
+			<li class="label"><label for="image">Foto</label></li>
+			<li class="photoInput">
 				<img src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"]; ?>" alt="" width="300px"/>
 				<input type="file" name="image" accept=".jpeg, .jpg, .png" multiple="false"/>
 			</li>
-			<li><div class="imageErrors"></div></li>
+			<li class="input" hidden><div class="imageErrors"></div></li>
 	
-			<li><label for="price">Prezzo</label></li>
-			<li><input type="number" name="price" value="<?php echo $productData["Prezzo"] ?>" autocomplete="off"/></li>
+			<li class="label"><label for="price">Prezzo</label></li>
+			<li class="input"><input type="number" name="price" value="<?php echo $productData["Prezzo"] ?>" autocomplete="off"/></li>
 	
-			<li><label for="description">Descrizione:</label></li>
-			<li><input type="text" name="description" value="<?php echo $productData["DescrizioneBirra"] ?>" autocomplete="off"/></li>
-	
-			<li><input type="submit" name="update" value="Aggiorna"/></li>
+			<li class="label"><label for="description">Descrizione:</label></li>
+			<li class="input"><textarea name="description"><?php echo $productData["DescrizioneBirra"] ?></textarea></li>
+
+			<li class="submit">
+				<input type="submit" name="update" value="Aggiorna"/>
+				<input type="submit" name="cancel" value="Annulla"/>
+			</li>
 		</ul>	
 	</form>
-	<a href="productPage.php?productId=<?php echo $productData["IdBirra"] ?>"><button>Annulla</button></a>
 </section>
 <div class="errori"></div>

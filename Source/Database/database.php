@@ -229,8 +229,12 @@ class DatabaseHelper{
 	
 	public function checkSellerLogin($email, $password) {
 		$stmt = $this->db->prepare ("	SELECT Birrificio.IdBirrificio FROM Birrificio
+										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
 										WHERE Birrificio.EmailBirrificio=?
-										AND Birrificio.PasswordBirrificio=?");
+										AND Birrificio.PasswordBirrificio=?
+										AND SMB.IdStatoMembership=4
+										AND SMB.DaData <= NOW()
+										AND SMB.AData > NOW()");
 		$stmt->bind_param('ss',$email, $password);
 		$stmt->execute();
 		$result = $stmt->get_result();		

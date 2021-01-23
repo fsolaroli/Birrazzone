@@ -7,7 +7,7 @@ $(function() {
 		let PostData = {
 			location: $("input[name='location']").val(),
 			imagePath: $("form > ul > li > img").attr("src"),
-			description: $("input[name='description']").val(),
+			description: $("textarea[name='description']").val(),
 		}
 		let PostFunction = function(errors) {
 			if(errors!=null) {
@@ -20,5 +20,9 @@ $(function() {
 			}
 		}
 		$.post(	"../../ApiAJAX/SellerProfile/modifySellerProfileData.php", PostData, PostFunction, "json");
+	});
+	
+	$(":submit[name='cancel']").click(function (e) { 
+		window.location="SellerAccountData.php"
 	});
 });

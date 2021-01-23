@@ -17,20 +17,20 @@ if(empty($sellerData)){
 	<form onsubmit="return false;">
 		<input type="hidden" name="sellerId" value="<?php echo $sellerData["IdBirrificio"] ?>">
 		<ul>
-			<li><label for="sellerName">Ragione Sociale:</label></li>
-			<li><input type="text" name="sellerName" value="<?php echo $sellerData["NomeBirrificio"] ?>" readonly/></li>
+			<li class="label"><label for="sellerName">Ragione Sociale:</label></li>
+			<li class="input"><input type="text" name="sellerName" value="<?php echo $sellerData["NomeBirrificio"] ?>" readonly/></li>
 			
-			<li><label for="email">Email:</label></li>
-			<li><input type="text" name="email" value="<?php echo $sellerData["EmailBirrificio"] ?>" readonly autocomplete="username"/></li>
+			<li class="label"><label for="email">Email:</label></li>
+			<li class="input"><input type="text" name="email" value="<?php echo $sellerData["EmailBirrificio"] ?>" readonly autocomplete="username"/></li>
 			
-			<li><label for="IVA">Ragione Sociale:</label></li>
-			<li><input type="text" name="IVA" value="<?php echo $sellerData["PartitaIVA"] ?>" readonly/></li>
+			<li class="label"><label for="IVA">Ragione Sociale:</label></li>
+			<li class="input"><input type="text" name="IVA" value="<?php echo $sellerData["PartitaIVA"] ?>" readonly/></li>
 	
-			<li><label for="password">Password:</label></li>
-			<li><input type="password" name="password" autocomplete="new-password"/></li>
+			<li class="label"><label for="password">Password:</label></li>
+			<li class="input"><input type="password" name="password" autocomplete="new-password"/></li>
 	
-			<li><label for="passwordConfermation">Conferma Password:</label></li>
-			<li><input type="password" name="passwordConfermation" autocomplete="new-password"/></li>
+			<li class="label"><label for="passwordConfermation">Conferma Password:</label></li>
+			<li class="input"><input type="password" name="passwordConfermation" autocomplete="new-password"/></li>
 	
 			<li><input type="submit" value="Attiva account"/></li>
 		</ul>

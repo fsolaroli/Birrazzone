@@ -2,10 +2,27 @@
 
 require_once("../../Site/baseConfiguration.php");
 
-//TODO: deve controllare che email e password coincidano, in caso contrario
-//		spacca tutto e tira un errore
-//		COME SE NON CI FOSSE UN DOMANI
-//		T A S S E
 if(isset($_POST["email"]) && isset($_POST["pw"])) {
+	$possibleSeller = $dbh->checkSellerLogin($_POST["email"], $_POST["pw"]);
+	$possibleUser = $dbh->checkUserLogin($_POST["email"], $_POST["pw"]);
+	$accountType = null;
+	$error = null;
 
+	if(!empty($possibleSeller) || !empty($possibleUser)) {
+
+		if(!empty($possibleSeller)) {
+			registerLoggedSeller($possibleSeller[0]["IdBirrificio"]);
+			$accountType = "s";
+		} else {
+			registerLoggedUser($possibleUser[0]["IdUtente"]);
+			$accountType = "u";
+		}
+	} else {
+		$error = true;
+	}
+
+	$data = array($error, $accountType);
+	echo json_encode($data);
 }
+
+?>

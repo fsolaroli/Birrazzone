@@ -9,25 +9,29 @@
 	<form onsubmit="return false;">
 		<!-- <input type="hidden" name="sellerId" value="<?php echo $sellerData["IdBirrificio"] ?>"> -->
 		<ul>
-			<li><label for="sellerName">Ragione Sociale:</label></li>
-			<li><input type="text" name="sellerName" value="<?php echo $sellerData["NomeBirrificio"] ?>" autocomplete="organization"/></li>
+			<li class="label"><label for="sellerName">Ragione Sociale:</label></li>
+			<li class="input"><input type="text" name="sellerName" value="<?php echo $sellerData["NomeBirrificio"] ?>" autocomplete="organization"/></li>
 			
-			<li><label for="email">Email:</label></li>
-			<li><input type="text" name="email" value="<?php echo $sellerData["EmailBirrificio"] ?>" autocomplete="email"/></li>
+			<li class="label"><label for="email">Email:</label></li>
+			<li class="input"><input type="text" name="email" value="<?php echo $sellerData["EmailBirrificio"] ?>" autocomplete="email"/></li>
 			
-			<li><label for="IVA">Partita IVA:</label></li>
-			<li><input type="text" name="IVA" value="<?php echo $sellerData["PartitaIVA"] ?>" autocomplete="off"/></li>
+			<li class="label"><label for="IVA">Partita IVA:</label></li>
+			<li class="input"><input type="text" name="IVA" value="<?php echo $sellerData["PartitaIVA"] ?>" autocomplete="off"/></li>
 	
-			<li><label for="password">Password:</label></li>
-			<li><input type="password" name="password" value="<?php echo $sellerData["PasswordBirrificio"]?>" autocomplete="new-password"/></li>
+			<li class="label"><label for="password">Password:</label></li>
+			<li class="input"><input type="password" name="password" value="<?php echo $sellerData["PasswordBirrificio"]?>" autocomplete="new-password"/></li>
 	
-			<li><label for="passwordConfermation">Conferma Password:</label></li>
-			<li><input type="password" name="passwordConfermation" value="<?php echo $sellerData["PasswordBirrificio"]?>" autocomplete="new-password"/></li>
+			<li class="label"><label for="passwordConfermation">Conferma Password:</label></li>
+			<li class="input"><input type="password" name="passwordConfermation" value="<?php echo $sellerData["PasswordBirrificio"]?>" autocomplete="new-password"/></li>
 	
-			<li><input type="submit" name="update" value="Aggiorna"/></li>
+			<li class="submit">
+				<input type="submit" name="update" value="Aggiorna"/>
+				<input type="submit" name="cancel" value="Annulla"/>
+				<!-- <a href="sellerAccountData.php"><button>Annulla</button></a> -->
+			</li>
 	
 		</ul>
 	</form>
-	<a href="sellerAccountData.php"><button>Annulla</button></a>
+	
 </section>
 <div class="errori"></div>

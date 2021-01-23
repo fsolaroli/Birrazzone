@@ -19,4 +19,8 @@ $(function() {
 		}
 		$.post(	"../../ApiAJAX/SellerProfile/modifySellerAccountData.php", PostData, PostFunction, "json");
 	});
+
+	$(":submit[name='cancel']").click(function (e) { 
+		window.location="SellerAccountData.php"
+	});
 });
