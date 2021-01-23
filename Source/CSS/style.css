@@ -607,6 +607,7 @@ ul {
 	margin: 10px 0;
 }
 
-section > p {
-	margin: 10px 0;
+section > div.registration {
+	margin-bottom: 30px;
+	text-align: center;
 }
