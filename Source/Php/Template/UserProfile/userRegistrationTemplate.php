@@ -15,8 +15,7 @@
 			<li class="label"><Label for="confirmpw">Conferma password</Label></li>
 			<li class="input"><input type="password" name="confirmpw" autocomplete="password-confirmation" required="true" /></li>
 
-			<li class="label"><Label for="adultconfirmation">Confermo di essere maggiorenne</Label></li>
-			<li class="input"><input type="checkbox" name="adultconfirmation" value="confirm-adult-age" /></li>
+			<li class="label checkbox"><Label for="adultconfirmation">Confermo di essere maggiorenne</Label><input type="checkbox" name="adultconfirmation" value="confirm-adult-age" /></li>
 
 			<li class="submit"><input type="submit" value="Registrati" /></li>
 		</ul>
