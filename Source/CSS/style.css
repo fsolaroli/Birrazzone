@@ -490,7 +490,7 @@ a.show {
 	color: #084E80;
 }
 
-main > section > img {
+main > section > ul > li > img {
 	display: block;
 	width: 100%;
 	margin: 15px 0;
@@ -589,14 +589,18 @@ ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) > span:nth-of-type
 /* Other */
 /* ----------------------------------------------- */
 
-ul {
+/* ul {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-}
+} */
 
 ul > li > a {
 	margin-bottom: 20px;
+}
+
+ul > li {
+	margin-bottom: 15px;
 }
 
 ul {

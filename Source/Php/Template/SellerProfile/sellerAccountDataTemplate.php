@@ -5,9 +5,11 @@
 
 <section>
 	<h2>Dati account</h2>
-	<p> <?php echo $sellerData["NomeBirrificio"] ?></p>
-	<p> <?php echo $sellerData["EmailBirrificio"] ?></p>
-	<p> P.IVA: <?php echo $sellerData["PartitaIVA"] ?></p>
+	<ul>
+		<li><?php echo $sellerData["NomeBirrificio"] ?></li>
+		<li><?php echo $sellerData["EmailBirrificio"] ?></li>
+		<li>P.IVA: <?php echo $sellerData["PartitaIVA"] ?></li>
+	</ul>
 	<a href="modifySellerAccountData.php"><button class="modify">Modifica</button></a>
 </section>
 <section>
