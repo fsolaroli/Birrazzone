@@ -756,6 +756,34 @@ class DatabaseHelper{
 		$stmt->bind_param('s',$this->DistantFuture);
 		return $stmt->execute();
 	}
+
+	public function addSellerNotification($SellerId, $NotificationType, $Title, $Body) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Notifica	(
+																			IdBirrificio,
+																			TipologiaNotifica,
+																			Oggetto,
+																			Corpo,
+																			DataNotifica,
+																			DataLettura
+																		)
+																values	(?, ?, ?, ?, NOW(), ?)");
+		$stmt->bind_param('iisss',$SellerId, $NotificationType, $Title, $Body, $this->DistantFuture);
+		return $stmt->execute();	
+	}
+
+	public function addUserNotification($UserId, $NotificationType, $Title, $Body) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Notifica	(
+																			IdUtente,
+																			TipologiaNotifica,
+																			Oggetto,
+																			Corpo,
+																			DataNotifica,
+																			DataLettura
+																		)
+																values	(?, ?, ?, ?, NOW(), ?)");
+		$stmt->bind_param('iisss',$UserId, $NotificationType, $Title, $Body, $this->DistantFuture);
+		return $stmt->execute();	
+	}
 }
 	
 ?>
