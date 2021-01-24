@@ -19,8 +19,10 @@
 				<li class="label"><Label for="address">CAP:</Label></li>
 				<li class="input"><input type="text" name="CAP" required="true" /></li>
 			
-				<li class="submit"><input type="submit" name="undo" value="Annulla" /></li>
-				<li class="submit"><input type="submit" name="update" value="Aggiungi" /></li>			
+				<li class="submit">
+					<input type="submit" name="update" value="Aggiorna" />
+					<input type="submit" name="undo" value="Annulla" />
+				</li>			
 			</ul>
 			
 		<?php endif; ?>
@@ -40,8 +42,10 @@
 				<li class="label"><Label for="address">CAP:</Label></li>
 				<li class="input"><input type="text" name="CAP" value="<?php echo $userAddress[0]["CAP"]; ?>" required="true" /></li>
 			
-				<li class="submit"><input type="submit" name="undo" value="Annulla" /></li>
-				<li class="submit"><input type="submit" name="update" value="Aggiorna" /></li>
+				<li class="submit">
+					<input type="submit" name="update" value="Aggiorna" />
+					<input type="submit" name="undo" value="Annulla" />
+				</li>
 			</ul>
 			
 		<?php endif; ?>

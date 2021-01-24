@@ -18,8 +18,10 @@
 			<li class="label"><Label for="confirmpw">Conferma password</Label></li>
 			<li class="input"><input type="password" name="confirmpw" value="<?php echo $userInfo[0]["PasswordUtente"]; ?>" autocomplete="new-password-confirmation" required="true" /></li>
 
-			<li class="submit"><input type="submit" name="undo" value="Annulla" /></li>
-			<li class="submit"><input type="submit" name="update" value="Aggiorna" /></li>
+			<li class="submit">
+				<input type="submit" name="update" value="Aggiorna" />
+				<input type="submit" name="undo" value="Annulla" />
+			</li>
 		</ul>
 	</form>
 </section>
