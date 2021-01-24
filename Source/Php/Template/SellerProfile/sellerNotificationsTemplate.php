@@ -12,19 +12,11 @@
 
 	<?php if (!empty($sellerNotification)): ?>
 		<ul class="notifications">
-			<?php foreach ($sellerNotification as $notification): ?>
-				<li id="<?php echo $notification["IdNotifica"]; ?>">
-					<div>
-						<p><?php echo $notification["Oggetto"]; ?></p>
-						<img src="<?php echo "../../../../Immagini/Icone/Expand.png" ?>" alt="expande <?php echo $notification["IdNotifica"]; ?>">
-						<img src="<?php echo "../../../../Immagini/Icone/Collapse.png" ?>" alt="collapse <?php echo $notification["IdNotifica"]; ?>" hidden>
-					</div>
-					<div hidden>
-						<p><?php echo $notification["Corpo"]; ?></p>
-						<button id="read <?php echo $notification["IdNotifica"]; ?>">Leggi</button>
-					</div>
-				</li>
-			<?php endforeach; ?>
+			<?php
+			foreach ($sellerNotification as $notification) {
+				drawNotification($notification);
+			}
+			?>
 		</ul>
 	<?php endif; ?>
 </section>

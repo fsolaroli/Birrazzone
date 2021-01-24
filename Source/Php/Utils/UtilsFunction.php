@@ -128,4 +128,20 @@ function uploadImage($path, $image){
     return array("Name" => $imageName, "Errors" => $errors);
 }
 
+function drawNotification($notification) {
+	echo "
+		<li id='".$notification["IdNotifica"]."'>
+			<div>
+				<p>".$notification["Oggetto"]."</p>
+				<img src='../../../../Immagini/Icone/Expand.png' alt='expande ".$notification["IdNotifica"]."'/>
+				<img src='../../../../Immagini/Icone/Collapse.png' alt='collapse ".$notification["IdNotifica"]."' hidden/>
+			</div>
+			<div hidden>
+				<p>".$notification["Corpo"]."</p>
+				<button id='read ".$notification["IdNotifica"]."'>Leggi</button>
+			</div>
+		</li>
+	";
+}
+
 ?>
