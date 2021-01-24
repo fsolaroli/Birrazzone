@@ -10,6 +10,7 @@ function generateBrewery(dataBrewery){
 	}
 	return list;
 }
+
 $(document).ready(function(){
 	$.getJSON("../../ApiAJAX/AdminProfile/api-breweries.php", function(data){
 		let brewery = "";
@@ -18,6 +19,6 @@ $(document).ready(function(){
 		}else{
 			brewery = generateBrewery(data);
 		}
-		$("#brewerylist").append(brewery);
+		$("ul#brewerylist").append(brewery);
 	});
 });

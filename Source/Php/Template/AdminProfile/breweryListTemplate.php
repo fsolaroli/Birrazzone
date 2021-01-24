@@ -1,5 +1,8 @@
+<header>
+	<h1>Amministratore</h1>
+</header>
 <section> 
-	<h1>Birrifici</h1>
+	<h2>Birrifici</h2>
 	<ul id="brewerylist">
 	</ul>
 </section>
