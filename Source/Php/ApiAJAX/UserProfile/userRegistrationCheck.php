@@ -21,8 +21,8 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pw"]) && iss
 		$errors[3] = "DEVI CONFERMARE DI ESSERE MAGGIORENNE PER POTERTI REGISTRARE";
 	}
 
-	if(strlen($_POST["name"]) > 50) {
-		$errors[4] = "IL CAMPO 'NOME' DEVE ESSERE LUNGO MASSIMO 50 CARATTERI";
+	if(!checkNameValidity($_POST["name"])) {
+		$errors[4] = "IL CAMPO 'NOME' DEVE ESSERE LUNGO MASSIMO 30 CARATTERI";
 	}
 
 	if(!isset($errors)) {

@@ -18,8 +18,8 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pw"]) && iss
 		$errors[2] = "LA PASSWORD NON È STATA CONFERMATA CORRETTAMENTE";
 	}
 
-	if(strlen($_POST["name"]) > 50) {
-		$errors[3] = "IL CAMPO 'NOME' DEVE ESSERE LUNGO MASSIMO 50 CARATTERI";
+	if(!checkNameValidity($_POST["name"])) {
+		$errors[3] = "IL CAMPO 'NOME' DEVE ESSERE LUNGO MASSIMO 30 CARATTERI";
 	}
 
 	if(!isset($errors)) {

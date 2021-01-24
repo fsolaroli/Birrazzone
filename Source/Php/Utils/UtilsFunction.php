@@ -14,7 +14,7 @@ function checkEmailValidity($email, $userId=-1, $sellerId=-1) {
 	} else {
 		$userEmail = "";
 	}
-	if (strlen($email) > 50 && (filter_var($email, FILTER_VALIDATE_EMAIL)===false || in_array($email, array_diff($dbh->getUsedEmail(), array($sellerEmail, $userEmail))))) {
+	if ((strlen($email) > 50 || strlen($email) == 0) || (filter_var($email, FILTER_VALIDATE_EMAIL)===false || in_array($email, array_diff($dbh->getUsedEmail(), array($sellerEmail, $userEmail))))) {
 		return false;
 	} else {
 		return true;
@@ -38,6 +38,10 @@ function checkIVAValidity($IVA, $sellerId=0) {
 
 function checkPasswordValidity($password) {
 	return strlen($password) >= 8 && strlen($password) <= 32;
+}
+
+function checkNameValidity($name) {
+	return strlen($name) > 0 && strlen($name) <= 30;
 }
 
 function registerLoggedSeller($sellerId){
