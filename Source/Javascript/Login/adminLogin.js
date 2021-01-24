@@ -9,7 +9,7 @@ $(function() {
 			if (data != null) {
 				$(".error").html("<p><strong>Attenzione, e-mail o password errati</strong></p>");
 			} else {
-				window.location = "../AdminPage/adminPage.php";
+				window.location = "../AdminProfile/breweryList.php";
 			}
 		}
 
