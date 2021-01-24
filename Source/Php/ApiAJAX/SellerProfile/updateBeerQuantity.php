@@ -8,7 +8,12 @@ if (isSellerLoggedIn()) {
 			if ($_POST["method"] == "add") {
 				$quantity = abs($_POST["quantity"]);
 			} else if ($_POST["method"] == "remove") {
-				$quantity = -abs($_POST["quantity"]);
+				$quantityLeft = $dbh->getBeerQuantity($_POST["productId"]);
+				if(abs($_POST["quantity"]) > $quantityLeft) {
+					$quantity = -$quantityLeft;
+				} else {
+					$quantity = -abs($_POST["quantity"]);
+				}
 			} else {
 				$quantity = 0;
 			}

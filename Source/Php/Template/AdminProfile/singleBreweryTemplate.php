@@ -1,17 +1,18 @@
 <header>
 	<h1>Amministratore</h1>
 </header>
+<p id="breweryId" hidden> <?php echo $templateParams["birrificio"]["IdBirra"]; ?></p>
 <section>
 	<h2>Dati Account</h2>
 	<ul>
 		<li>
-			Ragione Sociale: <?php $templateParams["birrificio"]["nomebirrificio"] ?>
+			Ragione Sociale: <?php echo $templateParams["birrificio"]["NomeBirrificio"]; ?>
 		</li>
 		<li>
-			Email: <?php $templateParams["birrificio"]["emailbirrificio"]?>
+			Email: <?php echo $templateParams["birrificio"]["EmailBirrificio"];?>
 		</li>
 		<li>
-			P.IVA: <?php $templateParams["birrificio"]["partitaiva"]?>
+			P.IVA: <?php echo $templateParams["birrificio"]["PartitaIva"];?>
 		</li>
 	</ul>
 </section>
@@ -19,23 +20,26 @@
 	<h2>Dati Account</h2>
 	<ul>
 		<li>
-			Località: <?php $templateParams["birrificio"]["localita"]?>
+			Località: <?php echo $templateParams["birrificio"]["Localita"];?>
 		</li>
 		<li>
-			<?php $templateParams["birrificio"]["fotobirrificio"]?>
+			<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$templateParams["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 		</li>
 		<li>
-			<?php $templateParams["birrificio"]["descrizionebirrificio"]?>
+			Descrizione: <?php echo $templateParams["birrificio"]["DescrizioneBirrificio"];?>
 		</li>
 	</ul>
 </section>
 <section>
 	<h2>Prodotti</h2>
-	<ul class="scroll">
+	<ul>
+		<?php foreach($templateParams["birre"] as $birra): ?>
+			<li>
+			 	<?php echo $birra["NomeBirra"]?>  <button><a href="singleProduct.php?id=<?php echo $birra["IdBirra"] ?>">Visualizza</a></button>
+			</li>
+		<?php endforeach; ?>
 	</ul>
 </section>
 <section>
-	<button>
-		<a href="">Elimina Birrificio</a>
-	</button>
+	<a href="deleteBrewery.php"><button id="deletebrewery" class="delete">Elimina Birrificio</button></a>
 </section>

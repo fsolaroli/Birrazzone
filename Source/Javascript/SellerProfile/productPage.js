@@ -1,12 +1,12 @@
 function updateBeerQuantity(method) {
 	let PostData = {
-		productId: $("p#productId").text(),
+		productId: $("#productId").text(),
 		quantity: $(":input[type='number']").val(),
 		method: method
 	}
 	$.post("../../ApiAJAX/SellerProfile/updateBeerQuantity.php", PostData,
 		function (quantity) {
-			$("#disponibilita").text("Disponibilità: " + quantity);	
+			$("#disponibilita").text("Disponibilità: " + quantity);
 		},
 		"json"
 	);

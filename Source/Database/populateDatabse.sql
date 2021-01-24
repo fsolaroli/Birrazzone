@@ -146,7 +146,7 @@ insert into birrazzone.Movimento	(
 										1,
 										1,
 										'2020-12-28 13:00:00',
-										20,
+										-20,
 										1
 									);
 
@@ -198,7 +198,7 @@ insert into birrazzone.Movimento	(
 										2,
 										1,
 										'2020-12-28 15:00:00',
-										5,
+										-5,
 										1
 									);
 
@@ -224,7 +224,7 @@ insert into birrazzone.Movimento	(
 										3,
 										1,
 										'2020-12-28 15:10:00',
-										1,
+										-1,
 										1
 									);
 
@@ -250,7 +250,7 @@ insert into birrazzone.Movimento	(
 										4,
 										1,
 										'2020-12-28 15:15:00',
-										10,
+										-10,
 										1
 									);
 
@@ -274,7 +274,7 @@ insert into birrazzone.Movimento	(
 										5,
 										1,
 										'2020-12-28 15:15:00',
-										10,
+										-10,
 										1
 									);
 
