@@ -471,6 +471,27 @@ body > aside button:hover {
 }
 
 /* ----------------------------------------------- */
+/* Notification */
+/* ----------------------------------------------- */
+
+header img[alt="Notification"] {
+	width: 15px;
+}
+
+header img#Global[alt="Notification"] {
+	position: absolute;
+	left: 38px;
+	top: 3px;
+}
+
+header img#Profile[alt="Notification"] {
+	position: absolute;
+	right: 15px;
+	top: 3px;
+}
+
+
+/* ----------------------------------------------- */
 /* SellerPage */
 /* ----------------------------------------------- */
 
