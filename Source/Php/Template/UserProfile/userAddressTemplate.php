@@ -6,7 +6,7 @@
 
 	<?php if($userAddress == null): ?>
 		<p>Non hai ancora inserito un indirizzo.</p>
-		<a href="modifyAddress.php"><button class="modify">Aggiungi un indirizzo</button></a>
+		<a href="modifyUserAddress.php"><button class="modify">Aggiungi un indirizzo</button></a>
 	<?php endif; ?>
 
 	<?php if($userAddress != null): ?>
@@ -24,7 +24,7 @@
 			<li><?php echo $userAddress[0]["CAP"]; ?></li>
 		</ul>
 
-		<a href="modifyAddress.php"><button class="modify">Modifica</button></a>
+		<a href="modifyUserAddress.php"><button class="modify">Modifica</button></a>
 		
 	<?php endif; ?>
 </section>
