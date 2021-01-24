@@ -450,7 +450,6 @@ body > aside > ul {
 
 body > aside > ul > li {
 	padding: 20px 60px;
-	background-color: #084E80;
 }
 
 body > aside > ul > li:last-of-type > a > button {
@@ -459,15 +458,19 @@ body > aside > ul > li:last-of-type > a > button {
 
 body > aside > ul > li > a > button {
 	width: 100%;
-	background-color: #084E80;
-	color: white;
+	
 	border: 0;
 	padding: 0;
 	margin: 0;
+
 	font-size: 30pt;
+	
+	color: white;
+	background-color: transparent;
 }
 
 body > aside button:hover {
+	background-color: transparent;
 	color: #e4e2e2c6;	
 }
 
@@ -528,10 +531,21 @@ img#Profile[alt="Notification"] {
 	top: 3px;
 }
 
+aside > ul > li.notification > a {
+	background-image: url("../../Immagini/Icone/Notification.png");
+	background-size: 12pt;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
 img#Aside[alt="Notification"] {
-	position: absolute;
+	float: right;
+	/* position: relative; */
+	/* left: 190px;
+	bottom: 55px; */
+	/* position: absolute;
 	right: 80px;
-	top: 25px;
+	top: 25px; */
 }
 
 /* ----------------------------------------------- */
