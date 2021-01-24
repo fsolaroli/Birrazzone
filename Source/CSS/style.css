@@ -144,6 +144,7 @@ button, input[type="submit"] {
 button:hover, input[type="submit"]:hover {
 	background-color: #084E80;
 	color: white;
+	cursor: pointer;
 }
 
 button.delete {
@@ -473,6 +474,12 @@ body > aside button:hover {
 /* ----------------------------------------------- */
 /* Notification */
 /* ----------------------------------------------- */
+
+ul.notifications > li > div img {
+	cursor: pointer;
+}
+
+/* Notification Indicator */
 
 img[alt="Notification"] {
 	width: 12pt;
