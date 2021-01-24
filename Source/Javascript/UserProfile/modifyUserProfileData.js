@@ -14,11 +14,7 @@ $(function() {
 					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				$("main").html(`
-				<h1>Dati aggiornati con successo!</h1>
-				<form action="userProfileData.php">
-					<input type="submit" value="Torna al profilo" />
-				</form>`);
+				window.location = "userProfileData.php";
 			}
 		}
 

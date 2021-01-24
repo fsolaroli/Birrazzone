@@ -14,10 +14,9 @@
 			<?php foreach($userOrders as $order): ?>
 				<li id=<?php echo $order["IdOrdine"]; ?>>
 					<div>
-						<Label for="idOrder">Id Ordine:</Label>
+						<p>Id Ordine:</p>
 						<p><?php echo $order["IdOrdine"]; ?></p>
 
-						<Label for="data">Data:</Label>
 						<p><?php echo $order["DataOrdine"]; ?></p>
 						<a href="userSelectedOrder.php?orderId=<?php echo $order["IdOrdine"]; ?>"><button class="modify">Visualizza</button></a>
 					</div>

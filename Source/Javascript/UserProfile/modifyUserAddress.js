@@ -14,11 +14,7 @@ $(function() {
 					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				$("main").html(`
-				<h1>Indirizzo aggiornato con successo!</h1>
-				<form action="userAddress.php">
-					<input type="submit" value="Torna al profilo" />
-				</form>`);
+				window.location = "userAddress.php";
 			}
 		}
 

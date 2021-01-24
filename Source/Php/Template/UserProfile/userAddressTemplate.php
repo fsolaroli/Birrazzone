@@ -11,17 +11,25 @@
 
 	<?php if($userAddress != null): ?>
 		<ul>
-			<li class="label"><Label for="address">Via:</Label></li>
-			<li><?php echo $userAddress[0]["Via"]; ?></li>
+			<li>
+				<p>Via:</p>
+				<p><?php echo $userAddress[0]["Via"]; ?></p>
+			</li>
 
-			<li class="label"><Label for="address">Città:</Label></li>
-			<li><?php echo $userAddress[0]["Citta"]; ?></li>
+			<li>
+				<p>Città:</p>
+				<p><?php echo $userAddress[0]["Citta"]; ?></p>
+			</li>
 
-			<li class="label"><Label for="address">Provincia:</Label></li>
-			<li><?php echo $userAddress[0]["Provincia"]; ?></li>
+			<li>
+				<p>Provincia:</p>
+				<p><?php echo $userAddress[0]["Provincia"]; ?></p>
+			</li>
 
-			<li class="label"><Label for="address">CAP:</Label></li>
-			<li><?php echo $userAddress[0]["CAP"]; ?></li>
+			<li>
+				<p>CAP:</p>
+				<p><?php echo $userAddress[0]["CAP"]; ?></p>
+			</li>
 		</ul>
 
 		<a href="modifyUserAddress.php"><button class="modify">Modifica</button></a>
