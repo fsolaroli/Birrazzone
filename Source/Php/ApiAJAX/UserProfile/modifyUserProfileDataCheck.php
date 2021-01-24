@@ -11,11 +11,15 @@ if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pw"]) && iss
 	}
 
 	if(!checkPasswordValidity($_POST["pw"])) {
-		$errors[1] = "LA PASSWORD È TROPPO CORTA";
+		$errors[1] = "LA PASSWORD DEVE ESSERE COMPRESA FRA 8 E 32 CARATTERI";
 	}
 
 	if(strcmp($_POST["pw"], $_POST["confirmpw"]) !== 0) {
 		$errors[2] = "LA PASSWORD NON È STATA CONFERMATA CORRETTAMENTE";
+	}
+
+	if(strlen($_POST["name"]) > 50) {
+		$errors[3] = "IL CAMPO 'NOME' DEVE ESSERE LUNGO MASSIMO 50 CARATTERI";
 	}
 
 	if(!isset($errors)) {
