@@ -13,21 +13,26 @@ function updateBeerQuantity(method) {
 }
 
 $(function() {
-	$("main").click(function (e) { 
-		$("div.delete").hide();
+	$("main").click(function (e) {
+		$("#deleteProduct").removeAttr("disabled");
+		$("#deleteProductConfermation").hide("slide");
 	});
+	
 	$("#deleteProduct").click(function(e) {
 		e.stopPropagation();
-		$("div.delete").show();
-		$("#deleteProductConfermation").click(function() { 
-			$.post("../../ApiAJAX/SellerProfile/deleteProduct.php", { productId: $("p#productId").text()}, function() {
-				$("main > section").html(`
-					<h2>Birra cancellata</h2>
-					<a href="sellerProducts.php"><button>OK</button></a>
-				`);
-			});				
+		$("#deleteProductConfermation").show("slide");
+		$(this).attr("disabled", "true");
+	});
+	
+	$("#deleteProductConfermation").click(function (e) { 
+		$.post("../../ApiAJAX/SellerProfile/deleteProduct.php", { productId: $("#productId").text()}, function() {
+			$("main").html(`
+			<h2>Birra cancellata</h2>
+			<a href="sellerProducts.php"><button>OK</button></a>
+			`);
 		});
 	});
+	
 	$(":submit[name='add']").click(function (e) { 
 		updateBeerQuantity("add");
 	});	

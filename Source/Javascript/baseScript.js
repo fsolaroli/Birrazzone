@@ -8,6 +8,22 @@ function hideSearchBar(event) {
 	}
 }
 
+function showAside() {
+	if($("aside").is(":hidden")) {
+		$("aside").show('slide');
+	} else {
+		$("aside").hide('slide');
+	}
+}
+
 $(function() {
 	document.onwheel = hideSearchBar;
+
+	$("div.scroll").click(function (e) { 
+		$("aside").hide('slide');
+	});
+
+	$("header img[alt='Menu']").click(function(e) {
+		showAside();
+	});
 });

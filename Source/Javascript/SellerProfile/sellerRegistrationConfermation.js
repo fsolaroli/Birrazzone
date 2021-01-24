@@ -7,9 +7,9 @@ $(function() {
 						}
 		let PostFunction = function (errors) {
 			if(errors!=null) {
-				$(".errori").html("")
+				$(".errors").html("")
 				$.each(errors, function (i, val) { 
-					$(".errori").append("<p><strong>"+val+"</strong></p>");	 
+					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
 				$("main").html(`

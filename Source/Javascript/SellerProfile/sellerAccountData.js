@@ -1,17 +1,21 @@
 $(function() {
 	$("main").click(function (e) {
-		$("div.delete").hide();
+		$("#deleteAccount").removeAttr("disabled");
+		$("#deleteAccountConfermation").hide("slide");
 	});
+
 	$("#deleteAccount").click(function(e) {
 		e.stopPropagation();
-		$("div.delete").show();
-		$("#deleteAccountConfermation").click(function() { 
-			$.post("../ApiAJAX/SellerProfile/deleteSellerAccount.php", function() {
-				$("main > section").html(`
-					<h2>Account cancellato</h2>
-					<a href="home.php"><button>OK</button></a>
-				`);
-			});				
-		});
-	});	
+		$("#deleteAccountConfermation").show("slide");
+		$(this).attr("disabled", "true");
+	});
+
+	$("#deleteAccountConfermation").click(function (e) { 
+		$.post("../../ApiAJAX/SellerProfile/deleteSellerAccount.php", function() {
+			$("main").html(`
+				<h2>Account cancellato</h2>
+				<a href="../Home/home.php"><button>OK</button></a>
+			`);
+		});	
+	});
 })

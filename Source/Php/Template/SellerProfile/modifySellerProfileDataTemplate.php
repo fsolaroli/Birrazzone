@@ -7,7 +7,6 @@
 <section>
 	<h2>Modifica dati birrificio</h2>
 	<form onsubmit="return false;">
-		<!-- <input type="hidden" name="sellerId" value="<?php echo $sellerData["IdBirrificio"] ?>"> -->
 		<ul>
 			<li class="label"><label for="location">Località:</label></li>
 			<li class="input"><input type="text" name="location" value="<?php echo $sellerData["Localita"] ?>" autocomplete="off"/></li>
@@ -28,6 +27,5 @@
 			</li>
 		</ul>	
 	</form>
-	<!-- <a href="sellerProfileData.php"><button>Annulla</button></a> -->
 </section>
-<div class="errori"></div>
+<div class="errors"></div>

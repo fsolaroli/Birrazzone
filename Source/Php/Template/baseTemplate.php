@@ -28,7 +28,7 @@
 			<h1><a href="../Home/home.php">Birrazzone</a></h1>
 			<?php if($templateParams["HeaderType"] == "Profile"): ?>
 				<a class="home" href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
-				<a class="menu"><img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/></a>
+				<a class="menu" href="javascript:void(0);"><img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/></a>
 				<?php if(hasNotification()): ?>
 					<img src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
 				<?php endif; ?>
@@ -43,7 +43,7 @@
 				<a class="profile" href="
 					<?php
 						if(isUserLoggedIn()) {
-							echo "userProfile.php"; //TODO change to correct link
+							echo "../UserProfile/userNotifications.php"; //TODO change to correct link
 						} else if(isSellerLoggedIn()) {
 							echo "../SellerProfile/sellerNotifications.php";
 						} else {

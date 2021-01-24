@@ -409,7 +409,7 @@ class DatabaseHelper{
 
 	public function readNotification($NotificationId) {		
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Notifica
-										SET Notifica.DataLettura=NOW(),
+										SET Notifica.DataLettura=NOW()
 										WHERE Notifica.IdNotifica=?");
 		$stmt->bind_param('i',$NotificationId);
 		return $stmt->execute();
@@ -423,6 +423,14 @@ class DatabaseHelper{
 		$result = $stmt->get_result();
 		
 		return $result->fetch_all(MYSQLI_ASSOC);	
+	}
+
+	public function deleteAddress($UserId) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
+										SET Utente.IdIndirizzo=NULL
+										WHERE Utente.IdUtente=?");
+		$stmt->bind_param('s', $UserId);
+		return $stmt->execute();		
 	}
 
 	public function updateUserData($UserId, $name, $email, $password) {				
@@ -768,6 +776,34 @@ class DatabaseHelper{
 		$result = $stmt->get_result();
 
 		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+
+	public function addSellerNotification($SellerId, $NotificationType, $Title, $Body) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Notifica	(
+																			IdBirrificio,
+																			TipologiaNotifica,
+																			Oggetto,
+																			Corpo,
+																			DataNotifica,
+																			DataLettura
+																		)
+																values	(?, ?, ?, ?, NOW(), ?)");
+		$stmt->bind_param('iisss',$SellerId, $NotificationType, $Title, $Body, $this->DistantFuture);
+		return $stmt->execute();	
+	}
+
+	public function addUserNotification($UserId, $NotificationType, $Title, $Body) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Notifica	(
+																			IdUtente,
+																			TipologiaNotifica,
+																			Oggetto,
+																			Corpo,
+																			DataNotifica,
+																			DataLettura
+																		)
+																values	(?, ?, ?, ?, NOW(), ?)");
+		$stmt->bind_param('iisss',$UserId, $NotificationType, $Title, $Body, $this->DistantFuture);
+		return $stmt->execute();	
 	}
 }
 	

@@ -48,6 +48,8 @@ table {
 }
 
 /*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
 @font-face {
 	font-family: "GermaniaOne";
@@ -60,7 +62,33 @@ table {
 
 html {
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
 }
+
+ul {
+	list-style: none;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+:focus {
+	outline: none;
+}
+
+a {
+	display: block;
+	color: #084E80;
+}
+
+a:visited {
+	color: #084E80;
+}
+
+/* ----------------------------------------------- */
+/* h */
+/* ----------------------------------------------- */
 
 h1, h2, h3 {
 	font-family: "GermaniaOne";
@@ -75,7 +103,7 @@ h1 {
 
 h2 {
 	font-size: 25pt;
-	margin: 15px 0 0 0;
+	margin: 15px 0 5px 0;
 	text-align: left;
 }
 
@@ -83,20 +111,11 @@ h3 {
 	font-size: 15pt;
 }
 
-ul {
-	list-style: none;
-}
+/* ----------------------------------------------- */
+/* Element border styling */
+/* ----------------------------------------------- */
 
-.hidden {
-	visibility: hidden;
-}
-
-form > ul > li > input {
-	border-width: 0;
-	width: 98%;
-}
-
-img, .product, button, li.input, input[type="submit"], input[type="file"] {
+img, .notifications > li, .products > li, .sellerProducts > li, button, li.input, input[type="submit"], input[type="file"], input[type="checkbox"] {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
@@ -104,9 +123,17 @@ img, .product, button, li.input, input[type="submit"], input[type="file"] {
 	border-color: #084E80;
 }
 
-.product, button, input {
+/* ----------------------------------------------- */
+/* Buttons/inputs styling */
+/* ----------------------------------------------- */
+
+button, input {
 	font-size: 13pt;
-	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+
+button {
+	padding: 2px 15px;
 }
 
 button, input[type="submit"] {
@@ -120,21 +147,150 @@ button:hover, input[type="submit"]:hover {
 }
 
 button.delete {
-	margin: 40px 0 0 0;
+	margin: 5px 0;
 	font-weight: bold;
+	font-size: 18pt;
 	color: red;
+	width: fit-content;
+	align-self: center;
 }
 
 button.delete:hover {
+	background-color: red;
+	color: white;
+}
+
+button.delete:disabled, button.delete:disabled:hover {
+	background-color: grey;
+	color: white;
+}
+
+/* ----------------------------------------------- */
+/* Div errors */
+/* ----------------------------------------------- */
+
+div.errors {
+	font-weight: bolder;
+	font-size: 15pt;
 	color: red;
+	margin: 20px 0;
 }
 
-:focus {
-	outline: none;
+div.errors > p {
+	margin-top: 5px;
 }
 
-a {
+/* ----------------------------------------------- */
+/* Form */
+/* ----------------------------------------------- */
+
+form > ul {
 	display: block;
+}
+
+form > ul > li.submit {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	
+	margin: 15px 0 0 0;
+}
+
+form > ul > li.photoInput {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+form > ul > li.label {
+	margin: 10px 0 5px 0;
+}
+
+form > ul > li.input {
+	padding: 3px;
+}
+
+form > ul > li.checkbox {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+}
+
+form > ul > li.modify {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	margin: 15px 0 0 0;
+}
+
+form > ul > li.checkbox > label {
+	margin: 0 0 0 10px;
+}
+
+form > ul > li > img {
+	width: 50%;
+	height: 100%;
+}
+
+form > ul > li > input {
+	border-width: 0;
+	border-radius: 0;
+	padding: 0;
+	
+	width: 95%;
+}
+
+form > ul > li > input[name="remove"] {
+	border-color: red;
+}
+form > ul > li > input[name="remove"]:hover {
+	background-color: red;
+	color: white;
+}
+
+form > ul > li > input[name="add"] {
+	border-color: green;
+}
+form > ul > li > input[name="add"]:hover {
+	background-color: green;
+	color: white;
+}
+
+form > ul > li > input[type="submit"] {
+	width: auto;
+	border-radius: 30px;
+	padding: 2px 20px;
+}
+
+form > ul > li > input[type="checkbox"] {
+	width: auto;
+}
+
+form > ul > li > textarea[name="description"] {
+	resize: none;
+	
+	width: 95%;
+	height: 100px;
+	
+	padding: 5px;
+	margin: 5px;
+	border-width: 0;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13pt;
+}
+
+form > ul > li > input[type="file"] {
+	align-self: center;
+	height: fit-content;
+	width: fit-content;
+}
+
+form > ul > li > input[type="file"]::-webkit-file-upload-button {
+	border: inherit;
+	border-width: 0 2px 0 0;
+	background-color: inherit;
 }
 
 /* ----------------------------------------------- */
@@ -325,7 +481,7 @@ main > section {
 	
 	width: 90%;
 
-	margin: 10px 0;
+	margin: 15px 0;
 }
 
 a.show {
@@ -335,50 +491,61 @@ a.show {
 	color: #084E80;
 }
 
-main > section > img {
+main > section > ul > li > img {
 	display: block;
 	width: 100%;
 	margin: 15px 0;
 }
 
-.product {
+ul.products > li {
+	margin: 7px 0;
+	padding: 5px;
+
+	border-radius: 15px;
+}
+
+ul.products > li {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	margin: 7px 0;
+	
 	text-align: center;
-	padding: 5px;
 }
 
-.product:hover {
+ul.products > li:hover {
 	background-color: #e4e2e2c6;
+	cursor: pointer;
 }
 
-.product > img {
+ul.products > li > img {
 	width: 20%;
 }
 
-div.productInfo {
+ul.products > li > div.productInfo {
 	max-width: 50%;
 	word-wrap: break-word;
 }
 
-.product > div.productInfo > ul > li:first-of-type {
+ul.products > li > div.productInfo > ul {
+	margin: 0;
+}
+
+ul.products > li > div.productInfo > ul > li:first-of-type {
 	font-size: 5vw;
 }
 
-.product > div.productInfo > ul > li:nth-of-type(3) {
+ul.products > li > div.productInfo > ul > li:nth-of-type(3) {
 	margin: 10px 0 0 0;
 	font-size: 15pt;
 }
 
-.product > div.productData {
+ul.products > li > div.productData {
 	max-width: 30%;
 	word-wrap: break-word;
 }
 
-.product > div.productData > ul > li {
+ul.products > li > div.productData > ul > li {
 	margin: 0 0 5px 0;
 }
 
@@ -390,85 +557,52 @@ main > section > a {
 	align-self: flex-end;
 }
 
-div.delete {
-	position: fixed;
-	
-	top: 45pt;
-	bottom: 0pt;
-	right: 0;
-	left: 0;
-	
-	background-color: white;
-	text-align: center;
-
-
+ul.sellerProducts {
+	display: block;
 }
 
-div.delete > h2 {
-	text-align: center;
-}
-
-button.modify {
-	margin: 10px 0 0 0;
-}
-
-/* ----------------------------------------------- */
-/* Form */
-/* ----------------------------------------------- */
-
-form > ul > li > input, form > ul > li > label {
-	/* width: 100%; */
-	border-radius: 8px;
-}
-
-form > ul > li.submit {
-	margin: 15px 0 0 0;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-between;
-}
-
-form > ul > li.photoInput {
+ul.sellerProducts > li {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-}
+	align-items: center;
 
-form > ul > li > input[type="submit"] {
-	width: auto;
+	margin: 7px 0;
+	padding: 5px;	
 	border-radius: 30px;
-}
-
-form > ul > li > img {
-	width: 50%;
-}
-
-form > ul > li > textarea[name="description"] {
-	resize: none;
 	
-	width: 95%;
-	height: 100px;
-	
-	padding: 5px;
-	margin: 5px;
-	border-width: 0;
-
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13pt;
+	text-align: center;
 }
 
-ul > li.label {
-	margin: 10px 0 5px 0;
+ul.sellerProducts > li > div:first-of-type {
+	margin: 0 20px;
 }
 
-input[type="file"] {
-	align-self: center;
-	height: fit-content;
-	width: fit-content;
+ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) {
+	font-size: 12pt;
 }
 
-input[type="file"]::-webkit-file-upload-button {
-	border: inherit;
-	border-width: 0 2px 0 0;
-	background-color: inherit;
+ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) > span:nth-of-type(2).attention {
+	color: red;
+}
+
+/* ----------------------------------------------- */
+/* Other */
+/* ----------------------------------------------- */w
+
+ul > li > a {
+	margin-bottom: 20px;
+}
+
+ul > li {
+	margin-bottom: 15px;
+}
+
+ul {
+	margin: 10px 0;
+}
+
+section > div.registration {
+	margin-bottom: 30px;
+	text-align: center;
 }
