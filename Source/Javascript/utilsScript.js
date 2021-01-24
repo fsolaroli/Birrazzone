@@ -78,18 +78,16 @@ function manageNotification() {
 		});
 	
 		$("ul > li > div > button.accept").click(function (e) { 
-			$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { notificationId: $(this).attr("id").split(" ")[1]},
-				function () {
-					console.log("../../Site/SellerProfile/sellerRegistrationConfermation.php");
-				}
-			);
+			$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
+				function (token) {
+					console.log('../../Site/SellerProfile/sellerRegistrationConfermation.php?token='+token);
+				}, "json");
 		});
 
 		$("ul > li > div > button.delete").click(function (e) { 
-			$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { notificationId: $(this).attr("id").split(" ")[1]},
+			$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
 				function () {
 					
-				}
-			);
+				}, "json");
 		});
 }
