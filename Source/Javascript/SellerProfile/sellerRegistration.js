@@ -15,9 +15,7 @@ $(function() {
 				$("main").html(`
 				<h1>Registrazione birrificio</h1>
 				<h2>Richiesta completata</h2>
-				<form action="home.php">
-					<input type="submit" value="OK"/>
-				</form>
+				<a href="../Home/home.php"><button>OK</button></a>
 				`);
 			}
 		}

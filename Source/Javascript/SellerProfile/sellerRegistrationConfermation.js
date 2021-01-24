@@ -15,9 +15,7 @@ $(function() {
 				$("main").html(`
 				<h1>Registrazione birrificio</h1>
 				<h2>Registrazione Completata</h2>
-				<form action="sellerAccount.php">
-					<input type="submit" value="OK"/>
-				</form>
+				<a href="../SellerProfile/sellerNotifications.php"><button>OK</button></a>
 				`);
 			}
 		}
