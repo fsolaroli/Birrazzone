@@ -14,10 +14,10 @@
 			<?php foreach($userOrders as $order): ?>
 				<li id=<?php echo $order["IdOrdine"]; ?>>
 					<div>
-						<p>Id Ordine:</p>
-						<p><?php echo $order["IdOrdine"]; ?></p>
-
+						<p>Id Ordine: <?php echo $order["IdOrdine"]; ?></p>
 						<p><?php echo $order["DataOrdine"]; ?></p>
+					</div>
+					<div>
 						<a href="userSelectedOrder.php?orderId=<?php echo $order["IdOrdine"]; ?>"><button class="modify">Visualizza</button></a>
 					</div>
 				</li>
