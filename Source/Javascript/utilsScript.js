@@ -80,7 +80,7 @@ function manageNotification() {
 		$("ul > li > div > button.accept").click(function (e) { 
 			$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
 				function (token) {
-					console.log(`../../Site/SellerProfile/sellerRegistrationConfermation.php?token=${token}`);
+					console.log(`../../Site/SellerProfile/sellerRegistrationConfermation.php?token=`+token);
 				}, "json");
 		});
 
