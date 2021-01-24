@@ -115,7 +115,7 @@ h3 {
 /* Element border styling */
 /* ----------------------------------------------- */
 
-img, .products > li, .sellerProducts > li, button, li.input, input[type="submit"], input[type="file"], input[type="checkbox"] {
+img, .notifications > li, .products > li, .sellerProducts > li, button, li.input, input[type="submit"], input[type="file"], input[type="checkbox"] {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;

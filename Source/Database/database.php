@@ -409,7 +409,7 @@ class DatabaseHelper{
 
 	public function readNotification($NotificationId) {		
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Notifica
-										SET Notifica.DataLettura=NOW(),
+										SET Notifica.DataLettura=NOW()
 										WHERE Notifica.IdNotifica=?");
 		$stmt->bind_param('i',$NotificationId);
 		return $stmt->execute();

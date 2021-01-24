@@ -5,7 +5,7 @@ if(!isSellerLoggedIn()){
 	header("Location: ../Home/home.php");
 } else {
 	$templateParams["Titolo"] = "ProfilePage - Notification";
-	$templateParams["Javascript"] = array("SellerProfile/sellerProfileAside.js");
+	$templateParams["Javascript"] = array("SellerProfile/sellerProfileAside.js", "SellerProfile/sellerNotification.js");
 	$templateParams["Template"] = "SellerProfile/sellerNotificationsTemplate.php";
 	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
 
