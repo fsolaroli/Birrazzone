@@ -9,10 +9,11 @@
 	<?php endif; ?>
 
 	<?php if(!empty($userNotification)): ?>
-		<ul class="notification">
-			<?php foreach($userNotification as $notification): ?>
-				<li><p><?php $dbh->readNotification($userNotification[0]["IdNotifica"]); ?></p></li>
-			<?php endforeach; ?>
+		<ul class="notifications">
+			<?php foreach($userNotification as $notification){
+				drawNotification($notification);
+			}	
+			?>
 		</ul>
 	<?php endif; ?>
 </section>
