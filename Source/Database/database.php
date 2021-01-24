@@ -847,6 +847,17 @@ class DatabaseHelper{
 
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}	
+
+	public function getAdminNotifications(){
+		$stmt = $this->db->prepare("	SELECT StatoMembership.IdStatoMembership
+										FROM StatoMembership
+										WHERE IdStatoMembership=1");
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+
 }
 	
 ?>

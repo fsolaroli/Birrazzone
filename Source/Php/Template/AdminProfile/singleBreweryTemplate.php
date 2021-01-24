@@ -35,11 +35,12 @@
 	<ul>
 		<?php foreach($templateParams["birre"] as $birra): ?>
 			<li>
-			 	<?php echo $birra["NomeBirra"]?>  <button><a href="singleProduct.php?id=<?php echo $birra["IdBirra"] ?>">Visualizza</a></button>
+			 	<?php echo $birra["NomeBirra"]?>  <a href="singleProduct.php?id=<?php echo $birra["IdBirra"] ?>"><button>Visualizza</button></a>
 			</li>
 		<?php endforeach; ?>
 	</ul>
 </section>
 <section>
-	<a href="deleteBrewery.php"><button id="deletebrewery" class="delete">Elimina Birrificio</button></a>
+	<button id="deleteAccount" class="delete">Elimina account</button>
+	<button id="deleteAccountConfermation" class="delete" hidden>Conferma eliminazione account</button>
 </section>

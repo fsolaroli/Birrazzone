@@ -2,9 +2,7 @@
 require_once("../baseConfiguration.php");
 
 if(isAdminLoggedIn()){
-	$templateParams["Titolo"] = "AdminPage";
-	$templateParams["Template"] = "AdminPage/breweryListTemplate.php";
-	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
+	header("Location: ../AdminPage/adminNotifications.php");
 }else{
 	$templateParams["Titolo"] = "AdminLogin";
 	$templateParams["Javascript"] = array("Login/adminLogin.js");

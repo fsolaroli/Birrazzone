@@ -56,3 +56,40 @@ function manageNotification() {
 		);
 	});
 }
+
+	function manageAdminNotification() {
+
+		$("ul > li > div:nth-of-type(2)").hide();
+	
+		$("ul > li > div > img[alt*='expande']").click(function (e) { 
+			let notificationId = $(this).attr("alt").split(" ")[1];
+	
+			$("ul > li#" + notificationId + " > div:nth-of-type(2)").show("slide");
+			$(this).hide();
+			$("ul > li > div > img[alt*='collapse']").show();		
+		});
+		
+		$("ul > li > div > img[alt*='collapse']").click(function (e) { 
+			let notificationId = $(this).attr("alt").split(" ")[1];
+	
+			$("ul > li#" + notificationId + " > div:nth-of-type(2)").hide("slide");
+			$(this).hide();
+			$("ul > li > div > img[alt*='expande']").show();
+		});
+	
+		$("ul > li > div > button.accept").click(function (e) { 
+			$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { notificationId: $(this).attr("id").split(" ")[1]},
+				function () {
+					console.log("../../Site/SellerProfile/sellerRegistrationConfermation.php");
+				}
+			);
+		});
+
+		$("ul > li > div > button.delete").click(function (e) { 
+			$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { notificationId: $(this).attr("id").split(" ")[1]},
+				function () {
+					
+				}
+			);
+		});
+}
