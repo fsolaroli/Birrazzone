@@ -4,11 +4,15 @@
 	<h2>Dati personali</h2>
 
 	<ul>
-		<li class="label"><Label for="name">Nome:</Label></li>
-		<li><?php echo $dbh->getUser($_SESSION["userId"])[0]["NomeUtente"]; ?></li>
+		<li>
+			<p>Nome:</p>
+			<p><?php echo $dbh->getUser($_SESSION["userId"])[0]["NomeUtente"]; ?></p>
+		</li>
 
-		<li class="label"><Label for="email">Email:</Label></li>
-		<li><?php echo $dbh->getUser($_SESSION["userId"])[0]["EmailUtente"]; ?></li>
+		<li>
+			<p>Email:</p>
+			<p><?php echo $dbh->getUser($_SESSION["userId"])[0]["EmailUtente"]; ?></p>
+		</li>
 	</ul>
 
 	<a href="modifyUserProfileData.php"><button class="modify">Modifica</button></a>

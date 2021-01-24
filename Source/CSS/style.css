@@ -635,6 +635,10 @@ main > section > a {
 	align-self: flex-end;
 }
 
+ul > li > p:first-of-type {
+	font-weight: bold;
+}
+
 ul.sellerProducts {
 	display: block;
 }

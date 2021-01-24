@@ -6,9 +6,17 @@
 <section>
 	<h2>Dati birrificio</h2>
 	<ul>
-		<li><?php echo $sellerData["Localita"] ?></li>
-		<li><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
-		<li class="description"><?php echo $sellerData["DescrizioneBirrificio"] ?></li>
+		<li>
+			<p>Località:</p>
+			<p><?php echo $sellerData["Localita"] ?></li></p>
+		<li>
+			<p>Foto:</p>
+			<img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+		</li>	
+		<li>
+			<p>Descrizione:</p>
+			<p><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
+		</li>
 	</ul>
 	<a href="modifySellerProfileData.php"><button id="modifyAccountData" class="modify">Modifica</button></a>
 </section>

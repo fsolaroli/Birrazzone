@@ -13,14 +13,38 @@
 	<h2>Dati birra</h2>
 	<ul>
 		<li id="productId" hidden><?php echo $productData["IdBirra"] ?></li>
-		<li><?php echo $productData["NomeBirra"] ?></li>
-		<li><?php echo $productData["Tipologia"] ?></li>
-		<li><img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"] ?>" alt="FotoBirra"/></li>
-		<li><?php echo $productData["Prezzo"] ?> €</li>
-		<li><?php echo $productData["Formato"] ?> cl</li>
-		<li><?php echo $productData["GradoAlcolico"] ?>º</li>
-		<li><?php echo $productData["Colore"] ?></li>
-		<li><?php echo $productData["DescrizioneBirra"] ?></li>
+		<li>
+			<p>Nome:</p>
+			<p><?php echo $productData["NomeBirra"] ?></p>
+		</li>
+		<li>
+			<p>Tipologia:</p>
+			<p><?php echo $productData["Tipologia"] ?></p>
+		</li>
+		<li>
+			<p>Foto:</p>
+			<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"] ?>" alt="FotoBirra"/>
+		</li>
+		<li>
+			<p>Prezzo:</p>
+			<p><?php echo $productData["Prezzo"] ?> €</p>
+		</li>
+		<li>
+			<p>Formato:</p>
+			<p><?php echo $productData["Formato"] ?> cl</p>
+		</li>
+		<li>
+			<p>Grado Alcolico:</p>
+			<p><?php echo $productData["GradoAlcolico"] ?>º</p>
+		</li>
+		<li>
+			<p>Colore:</p>
+			<p><?php echo $productData["Colore"] ?></p>
+		</li>
+		<li>
+			<p>Descrizione:</p>
+			<p><?php echo $productData["DescrizioneBirra"] ?></p>
+		</li>
 	</ul>
 	<a href="modifyProduct.php?productId=<?php echo $productData["IdBirra"] ?>"><button id="modifyAccountData" class="modify">Modifica</button></a>
 </section>
