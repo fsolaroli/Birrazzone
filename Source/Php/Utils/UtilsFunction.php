@@ -133,8 +133,8 @@ function drawNotification($notification) {
 		<li id='".$notification["IdNotifica"]."'>
 			<div>
 				<p>".$notification["Oggetto"]."</p>
-				<img src='../../../../Immagini/Icone/Expand.png' alt='expande ".$notification["IdNotifica"]."'/>
-				<img src='../../../../Immagini/Icone/Collapse.png' alt='collapse ".$notification["IdNotifica"]."' hidden/>
+				<a><img src='../../../../Immagini/Icone/Expand.png' alt='expande ".$notification["IdNotifica"]."'/></a>
+				<a><img src='../../../../Immagini/Icone/Collapse.png' alt='collapse ".$notification["IdNotifica"]."' hidden/></a>
 			</div>
 			<div hidden>
 				<p>".$notification["Corpo"]."</p>
