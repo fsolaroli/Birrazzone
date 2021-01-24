@@ -5,7 +5,7 @@ require_once("../baseConfiguration.php");
 if(!isUserLoggedIn()) {
 	header("Location: ../Home/home.php");
 } else {
-	$templateParams["Titolo"] = "Storico ordini";
+	$templateParams["Titolo"] = "Utente - Storico ordini";
 	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js");
 	$templateParams["Template"] = "UserProfile/userOrdersTemplate.php";
 	$templateParams["HeaderType"] = "Profile";
