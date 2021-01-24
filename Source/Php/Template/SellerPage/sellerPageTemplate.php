@@ -25,15 +25,19 @@
 
 <h1><?php echo $sellerData["NomeBirrificio"] ?></h1>
 <section>
-	<p> <?php echo $sellerData["Localita"] ?></p>
-	<img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
-	<div class="description">
-		<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
-		<?php if($sellerData["DescrizioneBirrificio"] != substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght)) : ?>
-			<p id="fullDescription" hidden><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
-			<a href="javascript:void(0);" class="show">Mostra tutto</a>
-		<?php endif; ?>
-	</div>
+	<ul>
+		<li><?php echo $sellerData["Localita"] ?></li>
+		<li><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
+		<li>
+			<div class="description">
+				<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
+				<?php if($sellerData["DescrizioneBirrificio"] != substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght)) : ?>
+					<p id="fullDescription" hidden><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
+					<a href="javascript:void(0);" class="show">Mostra tutto</a>
+				<?php endif; ?>
+			</div>
+		</li>
+	</ul>	
 </section>
 <section>
 	<h2>Birre migliori</h2>
