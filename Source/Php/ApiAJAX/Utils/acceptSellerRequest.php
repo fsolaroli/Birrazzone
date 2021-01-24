@@ -7,8 +7,8 @@ if (isset($_POST["IdBirrificio"])) {
 	do{
 		$token = random_bytes($i);
 		$i++;
-	}while($dbh->getUsedToken()->contains($token));
+	}while(in_array($token, $dbh->getUsedToken()));
 	$dbh->acceptSellerRequest($_POST["IdBirrificio"], $token);
+	echo json_encode($token);
 }
-echo json_encode($token);
 ?>
