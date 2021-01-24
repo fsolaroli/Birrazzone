@@ -474,22 +474,27 @@ body > aside button:hover {
 /* Notification */
 /* ----------------------------------------------- */
 
-header img[alt="Notification"] {
+img[alt="Notification"] {
 	width: 12pt;
 }
 
-header img#Global[alt="Notification"] {
+img#Global[alt="Notification"] {
 	position: absolute;
 	left: 38px;
 	top: 3px;
 }
 
-header img#Profile[alt="Notification"] {
+img#Profile[alt="Notification"] {
 	position: absolute;
 	right: 15px;
 	top: 3px;
 }
 
+img#Aside[alt="Notification"] {
+	position: absolute;
+	right: 80px;
+	top: 25px;
+}
 
 /* ----------------------------------------------- */
 /* SellerPage */
