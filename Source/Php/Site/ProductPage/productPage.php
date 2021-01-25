@@ -6,7 +6,7 @@ if(!isUserLoggedIn()){
 }else{
 	$templateParams["Titolo"] = "AdminPage - Prodotto";
 	$templateParams["Template"] = "ShoppingCart/productPageTemplate.php";
-	//$templateParams["Javasctipt"] = "adminProfileAside.js"; -- creare pagina js per aggiungere birra al carrello
+	$templateParams["Javasctipt"] = "modifyShoppingCart.js"; 
 	$templateParams["HeaderType"] = "Global"; //Profile, Login, Global
 
 	$idbirra= -1;
