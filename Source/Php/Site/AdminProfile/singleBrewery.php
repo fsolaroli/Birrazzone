@@ -1,6 +1,6 @@
 <?php
 require_once("../baseConfiguration.php");
-if(!isAdminLoggedIn() || empty($_SESSION["adminLoggedIn"])){
+if(!isAdminLoggedIn()){
 	header("Location: ../login/adminLogin.php");
 }else{
 	$templateParams["Titolo"] = "AdminPage - Birrificio";

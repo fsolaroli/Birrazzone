@@ -79,7 +79,7 @@ function isUserLoggedIn() {
 }
 
 function isAdminLoggedIn(){
-	return $_SESSION["adminLoggedIn"];
+	return !empty($_SESSION["adminLoggedIn"]);
 }
 
 function hasNotification() {
