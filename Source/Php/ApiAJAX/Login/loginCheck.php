@@ -8,21 +8,21 @@ if(isset($_POST["email"]) && isset($_POST["pw"])) {
 	$nextPage = null;
 	$accountType = null;
 	$errors = null;
-	var_dump($_POST["loginFromChart"]);
 
 	if(!empty($possibleSeller) || !empty($possibleUser)) {
 
 		if(!empty($possibleSeller)) {
 			registerLoggedSeller($possibleSeller[0]["IdBirrificio"]);
 			$accountType = "s";
-		} else if(!empty($possibleUser) && $_POST["loginFromCart"] == true) {
+		} else if(!empty($possibleUser)) {
 			registerLoggedUser($possibleUser[0]["IdUtente"]);
 			$accountType = "u";
-			$nextPage = "cart";
-		}else {
-			registerLoggedUser($possibleUser[0]["IdUtente"]);
-			$accountType = "u";
-			$nextPage = "profile";
+			if ($_POST["loginFromCart"] == "true") {
+				var_dump("diooooo");
+				$nextPage = "cart";
+			} else {
+				$nextPage = "profile";
+			}
 		}
 	} else {
 		$errors = true;
