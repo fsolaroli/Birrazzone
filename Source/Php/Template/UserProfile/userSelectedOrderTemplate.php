@@ -6,16 +6,16 @@
 ?>
 
 <h1><?php echo $userInfo[0]["NomeUtente"]; ?></h1>
-<h1>Ordine <?php echo $_GET["orderId"]?></h1>
+<h2>Ordine <?php echo $_GET["orderId"]?> - Data <?php echo $orderInfo[0]["DataOrdine"]?> </h2>
 
 <section>
 	<section>
-		<h2>Stato</h2>
+		<h3>Stato</h3>
 		<p><?php echo $orderInfo[0]["Codice"]; ?></p>
 	</section>
 	
 	<section>
-		<h2>Indirizzo di fatturazione</h2>
+		<h3>Indirizzo di fatturazione</h3>
 		<p> </p>
 		<ul class="order-address">
 			<li><p>Nome:</p> <p><?php echo $userInfo[0]["NomeUtente"]; ?></p></li>
@@ -29,7 +29,7 @@
 
 <section>
 	<section>
-		<h2>Prodotti</h2>
+		<h3>Prodotti</h3>
 	
 		<ul class="ordered-products">
 			<?php foreach($orderedProducts as $product): ?>
@@ -50,6 +50,9 @@
 		<div class="total-quantity-price">
 			<p>N° prodotti ordinati: <?php echo totalQuantityOrdered($_GET["orderId"]); ?></p>
 			<p>Prezzo totale: <?php echo totalPrice($_GET["orderId"]); ?></p>
+		</div>
+		<div class="replace-order">
+			<button>Visualizza</button></a>
 		</div>
 	</section>
 </section>
