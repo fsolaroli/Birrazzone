@@ -20,3 +20,5 @@ if(isset($_POST[0]) {
 
 	echo json_encode($errors);
 }
+
+?>

@@ -1,6 +1,6 @@
 $(function() {
 	$("button").click(function() {
-		let OrderData = $("h2").text().split(" ")[1]
+		let OrderData = $("h2").text().split(" ")[1];
 		let ManageOrder = function(errors) {
 			if(errors!=null) {
 				$(".errors").append("<p><strong>"+val+"</strong></p>");	 
