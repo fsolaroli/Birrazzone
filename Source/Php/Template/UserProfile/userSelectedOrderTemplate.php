@@ -35,9 +35,8 @@
 		<ul class="ordered-products">
 			<?php foreach($orderedProducts as $product): ?>
 				<li>
-					<a href="../Poggers.php?<?php echo $product["IdBirra"]; ?>">	
+					<a href="../ProductPage/productPage.php?<?php echo $product["IdBirra"]; ?>">	
 						<div class="product-ordered-info">
-							<!-- TODO: inserire link corretto a pagina prodotto -->
 							<p><?php echo $product["NomeBirra"]; ?></p>
 							<p><?php echo $product["QuantitaTot"]; ?></p>
 						</div>
