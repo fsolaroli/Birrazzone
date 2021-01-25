@@ -1,5 +1,7 @@
 <h1>Login</h1>
 
+<p hidden><?php echo isset($_GET["loginFromCart"]); ?></p>
+
 <section>
 	<form onsubmit="return false;">
 		<ul>
