@@ -14,5 +14,6 @@
 			<li class="submit"><input type="submit" value="Invia la richiesta"/></li>
 		</ul>
 	</form>
+	
+	<div class="errors"></div>
 </section>
-<div class="errors"></div>

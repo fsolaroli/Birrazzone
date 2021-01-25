@@ -21,7 +21,7 @@
 	</ul>
 	<a href="modifySellerAccountData.php"><button class="modify">Modifica</button></a>
 </section>
-<section>
+<section class="delete">
 	<button id="deleteAccount" class="delete">Elimina account</button>
 	<button id="deleteAccountConfermation" class="delete" hidden>Conferma eliminazione account</button>
 </section>
