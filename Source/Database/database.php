@@ -627,6 +627,29 @@ class DatabaseHelper{
 											Birrificio.FotoBirrificio=NULL
 										WHERE Birrificio.IdBirrificio=?");
 		$stmt->bind_param('ssi', $this->NamePlaceHolder, $this->EmailPlaceHolder, $SellerId);
+
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoMembershipBirrificio AS SMB
+										SET SMB.AData=NOW()
+										WHERE SMB.IdBirrificio=?
+										AND SMB.IdStatoMembership=4
+										AND SMB.DaData <= NOW()
+										AND SMB.AData > NOW()");
+		$stmt->bind_param('i',$SellerId);
+		
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoMembershipBirrificio	(
+																								IdBirrificio,
+																								IdStatoMembership,
+																								DaData,
+																								AData
+																							)
+																					value	(
+																								?,
+																								5,
+																								NOW(),
+																								?
+																							)");
+		$stmt->bind_param('is',$SellerId, $this->DistantFuture);
+
 		return $stmt->execute();
 	}
 
