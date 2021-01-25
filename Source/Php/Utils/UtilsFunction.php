@@ -154,4 +154,26 @@ function drawNotification($notification) {
 	";
 }
 
+function totalQuantityOrdered($orderId) {
+	global $dbh;
+	$orderedProducts = $dbh->getOrderProducts($orderId);
+	$totalQuantity = null;
+	foreach($orderedProducts as $product) {
+		$totalQuantity += $product["QuantitaTot"];
+	}
+
+	return $totalQuantity;
+}
+
+function totalPrice($orderId) {
+	global $dbh;
+	$orderedProducts = $dbh->getOrderProducts($orderId);
+	$totalPrice = null;
+	foreach($orderedProducts as $product) {
+		$totalPrice += $product["Totale"];
+	}
+
+	return $totalPrice;
+}
+
 ?>
