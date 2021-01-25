@@ -23,7 +23,7 @@
 			Località: <?php echo $birrificio["Localita"];?>
 		</li>
 		<li>
-			<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$templateParams["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+			<img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$templateParams["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 		</li>
 		<li>
 			Descrizione: <?php echo $birrificio["DescrizioneBirrificio"];?>
