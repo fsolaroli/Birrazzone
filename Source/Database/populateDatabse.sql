@@ -197,20 +197,18 @@ insert into birrazzone.Movimento	(
 							values	(
 										2,
 										1,
-										'2020-12-28 15:00:00',
-										-5,
-										1
+										'2020-11-28 15:00:00',
+										200,
+										2
 									);
 
-insert into birrazzone.MovimentoUtente	(
+insert into birrazzone.MovimentoBirrificio	(
 											IdMovimento,
-											IdUtente,
-											IdOrdine
+											IdBirrificio
 										)
 								values	(
 											2,
-											1,
-											2
+											1
 										);
 
 insert into birrazzone.Movimento	(
@@ -223,8 +221,8 @@ insert into birrazzone.Movimento	(
 							values	(
 										3,
 										1,
-										'2020-12-28 15:10:00',
-										-1,
+										'2020-12-28 15:00:00',
+										-5,
 										1
 									);
 
@@ -249,18 +247,20 @@ insert into birrazzone.Movimento	(
 							values	(
 										4,
 										1,
-										'2020-12-28 15:15:00',
-										-10,
+										'2020-12-28 15:10:00',
+										-1,
 										1
 									);
 
 insert into birrazzone.MovimentoUtente	(
 											IdMovimento,
-											IdUtente
+											IdUtente,
+											IdOrdine
 										)
 								values	(
 											4,
-											1
+											1,
+											2
 										);
 
 insert into birrazzone.Movimento	(
@@ -284,5 +284,29 @@ insert into birrazzone.MovimentoUtente	(
 										)
 								values	(
 											5,
+											1
+										);
+
+insert into birrazzone.Movimento	(
+										IdMovimento,
+										IdBirra,
+										DataMovimento,
+										Quantita,
+										TipoMovimento
+									)
+							values	(
+										6,
+										1,
+										'2020-12-28 15:15:00',
+										-10,
+										1
+									);
+
+insert into birrazzone.MovimentoUtente	(
+											IdMovimento,
+											IdUtente
+										)
+								values	(
+											6,
 											1
 										);
