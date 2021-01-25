@@ -412,7 +412,7 @@ body > header > div.search > form > input:nth-of-type(2):hover {
 /* ----------------------------------------------- */
 
 body footer {
-	padding: 10px;
+	padding: 5px;
 	margin: 10px 0 0 0;
 	
 	color: white;
@@ -420,8 +420,12 @@ body footer {
 	background-color: #084E80;
 }
 
-body footer > p:first-of-type {
-	margin: 0 0 10px 0;
+body footer > p {
+	margin: 5px 0;
+}
+
+body footer > p:nth-of-type(2) {
+	display: none;
 }
 
 /* ----------------------------------------------- */
@@ -686,4 +690,28 @@ ul {
 section > div.registration {
 	margin-bottom: 30px;
 	text-align: center;
+}
+
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+/* Desktop */
+/* ----------------------------------------------- */
+/* ----------------------------------------------- */
+
+@media screen and (min-width: 1024px) {
+	body footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	body footer > p {
+		margin: 0 5px;
+	}
+
+	body footer > p:nth-of-type(2) {
+		display: block;
+	}
+	
 }
