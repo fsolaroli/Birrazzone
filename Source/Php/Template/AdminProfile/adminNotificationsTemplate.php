@@ -1,9 +1,7 @@
 <?php
 	$adminNotification = $dbh->getSellerRequest();
 ?>
-<header>
-	<h1>Amministratore</h1>
-</header>
+<h1>Amministratore</h1>
 <section>
 	<h2>Richieste</h2>
 	<?php if (empty($adminNotification)): ?>

@@ -1,6 +1,4 @@
-<header>
-	<h1>Amministratore</h1>
-</header>
+<h1>Amministratore</h1>
 <p id="breweryId" hidden> <?php echo $birra["IdBirra"]; ?></p>
 <section>
 	<h2>Dati Birra</h2>
