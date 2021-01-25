@@ -37,7 +37,7 @@ function manageNotification() {
 
 		$("ul > li#" + notificationId + " > div:nth-of-type(2)").show("slide");
 		$(this).hide();
-		$("ul > li > div > img[alt*='collapse']").show();		
+		$("ul > li#" + notificationId + " > div > img[alt*='collapse']").show();		
 	});
 	
 	$("ul > li > div > img[alt*='collapse']").click(function (e) { 
@@ -45,7 +45,7 @@ function manageNotification() {
 
 		$("ul > li#" + notificationId + " > div:nth-of-type(2)").hide("slide");
 		$(this).hide();
-		$("ul > li > div > img[alt*='expande']").show();
+		$("ul > li#" + notificationId + " > div > img[alt*='expande']").show();
 	});
 
 	$("ul > li > div > button").click(function (e) { 
@@ -66,7 +66,7 @@ function manageNotification() {
 	
 			$("ul > li#" + notificationId + " > div:nth-of-type(2)").show("slide");
 			$(this).hide();
-			$("ul > li > div > img[alt*='collapse']").show();		
+			$("ul > li#" + notificationId + " > div > img[alt*='collapse']").show();		
 		});
 		
 		$("ul > li > div > img[alt*='collapse']").click(function (e) { 
@@ -74,7 +74,7 @@ function manageNotification() {
 	
 			$("ul > li#" + notificationId + " > div:nth-of-type(2)").hide("slide");
 			$(this).hide();
-			$("ul > li > div > img[alt*='expande']").show();
+			$("ul > li#" + notificationId + " > div > img[alt*='expande']").show();
 		});
 	
 		$("ul > li > div > button.accept").click(function (e) { 
