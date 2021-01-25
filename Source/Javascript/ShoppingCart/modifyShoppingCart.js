@@ -15,8 +15,11 @@ $(function(){
 			$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", {IdProduct, newQuantity}, function(newQuantity) {
 				$("p#totBeer"+IdProduct).text(newQuantity+"€");
 			});
+			$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
+				$("p#totCart").text(newPrice+"€");
+			});
 			return newQuantity;
-		  });
+		});
 	});
 
 	$("button#remove").click(function(e) {
@@ -33,8 +36,11 @@ $(function(){
 				$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", {IdProduct, newQuantity}, function(newQuantity) {
 						$("p#totBeer"+IdProduct).text(newQuantity+"€");
 				});
+				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
+					$("p#totCart").text(newPrice+"€");
+				});
 				return newQuantity;
 			}
-		  });
+		});
 	});
 });
