@@ -22,7 +22,8 @@ $(function(){
 				});
 			}else{
 				$.post("../../ApiAJAX/ShoppingCart/modifyProductQuantity.php", {IdProduct: $(this).attr("alt").split(" ")[1],
-																				Quantity: -1});
+																				Quantity: -1}, );
+				
 				return parseInt(val, 10) - 1;
 			}
 		  });
