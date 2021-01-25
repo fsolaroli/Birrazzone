@@ -1,11 +1,13 @@
 $(function() {
 	$("button").click(function() {
-		let OrderData = $("h2").text().split(" ")[1];
+		let OrderData = {
+			orderId: $("h2").text().split(" ")[1]
+		}
 		let ManageOrder = function(errors) {
 			if(errors!=null) {
 				$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 			} else {
-				window.location = "userShoppingCart.php";
+				window.location = "../ShoppingCart/userShoppingCart.php";
 			}
 		}
 

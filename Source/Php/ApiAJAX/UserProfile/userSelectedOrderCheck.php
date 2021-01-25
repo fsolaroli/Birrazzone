@@ -2,10 +2,10 @@
 
 require_once("../../Site/baseConfiguration.php");
 
-if(isset($_POST[0])) {
+if(isset($_POST["orderId"])) {
 	$errors = null;
 
-	$orderedProducts = $dbh->getOrderProducts($_GET["orderId"]);
+	$orderedProducts = $dbh->getOrderProducts($_POST["orderId"]);
 	foreach($orderedProducts as $product) {
 		if ($dbh->getBeerQuantity($product["IdBirra"]) < $product["QuantitaTot"]) {
 			$errors = "NON È POSSIBILE SODDISFARE LA RICHIESTA IN QUANTO NON È PRESENTE UN NUMERO DI ARTICOLI SUFFICIENTE";
@@ -14,7 +14,7 @@ if(isset($_POST[0])) {
 
 	if(empty($errors)) {
 		foreach($orderedProducts as $product) {
-			$dbh->addBeerToShoppingCart($_SESSION["userId"], $product["IdBirra"], $dbh->getBeerQuantity($product["IdBirra"]));
+			$dbh->addBeerToShoppingCart($_SESSION["userId"], $product["IdBirra"], $product["QuantitaTot"]);
 		}
 	}
 
