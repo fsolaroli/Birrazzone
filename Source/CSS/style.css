@@ -111,13 +111,13 @@ h2 {
 	text-align: left;
 }
 
-main > h2 {
-	width: 100%;
-	text-align: center;
-}
-
 h3 {
 	font-size: 20pt;
+}
+
+main > h2, main > h3 {
+	width: 100%;
+	text-align: center;
 }
 
 /* ----------------------------------------------- */
@@ -162,8 +162,13 @@ main > section {
 	align-self: flex-start;
 	
 	width: 90%;
-	max-width: 750px;
+	max-width: 740px;
 	
+	margin: 0;
+	padding: 0 5px;
+}
+
+section {
 	margin: 15px 0;
 }
 
