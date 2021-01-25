@@ -4,7 +4,6 @@
 <section>
 	<h2>Aggiungi dati birra</h2>
 	<form onsubmit="return false;">
-		<input type="hidden" name="productId" value="<?php echo $_GET["productId"] ?>">
 		<ul>
 			<li class="label"><label for="name">Nome</label></li>
 			<li class="input"><input type="text" name="name" maxlength="30" required="true" autocomplete="off"/></li>
