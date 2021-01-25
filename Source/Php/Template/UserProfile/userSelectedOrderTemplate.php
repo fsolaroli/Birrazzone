@@ -52,8 +52,8 @@
 			<p>N° prodotti ordinati: <?php echo totalQuantityOrdered($_GET["orderId"]); ?></p>
 			<p>Prezzo totale: <?php echo totalPrice($_GET["orderId"]); ?></p>
 		</div>
-		<div class="replace-order">
-			<button>Visualizza</button></a>
+		<div class="redo-order">
+			<button>Riordina</button></a>
 		</div>
 		<div class="errors"></div>
 	</section>
