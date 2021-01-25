@@ -2,9 +2,9 @@
 require_once("../baseConfiguration.php");
 
 if (isUserLoggedIn()) {
-	header("Location: .../ProfilePage/profilePage.php");
+	header("Location: ../UserProfile/userNotifications.php");
 } else if (isSellerLoggedIn()) {
-	header("Location: ../SellerPage/sellerPage.php");
+	header("Location: ../SellerProfile/sellerNotifications.php");
 } else {
 	$templateParams["Titolo"] = "Login";
 	$templateParams["Javascript"] = array("Login/login.js");
