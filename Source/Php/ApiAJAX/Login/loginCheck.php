@@ -18,7 +18,6 @@ if(isset($_POST["email"]) && isset($_POST["pw"])) {
 			registerLoggedUser($possibleUser[0]["IdUtente"]);
 			$accountType = "u";
 			if ($_POST["loginFromCart"] == "true") {
-				var_dump("diooooo");
 				$nextPage = "cart";
 			} else {
 				$nextPage = "profile";
