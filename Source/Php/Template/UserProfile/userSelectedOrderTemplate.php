@@ -36,7 +36,8 @@
 			<?php foreach($orderedProducts as $product): ?>
 				<li>
 					<div class="product-ordered-info">
-						<p><?php echo $product["NomeBirra"]; ?></p> 
+						<!-- TODO: inserire link corretto a pagina prodotto -->
+						<p><a href="../Poggers.php?<?php echo $product["IdBirra"]; ?>"><?php echo $product["NomeBirra"]; ?></a></p> 
 						<p><?php echo $product["QuantitaTot"]; ?></p>
 					</div>
 					<div class="product-ordered-price">
