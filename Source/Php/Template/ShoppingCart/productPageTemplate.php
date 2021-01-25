@@ -1,4 +1,7 @@
-<?php $birrificio = $dbh->getSeller($birra["IdBirrificio"]);?>
+<?php 
+$birrificio = $dbh->getSeller($birra["IdBirrificio"]);
+$quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
+?>
 <p id="breweryId" hidden> <?php echo $birra["IdBirra"]; ?></p>
 <section>
 	<h2><?php echo $birra["NomeBirra"];?></h2>
@@ -12,13 +15,14 @@
 		<p>Colore: <?php echo $birra["Colore"];?></p>
 		<p>Descrizione: <?php echo $birra["DescrizioneBirra"];?></p>
 </section>
-<section id="addToCart">
-	<ul>
-		<li>
-			Disponibilità: 
-		</li>
-		<li>
-			N. vendute:
-		</li>
-	</ul>
+<section>
+	<?php if($quantitaBirra == 0){ ?>
+		<div>
+			<p>Non Disponibile</p>
+		</div>
+	<?php }else{ ?>
+		 <div>
+			 <input type="number" min="0" max="<?php echo $quantitaBirra;?>" value="0"/> <button id="add" alt="id <?php $birra["IdBirra"]?>">Aggiungi al carrello</button>
+		 </div>
+	<?php } ?>
 </section>
