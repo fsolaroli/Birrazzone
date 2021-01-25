@@ -2,7 +2,7 @@
 	$adminNotification = $dbh->getSellerRequest();
 ?>
 <h1>Amministratore</h1>
-<section class="delete">
+<section>
 	<h2>Richieste</h2>
 	<?php if (empty($adminNotification)): ?>
 		<p>Nessuna nuova notifica</p>
