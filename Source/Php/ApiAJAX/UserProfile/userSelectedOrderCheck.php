@@ -12,7 +12,7 @@ if(isset($_POST["orderId"])) {
 		}
 	}
 
-	if(empty($errors)) {
+	if(!isset($errors)) {
 		foreach($orderedProducts as $product) {
 			$dbh->addBeerToShoppingCart($_SESSION["userId"], $product["IdBirra"], $product["QuantitaTot"]);
 		}
