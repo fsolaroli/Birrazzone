@@ -3,7 +3,7 @@ function generateBrewery(dataBrewery){
 	for(let i=0; i < dataBrewery.length; i++){
 		let brewery= `
 		<li>
-			${dataBrewery[i]["NomeBirrificio"]} <a href="singleBrewery.php?id=${dataBrewery[i]["Idbirrificio"]}"><button>Visualizza</button> </a>
+			${dataBrewery[i]["NomeBirrificio"]} <a href="singleBrewery.php?id=${dataBrewery[i]["IdBirrificio"]}"><button>Visualizza</button> </a>
 		</li>
 		`;
 		list += brewery;

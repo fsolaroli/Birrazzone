@@ -4,7 +4,7 @@ if(isAdminLoggedIn()){
 	header("Location: ../login/adminLogin.php");
 }else{
 	$templateParams["Titolo"] = "AdminPage - Birrificio";
-	$templateParams["Javascript"] = array("AdminProfile/deleteBrewery.js");
+	$templateParams["Javascript"] = array("AdminProfile/deleteBrewery.js", "AdminProfile/adminProfileAside.js");
 	$templateParams["Template"] = "AdminProfile/singleBreweryTemplate.php";
 	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
 
@@ -14,8 +14,7 @@ if(isAdminLoggedIn()){
 	}
 
 	$templateParams["birre"] = $dbh->getSellerBeer($idbirrificio);
-	$templateParams["birrificio"] = $dbh->getSeller($idbirrificio);
-	var_dump($dbh->getSeller($idbirrificio));
+	$birrificio = $dbh->getSeller($idbirrificio)[0];
 }
 
 require("../../Template/baseTemplate.php");

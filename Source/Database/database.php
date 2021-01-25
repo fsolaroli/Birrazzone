@@ -807,40 +807,6 @@ class DatabaseHelper{
 		$stmt->bind_param('iisss',$UserId, $NotificationType, $Title, $Body, $this->DistantFuture);
 		return $stmt->execute();	
 	}
-
-	public function getProductOfBrewery($BreweryId){
-		$stmt = $this->db->prepare("	SELECT NomeBirra, IdBirra
-										FROM Birra
-										WHERE IdBirrificio = ?");
-		$stmt->bind_param("i", $id);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		return $result->fetch_all(MYSQLI_ASSOC);
-	}
-
-	public function getThisBeer($BeerId){
-		$stmt = $this->db->prepare ("	SELECT *
-										FROM Birra
-										WHERE IdBirra=?");
-		$stmt->bind_param('i', $BeerId);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		return $result->fetch_all(MYSQLI_ASSOC)[0];
-	}
-
-	public function getBeerPrice($BeerId){
-		$stmt = $this->db->prepare ("	SELECT *
-										FROM Prezzo
-										WHERE IdBirra=?");
-		$stmt->bind_param('i', $BeerId);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		return $result->fetch_all(MYSQLI_ASSOC);
-	}	
-
 }
 	
 ?>

@@ -2,7 +2,7 @@
 require_once("../baseConfiguration.php");
 
 	$templateParams["Titolo"] = "AdminPage - Notification";
-	$templateParams["Javascript"] = array("AdminProfile/adminNotifications.js");
+	$templateParams["Javascript"] = array("AdminProfile/adminNotifications.js","AdminProfile/adminProfileAside.js");
 	$templateParams["Template"] = "AdminProfile/adminNotificationsTemplate.php";
 	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
 

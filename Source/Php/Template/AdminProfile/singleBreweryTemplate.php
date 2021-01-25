@@ -1,18 +1,18 @@
 <header>
 	<h1>Amministratore</h1>
 </header>
-<p id="breweryId" hidden> <?php echo $templateParams["birrificio"]["IdBirra"]; ?></p>
+<p id="breweryId" hidden> <?php echo $birrificio["IdBirra"]; ?></p>
 <section>
 	<h2>Dati Account</h2>
 	<ul>
 		<li>
-			Ragione Sociale: <?php echo $templateParams["birrificio"]["NomeBirrificio"]; ?>
+			Ragione Sociale: <?php echo $birrificio["NomeBirrificio"]; ?>
 		</li>
 		<li>
-			Email: <?php echo $templateParams["birrificio"]["EmailBirrificio"];?>
+			Email: <?php echo $birrificio["EmailBirrificio"];?>
 		</li>
 		<li>
-			P.IVA: <?php echo $templateParams["birrificio"]["PartitaIva"];?>
+			P.IVA: <?php echo $birrificio["PartitaIVA"];?>
 		</li>
 	</ul>
 </section>
@@ -20,13 +20,13 @@
 	<h2>Dati Account</h2>
 	<ul>
 		<li>
-			Località: <?php echo $templateParams["birrificio"]["Localita"];?>
+			Località: <?php echo $birrificio["Localita"];?>
 		</li>
 		<li>
 			<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$templateParams["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 		</li>
 		<li>
-			Descrizione: <?php echo $templateParams["birrificio"]["DescrizioneBirrificio"];?>
+			Descrizione: <?php echo $birrificio["DescrizioneBirrificio"];?>
 		</li>
 	</ul>
 </section>
