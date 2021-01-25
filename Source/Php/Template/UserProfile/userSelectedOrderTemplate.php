@@ -6,7 +6,8 @@
 ?>
 
 <h1><?php echo $userInfo[0]["NomeUtente"]; ?></h1>
-<h2>Ordine <?php echo $_GET["orderId"]?> - <?php echo $orderInfo[0]["DataOrdine"]?> </h2>
+<h2>Ordine <?php echo $_GET["orderId"]?></h2>
+<h3><?php echo $orderInfo[0]["DataOrdine"]?> </h3>
 
 <section>
 	<section>
@@ -46,7 +47,7 @@
 		</ul>
 	</section>
 	
-	<section>
+	<section class="delete">
 		<div class="total-quantity-price">
 			<p>N° prodotti ordinati: <?php echo totalQuantityOrdered($_GET["orderId"]); ?></p>
 			<p>Prezzo totale: <?php echo totalPrice($_GET["orderId"]); ?></p>
@@ -54,5 +55,6 @@
 		<div class="replace-order">
 			<button>Visualizza</button></a>
 		</div>
+		<div class="errors"></div>
 	</section>
 </section>
