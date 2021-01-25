@@ -1,29 +1,48 @@
 <?php 
-$birrificio = $dbh->getSeller($birra["IdBirrificio"]);
+
+$idbirra= -1;
+if(isset($_GET["id"])){
+	$idbirra = $_GET["id"];
+}
+
+$birra = $dbh->getBeer($idbirra)[0];
+
+$birrificio = $dbh->getSeller($birra["IdBirrificio"])[0];
 $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 ?>
-<p id="breweryId" hidden> <?php echo $birra["IdBirra"]; ?></p>
+<h1><?php echo $birra["NomeBirra"];?></h1>
 <section>
-	<h2><?php echo $birra["NomeBirra"];?></h2>
 	<ul>
-		<li><p><?php echo $birra["Tipologia"];?></p></li>
+		<li id="productId" hidden><?php echo $birra["IdBirra"]; ?></li>
+		<li><?php echo $birra["Tipologia"];?></li>
 		<li><img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"] ?>" alt="FotoBirra"/></li>
+		<li><a href="../SellerPage/sellerPage.php?sellerId=<?php echo $birrificio["IdBirrificio"]?>"><?php echo $birrificio["NomeBirrificio"] ?></a></li>
 		<li><?php echo $birra["Prezzo"];?>€ cad.</li>
+		<li><span>Formato: </span><span><?php echo $birra["Formato"];?></span></li>
+		<li><span>Grado Alcolico: </span><span><?php echo $birra["GradoAlcolico"];?></span></li>
+		<li><span>Colore: </span><span><?php echo $birra["Colore"];?></span></li>
+		<li><span>Descrizione: </span><span><?php echo $birra["DescrizioneBirra"];?></span></li>
 	</ul>
-		<p> Formato: <?php echo $birra["Formato"];?></p>
-		<p>Grado Alcolico: <?php echo $birra["GradoAlcolico"];?></p>
-		<p>Colore: <?php echo $birra["Colore"];?></p>
-		<p>Descrizione: <?php echo $birra["DescrizioneBirra"];?></p>
 </section>
-<section>
-	<?php if($quantitaBirra == 0){ ?>
-		<div>
+<section class="addToCart">
+	<?php if(!isSellerLoggedIn()) :?>
+		<?php if($quantitaBirra == 0): ?>
 			<p>Non Disponibile</p>
-		</div>
-	<?php }else{ ?>
-		 <div>
-			 <input id="qt" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="0"></input> <button id="add" alt="id <?php $birra["IdBirra"]?>">Aggiungi al carrello</button>
-		 </div>
-		 <div class = "errors" ></div>
-	<?php } ?>
+		<?php endif; ?>
+		<?php if($quantitaBirra > 0): ?>
+			<div>
+				<form onsubmit="return false;">
+					<label for="quantity" class="hidden">Quantità</label>
+					<input name="quantity" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="0"></input>
+					<?php if(isUserLoggedIn()) : ?>
+						<input type="submit" name="add" value="Aggiungi al carrello"/>
+					<?php endif; ?>
+					<?php if(!isUserLoggedIn()) : ?>
+						<input type="submit" name="toLogin" value="Aggiungi al carrello"/>
+					<?php endif; ?>			
+				</form>
+			</div>
+			<div class = "errors" ></div>
+		<?php endif; ?>
+	<?php endif; ?>
 </section>
