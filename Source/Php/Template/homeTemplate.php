@@ -29,7 +29,7 @@
 	<ul class="producers">
 		<?php foreach($randomSellers as $seller): ?>
 			<li>
-				<a href="../SellerPage/sellerPage.php?<?php echo $seller["IdBirrificio"]; ?>">
+				<a href="../SellerPage/sellerPage.php?sellerId=<?php echo $seller["IdBirrificio"]; ?>">
 					<div class="img">
 						<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$seller["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 					</div>

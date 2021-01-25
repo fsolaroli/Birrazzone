@@ -420,7 +420,7 @@ aside > ul > li.notification {
 /* Element border styling */
 /* ----------------------------------------------- */
 
-img, .notifications > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"] {
+img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"] {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
