@@ -35,14 +35,16 @@
 		<ul class="ordered-products">
 			<?php foreach($orderedProducts as $product): ?>
 				<li>
-					<div class="product-ordered-info">
-						<!-- TODO: inserire link corretto a pagina prodotto -->
-						<p><a href="../Poggers.php?<?php echo $product["IdBirra"]; ?>"><?php echo $product["NomeBirra"]; ?></a></p> 
-						<p><?php echo $product["QuantitaTot"]; ?></p>
-					</div>
-					<div class="product-ordered-price">
-						<p><?php echo $product["Totale"]; ?></p>
-					</div>
+					<a href="../Poggers.php?<?php echo $product["IdBirra"]; ?>">	
+						<div class="product-ordered-info">
+							<!-- TODO: inserire link corretto a pagina prodotto -->
+							<p><?php echo $product["NomeBirra"]; ?></p>
+							<p><?php echo $product["QuantitaTot"]; ?></p>
+						</div>
+						<div class="product-ordered-price">
+							<p><?php echo $product["Totale"]; ?></p>
+						</div>
+					</a>
 				</li>
 			<?php endforeach; ?>
 		</ul>
