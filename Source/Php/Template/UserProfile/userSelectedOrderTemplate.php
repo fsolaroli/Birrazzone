@@ -1,7 +1,7 @@
 <?php
 	$orderInfo = $dbh->getOrder($_GET["orderId"]); 
 	$userInfo = $dbh->getUser($_SESSION["userId"]);
-	$userAddress = $dbh->getAddress($userInfo[0]["IdIndirizzo"]);
+	$userAddress = $dbh->getAddress($orderInfo[0]["IdIndirizzoSpedizione"]);
 	$orderedProducts = $dbh->getOrderProducts($_GET["orderId"]);
 ?>
 
