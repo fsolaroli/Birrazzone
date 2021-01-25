@@ -18,11 +18,15 @@
 					<img src='../../../../Immagini/Icone/Collapse.png' alt='collapse <?php echo $notification["IdBirrificio"]?>' hidden/>
 				</div>
 				<div hidden>
-					<p>Ragione Sociale: <?php echo $notification["NomeBirrificio"]?> </p>
-					<p>Email: <?php echo $notification["EmailBirrificio"]?> </p>
-					<p>Partita IVA: <?php echo $notification["PartitaIVA"]?> </p>
-					<button class="delete" id='reject <?php echo $notification["IdBirrificio"]?>'>Rifiuta</button>
-					<button class="accept <?php echo $notification["EmailBirrificio"]?>" id='accept <?php echo $notification["IdBirrificio"]?>'>Accetta</button>
+					<ul>
+						<li><span>Ragione Sociale: </span><span><?php echo $notification["NomeBirrificio"]?></span></li>
+						<li><span>Email: </span><span><?php echo $notification["EmailBirrificio"]?></span></li>
+						<li><span>Partita IVA: </span><span><?php echo $notification["PartitaIVA"]?></span></li>
+						<li class="submit">
+							<button class="reject" id='reject <?php echo $notification["IdBirrificio"]?>'>Rifiuta</button>
+							<button class="accept" id='accept <?php echo $notification["IdBirrificio"]?>'>Accetta</button>
+						</li>
+					</ul>
 				</div>
 			</li>
 			<?php endforeach;?>
