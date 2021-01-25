@@ -757,27 +757,6 @@ class DatabaseHelper{
 		return $stmt->execute();
 	}
 
-	public function getAcceptedBreweryIds(){
-		$stmt = $this->db->prepare("	SELECT Idbirrificio 
-										FROM birrazzone.StatoMembershipBirrificio
-										WHERE IdStatoMembership = 2");
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		return $result->fetch_all(MYSQLI_ASSOC);
-	}
-
-	public function getBreweryById($id){
-		$stmt = $this->db->prepare("	SELECT Birrificio.NomeBirrificio, Birrificio.IdBirrificio
-										FROM birrazzone.Birrificio 
-										WHERE IdBirrificio = ?");
-		$stmt->bind_param("i", $id);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		return $result->fetch_all(MYSQLI_ASSOC)[0];
-	}
-
 	public function addSellerNotification($SellerId, $NotificationType, $Title, $Body) {
 		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Notifica	(
 																			IdBirrificio,

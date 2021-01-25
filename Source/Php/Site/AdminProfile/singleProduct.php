@@ -1,6 +1,9 @@
 <?php
 require_once("../baseConfiguration.php");
-if(isAdminLoggedIn()){
+
+if(!isAdminLoggedIn()){
+	header("Location: ../login/adminLogin.php");
+}else{
 	$templateParams["Titolo"] = "AdminPage - Prodotto";
 	$templateParams["Template"] = "AdminProfile/singleProductTemplate.php";
 	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
@@ -10,15 +13,10 @@ if(isAdminLoggedIn()){
 		$idbirra = $_GET["id"];
 	}
 
-	$templateParams["birra"] = $dbh->getThisBeer($idbirra);
-	$prezzo = $dbh->getBeerPrice($idbirra)[0]["Prezzo"];
+	$templateParams["birra"] = $dbh->getBeer($idbirra);
+	$prezzo = $templateParams["birra"]["Prezzo"];
 	$birrevendute = $dbh->getNumberOfBeerSold($idbirra);
 	$birrerimaste = $dbh->getBeerQuantity($idbirra);
-}else{
-	$templateParams["Titolo"] = "AdminLogin";
-	$templateParams["Javascript"] = array("Login/adminLogin.js");
-	$templateParams["Template"] = "Login/adminLoginTemplate.php";
-	$templateParams["HeaderType"] = "Login"; //Profile, Login, Global
 }
 
 

@@ -2,7 +2,7 @@
 require_once("../baseConfiguration.php");
 
 if(isAdminLoggedIn()){
-	header("Location: ../AdminPage/adminNotifications.php");
+	header("Location: ../AdminProfile/adminNotifications.php");
 }else{
 	$templateParams["Titolo"] = "AdminLogin";
 	$templateParams["Javascript"] = array("Login/adminLogin.js");

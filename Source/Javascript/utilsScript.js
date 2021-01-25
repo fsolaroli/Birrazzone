@@ -78,7 +78,8 @@ function manageNotification() {
 		});
 	
 		$("ul > li > div > button.accept").click(function (e) { 
-			$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
+			$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1],
+																	EmailBirrificio: $(this).attr("class").split(" ")[1]},
 				function (token) {
 					console.log(`http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token=`+token);
 					location.reload();
@@ -86,7 +87,7 @@ function manageNotification() {
 		});
 
 		$("ul > li > div > button.delete").click(function (e) { 
-			$.post("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
+			$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
 				function () {
 					location.reload();
 				});
