@@ -1,5 +1,5 @@
 $(function() {
-	$("button").click(function() {
+	$("div.redo-order > button").click(function() {
 		let OrderData = {
 			orderId: $("h2").text().split(" ")[1]
 		}

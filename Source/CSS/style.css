@@ -612,6 +612,10 @@ a.show {
 	color: #084E80;
 }
 
+a {
+	align-self: flex-end;
+}
+
 section > ul > li > img {
 	display: block;
 	width: 100%;
@@ -676,10 +680,6 @@ ul.products > li > div.productData > ul > li {
 div.description {
 	display: flex;
 	flex-direction: column;
-}
-
-div.description > a {
-	align-self: flex-end;
 }
 
 ul.sellerProducts {
