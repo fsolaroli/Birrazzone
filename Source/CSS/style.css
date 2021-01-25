@@ -539,7 +539,7 @@ aside > ul > li.notification > a {
 }
 
 img#Aside[alt="Notification"] {
-	float: right;
+	/* float: right; */
 	/* position: relative; */
 	/* left: 190px;
 	bottom: 55px; */
