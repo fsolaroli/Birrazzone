@@ -768,14 +768,14 @@ class DatabaseHelper{
 	}
 
 	public function getBreweryById($id){
-		$stmt = $this->db->prepare("	SELECT NomeBirrificio, Idbirrificio, EmailBirrificio, PartitaIva, DescrizioneBirrificio, FotoBirrificio, Localita
-										FROM Birrificio 
+		$stmt = $this->db->prepare("	SELECT Birrificio.NomeBirrificio, Birrificio.IdBirrificio
+										FROM birrazzone.Birrificio 
 										WHERE IdBirrificio = ?");
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
-		return $result->fetch_all(MYSQLI_ASSOC);
+		return $result->fetch_all(MYSQLI_ASSOC)[0];
 	}
 
 	public function addSellerNotification($SellerId, $NotificationType, $Title, $Body) {
@@ -817,15 +817,6 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 
-	public function deleteBrewery($BreweryId) {
-		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
-										SET Birrificio.IdBirrificio=?,
-											Birrificio.EmailBirrificio=CONCAT(?, '0', Birrificio.IdBirrificio)
-										WHERE Birrificio.IdBirrificio=?");
-		$stmt->bind_param('ssi', $this->NamePlaceHolder, $this->EmailPlaceHolder, $BreweryId);
-		return $stmt->execute();
-	}
-
 	public function getThisBeer($BeerId){
 		$stmt = $this->db->prepare ("	SELECT *
 										FROM Birra
@@ -847,16 +838,6 @@ class DatabaseHelper{
 
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}	
-
-	public function getAdminNotifications(){
-		$stmt = $this->db->prepare("	SELECT StatoMembership.IdStatoMembership
-										FROM StatoMembership
-										WHERE IdStatoMembership=1");
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-		return $result->fetch_all(MYSQLI_ASSOC);
-	}
 
 }
 	

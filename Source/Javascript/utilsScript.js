@@ -80,14 +80,15 @@ function manageNotification() {
 		$("ul > li > div > button.accept").click(function (e) { 
 			$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
 				function (token) {
-					console.log(`../../Site/SellerProfile/sellerRegistrationConfermation.php?token=`+token);
+					console.log(`http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token=`+token);
+					location.reload();
 				}, "json");
 		});
 
 		$("ul > li > div > button.delete").click(function (e) { 
-			$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
+			$.post("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
 				function () {
-					
+					location.reload();
 				});
 		});
 }
