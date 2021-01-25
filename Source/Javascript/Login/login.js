@@ -1,9 +1,15 @@
 $(function() {
 	$(":submit").click(function() {
+		if($("p#loginFromCart") != null) {
+			var login = true;
+		} else {
+			var login = false;
+		}
+
 		let LoginData = {
 			email: $("input[name='email']").val(),
 			pw: $("input[name='pw']").val(),
-			loginFromCart: $("p").text()
+			loginFromCart: login
 		}
 		
 		let ManageLogin = function (data) {
