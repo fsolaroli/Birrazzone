@@ -22,7 +22,8 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 		</div>
 	<?php }else{ ?>
 		 <div>
-			 <input type="number" min="0" max="<?php echo $quantitaBirra;?>" value="0"/> <button id="add" alt="id <?php $birra["IdBirra"]?>">Aggiungi al carrello</button>
+			 <input id="qt" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="0"></input> <button id="add" alt="id <?php $birra["IdBirra"]?>">Aggiungi al carrello</button>
 		 </div>
+		 <div class = "errors" ></div>
 	<?php } ?>
 </section>

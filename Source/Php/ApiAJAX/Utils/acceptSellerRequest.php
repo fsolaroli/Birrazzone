@@ -12,7 +12,7 @@ if (isset($_POST["IdBirrificio"])) {
 			$token .= $characters[rand(0, $charactersLength - 1)];
 		}
 	}while(in_array($token, $dbh->getUsedToken()));
-	$dbh->acceptSellerRequest($_POST["IdBirrificio"], $token);
+	$dbh->acceptSellerRequest($dbh->getSeller($_POST["IdBirrificio"][0]["EmailBirrificio"]), $token);
 
 	mail($_POST["EmailBirrificio"], "Seller request accepted",
 	"Congratulations, you have just become a Seller of Birrazzone!\n

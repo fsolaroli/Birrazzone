@@ -5,8 +5,8 @@ if(!isUserLoggedIn()){
 	header("Location: ../login/login.php");
 }else{
 	$templateParams["Titolo"] = "AdminPage - Prodotto";
-	$templateParams["Template"] = "ShoppingCart/productPageTemplate.php";
-	$templateParams["Javasctipt"] = "modifyShoppingCart.js"; 
+	$templateParams["Template"] = "ProductPage/productPageTemplate.php";
+	$templateParams["Javasctipt"] = array("ProductPage/addBeerToCart.js"); 
 	$templateParams["HeaderType"] = "Global"; //Profile, Login, Global
 
 	$idbirra= -1;

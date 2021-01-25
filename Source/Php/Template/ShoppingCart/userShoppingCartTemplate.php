@@ -1,7 +1,7 @@
 <h1>Carrello</h1>
 <?php $totaleCarrello = null; ?>
 <?php if(empty($templateParams["birre"])){ ?>
-<h3>Non ci sonon birre nel carrello</h3>
+<h3>Non ci sono birre nel carrello</h3>
 <?php }else{ ?>
 <?php foreach($templateParams["birre"] as $birra): ?>
 	<section>
@@ -13,21 +13,21 @@
 				</div>
 				<button><img id="delete" src="../../../../Immagini/Icone/Close.png" alt="delete <?php echo $birra["IdBirra"]?>"></img></button>
 				<div>
-					<button id="add" ><img src='../../../../Immagini/Icone/Expand.png'/> </button> 
-					<p id="qt" alt="id <?php echo $birra["IdBirra"]?>"> <?php echo $birra["QuantitaTot"];?></p> 
-					<button id="remove" ><img src='../../../../Immagini/Icone/Collapse.png'/> </button> 
+					<button id="add" alt="id <?php echo $birra["IdBirra"]?>"><img src='../../../../Immagini/Icone/Expand.png'/> </button> 
+					<p id="qt<?php echo $birra["IdBirra"]?>"> <?php echo $birra["QuantitaTot"];?></p> 
+					<button id="remove" alt="id <?php echo $birra["IdBirra"]?>"><img src='../../../../Immagini/Icone/Collapse.png'/> </button> 
 				</div>
-				Totale: <?php echo $birra["Totale"]; ?>€
+				<p id="totBeer<?php echo $birra["IdBirra"]?>"> <?php echo $birra["Totale"];?></p> 
 			</div>
 		</div>
 		<?php $totaleCarrello +=  $birra["Totale"];?>
 	</section>
 <?php endforeach; ?>
-<?php } ?>
 <section>
 	<div>
 		N. Prodotti: <?php echo count($templateParams["birre"]); ?>
-		Totale:  <?php echo $totaleCarrello;?>€
+		<p id="totCart"> <?php echo $totaleCarrello;?></p> 
 		<div> <a href="#"> <button id="checkout" > Checkout </button> </a></div>
 	</div>
 </section>
+<?php } ?>
