@@ -14,7 +14,7 @@ if(isset($_POST[0])) {
 
 	if(empty($errors)) {
 		foreach($orderedProducts = $product) {
-			$dbh->addBeerToShoppingCart($_SESSION["userId"], $product["IdBirra"], $dbh->getBeerQuantity($product["IdBirra"]);
+			$dbh->addBeerToShoppingCart($_SESSION["userId"], $product["IdBirra"], $dbh->getBeerQuantity($product["IdBirra"]));
 		}
 	}
 
