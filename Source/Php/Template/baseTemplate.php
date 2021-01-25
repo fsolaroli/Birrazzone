@@ -48,7 +48,7 @@
 						}
 					?>
 				"><img src="<?php echo $imagePath?>Icone/User.png" alt="Home"/></a>
-				<a class="shoppingCart<?php if(isSellerLoggedIn()){ echo " hidden";} ?>" href="shoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"></a>
+				<a class="shoppingCart<?php if(isSellerLoggedIn()){ echo " hidden";} ?>" href="../ShoppingCart/userShoppingCart.php"><img src="<?php echo $imagePath?>Icone/ShoppingCart.png" alt="Shopping Cart"></a>
 			<?php endif; ?>	
 			<?php if(hasNotification()): ?>
 				<img id="<?php echo $templateParams["HeaderType"]; ?>" src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
