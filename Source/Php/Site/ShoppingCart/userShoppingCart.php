@@ -7,6 +7,7 @@ if(!isUserLoggedIn()) {
 } else {
 	$templateParams["Titolo"] = "Utente - Carrello";
 	$templateParams["Template"] = "ShoppingCart/userShoppingCartTemplate.php";
+	$templateParams["Javascript"] = array("ShoppingCart/modifyShoppingCart.js");
 	$templateParams["HeaderType"] = "Global";
 
 	$templateParams["birre"] = $dbh->getShoppingCart($_SESSION["userId"]);
