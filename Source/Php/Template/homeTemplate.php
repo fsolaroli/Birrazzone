@@ -25,6 +25,7 @@
 <section>
 	<h3>Scopri nuovi birrifici</h3>
 	<?php $randomSellers = $dbh->getRandomSeller(); ?>
+	<?php $descriptionLength = 20; ?>
 	
 	<ul class="producers">
 		<?php foreach($randomSellers as $seller): ?>
@@ -36,7 +37,7 @@
 					<ul class="info-brewery">
 						<li><?php echo $seller["NomeBirrificio"]; ?></li>
 						<li><?php echo $seller["Localita"]; ?></li>
-						<li><?php echo $seller["DescrizioneBirrificio"]; ?></li>
+						<li><?php echo substr($seller["DescrizioneBirrificio"], 0, $descriptionLength); ?>...</li>
 					</ul>
 				</a>
 			</li>
