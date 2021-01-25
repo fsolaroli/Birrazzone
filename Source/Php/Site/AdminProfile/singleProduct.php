@@ -1,6 +1,9 @@
 <?php
 require_once("../baseConfiguration.php");
 
+if(!isAdminLoggedIn() || empty($_SESSION["adminLoggedIn"])){
+	header("Location: ../login/adminLogin.php");
+}else{
 	$templateParams["Titolo"] = "AdminPage - Prodotto";
 	$templateParams["Template"] = "AdminProfile/singleProductTemplate.php";
 	$templateParams["Javasctipt"] = "adminProfileAside.js";
@@ -14,6 +17,6 @@ require_once("../baseConfiguration.php");
 	$birra = $dbh->getBeer($idbirra)[0];
 	$birrevendute = $dbh->getNumberOfBeerSold($idbirra);
 	$birrerimaste = $dbh->getBeerQuantity($idbirra);
- 
+}
 require("../../Template/baseTemplate.php");
 ?>

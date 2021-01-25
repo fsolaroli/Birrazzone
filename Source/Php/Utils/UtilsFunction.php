@@ -63,6 +63,12 @@ function logOut() {
 	}
 }
 
+function adminLogOut() {
+	if (isAdminLoggedIn()) {
+		$_SESSION["adminLoggedIn"] = null;
+	}
+}
+
 function isSellerLoggedIn() {
 	global $dbh;
     return (!empty($_SESSION['sellerId']) && !empty($dbh->getSeller($_SESSION["sellerId"])));
@@ -73,7 +79,7 @@ function isUserLoggedIn() {
 }
 
 function isAdminLoggedIn(){
-	return (!empty($_SESSION["username"]) && !empty($_SESSION["pw"]));
+	return $_SESSION["adminLoggedIn"];
 }
 
 function hasNotification() {
