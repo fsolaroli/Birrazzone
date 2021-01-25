@@ -12,7 +12,7 @@ $(function() {
 			format: $("input[name='format']").val(),
 			alcholic: $("input[name='alcholic']").val(),
 			color: $("input[name='color']").val(),
-			description: $("input[name='description']").val(),
+			description: $("textarea[name='description']").val(),
 		}
 		let PostFunction = function(errors) {
 			if(errors!=null) {

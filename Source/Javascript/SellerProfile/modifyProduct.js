@@ -8,7 +8,7 @@ $(function() {
 			productId: $("input[name='productId']").val(),
 			imagePath: $("form > ul > li > img").attr("src"),
 			price: $("input[name='price']").val(),
-			description: $("input[name='description']").val(),
+			description: $("textarea[name='description']").val(),
 		}
 		let PostFunction = function(errors) {
 			if(errors!=null) {
