@@ -2,7 +2,7 @@
 
 require_once("../../Site/baseConfiguration.php");
 
-if(isset($_POST[0]) {
+if(isset($_POST[0])) {
 	$errors = null;
 
 	$orderedProducts = $dbh->getOrderProducts($_GET["orderId"]);
