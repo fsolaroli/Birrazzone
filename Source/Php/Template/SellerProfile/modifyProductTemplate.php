@@ -20,7 +20,7 @@
 			<li class="input" hidden><div class="imageErrors"></div></li>
 	
 			<li class="label"><label for="price">Prezzo</label></li>
-			<li class="input"><input type="number" name="price" max="9999.99" min="0.01" step="0.50" value="<?php echo $productData["Prezzo"] ?>" required="true" autocomplete="off"/></li>
+			<li class="input"><input type="number" name="price" max="9999.99" min="0.01" step="0.01" value="<?php echo $productData["Prezzo"] ?>" required="true" autocomplete="off"/></li>
 	
 			<li class="label"><label for="description">Descrizione:</label></li>
 			<li class="input"><textarea name="description" maxlength="300"><?php echo $productData["DescrizioneBirra"] ?></textarea></li>

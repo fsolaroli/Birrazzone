@@ -19,7 +19,7 @@
 			<li><div class="imageErrors" hidden></div></li>
 	
 			<li class="label"><label for="price">Prezzo</label></li>
-			<li class="input"><input type="number" name="price" max="9999.99" min="0.01" step="0.50" required="true" autocomplete="off"/></li>
+			<li class="input"><input type="number" name="price" max="9999.99" min="0.01" step="0.01" required="true" autocomplete="off"/></li>
 	
 			<li class="label"><label for="format">Formato</label></li>
 			<li class="input"><input type="number" name="format" max="16777215" min="1" required="true" step="1" autocomplete="off"/></li>
