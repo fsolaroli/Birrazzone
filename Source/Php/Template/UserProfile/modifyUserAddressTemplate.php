@@ -50,5 +50,6 @@
 			
 		<?php endif; ?>
 	</form>
+	
+	<div class="errors"></div>
 </section>
-<div class="errors"></div>

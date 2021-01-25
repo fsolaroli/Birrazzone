@@ -12,10 +12,9 @@
 			<li class="submit"><input type="submit" value="Accedi" /></li>
 		</ul>
 	</form>
-</section>
-<div class="errors"></div>
-
-<section>
+	
+	<div class="errors"></div>
+	
 	<div class="registration">
 		<p>Non sei ancora registrato?</p>
 		<a href="../UserProfile/userRegistration.php">Registrati</a>
@@ -25,4 +24,6 @@
 		<p>Vuoi registrare il tuo birrificio?</p>
 		<a href="../SellerProfile/sellerRegistration.php">Invia la richiesta</a>
 	</div>
+
 </section>
+
