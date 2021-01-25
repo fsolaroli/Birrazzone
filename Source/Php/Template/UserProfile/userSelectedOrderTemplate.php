@@ -6,7 +6,7 @@
 ?>
 
 <h1><?php echo $userInfo[0]["NomeUtente"]; ?></h1>
-<h2>Ordine <?php echo $_GET["orderId"]?> - Data <?php echo $orderInfo[0]["DataOrdine"]?> </h2>
+<h2>Ordine <?php echo $_GET["orderId"]?> - <?php echo $orderInfo[0]["DataOrdine"]?> </h2>
 
 <section>
 	<section>
