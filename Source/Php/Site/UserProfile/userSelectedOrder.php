@@ -7,7 +7,7 @@ if(!isUserLoggedIn()) {
 } else {
 	$templateParams["Titolo"] = "Utente - Ordine";
 	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js", "UserProfile/userSelectedOrder.js");
-	$templateParams["Template"] = "UserProfile/userOrdersTemplate.php";
+	$templateParams["Template"] = "UserProfile/userSelectedOrderTemplate.php";
 	$templateParams["HeaderType"] = "Profile";
 
 	require("../../Template/baseTemplate.php");
