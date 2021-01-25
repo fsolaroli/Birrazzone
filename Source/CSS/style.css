@@ -482,6 +482,7 @@ div.errors {
 }
 
 div.errors > p {
+	text-align: center;
 	margin-top: 5px;
 }
 
