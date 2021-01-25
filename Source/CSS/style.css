@@ -78,7 +78,8 @@ ul {
 }
 
 a {
-	display: block;
+	display: inline-block;
+	width: fit-content;
 	color: #084E80;
 }
 
@@ -318,7 +319,7 @@ body > aside {
 
 body > aside > ul {
 	display: flex;
-	align-items: stretch;
+	align-items: center;
 	flex-direction: column;
 	
 	height: 85%;
@@ -408,11 +409,11 @@ img#Profile[alt="Notification"] {
 	top: 3px;
 }
 
-aside > ul > li.notification > a {
+aside > ul > li.notification {
 	background-image: url("../../Immagini/Icone/Notification.png");
 	background-size: 12pt;
 	background-repeat: no-repeat;
-	background-position: top right;
+	background-position: top 15px right 40px;
 }
 
 /* ----------------------------------------------- */
@@ -467,6 +468,7 @@ button.delete:hover {
 
 button.delete:disabled, button.delete:disabled:hover {
 	background-color: grey;
+	cursor: auto;
 	color: white;
 }
 
@@ -610,7 +612,7 @@ a.show {
 	color: #084E80;
 }
 
-main > section > ul > li > img {
+section > ul > li > img {
 	display: block;
 	width: 100%;
 }
@@ -671,7 +673,12 @@ ul.products > li > div.productData > ul > li {
 /* SellerProfile */
 /* ----------------------------------------------- */
 
-main > section > a {
+div.description {
+	display: flex;
+	flex-direction: column;
+}
+
+div.description > a {
 	align-self: flex-end;
 }
 
