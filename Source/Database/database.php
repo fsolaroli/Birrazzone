@@ -763,7 +763,7 @@ class DatabaseHelper{
 		$stmt = $this->db->prepare ("SELECT LAST_INSERT_ID()");
 		$stmt->execute();
 		$result = $stmt->get_result();
-		return $result;
+		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 
 	public function finalizeOrder($UserId, $AddressId) {
@@ -799,7 +799,7 @@ class DatabaseHelper{
 																					)");
 		$stmt->bind_param('s',$this->DistantFuture);
 		$stmt->execute();
-		return $result;
+		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 
 	public function addSellerNotification($SellerId, $NotificationType, $Title, $Body) {

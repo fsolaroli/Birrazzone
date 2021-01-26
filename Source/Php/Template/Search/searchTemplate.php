@@ -2,7 +2,7 @@
 <section>
 	<h3>Birre</h3>
 
-	<?php $beersFound = $dbh->searchBeer($_GET["sellerId"]); ?>
+	<?php $beersFound = $dbh->getAllSellerBeer($_GET["sellerId"]); ?>
 
 	<?php if(!empty($beersFound)): ?>
 		<ul class="products">
@@ -27,10 +27,6 @@
 				</li>
 			<?php endforeach; ?>
 		</ul>
-	<?php endif; ?>
-
-	<?php if(empty($beersFound)): ?>
-		<p>Non esistono birre con questa parola</p>
 	<?php endif; ?>
 </section>
 <?php endif; ?>
