@@ -5,7 +5,7 @@
 	<ul class="products">
 		<?php foreach($randomBeers as $beer): ?>
 			<li>
-				<a href="../ProductPage/productPage.php?<?php echo $beer["IdBirra"]; ?>">
+				<a href="../ProductPage/productPage.php?id=<?php echo $beer["IdBirra"];?>">
 					<div class="img">
 						<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>
 					</div>

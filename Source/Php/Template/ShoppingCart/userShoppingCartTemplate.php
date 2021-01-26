@@ -16,7 +16,7 @@
 				</div>
 				<button><img id="delete" src="../../../../Immagini/Icone/Close.png" alt="delete <?php echo $birra["IdBirra"]?>"></img></button>
 				<div>
-					<button id="add" alt="id <?php echo $birra["IdBirra"]?>"><img src='../../../../Immagini/Icone/Expand.png'/> </button> 
+					<button id="add " alt="id <?php echo $birra["IdBirra"]?>"><img src='../../../../Immagini/Icone/Expand.png'/> </button> 
 					<p id="qt<?php echo $birra["IdBirra"]?>"> <?php echo $birra["QuantitaTot"];?></p> 
 					<button id="remove" alt="id <?php echo $birra["IdBirra"]?>"><img src='../../../../Immagini/Icone/Collapse.png'/> </button> 
 				</div>

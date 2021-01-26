@@ -8,16 +8,23 @@ $(function(){
 
 	$("button#add").click(function(e) {
 		let IdProduct = $(this).attr("alt").split(" ")[1];
+
 		$("p#qt"+IdProduct).text(function(i, val){
-			$.post("../../ApiAJAX/ShoppingCart/modifyProductQuantity.php", {IdProduct,
-																			Quantity: 1});
-			let newQuantity = parseInt(val, 10) + 1;		
-			$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", {IdProduct, newQuantity}, function(newQuantity) {
-				$("p#totBeer"+IdProduct).text(newQuantity+"€");
-			});
-			$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
-				$("p#totCart").text(newPrice+"€");
-			});
+			//let newQuantity = 0;
+			//if(parseInt(val, 10) != max){
+				let newQuantity = parseFloat(val) + 1;
+				$.post("../../ApiAJAX/ShoppingCart/modifyProductQuantity.php",
+					{IdProduct,
+					Quantity: 1});
+				
+				$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", {IdProduct, newQuantity}, function(newPrice) {
+					$("p#totBeer"+IdProduct).text((Math.round(newPrice * 100) / 100)+"€");
+				});
+
+				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
+					$("p#totCart").text((Math.round(newPrice * 100) / 100)+"€");
+				});
+			//}
 			return newQuantity;
 		});
 	});
@@ -25,20 +32,27 @@ $(function(){
 	$("button#remove").click(function(e) {
 		let IdProduct = $(this).attr("alt").split(" ")[1];
 		$("p#qt"+IdProduct).text(function(i, val) {
-			if(parseInt(val, 10) <= 1){
+			if(parseFloat(val) <= 1){
 				$.post("../../ApiAJAX/ShoppingCart/deleteProductFromCart.php", IdProduct, function() {
 					location.reload();
 				});
+
 			}else{
-				$.post("../../ApiAJAX/ShoppingCart/modifyProductQuantity.php", {IdProduct,
-																				Quantity: -1});
-				let newQuantity = parseInt(val, 10) - 1;																
-				$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", {IdProduct, newQuantity}, function(newQuantity) {
-						$("p#totBeer"+IdProduct).text(newQuantity+"€");
+				let newQuantity = parseFloat(val) - 1;
+
+				$.post("../../ApiAJAX/ShoppingCart/modifyProductQuantity.php", 
+					{IdProduct,
+					Quantity: -1});
+				
+				$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", 
+					{IdProduct, newQuantity}, function(newPrice) {
+					$("p#totBeer"+IdProduct).text((Math.round(newPrice * 100) / 100)+"€");
 				});
+
 				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
-					$("p#totCart").text(newPrice+"€");
+					$("p#totCart").text((Math.round(newPrice * 100) / 100)+"€");
 				});
+
 				return newQuantity;
 			}
 		});

@@ -8,7 +8,7 @@
 		<ul class="products">
 			<?php foreach ($beersFound as $beer): ?>
 				<li id="<?php echo $beer["IdBirra"] ?>">
-					<a href="../ProductPage/productPage.php?<?php echo $beer["IdBirra"]; ?>">
+					<a href="../ProductPage/productPage.php?id=<?php echo $beer["IdBirra"]; ?>">
 						<div class="img">
 							<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>
 						</div>
