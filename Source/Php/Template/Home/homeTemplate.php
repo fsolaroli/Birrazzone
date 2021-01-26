@@ -1,5 +1,5 @@
 <section>
-	<h3>Scopri nuove birre</h3>
+	<h2>Scopri nuove birre</h2>
 	<?php $randomBeers = $dbh->getRandomBeer(); ?>
 	
 	<ul class="products">
@@ -25,7 +25,7 @@
 </section>
 
 <section>
-	<h3>Scopri nuovi birrifici</h3>
+	<h2>Scopri nuovi birrifici</h2>
 	<?php $randomSellers = $dbh->getRandomSeller(); ?>
 	<?php $descriptionLength = 100; ?>
 	

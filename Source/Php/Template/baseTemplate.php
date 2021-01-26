@@ -57,9 +57,10 @@
 		<?php if($templateParams["HeaderType"] == "Global"): ?>
 			<div class="search">
 				<form action="../Search/search.php" method="POST">
-					<!-- <label for="search" class="hidden">Search:</label> -->
-					<input type="search" placeholder="Ricerca" name="search"/>
-					<input type="image" src="<?php echo $imagePath?>Icone/Search.png" alt="Search" />		
+					<label for="search" class="hidden">Search:</label>
+					<input type="search" placeholder="Ricerca" name="search" id="search"/>
+					<label for="image" class="hidden">Search</label>
+					<input type="image" src="<?php echo $imagePath?>Icone/Search.png" id="image" alt="Search" />		
 				</form>
 			</div>
 		<?php endif; ?>
