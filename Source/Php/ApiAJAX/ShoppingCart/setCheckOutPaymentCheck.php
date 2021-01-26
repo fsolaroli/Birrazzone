@@ -22,7 +22,7 @@ if(isset($_POST["nometitolare"]) && isset($_POST["numerocarta"]) && isset($_POST
 	}
 
 	if(!is_numeric($_POST["cvv"])) {
-		$errors[4] = "IL CAMPO 'CAP' DEVE CONTENERE SOLO NUMERI";
+		$errors[4] = "IL CAMPO 'CVV' DEVE CONTENERE SOLO NUMERI";
 	}
 
 	if(!isset($errors)) {
