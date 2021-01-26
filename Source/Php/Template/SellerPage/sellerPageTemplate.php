@@ -70,5 +70,5 @@
 		</ul>
 	<?php endif; ?>
 
-	<button>Vedi tutte le birre</button>
+	<a href="../Search/search.php?sellerId=<?php echo $product["IdBirrificio"]?>"><button>Vedi tutte le birre</button></a>
 </section>
