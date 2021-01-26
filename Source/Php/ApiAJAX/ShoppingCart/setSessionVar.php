@@ -8,9 +8,7 @@ if (isUserLoggedIn()){
 	$_SESSION["CVV"] = null;
 	$_SESSION["NumeroCarta"] = null;
 	$_SESSION["PrezzoCarrello"] = null;
-
-	var_dump($dbh->getUser($_SESSION["userId"])["IdIndirizzo"]);
-
+	
 	if(!empty($_SESSION["addressId"])){
 		$orderId = $dbh->finalizeOrder($_SESSION["userId"], $_SESSION["addressId"]);
 	}else{
@@ -26,7 +24,7 @@ if (isUserLoggedIn()){
 			if($dbh->getBeerQuantity($birra["IdBirra"])[0] == 0){
 
 				$dbh->addSellerNotification($sellerId, 1, "Scorte di "+$birra["NomeBirra"]+ "esaurite",
-				 "Le tue scorte di "+$birra["NomeBirra"]+"sono esaurite, aggiungi nuove scorte al più presto!" );
+				 "Le tue scorte di "+$birra["NomeBirra"]+"sono esaurite, aggiungi nuove scorte al più presto!");
 
 			}else {
 
