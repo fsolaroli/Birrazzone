@@ -3,10 +3,6 @@
 require_once("../../Site/baseConfiguration.php");
 
 if (isUserLoggedIn()){
-	$_SESSION["Via"] = null;
-	$_SESSION["Provincia"] = null;
-	$_SESSION["CAP"] = null;
-	$_SESSION["Citta"] = null;
 	$_SESSION["Scadenza"] = null;
 	$_SESSION["NomeTitolare"] = null;
 	$_SESSION["CVV"] = null;
