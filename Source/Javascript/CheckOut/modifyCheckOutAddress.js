@@ -14,7 +14,7 @@ $(function() {
 					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				window.location = "userAddress.php";
+				window.location = "checkOutPayment.php";
 			}
 		}
 		if($("input[name='checkbox']:checked").val() == "save"){
@@ -22,7 +22,6 @@ $(function() {
 		}else{
 			$.post("../../ApiAJAX/ShoppingCart/sessionCheckOutAddress.php", UserData);
 		}
-		window.location = "checkOutPayment.php";
 	});
 
 	$(":submit[name='undo']").click(function() {
