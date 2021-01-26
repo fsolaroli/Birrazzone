@@ -732,10 +732,25 @@ section.addToCart {
 	align-self: center;
 }
 
+@media screen and (max-width: 531px) {
+	section.addToCart {
+		bottom: 66pt;
+	}	
+}
+
+/* Desktop */
+
 @media screen and (min-width: 1024px) {
 	section.addToCart {
 		bottom: 31px;
 	}
+}
+
+@media screen and (min-width: 1500px) {
+	section.addToCart {
+		position: relative;
+		bottom: -70px;
+	}	
 }
 
 section.addToCart > form {
@@ -752,15 +767,7 @@ section.addToCart > form > input {
 }
 
 section.overflow {
-	margin-bottom: 200px;
-}
-
-/* Desktop */
-
-@media screen and (min-width: 1500px) {
-	section.addToCart {
-		position: static;
-	}	
+	margin-bottom: 100px;
 }
 
 /* ----------------------------------------------- */
