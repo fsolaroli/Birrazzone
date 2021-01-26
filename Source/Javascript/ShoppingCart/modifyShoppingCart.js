@@ -1,10 +1,8 @@
 $(function(){
 	
 	$("[class=delete]").click(function() {
-		const Id = $(this).attr("alt").split(" ")[1];
-		console.log(Id);
-		$.post("../../ApiAJAX/ShoppingCart/deleteProductFromCart.php", {Id}, function() {
-			console.log(Id);
+		const IdProduct = $(this).attr("alt").split(" ")[1];
+		$.post("../../ApiAJAX/ShoppingCart/deleteProductFromCart.php", {IdProduct}, function() {
 			location.reload();
 		});
 	});
@@ -43,7 +41,7 @@ $(function(){
 		let newQuantity = 0 ;
 		$("p.qt"+IdProduct).text(function(i, val) {
 			if(parseInt(val, 10) <= 1){
-				$.post("../../ApiAJAX/ShoppingCart/deleteProductFromCart.php", IdProduct, function() {
+				$.post("../../ApiAJAX/ShoppingCart/deleteProductFromCart.php", {IdProduct}, function() {
 					location.reload();
 				});
 			}else{
