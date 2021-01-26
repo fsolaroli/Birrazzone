@@ -9,6 +9,10 @@ if (isSellerLoggedIn()) {
 			$errors[] = "NOME TROPPO LUNGO O MANCANTE";
 		}
 
+		if($_POST["imagePath"] == "") {
+			$errors[] = "INSERIRE UN'IMMAGINE";
+		}
+
 		if(!checkNameValidity($_POST["type"])) {
 			$errors[] = "TIPOLOGIA TROPPA LUNGA O MANCANTE";
 		}

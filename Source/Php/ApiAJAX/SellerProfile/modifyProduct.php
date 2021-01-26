@@ -8,6 +8,10 @@ if (isSellerLoggedIn()) {
 		if($_POST["price"] <= 0 || $_POST["price"] > 9999.99) {
 			$errors[] = "PREZZO TROPPO ALTO O INCORRETTO";
 		}
+
+		if($_POST["imagePath"] == "") {
+			$errors[] = "INSERIRE UN'IMMAGINE";
+		}
 		
 		if(strlen($_POST["description"]) > 300) {
 			$errors[] = "DESCRIZIONE TROPPO LUNGA";
