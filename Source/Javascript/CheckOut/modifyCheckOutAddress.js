@@ -17,7 +17,7 @@ $(function() {
 				window.location = "userAddress.php";
 			}
 		}
-		if($("[class=checkbox]").checked){
+		if($("[class=checkbox]").checked()){
 			$.post("../../ApiAJAX/UserProfile/modifyUserAddressCheck.php", UserData, ManageUpdate, "json");
 		}else{
 			$.post("../../ApiAJAX/ShoppingCart/sessionCheckOutAddress.php", UserData);
