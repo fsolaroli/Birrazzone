@@ -27,7 +27,7 @@
 <section>
 	<ul>
 		<li><?php echo $sellerData["Localita"] ?></li>
-		<li><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
+		<li class="photo"><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
 		<li>
 			<div class="description">
 				<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>

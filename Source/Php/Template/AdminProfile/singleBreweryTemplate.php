@@ -23,7 +23,7 @@
 			<li>
 				Località: <?php echo $birrificio["Localita"];?>
 			</li>
-			<li>
+			<li class="photo">
 				<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$birrificio["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 			</li>
 			<li>

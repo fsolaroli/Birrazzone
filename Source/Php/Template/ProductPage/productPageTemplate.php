@@ -22,7 +22,7 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 	<ul>
 		<li id="productId" hidden><?php echo $birra["IdBirra"]; ?></li>
 		<li><?php echo $birra["Tipologia"];?></li>
-		<li><img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"] ?>" alt="FotoBirra"/></li>
+		<li class="photo"><img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"] ?>" alt="FotoBirra"/></li>
 	</ul>
 </section>
 <section>

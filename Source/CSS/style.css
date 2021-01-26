@@ -621,11 +621,6 @@ a {
 	align-self: flex-end;
 }
 
-section > ul > li > img {
-	display: block;
-	width: 100%;
-}
-
 ul.products > li {
 	margin: 7px 0;
 	padding: 5px;
@@ -759,16 +754,31 @@ section.addToCart > form > input {
 /* Other */
 /* ----------------------------------------------- */
 
+ul {
+	margin: 10px 0;
+}
+
 ul > li > a {
 	margin-bottom: 20px;
+}
+
+ul > li.photo {
+	/* text-align: center; */
+	display: flex;
+	flex-direction: column;
 }
 
 ul > li {
 	margin-bottom: 15px;
 }
 
-ul {
-	margin: 10px 0;
+section > ul > li > img {
+	display: block;
+	padding: 5px;
+	width: 100%;
+	max-width: 550px;
+
+	align-self: center;
 }
 
 ul > li > p:first-of-type, ul > li > span:first-of-type {

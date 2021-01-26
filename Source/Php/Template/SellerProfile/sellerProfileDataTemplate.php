@@ -9,7 +9,7 @@
 		<li>
 			<p>Località:</p>
 			<p><?php echo $sellerData["Localita"] ?></li></p>
-		<li>
+		<li class="photo">
 			<p>Foto:</p>
 			<img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 		</li>	
