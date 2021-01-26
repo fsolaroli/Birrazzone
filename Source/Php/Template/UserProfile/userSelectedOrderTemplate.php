@@ -54,9 +54,11 @@
 			<p>N° prodotti ordinati: <?php echo totalQuantityOrdered($_GET["orderId"]); ?></p>
 			<p>Prezzo totale: <?php echo totalPrice($_GET["orderId"]); ?></p>
 		</div>
-		<div class="redo-order">
-			<button>Riordina</button></a>
-		</div>
+		<?php if(strcmp($orderInfo[0]["Codice"], "CONSEGNATO") === 0): ?>
+			<div class="redo-order">
+				<button>Riordina</button></a>
+			</div>
+		<?php endif; ?>
 		<div class="errors"></div>
 	</section>
 </section>
