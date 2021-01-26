@@ -2,7 +2,7 @@
 <?php $totaleCarrello = null; ?>
 
 <?php if(empty($templateParams["birre"])): ?>
-<h3>Non ci sono birre nel carrello</h3>
+<p>Non ci sono birre nel carrello</p>
 <?php endif; ?>
 
 <?php if(!empty($templateParams["birre"])): ?>
