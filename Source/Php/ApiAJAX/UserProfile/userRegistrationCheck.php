@@ -2,6 +2,10 @@
 
 require_once("../../Site/baseConfiguration.php");
 
+if(isUserLoggedIn() || isSellerLoggedIn()) {
+	header("Location: ../../Site/Errors/errors.php?errorType=401&errorMessage=È necessario essere loggato come utente per poter compiere questa operazione");
+}
+
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["pw"]) && isset($_POST["confirmpw"])) {
 	$errors = null;
 
