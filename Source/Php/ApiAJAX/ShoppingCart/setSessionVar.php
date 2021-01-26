@@ -16,7 +16,6 @@ if (isUserLoggedIn()){
 	$orderId = $dbh->finalizeOrder($_SESSION["userId"], $_SESSION["addressId"]);
 
 	foreach($dbh->getShoppingCart($_SESSION["userId"]) as $birra){
-		$dbh->removeBeerFromShoppingCart($_SESSION["userId"], $birra["IdBirra"]);
 
 		if($dbh->getBeerQuantity($birra["IdBirra"])[0] < 10){
 
