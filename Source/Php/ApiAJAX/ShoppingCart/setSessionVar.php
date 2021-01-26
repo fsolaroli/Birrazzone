@@ -9,8 +9,6 @@ if (isUserLoggedIn()){
 	$_SESSION["NumeroCarta"] = null;
 	$_SESSION["PrezzoCarrello"] = null;
 
-	var_dump($dbh->getUser($_SESSION["userId"])["IdIndirizzo"]);
-
 	if(!empty($_SESSION["addressId"])){
 		$orderId = $dbh->finalizeOrder($_SESSION["userId"], $_SESSION["addressId"]);
 	}else{
