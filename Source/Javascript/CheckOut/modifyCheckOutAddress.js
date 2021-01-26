@@ -4,7 +4,7 @@ $(function() {
 			via: $("input[name='Via']").val(),
 			citta: $("input[name='Citta']").val(),
 			provincia: $("input[name='Provincia']").val(),
-			cap: $("input[name='CAP']").val()
+			cap: $("input[name='CAP']").val(),
 		}
 
 		let ManageUpdate = function(errors) {
@@ -17,7 +17,7 @@ $(function() {
 				window.location = "userAddress.php";
 			}
 		}
-		if($("[class=checkbox]").checked()){
+		if($("input[name='checkbox']:checked").val() == "save"){
 			$.post("../../ApiAJAX/UserProfile/modifyUserAddressCheck.php", UserData, ManageUpdate, "json");
 		}else{
 			$.post("../../ApiAJAX/ShoppingCart/sessionCheckOutAddress.php", UserData);

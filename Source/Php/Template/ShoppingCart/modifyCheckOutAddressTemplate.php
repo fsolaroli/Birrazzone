@@ -15,7 +15,7 @@
 				<li class="label"><Label for="address">CAP:</Label></li>
 				<li class="input"><input type="text" name="CAP" required="true"/></li>
 
-				<li class="checkbox"><input type="checkbox"/><Label>  Salva indirizzo per i prossimi acquisti</Label></li>
+				<li class="label checkbox"><Label for="address">Salva l'indirizzo per i prossimi acquisti</Label><input type="checkbox" name="checkbox" value="save" /></li>
 
 				<li class="submit">
 					<input type="submit" name="forward" value="Continua" />
