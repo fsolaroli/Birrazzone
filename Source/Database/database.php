@@ -749,6 +749,23 @@ class DatabaseHelper{
 		$stmt->execute();
 	}
 
+	public function addAddress($Via, $Citta, $Provincia, $CAP) {
+		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Indirizzo 	(
+																				Via,
+																				Citta,
+																				Provincia,
+																				CAP
+																			)
+																	values	(?, ?, ?, ?)");
+		$stmt->bind_param('ssss',$Via, $Citta, $Provincia, $CAP);
+		$stmt->execute();
+		
+		$stmt = $this->db->prepare ("SELECT LAST_INSERT_ID()");
+		$stmt->execute();
+		$result = $stmt->get_result();
+		return $result;
+	}
+
 	public function finalizeOrder($UserId, $AddressId) {
 		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Ordine	(
 																			IdIndirizzoSpedizione,
@@ -758,6 +775,10 @@ class DatabaseHelper{
 																values	(?, ?, NOW())");
 		$stmt->bind_param('ii',$AddressId, $UserId);
 		$stmt->execute();
+		
+		$stmt = $this->db->prepare ("SELECT LAST_INSERT_ID()");
+		$stmt->execute();
+		$result = $stmt->get_result();	
 
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.MovimentoUtente
 										SET MovimentoUtente.IdOrdine=LAST_INSERT_ID()
@@ -777,7 +798,8 @@ class DatabaseHelper{
 																						?
 																					)");
 		$stmt->bind_param('s',$this->DistantFuture);
-		return $stmt->execute();
+		$stmt->execute();
+		return $result;
 	}
 
 	public function addSellerNotification($SellerId, $NotificationType, $Title, $Body) {
