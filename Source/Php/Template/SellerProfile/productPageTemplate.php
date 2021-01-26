@@ -55,7 +55,7 @@
 		<ul>
 			<li class="label">
 				<label for="changeQuantity">Modifica disponibilità
-				<input type="number" name="changeQuantity" value="1" min="1" autocomplete="off"/>
+				<input type="number" id="changeQuantity" name="changeQuantity" value="1" min="1" autocomplete="off"/>
 				</label>
 			</li>
 
