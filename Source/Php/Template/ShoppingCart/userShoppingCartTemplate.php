@@ -29,8 +29,8 @@
 <?php endforeach; ?>
 <section>
 	<div>
-		N. Prodotti: <?php echo count($templateParams["birre"]); ?>
-		<p class="totCart"> <?php echo $totaleCarrello;?>€</p> 
+		Tipi di birre: <?php echo count($templateParams["birre"]); ?>
+		Totale: <p class="totCart"> <?php echo $totaleCarrello;?>€</p> 
 		<div> <a href="../../Site/ShoppingCart/checkOutAddress.php"> <button class="checkout" > Checkout </button> </a></div>
 	</div>
 </section>
