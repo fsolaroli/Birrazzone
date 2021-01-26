@@ -760,10 +760,10 @@ class DatabaseHelper{
 		$stmt->bind_param('ssss',$Via, $Citta, $Provincia, $CAP);
 		$stmt->execute();
 		
-		$stmt = $this->db->prepare ("SELECT LAST_INSERT_ID()");
+		$stmt = $this->db->prepare ("SELECT LAST_INSERT_ID() AS ID");
 		$stmt->execute();
 		$result = $stmt->get_result();
-		return $result->fetch_all(MYSQLI_ASSOC);
+		return $result->fetch_all(MYSQLI_ASSOC)[0];
 	}
 
 	public function finalizeOrder($UserId, $AddressId) {
@@ -776,7 +776,7 @@ class DatabaseHelper{
 		$stmt->bind_param('ii',$AddressId, $UserId);
 		$stmt->execute();
 		
-		$stmt = $this->db->prepare ("SELECT LAST_INSERT_ID()");
+		$stmt = $this->db->prepare ("SELECT LAST_INSERT_ID() AS ID");
 		$stmt->execute();
 		$result = $stmt->get_result();	
 
@@ -799,7 +799,7 @@ class DatabaseHelper{
 																					)");
 		$stmt->bind_param('s',$this->DistantFuture);
 		$stmt->execute();
-		return $result->fetch_all(MYSQLI_ASSOC);
+		return $result->fetch_all(MYSQLI_ASSOC)[0];
 	}
 
 	public function addSellerNotification($SellerId, $NotificationType, $Title, $Body) {
