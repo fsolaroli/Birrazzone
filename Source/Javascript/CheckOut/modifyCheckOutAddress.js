@@ -20,7 +20,7 @@ $(function() {
 		if($("input[name='checkbox']:checked").val() == "save"){
 			$.post("../../ApiAJAX/UserProfile/modifyUserAddressCheck.php", UserData, ManageUpdate, "json");
 		}else{
-			$.post("../../ApiAJAX/ShoppingCart/sessionCheckOutAddress.php", UserData);
+			$.post("../../ApiAJAX/ShoppingCart/sessionCheckOutAddress.php", UserData, ManageUpdate, "json");
 		}
 	});
 
