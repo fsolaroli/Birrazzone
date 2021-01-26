@@ -1,4 +1,3 @@
-console.log("sono vivo")
 $(function() {
 	$(":submit[name='add']").click(function(e) {
 		$.post("../../ApiAJAX/ProductPage/addBeerToCart.php",
@@ -9,7 +8,7 @@ $(function() {
 				if(error != null){
 					$(".errors").html("<p><strong>QUANTITA' NON VALIDA</strong></p>");
 				} else {
-					$(".errors").html("");
+					window.location="../ShoppingCart/userShoppingCart.php"
 				}
 			}, "json"
 		);
