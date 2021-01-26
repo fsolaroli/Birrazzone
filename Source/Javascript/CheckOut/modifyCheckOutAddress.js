@@ -14,17 +14,23 @@ $(function() {
 					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				window.location = "checkOutPayment.php";
+				if($(this).attr("id") != ""){
+					window.location = "checkOut.php";
+				}else{
+					window.location = "checkOutPayment.php";
+				}
 			}
 		}
 		if($("input[name='checkbox']:checked").val() == "save"){
 			$.post("../../ApiAJAX/UserProfile/modifyUserAddressCheck.php", UserData, ManageUpdate, "json");
+			$_SESSION["addressId"] = null;
 		}else{
 			$.post("../../ApiAJAX/ShoppingCart/sessionCheckOutAddress.php", UserData, ManageUpdate, "json");
 		}
 	});
 
 	$(":submit[name='undo']").click(function() {
+		$.post("../../ApiAJAX/ShoppingCart/cancelOrder.php");
 		window.location = "userShoppingCart.php";
 	});
 });

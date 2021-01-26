@@ -21,6 +21,8 @@ if (isSellerLoggedIn()) {
 			echo json_encode($dbh->getBeerQuantity($_POST["productId"]));
 		}
 	}
+} else {
+	header("Location: ../../Site/Errors/errors.php?errorType=401&errorMessage=È necessario essere loggato come birrificio per poter compiere questa operazione");
 }
 
 ?>

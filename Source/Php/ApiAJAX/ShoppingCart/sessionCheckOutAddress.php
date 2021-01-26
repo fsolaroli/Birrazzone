@@ -3,11 +3,38 @@
 require_once("../../Site/baseConfiguration.php");
 
 if (isUserLoggedIn()) {
-		$_SESSION["Via"] = $_POST["via"];
-		$_SESSION["Citta"] = $_POST["citta"];
-		$_SESSION["CAP"] = $_POST["cap"];
-		$_SESSION["Provincia"] = $_POST["provincia"];
-		$_SESSION["addressId"] = $dbh->addAddress($_SESSION["Via"], $_SESSION["Citta"], $_SESSION["Provincia"], $_SESSION["CAP"])["ID"];
+
+	require_once("../../Site/baseConfiguration.php");
+	
+	if(isset($_POST["via"]) && isset($_POST["citta"]) && isset($_POST["provincia"]) && isset($_POST["cap"])) {
+		$errors = null;
+	
+		if(strlen($_POST["via"]) > 40) {
+			$errors[0] = "IL CAMPO 'VIA' DEVE ESSERE LUNGO AL MASSIMO 40 CARATTERI";
+		}
+	
+		if(strlen($_POST["citta"]) > 30) {
+			$errors[1] = "IL CAMPO 'CITTÀ' DEVE ESSERE LUNGO AL MASSIMO 30 CARATTERI";
+		}
+	
+		if(strlen($_POST["provincia"]) > 20 || strlen($_POST["provincia"]) < 2) {
+			$errors[2] = "IL CAMPO 'PROVINCIA' DEVE ESSERE LUNGO FRA 2 E 20 CARATTERI";
+		}
+	
+		if(strlen($_POST["cap"]) != 5) {
+			$errors[3] = "IL CAMPO 'CAP' DEVE ESSERE LUNGO 5 CARATTERI";
+		}
+	
+		if(!is_numeric($_POST["cap"])) {
+			$errors[4] = "IL CAMPO 'CAP' DEVE CONTENERE SOLO NUMERI";
+		}
+
+		if(!isset($errors)) {
+			$_SESSION["addressId"] = $dbh->addAddress($_SESSION["Via"], $_SESSION["Citta"], $_SESSION["Provincia"], $_SESSION["CAP"])["ID"];
+		}
+	
+		echo json_encode($errors);
+	}
 }else if(!isUserLoggedIn()){
 	header("../../Site/Login/login.php");
 }

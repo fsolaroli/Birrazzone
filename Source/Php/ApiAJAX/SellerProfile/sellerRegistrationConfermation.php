@@ -17,6 +17,8 @@ if (isset($_POST["sellerId"]) && isset($_POST["password"]) && isset($_POST["pass
 	} else {
 		echo json_encode($errors);
 	}
+} else {
+	header("Location: ../../Site/Errors/errors.php?errorType=401&errorMessage=È necessario essere loggato come birrificio per poter compiere questa operazione");
 }
 
 ?>

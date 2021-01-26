@@ -22,6 +22,7 @@ $(function() {
 	});
 
 	$(":submit[name='undo']").click(function() {
+		$.post("../../ApiAJAX/ShoppingCart/cancelOrder.php");
 		window.location = "userShoppingCart.php";
 	});
 });

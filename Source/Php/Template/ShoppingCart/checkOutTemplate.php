@@ -13,7 +13,7 @@
 	</form>
 	<p>Italia</p>
 	<div>
-		<button class="modifyAddress">Modifica</button>
+		<button class="modifyAddress" >Modifica</button>
 	</div>
 </section>
 <section>
@@ -28,7 +28,7 @@
 	</div>
 </section>
 <section>
-	<h2>Prodotti</h2>
+	<h2>Prodotti </h2>
 	<ul>
 		<?php foreach($birre as $birra):?>
 		<li>

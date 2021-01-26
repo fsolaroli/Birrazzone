@@ -56,7 +56,7 @@ function registerLoggedUser($userId){
 }
 
 function isSetSessionAddress(){
-	return (!empty($_SESSION["Via"]) && !empty($_SESSION["Provincia"]) && !empty($_SESSION["CAP"]) && !empty($_SESSION["Citta"]));
+	return !empty($_SESSION["addressId"]);
 }
 
 function isSetSessionPayment(){
@@ -68,10 +68,7 @@ function logOut() {
 		$_SESSION["sellerId"] = null;
 	} else if (isUserLoggedIn()) {
 		if(isSetSessionAddress() || isSetSessionPayment() || !empty($_SESSION["PrezzoCarrello"])){
-			$_SESSION["Via"] = null;
-			$_SESSION["Provincia"] = null;
-			$_SESSION["CAP"] = null;
-			$_SESSION["Citta"] = null;
+			$_SESSION["addressId"] = null;
 			$_SESSION["Scadenza"] = null;
 			$_SESSION["NomeTitolare"] = null;
 			$_SESSION["CVV"] = null;
