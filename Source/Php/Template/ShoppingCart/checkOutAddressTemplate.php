@@ -25,7 +25,7 @@
 	</div>
 	<?php endif;?>
 	<?php if(empty($address)): ?>
-		<?php header("Location: ../../../Site/ShoppingCart/modifyCheckOutAddress.php"); ?>
+		<?php header("Location: modifyCheckOutAddress.php"); ?>
 	<?php endif;?>
 </section>
 
