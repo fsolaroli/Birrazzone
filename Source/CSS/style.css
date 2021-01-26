@@ -395,6 +395,26 @@ ul.notifications > li > div:nth-of-type(2) > button {
 	align-self: flex-end;
 }
 
+/* Admin notifications */
+
+ul.notifications > li > div > ul > li.submit {
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+}
+
+ul.notifications > li > div > ul > li.submit > button {
+	font-size: 20pt;
+}
+
+ul.notifications > li > div > ul > li.submit > button.reject {
+	border-color: red;
+}
+
+ul.notifications > li > div > ul > li.submit > button.accept {
+	border-color: green;
+}
+
 /* Notification Indicator */
 
 img[alt="Notification"] {
