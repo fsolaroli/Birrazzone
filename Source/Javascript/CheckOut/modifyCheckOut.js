@@ -1,7 +1,7 @@
 $(function() {
 
 	$("[class=modifyAddress]").click(function() {
-		window.location = "../ShoppingCart/modifyCheckOutAddress.php";
+		window.location = "../ShoppingCart/modifyCheckOutAddress.php?id=checkOut";
 	});
 
 	$("[class=modifyPayment]").click(function() {

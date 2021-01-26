@@ -14,7 +14,11 @@ $(function() {
 					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				window.location = "checkOutPayment.php";
+				if($(this).attr("id") != ""){
+					window.location = "checkOut.php";
+				}else{
+					window.location = "checkOutPayment.php";
+				}
 			}
 		}
 		if($("input[name='checkbox']:checked").val() == "save"){
