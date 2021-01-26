@@ -25,10 +25,7 @@
 	</div>
 	<?php endif;?>
 	<?php if(empty($address)): ?>
-		<h2>Indirizzo non ancora inserito</h2>
-		<div>
-			<button class="forward">Inserisci indirizzo di consegna</button>
-		</div>
+		<?php header("Location: ../../../Site/ShoppingCart/modifyCheckOutAddress.php"); ?>
 	<?php endif;?>
 </section>
 

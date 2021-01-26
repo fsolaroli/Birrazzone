@@ -11,8 +11,9 @@ if(!isUserLoggedIn()) {
 	$templateParams["HeaderType"] = "Global";
 
 	$user = $dbh->getUser($_SESSION["userId"])[0];
-	$address = $dbh->getAddress($user["IdIndirizzo"])[0];
-
+	if(!empty($dbh->getAddress($user["IdIndirizzo"])[0])){
+		$address = $dbh->getAddress($user["IdIndirizzo"])[0];
+	}
 	require("../../Template/baseTemplate.php");
 }
 
