@@ -612,12 +612,6 @@ form > ul > li > input[type="file"]::-webkit-file-upload-button {
 /* SellerPage */
 /* ----------------------------------------------- */
 
-
-
-/* ----------------------------------------------- */
-/* SellerPage */
-/* ----------------------------------------------- */
-
 a.show {
 	padding: 5px 0;
 	text-align: right;
@@ -657,8 +651,9 @@ ul.products > li > a, ul.producers > li > a {
 	text-decoration: none;
 }
 
-ul.products > li > a > img {
+ul.products > li > a > img, ul.producers > li > a > img {
 	width: 20%;
+	padding: 10px;
 }
 
 ul.products > li > a > div.productInfo {
@@ -701,7 +696,7 @@ ul.sellerProducts {
 	display: block;
 }
 
-ul.sellerProducts > li {
+ul.sellerProducts > li, ul.orders > li {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -714,11 +709,11 @@ ul.sellerProducts > li {
 	text-align: center;
 }
 
-ul.sellerProducts > li > div:first-of-type {
+ul.sellerProducts > li > div:first-of-type, ul.orders > li > div:first-of-type {
 	margin: 0 20px;
 }
 
-ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) {
+ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2), ul.orders > li > div:first-of-type > p:nth-of-type(2) {
 	font-size: 12pt;
 }
 
@@ -854,4 +849,8 @@ section > ul.products > li > a > div.info-beer > ul:first-of-type > li:first-of-
 
 section > ul.products > li > a > div.info-beer > ul:first-of-type > li:nth-of-type(2), section > ul.producers > li > a > div.info-brewery > ul > li:nth-of-type(2) {
 	font-size: 17.5pt;
+}
+
+section > ul.producers > li > a > img.breweryPhotoSearch {
+	width: 20%;
 }

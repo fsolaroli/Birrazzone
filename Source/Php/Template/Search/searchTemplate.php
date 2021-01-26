@@ -1,4 +1,4 @@
-<p>Risultati per: <?php echo $_POST["search"]?> </p>
+<h2>Risultati per: <?php echo $_POST["search"]?> </h2>
 
 <section>
 	<h3>Birre</h3>
@@ -9,9 +9,7 @@
 			<?php foreach ($beersFound as $beer): ?>
 				<li id="<?php echo $beer["IdBirra"] ?>">
 					<a href="../ProductPage/productPage.php?id=<?php echo $beer["IdBirra"]; ?>">
-						<div class="img">
-							<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>
-						</div>
+						<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>
 						<div class="productInfo">
 							<ul>
 								<li><?php echo $beer["NomeBirra"] ?></li>
@@ -45,13 +43,13 @@
 			<?php foreach($sellersFound as $seller): ?>
 				<li>
 					<a href="../SellerPage/sellerPage.php?sellerId=<?php echo $seller["IdBirrificio"]; ?>">
-						<div class="img">
-							<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$seller["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+						<img class="breweryPhotoSearch" src="<?php echo UPLOAD_DIR."Birrifici/".$seller["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+						<div class="info-brewery"> 
+							<ul>
+								<li><?php echo $seller["NomeBirrificio"]; ?></li>
+								<li><?php echo $seller["Localita"]; ?></li>
+							</ul>
 						</div>
-						<ul class="info-brewery">
-							<li><?php echo $seller["NomeBirrificio"]; ?></li>
-							<li><?php echo $seller["Localita"]; ?></li>
-						</ul>
 					</a>
 				</li>
 			<?php endforeach; ?>
