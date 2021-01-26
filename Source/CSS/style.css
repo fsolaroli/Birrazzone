@@ -270,11 +270,14 @@ body > header > div.search > form > input:nth-of-type(2):hover {
 
 body footer {
 	padding: 5px;
-	margin: 50px 0 0 0;
 	
 	color: white;
 	text-align: center;
 	background-color: #084E80;
+
+	width: 100%;
+	position: fixed;
+	bottom: 0;
 }
 
 body footer > p {
@@ -293,6 +296,7 @@ body footer > p:nth-of-type(2) {
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
+
 	}
 
 	body footer > p {
@@ -722,11 +726,17 @@ section.addToCart {
 	margin: 0;
 	
 	position: fixed;
-	bottom: 0;
+	bottom: 67px;
 	width: 100%;
 	background-image: linear-gradient(180deg, transparent, white 10%);
 	
 	align-self: center;
+}
+
+@media screen and (min-width: 1024px) {
+	section.addToCart {
+		bottom: 31px;
+	}
 }
 
 section.addToCart > form {
@@ -740,6 +750,10 @@ section.addToCart > form {
 section.addToCart > form > input {
 	font-size: 18pt;
 	margin: 0 10px;
+}
+
+section.overflow {
+	margin-bottom: 200px;
 }
 
 /* Desktop */

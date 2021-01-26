@@ -26,7 +26,7 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 	</ul>
 </section>
 <section>
-	<section>
+	<section class="overflow">
 		<ul>
 			<li><a href="../SellerPage/sellerPage.php?sellerId=<?php echo $birrificio["IdBirrificio"]?>"><?php echo $birrificio["NomeBirrificio"] ?></a></li>
 			<li><?php echo $birra["Prezzo"];?>€ cad.</li>
