@@ -19,12 +19,19 @@ $(function() {
 		}
 		if($("input[name='checkbox']:checked").val() == "save"){
 			$.post("../../ApiAJAX/UserProfile/modifyUserAddressCheck.php", UserData, ManageUpdate, "json");
+			$_SESSION["addressId"] = null;
 		}else{
 			$.post("../../ApiAJAX/ShoppingCart/sessionCheckOutAddress.php", UserData, ManageUpdate, "json");
 		}
 	});
 
 	$(":submit[name='undo']").click(function() {
+		$_SESSION["addressId"] = null;
+		$_SESSION["Scadenza"] = null;
+		$_SESSION["NomeTitolare"] = null;
+		$_SESSION["CVV"] = null;
+		$_SESSION["NumeroCarta"] = null;
+		$_SESSION["PrezzoCarrello"] = null;
 		window.location = "userShoppingCart.php";
 	});
 });

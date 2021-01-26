@@ -26,6 +26,7 @@ if(isset($_POST["via"]) && isset($_POST["citta"]) && isset($_POST["provincia"]) 
 	}
 
 	if(!isset($errors)) {
+		$_SESSION["addressId"] = null;
 		$dbh->updateUserAddress($_SESSION["userId"], $_POST["via"], $_POST["citta"], $_POST["provincia"], $_POST["cap"]);
 	}
 
