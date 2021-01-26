@@ -20,8 +20,4 @@ $(function() {
 			}
 		});
 	}
-
-	$("ul.products > li").click(function (e) {
-		window.location="../ProductPage/productPage.php?id=" + $(this).attr("id");
-	});
 });
