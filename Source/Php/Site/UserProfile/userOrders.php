@@ -3,7 +3,7 @@
 require_once("../baseConfiguration.php");
 
 if(!isUserLoggedIn()) {
-	header("Location: ../Home/home.php");
+	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "Utente - Storico ordini";
 	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js");

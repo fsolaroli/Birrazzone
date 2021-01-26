@@ -2,7 +2,7 @@
 require_once("../baseConfiguration.php");
 
 if(!isSellerLoggedIn()){
-	header("Location: ../Home/home.php");
+	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "ProfilePage - ModifyProfileData";
 	$templateParams["Javascript"] = array("SellerProfile/modifySellerProfileData.js", "SellerProfile/sellerProfileAside.js");
