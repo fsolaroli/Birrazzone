@@ -15,6 +15,7 @@ $(function() {
 	});
 	
 	$("[class=forward]").click(function() {
+		$.post("../../ApiAJAX/ShoppingCart/cancelOrder.php");
 		window.location = "../ShoppingCart/checkOutPayment.php";
 	});
 

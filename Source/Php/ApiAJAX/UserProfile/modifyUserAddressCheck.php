@@ -32,3 +32,4 @@ if(isset($_POST["via"]) && isset($_POST["citta"]) && isset($_POST["provincia"]) 
 
 	echo json_encode($errors);
 }
+?>
