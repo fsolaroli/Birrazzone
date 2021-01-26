@@ -12,8 +12,11 @@ if(!isUserLoggedIn()) {
 
 	$birre = $dbh->getShoppingCart($_SESSION["userId"]);
 	$user = $dbh->getUser($_SESSION["userId"])[0];
-	$address = $dbh->getAddress($user["IdIndirizzo"])[0];
-
+	if(!isSetSessionAddress()){
+		$address = $dbh->getAddress($user["IdIndirizzo"])[0];
+	}else{
+		$address = $dbh->getAddress($_SESSION["addressId"])[0];
+	}
 	require("../../Template/baseTemplate.php");
 }
 

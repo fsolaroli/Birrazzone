@@ -4,22 +4,12 @@
 <section>
 	<h2>Indirizzo di spedizione</h2>
 	<form onsubmit="return false;">
-		<?php if(isSetSessionAddress()): ?>
-		<ul>
-			<li>Via: <?php echo $_SESSION["Via"];?></li>
-			<li>Città: <?php echo $_SESSION["Citta"];?></li>
-			<li>Provincia: <?php echo $_SESSION["Provincia"];?></li>
-			<li>CAP: <?php echo $_SESSION["CAP"];?></li>
-		</ul>
-		<?php endif; ?>
-		<?php if(!isSetSessionAddress()): ?>
 		<ul>
 			<li>Via: <?php echo $address["Via"];?></li>
 			<li>Città: <?php echo $address["Citta"];?></li>
 			<li>Provincia: <?php echo $address["Provincia"];?></li>
 			<li>CAP: <?php echo $address["CAP"];?></li>
 		</ul>
-		<?php endif; ?>
 	</form>
 	<p>Italia</p>
 	<div>
