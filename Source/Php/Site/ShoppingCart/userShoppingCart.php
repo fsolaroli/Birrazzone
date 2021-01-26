@@ -3,7 +3,7 @@
 require_once("../baseConfiguration.php");
 
 if(!isUserLoggedIn()) {
-	header("Location: ../Login/login.php");
+	header("Location: ../Login/login.php?loginFromCart=1");
 } else {
 	$templateParams["Titolo"] = "Utente - Carrello";
 	$templateParams["Template"] = "ShoppingCart/userShoppingCartTemplate.php";
