@@ -8,6 +8,7 @@ if (isUserLoggedIn()) {
 	foreach($cart["birre"] as $birra){
 		$newPrice += $birra["Totale"];
 	}
+	$_SESSION["PrezzoCarrello"] = $newPrice;
 }else if(!isUserLoggedIn()){
 	header("../../Site/Login/login.php");
 }

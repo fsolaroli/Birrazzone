@@ -55,10 +55,29 @@ function registerLoggedUser($userId){
 	$_SESSION["sellerId"] = null;
 }
 
+function isSetSessionAddress(){
+	return (!empty($_SESSION["Via"]) && !empty($_SESSION["Provincia"]) && !empty($_SESSION["CAP"]) && !empty($_SESSION["Citta"]));
+}
+
+function isSetSessionPayment(){
+	return (!empty($_SESSION["CVV"]) && !empty($_SESSION["Scadenza"]) && !empty($_SESSION["NomeTitolare"]) && !empty($_SESSION["NumeroCarta"]));
+}
+
 function logOut() {
 	if (isSellerLoggedIn()) {
 		$_SESSION["sellerId"] = null;
 	} else if (isUserLoggedIn()) {
+		if(isSetSessionAddress() || isSetSessionPayment() || !empty($_SESSION["PrezzoCarrello"])){
+			$_SESSION["Via"] = null;
+			$_SESSION["Provincia"] = null;
+			$_SESSION["CAP"] = null;
+			$_SESSION["Citta"] = null;
+			$_SESSION["Scadenza"] = null;
+			$_SESSION["NomeTitolare"] = null;
+			$_SESSION["CVV"] = null;
+			$_SESSION["NumeroCarta"] = null;
+			$_SESSION["PrezzoCarrello"] = null;
+		}
 		$_SESSION["userId"] = null;
 	}
 }

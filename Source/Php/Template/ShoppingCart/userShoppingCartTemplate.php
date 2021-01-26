@@ -30,8 +30,8 @@
 <section>
 	<div>
 		N. Prodotti: <?php echo count($templateParams["birre"]); ?>
-		<p class="totCart"> <?php echo $totaleCarrello;?></p> 
-		<div> <a href="#"> <button class="checkout" > Checkout </button> </a></div>
+		<p class="totCart"> <?php echo $totaleCarrello;?>€</p> 
+		<div> <a href="../../Site/ShoppingCart/checkOutAddress.php"> <button class="checkout" > Checkout </button> </a></div>
 	</div>
 </section>
 <?php endif; ?>
