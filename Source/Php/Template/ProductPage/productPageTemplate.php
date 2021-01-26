@@ -1,8 +1,15 @@
 <?php 
 
-$idbirra= -1;
 if(isset($_GET["id"])){
 	$idbirra = $_GET["id"];
+} else {
+	header("Location: ../Home/home.php"); //404
+}
+
+if(isset($_GET["quantity"])) {
+	$defaultQuantity = $_GET["quantity"];
+} else {
+	$defaultQuantity = 1;
 }
 
 $birra = $dbh->getBeer($idbirra)[0];
@@ -30,10 +37,10 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 			<p>Non Disponibile</p>
 		<?php endif; ?>
 		<?php if($quantitaBirra > 0): ?>
-			<div>
+			<div>	
 				<form onsubmit="return false;">
 					<label for="quantity" class="hidden">Quantità</label>
-					<input name="quantity" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="1"></input>
+					<input name="quantity" type="number" min="0"	 max="<?php echo $quantitaBirra;?>" value="<?php echo $defaultQuantity;?>"></input>
 					<?php if(isUserLoggedIn()) : ?>
 						<input type="submit" name="add" value="Aggiungi al carrello"/>
 					<?php endif; ?>

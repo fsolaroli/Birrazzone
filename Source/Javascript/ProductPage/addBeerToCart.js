@@ -16,6 +16,6 @@ $(function() {
 
 	$(":submit[name='toLogin']").click(function (e) {
 		e.preventDefault();
-		window.location = "../Login/login.php?productId=" + $("#productId").text() + ",quantity=" + $("input[name='quantity']").val();
+		window.location = "../Login/login.php?productId=" + $("#productId").text() + "&quantity=" + $("input[name='quantity']").val();
 	});
 });
