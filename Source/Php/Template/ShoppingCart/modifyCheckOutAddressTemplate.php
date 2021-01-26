@@ -1,6 +1,7 @@
 <h1>Indirizzo di consegna</h1>
 
 <section>
+	<p id="get" hidden><?php if(isset($_GET["id"])){ echo $_GET["id"];}?></p>
 	<form onsubmit="return false;">
 			<ul>
 				<li class="label"><Label for="address">Via:</Label></li>
@@ -18,7 +19,7 @@
 				<li class="label checkbox"><Label for="address">Salva l'indirizzo per i prossimi acquisti</Label><input type="checkbox" name="checkbox" value="save" /></li>
 
 				<li class="submit">
-					<input type="submit" id="<?php $_GET["id"]?>" name="forward" value="Continua" />
+					<input type="submit" name="forward" value="Continua" />
 					<input type="submit" name="undo" value="Annulla" />
 				</li>			
 			</ul>

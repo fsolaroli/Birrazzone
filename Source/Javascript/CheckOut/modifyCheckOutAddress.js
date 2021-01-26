@@ -14,7 +14,7 @@ $(function() {
 					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
 				});
 			} else {
-				if($(this).attr("id") != ""){
+				if($("p#get").text() == "checkOut"){
 					window.location = "checkOut.php";
 				}else{
 					window.location = "checkOutPayment.php";

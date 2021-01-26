@@ -30,7 +30,7 @@ if (isUserLoggedIn()) {
 		}
 
 		if(!isset($errors)) {
-			$_SESSION["addressId"] = $dbh->addAddress($_SESSION["Via"], $_SESSION["Citta"], $_SESSION["Provincia"], $_SESSION["CAP"])["ID"];
+			$_SESSION["addressId"] = $dbh->addAddress($_POST["via"], $_POST["citta"], $_POST["provincia"], $_POST["cap"])["ID"];
 		}
 	
 		echo json_encode($errors);
