@@ -34,10 +34,15 @@
 </section>
 <section>
 	<h2>Prodotti</h2>
-	<ul>
+	<ul class="sellerProducts">
 		<?php foreach($templateParams["birre"] as $birra): ?>
 			<li>
-			 	<?php echo $birra["NomeBirra"]?>  <a href="singleProduct.php?id=<?php echo $birra["IdBirra"] ?>"><button>Visualizza</button></a>
+				<div>
+					<p><?php echo $birra["NomeBirra"]?> </p>
+				</div>
+				 <div>
+					 <a href="singleProduct.php?id=<?php echo $birra["IdBirra"] ?>"><button>Visualizza</button></a>
+				 </div>
 			</li>
 		<?php endforeach; ?>
 	</ul>
