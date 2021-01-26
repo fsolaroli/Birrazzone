@@ -6,16 +6,18 @@
 		<?php foreach($randomBeers as $beer): ?>
 			<li>
 				<a href="../ProductPage/productPage.php?id=<?php echo $beer["IdBirra"];?>">
-					<div class="img">
-						<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>
+					<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>	
+					<!-- <div class="img">
+					</div> -->
+					<div class="info-beer">
+						<ul>
+							<li><?php echo $beer["NomeBirra"]; ?></li>
+							<li><?php echo $beer["Tipologia"]; ?></li>
+							<li><?php echo $beer["NomeBirrificio"]; ?></li>
+							<li><?php echo $beer["Formato"]; ?> cl.</li>
+							<li><?php echo $beer["Prezzo"]; ?>€ cad</li>
+						</ul>
 					</div>
-					<ul class="info-beer">
-						<li><?php echo $beer["NomeBirra"]; ?></li>
-						<li><?php echo $beer["Tipologia"]; ?></li>
-						<li><?php echo $beer["NomeBirrificio"]; ?></li>
-						<li><?php echo $beer["Formato"]; ?> cl.</li>
-						<li><?php echo $beer["Prezzo"]; ?>€ cad</li>
-					</ul>
 				</a>
 			</li>
 		<?php endforeach; ?>
