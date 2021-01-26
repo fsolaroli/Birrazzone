@@ -1,8 +1,12 @@
 <h1>Login</h1>
 
 <?php if(isset($_GET["loginFromCart"])): ?>
-	<p id="loginFromCart"></p>
+	<p id="loginFromCart" hidden></p>
 <?php endif; ?>
+<?php if(isset($_GET["productId"]) && isset($_GET["quantity"])): ?>
+	<p id="loginFromProductPage" hidden><?php echo $_GET["productId"];?> <?php echo $_GET["quantity"];?></p>
+<?php endif; ?>
+
 
 <section>
 	<form onsubmit="return false;">
