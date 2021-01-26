@@ -23,24 +23,28 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 		<li id="productId" hidden><?php echo $birra["IdBirra"]; ?></li>
 		<li><?php echo $birra["Tipologia"];?></li>
 		<li><img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"] ?>" alt="FotoBirra"/></li>
-		<li><a href="../SellerPage/sellerPage.php?sellerId=<?php echo $birrificio["IdBirrificio"]?>"><?php echo $birrificio["NomeBirrificio"] ?></a></li>
-		<li><?php echo $birra["Prezzo"];?>€ cad.</li>
-		<li><span>Formato: </span><span><?php echo $birra["Formato"];?></span></li>
-		<li><span>Grado Alcolico: </span><span><?php echo $birra["GradoAlcolico"];?></span></li>
-		<li><span>Colore: </span><span><?php echo $birra["Colore"];?></span></li>
-		<li><span>Descrizione: </span><span><?php echo $birra["DescrizioneBirra"];?></span></li>
 	</ul>
 </section>
-<section class="addToCart">
-	<?php if(!isSellerLoggedIn()) :?>
-		<?php if($quantitaBirra == 0): ?>
-			<p>Non Disponibile</p>
-		<?php endif; ?>
-		<?php if($quantitaBirra > 0): ?>
-			<div>	
+<section>
+	<section>
+		<ul>
+			<li><a href="../SellerPage/sellerPage.php?sellerId=<?php echo $birrificio["IdBirrificio"]?>"><?php echo $birrificio["NomeBirrificio"] ?></a></li>
+			<li><?php echo $birra["Prezzo"];?>€ cad.</li>
+			<li><span>Formato: </span><span><?php echo $birra["Formato"];?></span></li>
+			<li><span>Grado Alcolico: </span><span><?php echo $birra["GradoAlcolico"];?></span></li>
+			<li><span>Colore: </span><span><?php echo $birra["Colore"];?></span></li>
+			<li><span>Descrizione: </span><span><?php echo $birra["DescrizioneBirra"];?></span></li>
+		</ul>
+	</section>
+	<section class="addToCart">
+		<?php if(!isSellerLoggedIn()) :?>
+			<?php if($quantitaBirra == 0): ?>
+				<p><strong>Non Disponibile<strong></p>
+			<?php endif; ?>
+			<?php if($quantitaBirra > 0): ?>
 				<form onsubmit="return false;">
 					<label for="quantity" class="hidden">Quantità</label>
-					<input name="quantity" type="number" min="0"	 max="<?php echo $quantitaBirra;?>" value="<?php echo $defaultQuantity;?>"></input>
+					<input name="quantity" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="<?php echo $defaultQuantity;?>"></input>
 					<?php if(isUserLoggedIn()) : ?>
 						<input type="submit" name="add" value="Aggiungi al carrello"/>
 					<?php endif; ?>
@@ -48,8 +52,8 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 						<input type="submit" name="toLogin" value="Aggiungi al carrello"/>
 					<?php endif; ?>			
 				</form>
-			</div>
-			<div class = "errors" ></div>
+				<div class = "errors"></div>
+			<?php endif; ?>
 		<?php endif; ?>
-	<?php endif; ?>
+	</section>
 </section>

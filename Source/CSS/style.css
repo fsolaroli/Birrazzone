@@ -175,6 +175,7 @@ section {
 }
 
 main > section.delete {
+	margin-top: 30px;
 	max-width: 100%;
 }
 
@@ -269,7 +270,7 @@ body > header > div.search > form > input:nth-of-type(2):hover {
 
 body footer {
 	padding: 5px;
-	margin: 10px 0 0 0;
+	margin: 50px 0 0 0;
 	
 	color: white;
 	text-align: center;
@@ -477,15 +478,18 @@ button.delete:disabled, button.delete:disabled:hover {
 /* Div errors */
 /* ----------------------------------------------- */
 
-div.errors {
+strong {
+	text-align: center;
 	font-weight: bolder;
 	font-size: 15pt;
 	color: red;
+}
+
+div.errors {
 	margin: 20px 0;
 }
 
 div.errors > p {
-	text-align: center;
 	margin-top: 5px;
 }
 
@@ -710,6 +714,45 @@ ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) {
 
 ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) > span:nth-of-type(2).attention {
 	color: red;
+}
+
+/* ----------------------------------------------- */
+/* Product Page */
+/* ----------------------------------------------- */
+
+section.addToCart {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-image: linear-gradient(180deg, transparent, white 10%);
+	
+	align-self: center;
+}
+
+section.addToCart > form {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+section.addToCart > form > input {
+	font-size: 18pt;
+	margin: 0 10px;
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1500px) {
+	section.addToCart {
+		position: static;
+	}	
 }
 
 /* ----------------------------------------------- */
