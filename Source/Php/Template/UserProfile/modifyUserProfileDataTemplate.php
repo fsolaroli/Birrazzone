@@ -7,16 +7,16 @@
 	<form onsubmit="return false;">
 		<ul>
 			<li class="label"><Label for="name">Nome</Label></li>
-			<li class="input"><input type="text" name="name" value="<?php echo $userInfo[0]["NomeUtente"]; ?>" required="true" /></li>
+			<li class="input"><input type="text" name="name" id="name" value="<?php echo $userInfo[0]["NomeUtente"]; ?>" required /></li>
 
 			<li class="label"><Label for="email">Email</Label></li>
-			<li class="input"><input type="email" name="email" value="<?php echo $userInfo[0]["EmailUtente"]; ?>" autocomplete="new-username" required="true" /></li>
+			<li class="input"><input type="email" name="email" id="email" value="<?php echo $userInfo[0]["EmailUtente"]; ?>" autocomplete="username" required /></li>
 
 			<li class="label"><Label for="pw">Password</Label></li>
-			<li class="input"><input type="password" name="pw" value="<?php echo $userInfo[0]["PasswordUtente"]; ?>" autocomplete="new-password" required="true" /></li>
+			<li class="input"><input type="password" name="pw" id="pw" value="<?php echo $userInfo[0]["PasswordUtente"]; ?>" autocomplete="new-password" required /></li>
 
 			<li class="label"><Label for="confirmpw">Conferma password</Label></li>
-			<li class="input"><input type="password" name="confirmpw" value="<?php echo $userInfo[0]["PasswordUtente"]; ?>" autocomplete="new-password-confirmation" required="true" /></li>
+			<li class="input"><input type="password" name="confirmpw" id="confirmpw" value="<?php echo $userInfo[0]["PasswordUtente"]; ?>" autocomplete="new-password" required /></li>
 
 			<li class="submit">
 				<input type="submit" name="update" value="Aggiorna" />
