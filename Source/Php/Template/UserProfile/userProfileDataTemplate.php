@@ -19,6 +19,6 @@
 </section>
 
 <section class="delete">
-	<button id="deleteAccount" class="delete">Elimina account</button>
 	<button id="deleteAccountConfermation" class="delete" hidden>Conferma eliminazione account</button>
+	<button id="deleteAccount" class="delete">Elimina account</button>
 </section>

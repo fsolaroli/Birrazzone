@@ -39,7 +39,7 @@
 
 <?php if($userAddress != null): ?>
 	<section class="delete">
-		<button id="deleteAddress" class="delete">Elimina indirizzo</button>
 		<button id="deleteAddressConfermation" class="delete" hidden>Conferma eliminazione indirizzo</button>
+		<button id="deleteAddress" class="delete">Elimina indirizzo</button>
 	</section>
 <?php endif; ?>

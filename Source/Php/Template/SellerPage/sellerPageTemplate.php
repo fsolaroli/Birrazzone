@@ -48,21 +48,23 @@
 	<?php if (!empty($beersToShow)): ?>
 		<ul class="products">
 			<?php foreach ($beersToShow as $product): ?>
-				<li id="<?php echo $product["IdBirra"] ?>">
-					<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$product["FotoBirra"] ?>" alt="FotoBirra"/>
-					<div class="productInfo">
-						<ul>
-							<li><?php echo $product["NomeBirra"] ?></li>
-							<li><?php echo $product["Tipologia"] ?></li>
-							<li><?php echo $dbh->getSeller($product["IdBirrificio"])[0]["NomeBirrificio"] ?></li>
-						</ul>
-					</div>
-					<div class="productData">
-						<ul>
-							<li><?php echo $product["Formato"] ?> cl</li>
-							<li><?php echo $product["Prezzo"] ?>€ cad</li>
-						</ul>
-					</div>
+				<li>
+					<a href="../ProductPage/productPage.php?id=<?php echo $product["IdBirra"] ?>">
+						<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$product["FotoBirra"] ?>" alt="FotoBirra"/>
+						<div class="productInfo">
+							<ul>
+								<li><?php echo $product["NomeBirra"] ?></li>
+								<li><?php echo $product["Tipologia"] ?></li>
+								<li><?php echo $dbh->getSeller($product["IdBirrificio"])[0]["NomeBirrificio"] ?></li>
+							</ul>
+						</div>
+						<div class="productData">
+							<ul>
+								<li><?php echo $product["Formato"] ?> cl</li>
+								<li><?php echo $product["Prezzo"] ?>€ cad</li>
+							</ul>
+						</div>
+					</a>
 				</li>
 			<?php endforeach; ?>
 		</ul>
