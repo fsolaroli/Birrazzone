@@ -1,6 +1,7 @@
 <h1>Indirizzo di Consegna</h1>
 
 <section>
+	<?php if(!empty($address)): ?>
 	<form onsubmit="return false;">
 		<ul>
 			<li>Via: <?php echo $address["Via"];?></li>
@@ -22,5 +23,12 @@
 			<button class="forward">Continua</button>
 		</div>
 	</div>
+	<?php endif;?>
+	<?php if(empty($address)): ?>
+		<h2>Indirizzo non ancora inserito</h2>
+		<div>
+			<button class="forward">Inserisci indirizzo di consegna</button>
+		</div>
+	<?php endif;?>
 </section>
 
