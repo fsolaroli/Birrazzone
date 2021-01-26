@@ -49,7 +49,7 @@ function manageNotification() {
 	});
 
 	$("ul > li > div > button").click(function (e) { 
-		$.post("../../ApiAJAX/Utils/readNotification.php", { notificationId: $(this).attr("id").split(" ")[1]},
+		$.post("../../ApiAJAX/Utils/readNotification.php", { notificationId: $(this).attr("class").split(" ")[1]},
 			function () {
 				location.reload();
 			}

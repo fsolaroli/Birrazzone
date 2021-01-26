@@ -164,7 +164,7 @@ function drawNotification($notification) {
 			</div>
 			<div hidden>
 				<p>".$notification["Corpo"]."</p>
-				<button id='read ".$notification["IdNotifica"]."'>Leggi</button>
+				<button class='read ".$notification["IdNotifica"]."'>Leggi</button>
 			</div>
 		</li>
 	";
