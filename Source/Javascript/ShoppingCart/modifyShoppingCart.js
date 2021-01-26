@@ -7,12 +7,12 @@ $(function(){
 	});
 
 	$("button#add").click(function(e) {
-		let IdProduct = $(this).attr("alt").split(" ")[1];
-
+		const IdProduct = $(this).attr("alt").split(" ")[1];
+		const max = parseInt($("p#max"+IdProduct).text(), 10);
 		$("p#qt"+IdProduct).text(function(i, val){
-			//let newQuantity = 0;
-			//if(parseInt(val, 10) != max){
-				let newQuantity = parseFloat(val) + 1;
+			let newQuantity = 0;
+			if(max > 0){
+				newQuantity = parseInt(val, 10) + 1;
 				$.post("../../ApiAJAX/ShoppingCart/modifyProductQuantity.php",
 					{IdProduct,
 					Quantity: 1});
@@ -24,21 +24,27 @@ $(function(){
 				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
 					$("p#totCart").text((Math.round(newPrice * 100) / 100)+"€");
 				});
-			//}
+
+				$("p#max"+IdProduct).text(function(i, val){
+					return parseInt(val, 10) - 1;
+				});
+			}else{
+				newQuantity = parseInt(val, 10);
+			}
 			return newQuantity;
 		});
 	});
 
 	$("button#remove").click(function(e) {
-		let IdProduct = $(this).attr("alt").split(" ")[1];
+		const IdProduct = $(this).attr("alt").split(" ")[1];
+		let newQuantity = 0 ;
 		$("p#qt"+IdProduct).text(function(i, val) {
-			if(parseFloat(val) <= 1){
+			if(parseInt(val, 10) <= 1){
 				$.post("../../ApiAJAX/ShoppingCart/deleteProductFromCart.php", IdProduct, function() {
 					location.reload();
 				});
-
 			}else{
-				let newQuantity = parseFloat(val) - 1;
+				newQuantity = parseInt(val, 10) - 1;
 
 				$.post("../../ApiAJAX/ShoppingCart/modifyProductQuantity.php", 
 					{IdProduct,
@@ -51,6 +57,10 @@ $(function(){
 
 				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
 					$("p#totCart").text((Math.round(newPrice * 100) / 100)+"€");
+				});
+
+				$("p#max"+IdProduct).text(function(i, val){
+					return parseInt(val, 10)+1;
 				});
 
 				return newQuantity;

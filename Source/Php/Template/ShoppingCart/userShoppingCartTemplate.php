@@ -8,6 +8,7 @@
 <?php if(!empty($templateParams["birre"])): ?>
 <?php foreach($templateParams["birre"] as $birra): ?>
 	<section>
+	<p id="max<?php echo $birra["IdBirra"]?>" hidden><?php echo $dbh->getBeerQuantity($birra["IdBirra"]);?></p>
 	<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"]; ?>" alt="FotoBirra"/>
 		<div>
 			<div>
@@ -16,9 +17,9 @@
 				</div>
 				<button><img id="delete" src="../../../../Immagini/Icone/Close.png" alt="delete <?php echo $birra["IdBirra"]?>"></img></button>
 				<div>
-					<button id="add " alt="id <?php echo $birra["IdBirra"]?>"><img src='../../../../Immagini/Icone/Expand.png'/> </button> 
-					<p id="qt<?php echo $birra["IdBirra"]?>"> <?php echo $birra["QuantitaTot"];?></p> 
-					<button id="remove" alt="id <?php echo $birra["IdBirra"]?>"><img src='../../../../Immagini/Icone/Collapse.png'/> </button> 
+					<button id="add" alt="id <?php echo $birra["IdBirra"];?>"><img src='../../../../Immagini/Icone/Expand.png'/> </button> 
+					<p id="qt<?php echo $birra["IdBirra"];?>"> <?php echo $birra["QuantitaTot"];?></p> 
+					<button id="remove" alt="id <?php echo $birra["IdBirra"];?>"><img src='../../../../Immagini/Icone/Collapse.png'/> </button> 
 				</div>
 				<p id="totBeer<?php echo $birra["IdBirra"]?>"> <?php echo $birra["Totale"];?>€ </p>
 			</div>
