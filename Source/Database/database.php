@@ -495,7 +495,7 @@ class DatabaseHelper{
 	}
 
 	public function getOrderProducts($OrderId) {
-		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Prezzo.Prezzo, -SUM(Movimento.Quantita) AS `QuantitaTot`, (-SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT Birra.*, Prezzo.Prezzo, -SUM(Movimento.Quantita) AS `QuantitaTot`, (-SUM(Movimento.Quantita)*Prezzo.Prezzo) AS `Totale` FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento = MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra = Birra.IdBirra
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
