@@ -40,6 +40,8 @@ if (isSellerLoggedIn()) {
 			echo json_encode($errors);
 		}
 	}
+} else {
+	header("Location: ../../Site/Errors/errors.php?errorType=401&errorMessage='È necessario essere loggato come birrificio per poter compiere questa operazione'");
 }
 
 ?>

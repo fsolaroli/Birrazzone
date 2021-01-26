@@ -16,6 +16,8 @@ if (isset($_POST["ragioneSociale"]) && isset($_POST["email"]) && isset($_POST["I
 	} else {
 		echo json_encode($errors);
 	}
+} else {
+	header("Location: ../../Site/Errors/errors.php?errorType=401&errorMessage='È necessario essere loggato come birrificio per poter compiere questa operazione'");
 }
 
 ?>
