@@ -21,7 +21,7 @@ if (isUserLoggedIn()){
 
 			$sellerId = $dbh->getSeller($birra["IdBirra"])[0];
 
-			if($dbh->getBeerQuantity($birra["IdBirra"]) == 0){
+			if($dbh->getBeerQuantity($birra["IdBirra"])[0] == 0){
 
 				$dbh->addSellerNotification($sellerId["SellerId"], 1, "Scorte di "+$birra["NomeBirra"]+ "esaurite",
 				 "Le tue scorte di "+$birra["NomeBirra"]+"sono esaurite, aggiungi nuove scorte al più presto!" );
