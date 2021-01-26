@@ -71,6 +71,7 @@ ul {
 
 .hidden {
 	visibility: hidden;
+	position: absolute;
 }
 
 :focus {

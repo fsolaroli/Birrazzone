@@ -1,18 +1,22 @@
-$(function(){
-
-	$("button#add").click(function(e) {
-		$("input#qt").attr("value", function(i, val) {
-			$.post("../../ApiAJAX/ProductPage/addBeerToCart.php",{	BeerQt: val,
-																	MaxQt: $(this).attr("max"),
-																	IdProduct: $("button#add").attr("id").split(" ")[1]}, 
-																	function(data){
-					if(data){
-						window.location = "../ShoppingCart/shoppingCart.php";
-					}else{
-						$(".errors").html("<p><strong>QUANTITA' NON VALIDA, INSERISCI UNA Q.TA TRA 0 E "+val+"</strong></p>");
-					}
-			});
-		});
+console.log("sono vivo")
+$(function() {
+	$(":submit[name='add']").click(function(e) {
+		$.post("../../ApiAJAX/ProductPage/addBeerToCart.php",
+			{	
+				BeerQt: $("input[name='quantity']").val(),
+				IdProduct: $("#productId").text()
+			}, function(error){
+				if(error != null){
+					$(".errors").html("<p><strong>QUANTITA' NON VALIDA</strong></p>");
+				} else {
+					$(".errors").html("");
+				}
+			}, "json"
+		);
 	});
 
+	$(":submit[name='toLogin']").click(function (e) {
+		e.preventDefault();
+		window.location = "../Login/login.php?productId=" + $("#productId").text() + ",quantity=" + $("input[name='quantity']").val();
+	});
 });

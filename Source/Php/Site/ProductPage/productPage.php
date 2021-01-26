@@ -1,20 +1,10 @@
 <?php
 require_once("../baseConfiguration.php");
 
-if(!isUserLoggedIn()){
-	header("Location: ../login/login.php");
-}else{
-	$templateParams["Titolo"] = "AdminPage - Prodotto";
-	$templateParams["Template"] = "ProductPage/productPageTemplate.php";
-	$templateParams["Javasctipt"] = array("ProductPage/addBeerToCart.js"); 
-	$templateParams["HeaderType"] = "Global"; //Profile, Login, Global
+$templateParams["Titolo"] = "Pagina Prodotto";
+$templateParams["Template"] = "ProductPage/productPageTemplate.php";
+$templateParams["Javascript"] = array("ProductPage/addBeerToCart.js"); 
+$templateParams["HeaderType"] = "Global"; //Profile, Login, Global
 
-	$idbirra= -1;
-	if(isset($_GET["id"])){
-		$idbirra = $_GET["id"];
-	}
-
-	$birra = $dbh->getBeer($idbirra)[0];
-}
 require("../../Template/baseTemplate.php");
 ?>

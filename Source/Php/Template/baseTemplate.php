@@ -40,7 +40,7 @@
 				<a class="profile" href="
 					<?php
 						if(isUserLoggedIn()) {
-							echo "../UserProfile/userNotifications.php"; //TODO change to correct link
+							echo "../UserProfile/userNotifications.php";
 						} else if(isSellerLoggedIn()) {
 							echo "../SellerProfile/sellerNotifications.php";
 						} else {

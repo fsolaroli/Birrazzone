@@ -54,7 +54,7 @@
 						<ul>
 							<li><?php echo $product["NomeBirra"] ?></li>
 							<li><?php echo $product["Tipologia"] ?></li>
-							<li><?php echo $product["NomeBirrificio"] ?></li>
+							<li><?php echo $dbh->getSeller($product["IdBirrificio"])[0]["NomeBirrificio"] ?></li>
 						</ul>
 					</div>
 					<div class="productData">
