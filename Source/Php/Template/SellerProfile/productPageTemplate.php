@@ -21,7 +21,7 @@
 			<p>Tipologia:</p>
 			<p><?php echo $productData["Tipologia"] ?></p>
 		</li>
-		<li>
+		<li class="photo">
 			<p>Foto:</p>
 			<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"] ?>" alt="FotoBirra"/>
 		</li>

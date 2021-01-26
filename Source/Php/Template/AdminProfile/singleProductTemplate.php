@@ -9,7 +9,7 @@
 		<li>
 			Tipologia: <?php echo $birra["Tipologia"];?>
 		</li>
-		<li>
+		<li class="photo">
 			<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"] ?>" alt="FotoBirra"/>
 		</li>
 		<li>
