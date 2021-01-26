@@ -629,14 +629,14 @@ a {
 	align-self: flex-end;
 }
 
-ul.products > li {
+ul.products > li, ul.producers > li {
 	margin: 7px 0;
 	padding: 5px;
 
 	border-radius: 15px;
 }
 
-ul.products > li > a {
+ul.products > li > a, ul.producers > li > a {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -645,12 +645,13 @@ ul.products > li > a {
 	text-align: center;
 }
 
-ul.products > li:hover {
+ul.products > li:hover, ul.producers > li:hover {
 	background-color: #e4e2e2c6;
 	cursor: pointer;
 }
 
-ul.products > li > a {
+ul.products > li > a, ul.producers > li > a {
+	width: 100%;
 	margin: 0;
 	color: black;
 	text-decoration: none;
@@ -660,30 +661,30 @@ ul.products > li > a > img {
 	width: 20%;
 }
 
-ul.products > li > a > div:first-of-type {
+ul.products > li > a > div.productInfo {
 	max-width: 50%;
 	word-wrap: break-word;
 }
 
-ul.products > li > a > div:first-of-type > ul {
+ul.products > li > a > div.productInfo > ul {
 	margin: 0;
 }
 
-ul.products > li > a > div:first-of-type > ul > li:first-of-type {
+ul.products > li > a > div.productInfo > ul > li:first-of-type {
 	font-size: 20pt;
 }
 
-ul.products > li > a > div:first-of-type > ul > li:nth-of-type(3) {
+ul.products > li > a > div.productInfo > ul > li:nth-of-type(3) {
 	margin: 10px 0 0 0;
 	font-size: 15pt;
 }
 
-ul.products > li > a > div:nth-of-type(2) {
+ul.products > li > a > div.productData {
 	max-width: 30%;
 	word-wrap: break-word;
 }
 
-ul.products > li > a > div:nth-of-type(2) > ul > li {
+ul.products > li > a > div.productData > ul > li {
 	margin: 0 0 5px 0;
 }
 
@@ -822,13 +823,35 @@ section > div.registration {
 }
 
 /* ----------------------------------------------- */
+/* Home */
+/* ----------------------------------------------- */
 
 
-section > ul.products > li > a > img.beerPhoto {
+section > ul.products > li > a > img.beerPhoto, section > ul.producers > li > a > img.breweryPhoto {
 	width: 40%;
 }
 
-section > ul.products > li > a > div.info-beer {
+section > ul.products > li > a > div.info-beer, section > ul.producers > li > a > div.info-brewery {
 	width: 60%;
 	text-align: center;
+	padding: 0 30px;
+}	
+
+section > ul.products > li > a > div.info-beer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+section > ul.products > li > a > div.info-beer > ul > li, section > ul.producers > li > a > div.info-brewery > ul > li  {
+	font-size: 20pt;
+}
+
+section > ul.products > li > a > div.info-beer > ul:first-of-type > li:first-of-type, section > ul.producers > li > a > div.info-brewery > ul > li:first-of-type {
+	font-size: 27.5pt;
+	margin: 0;
+}
+
+section > ul.products > li > a > div.info-beer > ul:first-of-type > li:nth-of-type(2), section > ul.producers > li > a > div.info-brewery > ul > li:nth-of-type(2) {
+	font-size: 17.5pt;
 }

@@ -7,15 +7,15 @@
 			<li>
 				<a href="../ProductPage/productPage.php?id=<?php echo $beer["IdBirra"];?>">
 					<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>	
-					<!-- <div class="img">
-					</div> -->
 					<div class="info-beer">
 						<ul>
 							<li><?php echo $beer["NomeBirra"]; ?></li>
 							<li><?php echo $beer["Tipologia"]; ?></li>
 							<li><?php echo $beer["NomeBirrificio"]; ?></li>
+						</ul>
+						<ul>
 							<li><?php echo $beer["Formato"]; ?> cl.</li>
-							<li><?php echo $beer["Prezzo"]; ?>€ cad</li>
+							<li><?php echo $beer["Prezzo"]; ?>€ cad</li>							
 						</ul>
 					</div>
 				</a>
@@ -27,20 +27,20 @@
 <section>
 	<h3>Scopri nuovi birrifici</h3>
 	<?php $randomSellers = $dbh->getRandomSeller(); ?>
-	<?php $descriptionLength = 20; ?>
+	<?php $descriptionLength = 100; ?>
 	
 	<ul class="producers">
 		<?php foreach($randomSellers as $seller): ?>
 			<li>
 				<a href="../SellerPage/sellerPage.php?sellerId=<?php echo $seller["IdBirrificio"]; ?>">
-					<div class="img">
-						<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$seller["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+					<img class="breweryPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$seller["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+					<div class="info-brewery">
+						<ul>
+							<li><?php echo $seller["NomeBirrificio"]; ?></li>
+							<li><?php echo $seller["Localita"]; ?></li>
+							<li><?php echo substr($seller["DescrizioneBirrificio"], 0, $descriptionLength); ?>...</li>
+						</ul>
 					</div>
-					<ul class="info-brewery">
-						<li><?php echo $seller["NomeBirrificio"]; ?></li>
-						<li><?php echo $seller["Localita"]; ?></li>
-						<li><?php echo substr($seller["DescrizioneBirrificio"], 0, $descriptionLength); ?>...</li>
-					</ul>
 				</a>
 			</li>
 		<?php endforeach; ?>
