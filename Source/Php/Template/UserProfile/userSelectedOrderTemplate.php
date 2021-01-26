@@ -32,16 +32,16 @@
 	<section>
 		<h3>Prodotti</h3>
 	
-		<ul class="ordered-products">
+		<ul class="products">
 			<?php foreach($orderedProducts as $product): ?>
 				<li>
-					<a href="../ProductPage/productPage.php?<?php echo $product["IdBirra"]; ?>">	
-						<div class="product-ordered-info">
+					<a href="../ProductPage/productPage.php?id=<?php echo $product["IdBirra"]; ?>">	
+						<div class="productInfo">
 							<p><?php echo $product["NomeBirra"]; ?></p>
-							<p><?php echo $product["QuantitaTot"]; ?></p>
+							<p>Quantità: </span><span><?php echo $product["QuantitaTot"]; ?></p>
 						</div>
-						<div class="product-ordered-price">
-							<p><?php echo $product["Totale"]; ?></p>
+						<div class="productData">
+							<p>Totale: <?php echo $product["Totale"]; ?>€</p>		
 						</div>
 					</a>
 				</li>
@@ -49,16 +49,17 @@
 		</ul>
 	</section>
 	
-	<section class="delete">
-		<div class="total-quantity-price">
-			<p>N° prodotti ordinati: <?php echo totalQuantityOrdered($_GET["orderId"]); ?></p>
-			<p>Prezzo totale: <?php echo totalPrice($_GET["orderId"]); ?></p>
-		</div>
-		<?php if(strcmp($orderInfo[0]["Codice"], "CONSEGNATO") === 0): ?>
-			<div class="redo-order">
-				<button>Riordina</button></a>
+	<section>
+		<div class="redo-order">
+			<div class="total-quantity-price">
+				<p>Tipi di birre: <?php echo count($orderedProducts); ?></p>
+				<p>N° prodotti ordinati: <?php echo totalQuantityOrdered($_GET["orderId"]); ?></p>
+				<p>Prezzo totale: <?php echo totalPrice($_GET["orderId"]); ?>€</p>
 			</div>
-		<?php endif; ?>
+			<?php if(strcmp($orderInfo[0]["Codice"], "CONSEGNATO") === 0): ?>
+				<button>Riordina</button></a>
+			<?php endif; ?>
+		</div>
 		<div class="errors"></div>
 	</section>
 </section>

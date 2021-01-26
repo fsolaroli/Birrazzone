@@ -778,7 +778,60 @@ section.overflow {
 }
 
 /* ----------------------------------------------- */
-/* Other */
+/* Home */
+/* ----------------------------------------------- */
+
+
+section > ul.products > li > a > img.beerPhoto, section > ul.producers > li > a > img.breweryPhoto {
+	width: 40%;
+}
+
+section > ul.products > li > a > div.info-beer, section > ul.producers > li > a > div.info-brewery {
+	width: 60%;
+	text-align: center;
+	padding: 0 30px;
+}	
+
+section > ul.products > li > a > div.info-beer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+section > ul.products > li > a > div.info-beer > ul > li, section > ul.producers > li > a > div.info-brewery > ul > li  {
+	font-size: 20pt;
+}
+
+section > ul.products > li > a > div.info-beer > ul:first-of-type > li:first-of-type, section > ul.producers > li > a > div.info-brewery > ul > li:first-of-type {
+	font-size: 27.5pt;
+	margin: 0;
+}
+
+section > ul.products > li > a > div.info-beer > ul:first-of-type > li:nth-of-type(2), section > ul.producers > li > a > div.info-brewery > ul > li:nth-of-type(2) {
+	font-size: 17.5pt;
+}
+
+section > ul.producers > li > a > img.breweryPhotoSearch {
+	width: 20%;
+}
+
+/* ----------------------------------------------- */
+/* OrderPage */
+/* ----------------------------------------------- */
+
+section > div.redo-order {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+section > div.redo-order > button {
+	font-size: 20pt;
+}
+
+/* ----------------------------------------------- */
+/* Other General */
 /* ----------------------------------------------- */
 
 ul {
@@ -815,42 +868,4 @@ ul > li > p:first-of-type, ul > li > span:first-of-type {
 section > div.registration {
 	margin-bottom: 30px;
 	text-align: center;
-}
-
-/* ----------------------------------------------- */
-/* Home */
-/* ----------------------------------------------- */
-
-
-section > ul.products > li > a > img.beerPhoto, section > ul.producers > li > a > img.breweryPhoto {
-	width: 40%;
-}
-
-section > ul.products > li > a > div.info-beer, section > ul.producers > li > a > div.info-brewery {
-	width: 60%;
-	text-align: center;
-	padding: 0 30px;
-}	
-
-section > ul.products > li > a > div.info-beer {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-section > ul.products > li > a > div.info-beer > ul > li, section > ul.producers > li > a > div.info-brewery > ul > li  {
-	font-size: 20pt;
-}
-
-section > ul.products > li > a > div.info-beer > ul:first-of-type > li:first-of-type, section > ul.producers > li > a > div.info-brewery > ul > li:first-of-type {
-	font-size: 27.5pt;
-	margin: 0;
-}
-
-section > ul.products > li > a > div.info-beer > ul:first-of-type > li:nth-of-type(2), section > ul.producers > li > a > div.info-brewery > ul > li:nth-of-type(2) {
-	font-size: 17.5pt;
-}
-
-section > ul.producers > li > a > img.breweryPhotoSearch {
-	width: 20%;
 }
