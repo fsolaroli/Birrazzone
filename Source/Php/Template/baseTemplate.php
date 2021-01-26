@@ -73,10 +73,10 @@
 			}
 			?>
 		</main>
-		<footer>
-			<p>Progetto Tecnologie Web - A.A. 2020/21</p><p> -- </p>
-			<p>Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli</p>
-		</footer>
 	</div>
+	<footer>
+		<p>Progetto Tecnologie Web - A.A. 2020/21</p><p> -- </p>
+		<p>Riccardo Rambaldi - Matteo Romagnoli - Fabio Solaroli</p>
+	</footer>
 </body>
 </html>

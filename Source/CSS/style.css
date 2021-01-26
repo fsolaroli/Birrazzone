@@ -188,6 +188,7 @@ body > header {
 	flex-direction: column;
 	width: 100%;
 	background-color: #084E80;
+
 }
 
 body > header > div.icons {
@@ -275,8 +276,6 @@ body footer {
 	text-align: center;
 	background-color: #084E80;
 
-	width: 100%;
-	position: fixed;
 	bottom: 0;
 }
 
