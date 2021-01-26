@@ -696,7 +696,7 @@ ul.sellerProducts {
 	display: block;
 }
 
-ul.sellerProducts > li {
+ul.sellerProducts > li, ul.orders > li {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -709,11 +709,11 @@ ul.sellerProducts > li {
 	text-align: center;
 }
 
-ul.sellerProducts > li > div:first-of-type {
+ul.sellerProducts > li > div:first-of-type, ul.orders > li > div:first-of-type {
 	margin: 0 20px;
 }
 
-ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) {
+ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2), ul.orders > li > div:first-of-type > p:nth-of-type(2) {
 	font-size: 12pt;
 }
 
