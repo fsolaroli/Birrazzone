@@ -33,7 +33,7 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 			<div>
 				<form onsubmit="return false;">
 					<label for="quantity" class="hidden">Quantità</label>
-					<input name="quantity" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="0"></input>
+					<input name="quantity" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="1"></input>
 					<?php if(isUserLoggedIn()) : ?>
 						<input type="submit" name="add" value="Aggiungi al carrello"/>
 					<?php endif; ?>

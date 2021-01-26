@@ -1,17 +1,18 @@
+console.log("sono vivo")
 $(function() {
-	console.log("sono vivo")
 	$(":submit[name='add']").click(function(e) {
 		$.post("../../ApiAJAX/ProductPage/addBeerToCart.php",
 			{	
 				BeerQt: $("input[name='quantity']").val(),
 				IdProduct: $("#productId").text()
-			}, function(data){
-				if(error == null){
-					window.location = "../ShoppingCart/shoppingCart.php";
+			}, function(error){
+				if(error != null){
+					$(".errors").html("<p><strong>QUANTITA' NON VALIDA</strong></p>");
 				} else {
-					$(".errors").html("<p><strong>QUANTITA' NON VALIDA, INSERISCI UNA Q.TA TRA 0 E "+val+"</strong></p>");
+					$(".errors").html("");
 				}
-			});
+			}, "json"
+		);
 	});
 
 	$(":submit[name='toLogin']").click(function (e) {

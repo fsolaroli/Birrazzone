@@ -21,7 +21,7 @@ $(function() {
 		});
 	}
 
-	$("ul.products > li").click(function (e) { 
-		console.log($(this).attr("id"));		
+	$("ul.products > li").click(function (e) {
+		window.location="../ProductPage/productPage.php?id=" + $(this).attr("id");
 	});
 });

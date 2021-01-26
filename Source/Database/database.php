@@ -136,7 +136,7 @@ class DatabaseHelper{
 	}
 
 	public function getBestSellerBeer($SellerId, $n=4) {
-		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Prezzo.Prezzo FROM MovimentoUtente
+		$stmt = $this->db->prepare ("	SELECT Birra.*, Prezzo.Prezzo FROM MovimentoUtente
 										JOIN Movimento ON Movimento.IdMovimento=MovimentoUtente.IdMovimento
 										JOIN Birra ON Movimento.IdBirra=Birra.IdBirra
 										JOIN Prezzo ON Birra.IdBirra = Prezzo.IdBirra
