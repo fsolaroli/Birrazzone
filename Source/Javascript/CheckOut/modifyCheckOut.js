@@ -13,6 +13,12 @@ $(function() {
 	});
 
 	$("[class=conclude]").click(function() {
+		$_SESSION["addressId"] = null;
+		$_SESSION["Scadenza"] = null;
+		$_SESSION["NomeTitolare"] = null;
+		$_SESSION["CVV"] = null;
+		$_SESSION["NumeroCarta"] = null;
+		$_SESSION["PrezzoCarrello"] = null;
 		$.post("../../ApiAJAX/ShoppingCart/setSessionVar.php");
 		window.location = "../ShoppingCart/orderConcluded.php";
 	});
