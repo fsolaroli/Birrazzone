@@ -31,7 +31,7 @@
 	<div>
 		<span>Tipi di birre: <?php echo count($templateParams["birre"]); ?></span>
 		<span>Totale: <p class="totCart"> <?php echo $totaleCarrello;?>€</p> </span>
-		<div> <a href="../../Site/ShoppingCart/checkOutAddress.php"> <button class="checkout" > Checkout </button> </a></div>
+		<div> <a href="checkOutAddress.php"> <button class="checkout" > Checkout </button> </a></div>
 	</div>
 </section>
 <?php endif; ?>
