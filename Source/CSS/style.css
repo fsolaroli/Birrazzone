@@ -974,6 +974,10 @@ section.cart > div.del div.changeQuantity {
 	justify-content: space-around;
 }
 
+main {
+	flex-wrap: wrap;
+}
+
 section.cart {
 	border-radius: 30px;
 	border-width: 3px;
@@ -981,14 +985,16 @@ section.cart {
 	flex-direction: row;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	max-width: 475px;
+	max-width: 600px;
+	margin: 10px 5%;
 	align-self: flex-start;
 	justify-content: space-between
 }
 
 section.cart > img.beerPhoto {
-	width: 30%;
-	height: 100%;
+	width: auto;
+	max-width: 250px;
+	height: 250px;
 	border-radius: 30px;
 }
 
@@ -1034,7 +1040,7 @@ section.checkout > ul > li {
 section.checkout > button {
 	font-size: 18pt;
 }
-
+/*
 @media screen and (min-width: 1520px) {
 
 	section.checkout {
@@ -1044,7 +1050,7 @@ section.checkout > button {
 		
 		background-image: linear-gradient(180deg, transparent, transparent 10%);;
 		
-		position: absolute;
+		position: fixed;
 		right: 0;
 		top: 100px;
 		
