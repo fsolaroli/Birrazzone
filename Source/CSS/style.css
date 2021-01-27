@@ -417,7 +417,7 @@ aside > ul > li.notification {
 /* Element border styling */
 /* ----------------------------------------------- */
 
-img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"], section[name="cart"]{
+img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"], section[name="cart"], section.cart{
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
@@ -911,8 +911,8 @@ section > div > div.del > div > img.remove{
 
 section > div > div.del > div > img.add, section > div > div.del > div > img.remove{
 	border-radius: 50%;
-    width: 100px;
-	height: 100px;
+    width: 30px;
+	height: 30px;
 }
 
 section > div > div.del > div{
@@ -920,19 +920,32 @@ section > div > div.del > div{
 	flex-direction: row;
 }
 
+section > div > div.del > div > p{
+	flex-direction: column;
+}
+
 section.cart{
 	border-radius: 30px;
 	border-width: 3px;
 	display: flex;
+	flex-direction: row;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	max-width: 475px;
+	align-self: flex-start;
 }
 
-img.beerPhoto{
-	margin-top: 5px;
-	width: 50%;
+section.cart > img.beerPhoto{
+	width: 40%;
 	border-radius: 30px;
 }
 
-section > div > div.del > div > img.add:hover, section > div > div.del > div > img.remove:hover, section > div > div.del > img.delete:hover{
+section.cart > div > div.del > div > img.delete{
+	width: 30px;
+	border-radius: 10px;
+}
+
+section > div > div.del > div > img.add:hover, section > div > div.del > div > img.remove:hover, section > div > div.del > div > img.delete:hover{
 	background-color: #e4e2e2c6;
 }
 

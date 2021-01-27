@@ -16,10 +16,10 @@
 					<p><a href="../ProductPage/productPage.php?id=<?php echo $birra["IdBirra"]?>"><?php echo $birra["NomeBirra"]; ?></a> <?php echo $birra["Prezzo"]?>€ cad.</p>
 					<img src="../../../../Immagini/Icone/Close.png" class="delete" alt="id <?php echo $birra["IdBirra"];?>"/>
 				</div>
-				<div>
-					<img src='../../../../Immagini/Icone/Expand.png' class="add" alt="id <?php echo $birra["IdBirra"];?>"/>
-					<p class="qt<?php echo $birra["IdBirra"];?>"> <?php echo $birra["QuantitaTot"];?></p> 
+				<div>					
 					<img src='../../../../Immagini/Icone/Collapse.png' class="remove" alt="id <?php echo $birra["IdBirra"];?>"/>  
+					<p class="qt<?php echo $birra["IdBirra"];?>"> <?php echo $birra["QuantitaTot"];?></p> 
+					<img src='../../../../Immagini/Icone/Expand.png' class="add" alt="id <?php echo $birra["IdBirra"];?>"/>
 				</div>
 				<p class="totBeer<?php echo $birra["IdBirra"]?>">Totale: <?php echo $birra["Totale"];?>€ </p>
 			</div>
@@ -27,7 +27,7 @@
 		<?php $totaleCarrello +=  $birra["Totale"];?>
 	</section>
 <?php endforeach; ?>
-<section>
+<section class="addToCart">
 	<div>
 		<p>Tipi di birre: <?php echo count($templateParams["birre"]); ?></p>
 		<p class="totCart">Totale: <?php echo $totaleCarrello;?>€</p> 
