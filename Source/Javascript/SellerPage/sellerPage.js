@@ -20,4 +20,7 @@ $(function() {
 			}
 		});
 	}
+	$("button").click(function() {
+		window.location = "../Search/search.php?sellerId=" + $("#sellerId").text();
+	})
 });

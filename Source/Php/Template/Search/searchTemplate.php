@@ -1,34 +1,37 @@
 <?php if(isset($_GET["sellerId"])): ?>
-<section>
-	<h3>Birre</h3>
+	<?php if(empty($dbh->getSeller($_GET["sellerId"]))) {
+		header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=Il birrificio cercato è inesistente");
+	} ?>
+	<section>
+		<h2>Birre</h2>
 
-	<?php $beersFound = $dbh->getAllSellerBeer($_GET["sellerId"]); ?>
+		<?php $beersFound = $dbh->getSellerBeer($_GET["sellerId"]); ?>
 
-	<?php if(!empty($beersFound)): ?>
-		<ul class="products">
-			<?php foreach ($beersFound as $beer): ?>
-				<li id="<?php echo $beer["IdBirra"] ?>">
-					<a href="../ProductPage/productPage.php?id=<?php echo $beer["IdBirra"]; ?>">
-						<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>
-						<div class="productInfo">
-							<ul>
-								<li><?php echo $beer["NomeBirra"] ?></li>
-								<li><?php echo $beer["Tipologia"] ?></li>
-								<li><?php echo $beer["NomeBirrificio"] ?></li>
-							</ul>
-						</div>
-						<div class="productData">
-							<ul>
-								<li><?php echo $beer["Formato"] ?> cl</li>
-								<li><?php echo $beer["Prezzo"] ?>€ cad</li>
-							</ul>
-						</div>
-					</a>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-	<?php endif; ?>
-</section>
+		<?php if(!empty($beersFound)): ?>
+			<ul class="products">
+				<?php foreach ($beersFound as $beer): ?>
+					<li id="<?php echo $beer["IdBirra"] ?>">
+						<a href="../ProductPage/productPage.php?id=<?php echo $beer["IdBirra"]; ?>">
+							<img class="productPhoto" src="<?php echo UPLOAD_DIR."Birre/".$beer["FotoBirra"] ?>" alt="FotoBirra"/>
+							<div class="productInfo">
+								<ul>
+									<li><?php echo $beer["NomeBirra"] ?></li>
+									<li><?php echo $beer["Tipologia"] ?></li>
+									<li><?php echo $beer["NomeBirrificio"] ?></li>
+								</ul>
+							</div>
+							<div class="productData">
+								<ul>
+									<li><?php echo $beer["Formato"] ?> cl</li>
+									<li><?php echo $beer["Prezzo"] ?>€ cad</li>
+								</ul>
+							</div>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+	</section>
 <?php endif; ?>
 
 <?php if(!isset($_GET["sellerId"])): ?>

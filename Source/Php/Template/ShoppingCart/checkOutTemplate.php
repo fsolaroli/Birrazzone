@@ -42,13 +42,13 @@
 		<?php endforeach; ?>
 	</ul>
 </section>
-<section>
+<section class="contaisCheckout">
 	<?php foreach($birre as $birra):?>
 			<?php $prezzoOrdine += $birra["Totale"];?>
 	<?php endforeach;?>
 	<section class="checkout">
+		<p>Totale:<?php echo $prezzoOrdine;?>€</p>
 		<div class="finalize">
-			<p>Totale:<?php echo $prezzoOrdine;?>€</p>
 			<button class="undo">Annulla</button>
 			<button class="conclude">Acquista</button>
 		</div>

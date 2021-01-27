@@ -773,7 +773,7 @@ section.addToCart > form > input {
 	margin: 0 10px;
 }
 
-section.overflow {
+section.overflow, ul.orders > li.overflow {
 	margin-bottom: 100px;
 }
 
@@ -1041,8 +1041,12 @@ section.checkout > button {
 	font-size: 18pt;
 }
 
-@media screen and (min-width: 1520px) {
+@media screen and (min-width: 1749px) {
 
+	main > section.contaisCheckout {
+		width: fit-content;
+	}
+	
 	section.checkout {
 		width: fit-content;
 
@@ -1050,7 +1054,7 @@ section.checkout > button {
 		
 		background-image: linear-gradient(180deg, transparent, transparent 10%);;
 		
-		position: fixed;
+		position: static;
 		right: 0;
 		top: 100px;
 		
@@ -1096,6 +1100,39 @@ section.finalCheckout > ul > li:hover {
 	background-color: white;
 }
 
-section.finalCheckout > ul > li > div.productData {
+section.checkout {
+	display: flex;
+	flex-direction: column;
+}
+
+section.checkout > p {
+	align-self: flex-end;
+	margin: 0 30px 10px 0;
+	font-size: 20pt;
+}
+
+section.checkout > div.finalize {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
 	
+}
+
+section.checkout > div.finalize > button {
+	font-size: 18pt;
+}
+
+@media screen and (min-width: 1749px) {
+	
+	section.checkout > div.finalize{
+		flex-direction: column;
+	}
+
+	section.checkout > p {
+		margin-bottom: 30px;
+	}
+
+	section.checkout > div.finalize > button {
+		margin: 10px;
+	}
 }

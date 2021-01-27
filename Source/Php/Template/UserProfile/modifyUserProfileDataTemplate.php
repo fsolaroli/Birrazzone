@@ -30,7 +30,7 @@
 			<li class="input"><input type="password" id="pw" name="pw" autocomplete="new-password" required/></li>
 	
 			<li class="label"><label for="confirmpw">Conferma Password:</label></li>
-			<li class="input"><input type="password" id="confirmpw" name="confirmpw" autocomplete="new-password" reduired/></li>
+			<li class="input"><input type="password" id="confirmpw" name="confirmpw" autocomplete="new-password" required/></li>
 
 			<li class="submit">	
 				<input type="submit" name="updatePassword" value="Aggiorna"/>

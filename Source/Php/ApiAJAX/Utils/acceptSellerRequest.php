@@ -21,7 +21,7 @@ if (isset($_POST["IdBirrificio"])) {
 	mail($_POST["EmailBirrificio"], "Seller request accepted",
 	"Congratulations, you have just become a Seller of Birrazzone!\n
 	click the link below to confirm your registration:\n
-	http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token=$token");
+	http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token=".$token);
 
 	echo json_encode($token);
 }
