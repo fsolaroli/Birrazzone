@@ -773,7 +773,7 @@ section.addToCart > form > input {
 	margin: 0 10px;
 }
 
-section.overflow, ul.orders > li.overflow {
+section.overflow {
 	margin-bottom: 100px;
 }
 
@@ -1086,18 +1086,10 @@ section.checkoutOrder > div.modifyOrder {
 	flex-direction: column;
 }
 
-@media screen and (min-width: 1520px) {
-	section.checkout > div.finalize {
-		align-self: flex-end;
-		display: flex;
-		flex-direction: column;
-	}
+section.finalCheckout > ul > li:hover {
+	background-color: white;
+}
 
-	section.checkout > div.finalize > button {
-		margin: 10px 0;
-	}
-
-	section.checkout > div.finalize > p {
-		margin-bottom: 20px;
-	}
+section.finalCheckout > ul > li > div.productData {
+	
 }
