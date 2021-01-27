@@ -48,9 +48,7 @@
 	<?php endforeach;?>
 	<section class="checkout">
 		<p>Totale:<?php echo $prezzoOrdine;?>€</p>
-		<div class="finalize">
-			<button class="undo">Annulla</button>
-			<button class="conclude">Acquista</button>
-		</div>
+		<button class="undo">Annulla</button>
+		<button class="conclude">Acquista</button>
 	</section>
 </section>
