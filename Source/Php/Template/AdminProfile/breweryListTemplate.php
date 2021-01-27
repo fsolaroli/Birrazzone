@@ -3,6 +3,6 @@
 
 <section> 
 	<h2>Birrifici</h2>
-	<ul id="brewerylist">
+	<ul class="orders" id="brewerylist">
 	</ul>
 </section>

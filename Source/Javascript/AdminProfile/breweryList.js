@@ -1,17 +1,13 @@
 function generateBrewery(dataBrewery){
 	let list = "";
 	for(let i=0; i < dataBrewery.length; i++){
-		let brewery= `
-		<li>
-			${dataBrewery[i]["NomeBirrificio"]} <a href="singleBrewery.php?id=${dataBrewery[i]["IdBirrificio"]}"><button>Visualizza</button> </a>
-		</li>
-		`;
+		let brewery= `<li><span></span><span>` + dataBrewery[i]["NomeBirrificio"] + `</span><button class="` + dataBrewery[i]["IdBirrificio"] + `">Visualizza</button></li>`;
 		list += brewery;
 	}
 	return list;
 }
 
-$(document).ready(function(){
+$(function(){
 	$.getJSON("../../ApiAJAX/AdminProfile/api-breweries.php", function(data){
 		let brewery = "";
 		if(data.length == 0){
@@ -20,5 +16,9 @@ $(document).ready(function(){
 			brewery = generateBrewery(data);
 		}
 		$("ul#brewerylist").append(brewery);
+	});
+	$("#brewerylist button").click(function(e) {
+		e.preventDefault();
+		window.location = "singleBrewery.php?id=" + $(this).attr("class").split(" ")[1];	
 	});
 });
