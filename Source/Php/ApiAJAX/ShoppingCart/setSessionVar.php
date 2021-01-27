@@ -37,6 +37,6 @@ if (isUserLoggedIn()){
 	$dbh->addUserNotification($_SESSION["userId"], 1, "Grazie per l'acquisto!","Il tuo Ordine con ID: ".$orderId." è in elaborazione");
 }
 if(!isUserLoggedIn()){
-	header("../../Site/Login/login.php");
+	header("Location: ../../Site/Errors/errors.php?errorType=401&errorMessage=È necessario essere loggato come utente per poter compiere questa operazione");
 }
 ?>
