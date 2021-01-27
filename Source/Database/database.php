@@ -65,10 +65,10 @@ class DatabaseHelper{
 		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirrificio
-										WHERE LOCATE(?, Birra.NomeBirra)!=0
-										OR LOCATE(?, Birrificio.NomeBirrificio)!=0
-										AND Prezzo.DaData <= NOW()
-										AND Prezzo.AData > NOW()");
+										WHERE Prezzo.DaData <= NOW()
+										AND Prezzo.AData > NOW()
+										AND LOCATE(?, Birra.NomeBirra)!=0
+										OR LOCATE(?, Birrificio.NomeBirrificio)!=0");
 		$stmt->bind_param('ss',$searchTag, $searchTag);
 		$stmt->execute();
 		$result = $stmt->get_result();
