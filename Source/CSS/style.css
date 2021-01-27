@@ -417,7 +417,7 @@ aside > ul > li.notification {
 /* Element border styling */
 /* ----------------------------------------------- */
 
-img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"], section[name="cart"], section.cart{
+img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"], section[name="cart"], section.cart {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
@@ -992,8 +992,13 @@ section.cart > div.del div.changeQuantity > img.add:hover, section.cart > div.de
 	background-color: #e4e2e2c6;
 }
 
-
 /* ----------------------------------------------- */
-/* Shopping Cart */
+/* CheckOut */
 /* ----------------------------------------------- */
 
+section.address > div.backnforward {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 15px;
+}
