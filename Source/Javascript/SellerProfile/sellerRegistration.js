@@ -15,8 +15,11 @@ $(function() {
 				$("main").html(`
 				<h1>Registrazione birrificio</h1>
 				<h2>Richiesta completata</h2>
-				<a href="../Home/home.php"><button>OK</button></a>
+				<button>OK</button>
 				`);
+				$("button").click(function() {
+					window.location = "../Home/home.php";
+				})
 			}
 		}
 		$.post(	"../../ApiAJAX/SellerProfile/sellerRegistrationRequest.php", PostData, PostFunction, "json");		

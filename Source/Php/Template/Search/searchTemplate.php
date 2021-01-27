@@ -3,7 +3,7 @@
 		header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=Il birrificio cercato è inesistente");
 	} ?>
 	<section>
-		<h3>Birre</h3>
+		<h2>Birre</h2>
 
 		<?php $beersFound = $dbh->getSellerBeer($_GET["sellerId"]); ?>
 
