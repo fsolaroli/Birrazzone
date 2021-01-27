@@ -733,6 +733,11 @@ section.addToCart {
 	align-self: center;
 }
 
+section.addToCart > strong {
+	margin-bottom: 20px;
+	font-size: 20pt;
+}
+
 @media screen and (max-width: 531px) {
 	section.addToCart {
 		bottom: 66pt;
@@ -747,7 +752,7 @@ section.addToCart {
 	}
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1520px) {
 	section.addToCart {
 		position: relative;
 		bottom: -70px;
@@ -963,6 +968,7 @@ section.cart {
 
 section.cart > img.beerPhoto {
 	width: 30%;
+	height: 100%;
 	border-radius: 30px;
 }
 
