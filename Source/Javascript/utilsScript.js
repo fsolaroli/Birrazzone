@@ -81,11 +81,12 @@ function manageAdminNotification() {
 
 	$("ul > li > button.accept").click(function (e) { 
 		let id = $(this).attr("class").split(" ")[1];
+		console.log($("li#" + id + " > div:nth-of-type(2) > ul > li:nth-of-type(2) > span:nth-of-type(2)").text());
 		$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: id , EmailBirrificio: $("li#" + id + " > div:nth-of-type(2) > ul > li:nth-of-type(2) > span:nth-of-type(2)").text() },
 			function (token) {
-				$("li#" + id).hide();
 				console.log("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token="+token);
 			}, "json");
+			$("li#" + id).hide();
 	});
 
 	$("ul > li > button.reject").click(function (e) {
