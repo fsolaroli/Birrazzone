@@ -354,7 +354,7 @@ class DatabaseHelper{
 																							AData
 																						)
 																				values	(?, 3, NOW(), ?)");
-		$stmt->bind_param('iss', $SellerId, $this->DistantFuture);
+		$stmt->bind_param('is', $SellerId, $this->DistantFuture);
 		$stmt->execute();
 	}
 
