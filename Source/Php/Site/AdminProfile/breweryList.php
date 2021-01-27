@@ -9,5 +9,8 @@ if(!isAdminLoggedIn()){
 	$templateParams["Template"] = "AdminProfile/breweryListTemplate.php";
 	$templateParams["HeaderType"] = "Admin"; //Profile, Login, Global
 }
+
+$birrifici = $dbh->getAllSeller();
+
 require("../../Template/baseTemplate.php");
 ?>

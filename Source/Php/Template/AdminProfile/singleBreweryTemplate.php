@@ -39,9 +39,9 @@
 				<div>
 					<p><?php echo $birra["NomeBirra"]?> </p>
 				</div>
-				 <div>
-					 <a href="singleProduct.php?id=<?php echo $birra["IdBirra"] ?>"><button>Visualizza</button></a>
-				 </div>
+				<div>
+					<button id="<?php echo $birra["IdBirra"]?>" class="singleProduct">Visualizza</button>
+				</div>
 			</li>
 		<?php endforeach; ?>
 	</ul>

@@ -4,6 +4,12 @@ $(function() {
 		$("#deleteAccountConfermation").hide("slide");
 	});
 
+	$("button.singleProduct").click(function(e){
+		let ProductId = $(this).attr("id");
+		console.log(ProductId);
+		window.location = "../../Site/AdminProfile/singleProduct.php?id="+ProductId;
+	});
+
 	$("#deleteAccount").click(function(e) {
 		e.stopPropagation();
 		$("#deleteAccountConfermation").show("slide");
@@ -14,8 +20,11 @@ $(function() {
 		$.post("../../ApiAJAX/AdminProfile/deleteBrewery.php", function() {
 			$("main").html(`
 				<h2>Birrificio cancellato</h2>
-				<a href="../../Site/AdminProfile/breweryList.php""><button>OK</button></a>
-			`);
+				<button>OK</button>
+				`);
+			$("button").click(function() {
+				window.location = "../../Site/AdminProfile/breweryList.php";
+			})
 		});	
 	});
 })
