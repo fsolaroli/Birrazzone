@@ -21,7 +21,7 @@
 		</ul>
 	</form>
 	
-	<div class="errors"></div>
+	<div class="errors"><ul></ul></div>
 	
 	<div class="registration">
 		<p>Non sei ancora registrato?</p>

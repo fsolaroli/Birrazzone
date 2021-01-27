@@ -22,7 +22,7 @@ $(function() {
 		
 		let ManageLogin = function (data) {
 			if (data[0] != null) {
-				$(".errors").html("<p><strong>E-MAIL O PASSWORD ERRATI</strong></p>");
+				$(".errors > ul").html("<li><strong>E-MAIL O PASSWORD ERRATI</strong></li>");
 			} else {
 				if (data[1] == "u") {
 					if (data[2] == "profile") {

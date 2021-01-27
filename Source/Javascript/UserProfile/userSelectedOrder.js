@@ -5,7 +5,7 @@ $(function() {
 		}
 		let ManageOrder = function(errors) {
 			if(errors!=null) {
-				$(".errors").html("<p><strong>"+errors+"</strong></p>");	 
+				$(".errors > ul").html("<li><strong>"+errors+"</strong></li>");	 
 			} else {
 				window.location = "../ShoppingCart/userShoppingCart.php";
 			}

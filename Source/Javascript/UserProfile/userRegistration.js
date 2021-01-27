@@ -10,9 +10,9 @@ $(function() {
 
 		let ManageRegistration = function(errors) {
 			if(errors!=null) {
-				$(".errors").html("")
+				$(".errors > ul").html("")
 				$.each(errors, function (i, val) { 
-					$(".errors").append("<p><strong>"+val+"</strong></p>");	 
+					$(".errors > ul").append("<li><strong>"+val+"</strong></li>");	 
 				});
 			} else {
 				$("main").html(`

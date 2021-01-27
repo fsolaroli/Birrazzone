@@ -60,6 +60,6 @@
 				<button>Riordina</button></a>
 			<?php endif; ?>
 		</div>
-		<div class="errors"></div>
+		<div class="errors"><ul></ul></div>
 	</section>
 </section>
