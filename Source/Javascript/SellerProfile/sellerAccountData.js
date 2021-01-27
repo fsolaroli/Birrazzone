@@ -18,4 +18,8 @@ $(function() {
 			`);
 		});	
 	});
+
+	$("button.modify").click(function (e) { 
+		window.location="modifySellerAccountData.php";
+	});
 })

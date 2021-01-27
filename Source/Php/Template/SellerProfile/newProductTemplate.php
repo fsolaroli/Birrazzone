@@ -37,8 +37,8 @@
 				<input type="submit" name="update" value="Crea"/>
 				<input type="submit" name="cancel" value="Annulla"/>
 			</li>
-		</ul>	
+		</ul>
 	</form>
 	
-	<div class="errors"></div>
+	<div class="errors"><ul></ul></div>
 </section>

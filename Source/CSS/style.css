@@ -539,6 +539,7 @@ form > ul > li.checkbox > label {
 form > ul > li > img {
 	width: 50%;
 	height: 100%;
+	padding: 10px;
 }
 
 form > ul > li > input {
@@ -612,7 +613,7 @@ a.show {
 	color: #084E80;
 }
 
-a {
+button.modify, a {
 	align-self: flex-end;
 }
 

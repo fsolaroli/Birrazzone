@@ -46,7 +46,7 @@
 			<p><?php echo $productData["DescrizioneBirra"] ?></p>
 		</li>
 	</ul>
-	<a href="modifyProduct.php?productId=<?php echo $productData["IdBirra"] ?>"><button id="modifyAccountData" class="modify">Modifica</button></a>
+	<button class="modify">Modifica</button>
 </section>
 <section>
 	<h2>Quantità birra</h2>

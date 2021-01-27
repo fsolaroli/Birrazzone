@@ -32,7 +32,7 @@
 			</li>
 		</ul>
 
-		<a href="modifyUserAddress.php"><button class="modify">Modifica</button></a>
+		<button class="modify">Modifica</button>
 		
 	<?php endif; ?>
 </section>

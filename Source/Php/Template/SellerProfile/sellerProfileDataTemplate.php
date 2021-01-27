@@ -19,5 +19,5 @@
 			<p><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
 		</li>
 	</ul>
-	<a href="modifySellerProfileData.php"><button id="modifyAccountData" class="modify">Modifica</button></a>
+	<button id="modifyAccountData" class="modify">Modifica</button>
 </section>
