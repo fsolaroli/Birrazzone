@@ -1,7 +1,6 @@
 
 <h1>Amministratore</h1>
 
-<p id="breweryId" hidden> <?php echo $birrificio["IdBirra"]; ?></p>
 <section>
 	<section>
 		<h2>Dati Account</h2>
