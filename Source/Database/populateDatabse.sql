@@ -45,7 +45,7 @@ insert into birrazzone.Birrificio	(
 							values	(
 										2,
 										"Brewfist",
-										"Brewist@example.com",
+										"Brewfist@example.com",
 										"password",
 										"11111110101",
 										"Codogno, LO",

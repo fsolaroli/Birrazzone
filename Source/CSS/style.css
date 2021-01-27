@@ -646,7 +646,8 @@ ul.products > li > a, ul.producers > li > a {
 }
 
 ul.products > li > a > img, ul.producers > li > a > img {
-	width: 20%;
+	width: auto;
+	max-height: 250px;
 	padding: 10px;
 }
 
@@ -782,7 +783,8 @@ section.overflow {
 
 
 section > ul.products > li > a > img.beerPhoto, section > ul.producers > li > a > img.breweryPhoto {
-	width: 40%;
+	width: auto;
+	height: 250px;
 }
 
 section > ul.products > li > a > div.info-beer, section > ul.producers > li > a > div.info-brewery {
@@ -823,7 +825,8 @@ section > ul.products > li > a > div.info-beer > ul:first-of-type > li:nth-of-ty
 }
 
 section > ul.producers > li > a > img.breweryPhotoSearch {
-	width: 20%;
+	width: auto;
+	max-height: 250px;
 }
 
 /* ----------------------------------------------- */
@@ -898,8 +901,9 @@ ul > li {
 section > ul > li > img {
 	display: block;
 	padding: 5px;
-	width: 100%;
-	max-width: 550px;
+	width: auto;
+	max-height: 500px;
+	max-width: 90%;
 
 	align-self: center;
 }
