@@ -57,38 +57,6 @@ table {
 }
 
 /* ----------------------------------------------- */
-/* General */
-/* ----------------------------------------------- */
-
-html {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16pt;
-}
-
-ul {
-	list-style: none;
-}
-
-.hidden {
-	visibility: hidden;
-	position: absolute;
-}
-
-:focus {
-	outline: none;
-}
-
-a {
-	display: inline-block;
-	width: fit-content;
-	color: #084E80;
-}
-
-a:visited {
-	color: #084E80;
-}
-
-/* ----------------------------------------------- */
 /* h */
 /* ----------------------------------------------- */
 
@@ -334,26 +302,31 @@ body > aside > ul > li {
 	padding: 20px 60px;
 }
 
-body > aside > ul > li:last-of-type > a > button {
-	color: #ff3b3b;
-}
-
-body > aside > ul > li > a > button {
+body > aside > ul > li > a, body > aside > ul > li > a:visited {
 	width: 100%;
 	
 	border: 0;
 	padding: 0;
 	margin: 0;
-
-	font-size: 30pt;
 	
+	font-size: 30pt;
 	color: white;
+	text-decoration: none;
+	
 	background-color: transparent;
 }
 
-body > aside button:hover {
+body > aside > ul > li:last-of-type > a {
+	color: #ff3b3b;
+}
+
+body > aside > ul > li > a:hover {
 	background-color: transparent;
 	color: #e4e2e2c6;	
+}
+
+body > aside > ul > li:last-of-type > a:hover {
+	color: #c11e1e;
 }
 
 /* ----------------------------------------------- */
@@ -427,7 +400,7 @@ img#Global[alt="Notification"] {
 	top: 3px;
 }
 
-img#Profile[alt="Notification"] {
+img#Profile[alt="Notification"], img#Admin[alt="Notification"] {
 	position: absolute;
 	right: 15px;
 	top: 3px;
@@ -848,6 +821,38 @@ section > div.redo-order {
 
 section > div.redo-order > button {
 	font-size: 20pt;
+}
+
+/* ----------------------------------------------- */
+/* General */
+/* ----------------------------------------------- */
+
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+}
+
+ul {
+	list-style: none;
+}
+
+.hidden {
+	visibility: hidden;
+	position: absolute;
+}
+
+:focus {
+	outline: none;
+}
+
+a {
+	display: inline-block;
+	width: fit-content;
+	color: #084E80;
+}
+
+a:visited {
+	color: #084E80;
 }
 
 /* ----------------------------------------------- */

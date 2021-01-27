@@ -30,6 +30,14 @@
 				<a class="home" href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
 				<a class="menu" href="javascript:void(0);"><img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/></a>
 			<?php endif; ?>
+			
+			<?php if($templateParams["HeaderType"] == "Admin"): ?>
+				<a class="home" href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt = "Home"/></a>
+				<a class="menu" href="javascript:void(0);"><img src="<?php echo $imagePath?>Icone/Menu.png" alt = "Menu"/></a>
+				<?php if(hasRequest()): ?>
+					<img id="<?php echo $templateParams["HeaderType"]; ?>" src="<?php echo $imagePath?>Icone/Notification.png" alt="Notification"/>
+				<?php endif; ?>
+			<?php endif; ?>
 
 			<?php if($templateParams["HeaderType"] == "Login"): ?>
 				<a class="home" href="../Home/home.php"><img src="<?php echo $imagePath?>Icone/Home.png" alt="Home"/></a>
