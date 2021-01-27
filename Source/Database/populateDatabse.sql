@@ -65,7 +65,7 @@ insert into birrazzone.StatoMembershipBirrificio	(
 														'2020-12-20 10:20:40',
 														'4000-01-01 00:00:00'
 													);
-/* TODO: cambia la foto del birrificio Dòg E Trì */
+
 insert into birrazzone.Birrificio	(
 										IdBirrificio,
 										NomeBirrificio,
@@ -84,7 +84,7 @@ insert into birrazzone.Birrificio	(
 										"12345678901",
 										"Medicina, BO",
 										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor, dolor in cursus tempor, ipsum nisi consequat orci, ac tempor libero velit vitae tortor. Suspendisse vel nisi fringilla ligula.",
-										"DogETri.png"
+										"DogETri.jpg"
 									);
 
 insert into birrazzone.StatoMembershipBirrificio	(
@@ -544,7 +544,7 @@ insert into birrazzone.MovimentoBirrificio	(
 										)
 								values	(
 											7,
-											2
+											1
 										);
 
 insert into birrazzone.Movimento	(
@@ -568,5 +568,53 @@ insert into birrazzone.MovimentoBirrificio	(
 										)
 								values	(
 											8,
+											2
+										);
+
+insert into birrazzone.Movimento	(
+										IdMovimento,
+										IdBirra,
+										DataMovimento,
+										Quantita,
+										TipoMovimento
+									)
+							values	(
+										9,
+										4,
+										'2020-11-28 15:00:00',
+										115,
+										2
+									);
+
+insert into birrazzone.MovimentoBirrificio	(
+											IdMovimento,
+											IdBirrificio
+										)
+								values	(
+											9,
+											2
+										);
+
+insert into birrazzone.Movimento	(
+										IdMovimento,
+										IdBirra,
+										DataMovimento,
+										Quantita,
+										TipoMovimento
+									)
+							values	(
+										10,
+										5,
+										'2020-11-28 15:00:00',
+										250,
+										2
+									);
+
+insert into birrazzone.MovimentoBirrificio	(
+											IdMovimento,
+											IdBirrificio
+										)
+								values	(
+											10,
 											3
 										);
