@@ -993,8 +993,16 @@ section.cart > div.del div.changeQuantity > img.add:hover, section.cart > div.de
 }
 
 /* ----------------------------------------------- */
-/* CheckOut */
+/* CheckOut Address */
 /* ----------------------------------------------- */
+
+section.address, section.modifyaddress {
+	max-width: 400px;
+}
+
+section.address > div.modifyaddress > button.modify {
+	width: 100%;
+}
 
 section.address > div.backnforward {
 	display: flex;
