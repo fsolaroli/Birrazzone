@@ -14,7 +14,7 @@
 			<li class="label"><label for="image">Foto</label></li>
 			<li class="photoInput">
 				<img src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"]; ?>" alt=""/>
-				<input type="file" id="image" name="image" accept=".jpeg, .jpg, .png" multiple="false"/>
+				<input type="file" id="image" name="image" accept=".jpeg, .jpg, .png"/>
 			</li>
 			<li><div class="imageErrors"></div></li>
 	

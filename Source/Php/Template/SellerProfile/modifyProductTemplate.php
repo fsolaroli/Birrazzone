@@ -14,13 +14,13 @@
 		<ul>
 			<li class="label"><label for="image">Foto</label></li>
 			<li class="photoInput">
-				<img src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"]; ?>" alt="" width="300px"/>
-				<input type="file" id="image" name="image" accept=".jpeg, .jpg, .png" multiple="false"/>
+				<img src="<?php echo UPLOAD_DIR."Birre/".$productData["FotoBirra"]; ?>" alt=""/>
+				<input type="file" id="image" name="image" accept=".jpeg, .jpg, .png"/>
 			</li>
 			<li class="input" hidden><div class="imageErrors"></div></li>
 	
 			<li class="label"><label for="price">Prezzo</label></li>
-			<li class="input"><input type="number" id="price" name="price" max="9999.99" min="0.01" step="0.01" value="<?php echo $productData["Prezzo"] ?>" required="true" autocomplete="off"/></li>
+			<li class="input"><input type="number" id="price" name="price" max="9999.99" min="0.01" step="0.01" value="<?php echo $productData["Prezzo"] ?>" required autocomplete="off"/></li>
 	
 			<li class="label"><label for="description">Descrizione:</label></li>
 			<li class="input"><textarea id="description" name="description" maxlength="300"><?php echo $productData["DescrizioneBirra"] ?></textarea></li>

@@ -23,10 +23,10 @@ if(empty($sellerData)){
 			<li class="input"><input type="text" id="IVA" name="IVA" value="<?php echo $sellerData["PartitaIVA"] ?>" readonly/></li>
 	
 			<li class="label"><label for="password">Password:</label></li>
-			<li class="input"><input type="password" id="password" name="password" autocomplete="new-password"/></li>
+			<li class="input"><input type="password" id="password" name="password" required autocomplete="new-password"/></li>
 	
 			<li class="label"><label for="passwordConfermation">Conferma Password:</label></li>
-			<li class="input"><input type="password" id="passwordConfermation" name="passwordConfermation" autocomplete="new-password"/></li>
+			<li class="input"><input type="password" id="passwordConfermation" name="passwordConfermation" required autocomplete="new-password"/></li>
 	
 			<li><input type="submit" value="Attiva account"/></li>
 		</ul>

@@ -22,6 +22,7 @@ function uploadImage(destination) {
 					});
 				} else {
 					$("form > ul > li > img").attr("src", UPLOAD_DIR + destination + "/" + data["Name"]);
+					$("form > ul > li > img").show();
 				}
 			}
 		});
@@ -77,16 +78,17 @@ function manageAdminNotification() {
 		$("ul > li#" + notificationId + " > div > img[alt*='expande']").show();
 	});
 
-	$("ul > li > div > button.accept").click(function (e) { 
-		$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1] },
+	$("ul > li > button.accept").click(function (e) { 
+		let id = $(this).attr("class").split(" ")[1];
+		$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: id , EmailBirrificio: $("li#" + id + " > div:nth-of-type(2) > ul > li:nth-of-type(2) > span:nth-of-type(2)").text() },
 			function (token) {
-				console.log(`http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token=`+token);
+				console.log("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token="+token);
 				location.reload();
 			}, "json");
 	});
 
-	$("ul > li > div > button.delete").click(function (e) { 
-		$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: $(this).attr("id").split(" ")[1]},
+	$("ul > li > button.delete").click(function (e) { 
+		$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: $(this).attr("class").split(" ")[1]},
 			function () {
 				location.reload();
 			});
