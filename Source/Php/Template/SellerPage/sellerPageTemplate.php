@@ -26,7 +26,7 @@
 <h1><?php echo $sellerData["NomeBirrificio"] ?></h1>
 <section>
 	<ul>
-		<li><?php echo $sellerData["Localita"] ?></li>
+		<li class="center"><?php echo $sellerData["Localita"] ?></li>
 		<li class="photo"><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
 		<li>
 			<div class="description">
