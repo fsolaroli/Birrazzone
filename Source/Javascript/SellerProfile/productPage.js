@@ -38,5 +38,9 @@ $(function() {
 	});	
 	$(":submit[name='remove']").click(function (e) { 
 		updateBeerQuantity("remove");
-	});	
+	});
+
+	$("button.modify").click(function (e) { 
+		window.location = "modifyProduct.php?productId=" + $("#productId").text();
+	});
 });

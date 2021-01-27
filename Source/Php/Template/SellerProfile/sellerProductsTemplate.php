@@ -24,12 +24,12 @@
 					<p><span>Disponibilità:</span><span class="<?php if($product["Quantita"] < 10) { echo "attention";} ?>"><?php echo $product["Quantita"] ?></span></p>
 				</div>
 				<div>
-					<a href="productPage.php?productId=<?php echo $product["IdBirra"] ?>"><button class="modify">Visualizza</button></a>
+					<button class="modify" id="<?php echo $product["IdBirra"] ?>">Visualizza</button>
 				</div>
 			</li>
 		<?php endforeach; ?>
 	</ul>
 	<?php endif; ?>
 
-	<a href="newProduct.php"><button class="modify">Aggiungi</button></a>
+	<button class="modify">Aggiungi</button>
 </section>
