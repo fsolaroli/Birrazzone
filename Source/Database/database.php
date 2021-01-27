@@ -657,6 +657,13 @@ class DatabaseHelper{
 	}
 
 	public function deleteSeller($SellerId) {
+
+		$beers = $this->getSellerBeer($SellerId);
+
+		foreach ($beers as $beer) {
+			$this->deleteBeer($beer["IdBirra"]);
+		}
+
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
 										SET Birrificio.NomeBirrificio=?,
 											Birrificio.EmailBirrificio=CONCAT(?, '1', Birrificio.IdBirrificio),
