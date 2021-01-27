@@ -27,7 +27,7 @@
 			<p class="totBeer<?php echo $birra["IdBirra"]?>">Totale: <?php echo $birra["Totale"];?>€ </p>
 		</div>
 		<img src="../../../../Immagini/Icone/Close.png" class="delete" alt="id <?php echo $birra["IdBirra"];?>"/>
-		<?php $totaleCarrello +=  $birra["Totale"];?>
+		<?php $totaleCarrello += $birra["Totale"];?>
 	</section>
 <?php endforeach; ?>
 <section>

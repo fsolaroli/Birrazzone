@@ -1062,10 +1062,6 @@ section.checkout > button {
 /* CheckOut Address */
 /* ----------------------------------------------- */
 
-section.address, section.modifyaddress {
-	max-width: 400px;
-}
-
 section.address > div.modifyaddress > button.modify {
 	width: 100%;
 }
@@ -1075,4 +1071,40 @@ section.address > div.backnforward {
 	flex-direction: row;
 	justify-content: space-between;
 	margin-top: 15px;
+}
+
+section.checkoutOrder > ul > section.cart {
+	border-radius: 20px;
+}
+
+section.checkoutOrder > ul > section.cart > li {
+	margin: 5px;
+}
+
+section.checkoutOrder > ul > section.cart > li > p.qt {
+	text-align: center;
+}
+
+h2.checkout {
+	align-self: center;
+}
+
+section.checkoutOrder > ul > section.cart > li > p.price {
+	display: flex;
+	flex-direction: row;
+	text-align: end;
+}
+
+section.conclude {
+	float: right;
+}
+
+section.checkoutOrder > div.payment {
+	display: flex;
+	flex-direction: row;
+}
+
+section.checkoutOrder > div.modifyOrder {
+	display: flex;
+	flex-direction: column;
 }

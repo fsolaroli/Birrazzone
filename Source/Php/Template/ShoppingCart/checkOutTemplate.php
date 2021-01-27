@@ -1,40 +1,39 @@
 <?php $prezzoOrdine = null?>
 <h1>Riepilogo ordine</h1>
 
-<section>
-	<h2>Indirizzo di spedizione</h2>
-	<form onsubmit="return false;">
-		<ul>
-			<li>Via: <?php echo $address["Via"];?></li>
-			<li>Città: <?php echo $address["Citta"];?></li>
-			<li>Provincia: <?php echo $address["Provincia"];?></li>
-			<li>CAP: <?php echo $address["CAP"];?></li>
-		</ul>
-	</form>
+<section class="checkoutOrder">
+	<h2 class="checkout">Indirizzo di spedizione</h2>
+	<ul>
+		<li>Via: <?php echo $address["Via"];?></li>
+		<li>Città: <?php echo $address["Citta"];?></li>
+		<li>Provincia: <?php echo $address["Provincia"];?></li>
+		<li>CAP: <?php echo $address["CAP"];?></li>
+	</ul>
 	<p>Italia</p>
-	<div>
-		<button class="modifyAddress" >Modifica</button>
+	<div class="modifyOrder">
+		<button class="modify" class="modifyAddress" >Modifica</button>
 	</div>
 </section>
-<section>
-	<h2>Modalità di pagamento</h2>
-	<form onsubmit="return false;">
-			<div>
-				<p>************<?php echo substr($_SESSION["NumeroCarta"], 12);?>   <?php echo $_SESSION["Scadenza"];?></p>
-			</div>
-	</form>
-	<div>
-		<button class="modifyPayment">Modifica</button>
+<section class="checkoutOrder">
+	<h2 class="checkout">Modalità di pagamento</h2>
+	<div class="payment">
+			<span>************<?php echo substr($_SESSION["NumeroCarta"], 12);?></span> 
+			<span><?php echo $_SESSION["Scadenza"];?></span>
+	</div>
+	<div class="modifyOrder">
+		<button class="modify" class="modifyPayment">Modifica</button>
 	</div>
 </section>
-<section>
-	<h2>Prodotti </h2>
+<section class="checkoutOrder">
+	<h2 class="checkout">Prodotti </h2>
 	<ul>
 		<?php foreach($birre as $birra):?>
-		<li>
-			<p><?php echo $birra["NomeBirra"]; ?>  <?php echo $birra["Totale"]; ?>€</p>
-			Quantità: <?php echo $birra["QuantitaTot"]; ?> 
-		</li>
+		<section class="cart">
+			<li>
+				<p><?php echo $birra["NomeBirra"]; ?></p><p class="price"><?php echo $birra["Totale"]; ?>€</p>
+				<p class="qt">Quantità: <?php echo $birra["QuantitaTot"]; ?> </p>
+			</li>
+		</section>
 		<?php endforeach;?>
 	</ul>
 </section>
@@ -42,7 +41,9 @@
 	<?php foreach($birre as $birra):?>
 			<?php $prezzoOrdine += $birra["Totale"];?>
 	<?php endforeach;?>
-	<p>Totale:<?php echo $prezzoOrdine;?>€</p>
-	<button class="undo">Annulla</button> 
-	<button class="conclude">Acquista</button>
+	<div>
+		<p>Totale:<?php echo $prezzoOrdine;?>€</p>
+		<button class="undo">Annulla</button> 
+		<button class="conclude">Acquista</button>
+	</div>
 </section>
