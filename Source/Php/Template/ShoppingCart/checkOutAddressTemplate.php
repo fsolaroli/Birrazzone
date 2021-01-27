@@ -1,6 +1,6 @@
 <h1>Indirizzo di Consegna</h1>
 
-<section>
+<section class="address">
 	<?php if(!empty($address)): ?>
 	<form onsubmit="return false;">
 		<ul>
@@ -12,16 +12,12 @@
 	</form>
 	<p>Italia</p>
 	<div class="errors"></div>
-	<div>
+	<div class="modifyaddress">
 		<button class="modify">Modifica Indirizzo</button>
    	</div>
-	 <div>
-		<div>
-			<button class="back">Annulla</button>
-		</div>
-		<div>
-			<button class="forward">Continua</button>
-		</div>
+	 <div class="backnforward">
+		<button class="back">Annulla</button>
+		<button class="forward">Continua</button>
 	</div>
 	<?php endif;?>
 	<?php if(empty($address)): ?>

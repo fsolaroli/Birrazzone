@@ -417,7 +417,7 @@ aside > ul > li.notification {
 /* Element border styling */
 /* ----------------------------------------------- */
 
-img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"], section[name="cart"], section.cart{
+img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"], section[name="cart"], section.cart {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
@@ -719,7 +719,7 @@ ul.sellerProducts > li > div:first-of-type > p:nth-of-type(2) > span:nth-of-type
 /* Product Page */
 /* ----------------------------------------------- */
 
-section.addToCart {
+section.addToCart, section.checkout {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -739,7 +739,7 @@ section.addToCart > strong {
 }
 
 @media screen and (max-width: 531px) {
-	section.addToCart {
+	section.addToCart, section.checkout {
 		bottom: 66pt;
 	}	
 }
@@ -747,7 +747,7 @@ section.addToCart > strong {
 /* Desktop */
 
 @media screen and (min-width: 1024px) {
-	section.addToCart {
+	section.addToCart, section.checkout {
 		bottom: 31px;
 	}
 }
@@ -772,7 +772,7 @@ section.addToCart > form > input {
 	margin: 0 10px;
 }
 
-section.overflow, section.cart:last-of-type {
+section.overflow {
 	margin-bottom: 100px;
 }
 
@@ -1004,8 +1004,67 @@ section.cart > div.del div.changeQuantity > img.add:hover, section.cart > div.de
 	background-color: #e4e2e2c6;
 }
 
+section.checkout {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	align-items: center;
+
+	font-size: 18pt;
+	padding: 20px 0;
+}
+
+section.checkout > ul {
+	margin: 0;
+}
+
+section.checkout > ul > li {
+	margin: 10px 0;
+	display: flex;
+}
+
+section.checkout > button {
+	font-size: 18pt;
+}
+
+@media screen and (min-width: 1520px) {
+
+	section.checkout {
+		width: fit-content;
+
+		flex-direction: column;
+		
+		background-image: linear-gradient(180deg, transparent, transparent 10%);;
+		
+		position: absolute;
+		right: 0;
+		top: 100px;
+		
+		margin: 0 2% 0 10px;
+		padding: 0;
+	}
+
+	section.checkout > ul > li {
+		flex-direction: column;
+		text-align: center;
+	}
+}
 
 /* ----------------------------------------------- */
-/* Shopping Cart */
+/* CheckOut Address */
 /* ----------------------------------------------- */
 
+section.address, section.modifyaddress {
+	max-width: 400px;
+}
+
+section.address > div.modifyaddress > button.modify {
+	width: 100%;
+}
+
+section.address > div.backnforward {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 15px;
+}

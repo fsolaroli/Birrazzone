@@ -23,7 +23,7 @@ $(function(){
 				});
 
 				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
-					$("p.totCart").text("Totale: "+(Math.round(newPrice * 100) / 100)+"€");
+					$("p.totCart").text((Math.round(newPrice * 100) / 100)+"€");
 				});
 
 				$("p.max"+IdProduct).text(function(i, val){
@@ -57,7 +57,7 @@ $(function(){
 				});
 
 				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
-					$("p.totCart").text("Totale: "+(Math.round(newPrice * 100) / 100)+"€");
+					$("p.totCart").text((Math.round(newPrice * 100) / 100)+"€");
 				});
 
 				$("p.max"+IdProduct).text(function(i, val){
@@ -67,5 +67,10 @@ $(function(){
 				return newQuantity;
 			}
 		});
+	});
+
+	$("button.checkout").click(function (e) { 
+		e.preventDefault();
+		window.location="checkOutAddress.php";
 	});
 });
