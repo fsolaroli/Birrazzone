@@ -39,7 +39,7 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 	<section class="addToCart">
 		<?php if(!isSellerLoggedIn()) :?>
 			<?php if($quantitaBirra == 0): ?>
-				<p><strong>Non Disponibile</strong></p>
+				<strong>Non Disponibile</strong>
 			<?php endif; ?>
 			<?php if($quantitaBirra > 0): ?>
 				<form onsubmit="return false;">
