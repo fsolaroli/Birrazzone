@@ -1081,27 +1081,8 @@ section.checkoutOrder > ul > section.cart > li {
 	margin: 5px;
 }
 
-section.checkoutOrder > ul > section.cart > li > p.qt {
-	text-align: center;
-}
-
 h2.checkout {
 	align-self: center;
-}
-
-section.checkoutOrder > ul > section.cart > li > p.price {
-	display: flex;
-	flex-direction: row;
-	text-align: end;
-}
-
-section.conclude {
-	float: right;
-}
-
-section.checkoutOrder > div.payment {
-	display: flex;
-	flex-direction: row;
 }
 
 section.checkoutOrder > div.modifyOrder {
