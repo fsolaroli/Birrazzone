@@ -400,7 +400,7 @@ img#Global[alt="Notification"] {
 	top: 3px;
 }
 
-img#Profile[alt="Notification"] {
+img#Profile[alt="Notification"], img#Admin[alt="Notification"] {
 	position: absolute;
 	right: 15px;
 	top: 3px;

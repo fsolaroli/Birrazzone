@@ -110,6 +110,7 @@ function hasNotification() {
 }
 
 function hasRequest() {
+	global $dbh;
 	if(isAdminLoggedIn()) {
 		return !empty($dbh->getSellerRequest());
 	}

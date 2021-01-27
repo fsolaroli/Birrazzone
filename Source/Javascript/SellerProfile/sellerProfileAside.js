@@ -5,7 +5,7 @@ function setAside() {
 			<li><a href="sellerAccountData.php">Dati&nbsp;Account</a></li>
 			<li><a href="sellerProfileData.php">Dati&nbsp;Birrificio</a></li>
 			<li><a href="sellerProducts.php">Prodotti</a></li>
-			<li><a href="../../ApiAJAX/Utils/logOut.php">Log Out</a></li>
+			<li><a href="../../ApiAJAX/Utils/logOut.php">Log&nbsp;Out</a></li>
 		</ul>
 	`);
 
