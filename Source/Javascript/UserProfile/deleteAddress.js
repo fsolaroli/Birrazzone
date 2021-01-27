@@ -18,4 +18,8 @@ $(function() {
 			`);
 		});	
 	});
+
+	$(".modify").click(function() {
+		window.location = "modifyUserAddress.php";
+	});
 })

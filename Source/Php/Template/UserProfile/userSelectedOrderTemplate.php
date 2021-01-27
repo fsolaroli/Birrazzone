@@ -57,7 +57,7 @@
 				<p>Prezzo totale: <?php echo totalPrice($_GET["orderId"]); ?>€</p>
 			</div>
 			<?php if(strcmp($orderInfo[0]["Codice"], "CONSEGNATO") === 0): ?>
-				<button>Riordina</button></a>
+				<button>Riordina</button>
 			<?php endif; ?>
 		</div>
 		<div class="errors"><ul></ul></div>

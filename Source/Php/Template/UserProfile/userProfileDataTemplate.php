@@ -15,7 +15,7 @@
 		</li>
 	</ul>
 
-	<a href="modifyUserProfileData.php"><button class="modify">Modifica</button></a>
+	<button class="modify">Modifica</button>
 </section>
 
 <section class="delete">

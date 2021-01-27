@@ -18,7 +18,7 @@
 						<p><?php echo $order["DataOrdine"]; ?></p>
 					</div>
 					<div>
-						<a href="userSelectedOrder.php?orderId=<?php echo $order["IdOrdine"]; ?>"><button class="modify">Visualizza</button></a>
+						<button class="modify" id="<?php echo $order["IdOrdine"]; ?>">Visualizza</button>
 					</div>
 				</li>
 			<?php endforeach; ?>
