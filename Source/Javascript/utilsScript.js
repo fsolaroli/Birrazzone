@@ -87,7 +87,7 @@ function manageAdminNotification() {
 			}, "json");
 	});
 
-	$("ul > li > button.delete").click(function (e) { 
+	$("ul > li > button.reject").click(function (e) { 
 		$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: $(this).attr("class").split(" ")[1]},
 			function () {
 				location.reload();
