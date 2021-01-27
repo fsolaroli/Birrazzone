@@ -10,12 +10,14 @@ if (isUserLoggedIn()){
 	$_SESSION["PrezzoCarrello"] = null;
 
 	if(!empty($_SESSION["addressId"])){
-		$orderId = $dbh->finalizeOrder($_SESSION["userId"], $_SESSION["addressId"])[0];
+		$orderId = $dbh->finalizeOrder($_SESSION["userId"], $_SESSION["addressId"])["ID"];
 	}else{
-		$orderId = $dbh->finalizeOrder($_SESSION["userId"], $dbh->getUser($_SESSION["userId"])[0]["IdIndirizzo"])[0];
+		$orderId = $dbh->finalizeOrder($_SESSION["userId"], $dbh->getUser($_SESSION["userId"])[0]["IdIndirizzo"])["ID"];
 	}
 
-	foreach($dbh->getOrderProduct($orderId) as $birra){
+	foreach($dbh->getOrderProducts($orderId) as $birra){
+
+		var_dump($birra["IdBirra"]);
 
 		if($dbh->getBeerQuantity($birra["IdBirra"]) < 10){
 
@@ -28,11 +30,11 @@ if (isUserLoggedIn()){
 
 				$dbh->addSellerNotification($birra["IdBirrificio"], 1, "Scorte di ".$birra["NomeBirra"]." sono in esaurimento",
 				"Le tue scorte di ".$birra["NomeBirra"]." stanno esaurendo, aggiungi nuove scorte al più presto!
-				Attualmente sono rimaste ".$dbh->getBeerQuantity($birra["IdBirra"])." bottiglie di ".$birra["NomeBirra"]);
+				Attualmente sono rimaste ".$dbh->getBeerQuantity($birra["IdBirra"])." bottiglie di ".$birra["NomeBirra"].".");
 			}
-		}			
+		}
 	}
-	$dbh->addUserNotification($_SESSION["userId"], 1, "Grazie per l'acquisto!","Il tuo Ordine è in elaborazione");
+	$dbh->addUserNotification($_SESSION["userId"], 1, "Grazie per l'acquisto!","Il tuo Ordine con ID: ".$orderId." è in elaborazione");
 }
 if(!isUserLoggedIn()){
 	header("../../Site/Login/login.php");
