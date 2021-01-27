@@ -19,11 +19,11 @@ $(function(){
 					Quantity: 1});
 				
 				$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", {IdProduct, newQuantity}, function(newPrice) {
-					$("p.totBeer"+IdProduct).text((Math.round(newPrice * 100) / 100)+"€");
+					$("p.totBeer"+IdProduct).text("Totale: "+(Math.round(newPrice * 100) / 100)+"€");
 				});
 
 				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
-					$("p.totCart").text((Math.round(newPrice * 100) / 100)+"€");
+					$("p.totCart").text("Totale: "+(Math.round(newPrice * 100) / 100)+"€");
 				});
 
 				$("p.max"+IdProduct).text(function(i, val){
@@ -53,11 +53,11 @@ $(function(){
 				
 				$.post("../../ApiAJAX/ShoppingCart/updatePrice.php", 
 					{IdProduct, newQuantity}, function(newPrice) {
-					$("p.totBeer"+IdProduct).text((Math.round(newPrice * 100) / 100)+"€");
+					$("p.totBeer"+IdProduct).text("Totale: "+(Math.round(newPrice * 100) / 100)+"€");
 				});
 
 				$.post("../../ApiAJAX/ShoppingCart/updateCartPrice.php", function(newPrice) {
-					$("p.totCart").text((Math.round(newPrice * 100) / 100)+"€");
+					$("p.totCart").text("Totale: "+(Math.round(newPrice * 100) / 100)+"€");
 				});
 
 				$("p.max"+IdProduct).text(function(i, val){

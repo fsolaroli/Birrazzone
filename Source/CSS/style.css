@@ -417,7 +417,7 @@ aside > ul > li.notification {
 /* Element border styling */
 /* ----------------------------------------------- */
 
-img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"] {
+img, .notifications > li, .producers > li, .products > li, .sellerProducts > li, button, li.input, .orders > li, input[type="submit"], input[type="file"], input[type="checkbox"], section[name="cart"]{
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 8px;
@@ -896,5 +896,43 @@ section > div.registration {
 }
 
 /* ----------------------------------------------- */
-/* Product Page */
+/* Shopping Cart */
 /* ----------------------------------------------- */
+
+section > div > div.del > div > img.add{
+	border-color: green;
+}
+
+section > div > div.del > div > img.remove{
+	border-color: red;
+
+}
+
+section > div > div.del > div > img.add, section > div > div.del > div > img.remove{
+	border-radius: 50%;
+    width: 100px;
+	height: 100px;
+}
+
+section > div > div.del > div{
+	display: flex;
+	flex-direction: row;
+}
+
+section.cart{
+	border-radius: 30px;
+	border-width: 3px;
+	display: flex;
+}
+
+img.beerPhoto{
+	margin-top: 5px;
+	width: 50%;
+	border-radius: 30px;
+}
+
+section > div > div.del > div > img.add:hover, section > div > div.del > div > img.remove:hover, section > div > div.del > img.delete:hover{
+	background-color: #e4e2e2c6;
+}
+
+

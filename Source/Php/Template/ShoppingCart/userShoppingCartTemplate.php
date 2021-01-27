@@ -7,21 +7,21 @@
 
 <?php if(!empty($templateParams["birre"])): ?>
 <?php foreach($templateParams["birre"] as $birra): ?>
-	<section>
+	<section class="cart">
 	<p class="max<?php echo $birra["IdBirra"]?>" hidden><?php echo $dbh->getBeerQuantity($birra["IdBirra"]);?></p>
 	<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"]; ?>" alt="FotoBirra"/>
 		<div>
 			<div class="del">
 				<div>
-					<a href="../ProductPage/productPage.php?id=<?php echo $birra["IdBirra"]?>"><?php echo $birra["NomeBirra"]; ?></a> <?php echo $birra["Prezzo"]?>€ cad.
+					<p><a href="../ProductPage/productPage.php?id=<?php echo $birra["IdBirra"]?>"><?php echo $birra["NomeBirra"]; ?></a> <?php echo $birra["Prezzo"]?>€ cad.</p>
+					<img src="../../../../Immagini/Icone/Close.png" class="delete" alt="id <?php echo $birra["IdBirra"];?>"/>
 				</div>
-				<button><img class="delete" alt="id <?php echo $birra["IdBirra"];?>" src="../../../../Immagini/Icone/Close.png" ></img></button>
 				<div>
-					<button class="add" alt="id <?php echo $birra["IdBirra"];?>"><img src='../../../../Immagini/Icone/Expand.png'/> </button> 
+					<img src='../../../../Immagini/Icone/Expand.png' class="add" alt="id <?php echo $birra["IdBirra"];?>"/>
 					<p class="qt<?php echo $birra["IdBirra"];?>"> <?php echo $birra["QuantitaTot"];?></p> 
-					<button class="remove" alt="id <?php echo $birra["IdBirra"];?>"><img src='../../../../Immagini/Icone/Collapse.png'/> </button> 
+					<img src='../../../../Immagini/Icone/Collapse.png' class="remove" alt="id <?php echo $birra["IdBirra"];?>"/>  
 				</div>
-				<p class="totBeer<?php echo $birra["IdBirra"]?>"> <?php echo $birra["Totale"];?>€ </p>
+				<p class="totBeer<?php echo $birra["IdBirra"]?>">Totale: <?php echo $birra["Totale"];?>€ </p>
 			</div>
 		</div>
 		<?php $totaleCarrello +=  $birra["Totale"];?>
@@ -29,8 +29,8 @@
 <?php endforeach; ?>
 <section>
 	<div>
-		<span>Tipi di birre: <?php echo count($templateParams["birre"]); ?></span>
-		<span>Totale: <p class="totCart"> <?php echo $totaleCarrello;?>€</p> </span>
+		<p>Tipi di birre: <?php echo count($templateParams["birre"]); ?></p>
+		<p class="totCart">Totale: <?php echo $totaleCarrello;?>€</p> 
 		<div> <a href="checkOutAddress.php"> <button class="checkout" > Checkout </button> </a></div>
 	</div>
 </section>
