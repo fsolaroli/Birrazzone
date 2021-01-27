@@ -16,11 +16,13 @@ function uploadImage(destination) {
 			success : function (data) {
 				data = JSON.parse(data);
 				if (data["Errors"].length != 0) {
+					$(".imageErrors").show();
 					$(".imageErrors").html("");
 					data["Errors"].forEach(error => {
 						$(".imageErrors").append("<p><strong>" + error + "</strong></p>");	 
 					});
 				} else {
+					$(".imageErrors").hide();
 					$("form > ul > li > img").attr("src", UPLOAD_DIR + destination + "/" + data["Name"]);
 					$("form > ul > li > img").show();
 				}
