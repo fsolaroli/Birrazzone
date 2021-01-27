@@ -86,7 +86,7 @@ function manageAdminNotification() {
 			function (token) {
 				console.log("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token="+token);
 			}, "json");
-			$("li#" + id).hide();
+		$("li#" + id).hide();
 	});
 
 	$("ul > li > button.reject").click(function (e) {
