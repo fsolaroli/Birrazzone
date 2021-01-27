@@ -19,7 +19,7 @@
 			$beersToShow = $bestSellerProducts;
 		}
 	} else {
-		header("Location: ../Home/home.php"); //404
+		header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=Il birrificio cercato è inesistente");
 	}
 ?>
 

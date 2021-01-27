@@ -3,7 +3,7 @@
 if(isset($_GET["id"])){
 	$idbirra = $_GET["id"];
 } else {
-	header("Location: ../Home/home.php"); //404
+	header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=La birra cercata è inesistente");
 }
 
 if(isset($_GET["quantity"])) {

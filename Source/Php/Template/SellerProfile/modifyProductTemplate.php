@@ -4,7 +4,7 @@
 	if (isset($_GET["productId"])) {
 		$productData = $dbh->getBeer($_GET["productId"])[0];
 	} else {
-		header("Location: sellerProducts.php"); //404
+		header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=La birra cercata è inesistente");
 	}
 ?>
 
