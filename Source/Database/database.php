@@ -64,7 +64,7 @@ class DatabaseHelper{
 
 		$stmt = $this->db->prepare ("	SELECT Birra.IdBirra, Birra.NomeBirra, Birra.Tipologia, Birra.Formato, Birra.FotoBirra, Birrificio.NomeBirrificio, Prezzo.Prezzo FROM Prezzo
 										JOIN Birra ON Birra.IdBirra = Prezzo.IdBirra
-										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirra
+										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirrificio
 										WHERE LOCATE(?, Birra.NomeBirra)!=0
 										OR LOCATE(?, Birrificio.NomeBirrificio)!=0
 										AND Prezzo.DaData <= NOW()
