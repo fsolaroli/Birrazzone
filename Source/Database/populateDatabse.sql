@@ -299,13 +299,15 @@ insert into birrazzone.Utente	(
 									IdUtente,
 									NomeUtente,
 									EmailUtente,
-									PasswordUtente
+									PasswordUtente,
+									IdIndirizzo
 								)
 						values	(
 									1,
 									"Cicciopizzo Brullo",
 									"cicciopizzo.brullo@example.com",
-									"$2y$10$f3OTXsRPeuVNJfiKoqarzu953nCcmtfEBnend1L1v.uPmBEMqZxUS"
+									"$2y$10$f3OTXsRPeuVNJfiKoqarzu953nCcmtfEBnend1L1v.uPmBEMqZxUS",
+									1
 								);
 
 insert into birrazzone.Utente	(
