@@ -5,7 +5,7 @@
 		$productData = $dbh->getBeer($_GET["productId"])[0];
 		$productData["Quantita"] = $dbh->getBeerQuantity($productData["IdBirra"]);
 	} else {
-		header("Location: sellerProducts.php");
+		header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=La birra cercata è inesistente");
 	}
 ?>
 
