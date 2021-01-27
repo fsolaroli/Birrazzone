@@ -11,7 +11,7 @@
 	</ul>
 	<p>Italia</p>
 	<div class="modifyOrder">
-		<button class="modify" class="modifyAddress" >Modifica</button>
+		<button class="modify" id="modifyAddress" >Modifica</button>
 	</div>
 </section>
 <section class="checkoutOrder">
@@ -21,29 +21,32 @@
 			<span><?php echo $_SESSION["Scadenza"];?></span>
 	</div>
 	<div class="modifyOrder">
-		<button class="modify" class="modifyPayment">Modifica</button>
+		<button class="modify" id="modifyPayment">Modifica</button>
 	</div>
 </section>
-<section class="checkoutOrder">
+<section class="finalCheckout">
 	<h2 class="checkout">Prodotti </h2>
-	<ul>
-		<?php foreach($birre as $birra):?>
-		<section class="cart">
+	<ul class="products">
+		<?php foreach($birre as $birra): ?>
 			<li>
-				<p><?php echo $birra["NomeBirra"]; ?></p><p class="price"><?php echo $birra["Totale"]; ?>€</p>
-				<p class="qt">Quantità: <?php echo $birra["QuantitaTot"]; ?> </p>
+				<div class="productInfo">
+					<p><?php echo $birra["NomeBirra"]; ?></p>
+					<p>Quantità: </span><span><?php echo $birra["QuantitaTot"]; ?></p>
+				</div>
+				<div class="productData">
+					<p>Totale: <?php echo $birra["Totale"]; ?>€</p>		
+				</div>
 			</li>
-		</section>
-		<?php endforeach;?>
+		<?php endforeach; ?>
 	</ul>
 </section>
 <section>
 	<?php foreach($birre as $birra):?>
 			<?php $prezzoOrdine += $birra["Totale"];?>
 	<?php endforeach;?>
-	<div>
+	<section class="checkout">
 		<p>Totale:<?php echo $prezzoOrdine;?>€</p>
 		<button class="undo">Annulla</button> 
 		<button class="conclude">Acquista</button>
-	</div>
+	</section>
 </section>

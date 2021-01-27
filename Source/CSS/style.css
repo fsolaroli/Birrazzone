@@ -1073,19 +1073,23 @@ section.address > div.backnforward {
 	margin-top: 15px;
 }
 
-section.checkoutOrder > ul > section.cart {
-	border-radius: 20px;
-}
-
-section.checkoutOrder > ul > section.cart > li {
-	margin: 5px;
-}
-
 h2.checkout {
 	align-self: center;
+}
+
+section.checkoutOrder > div.payment	{
+	padding-top: 10px;
 }
 
 section.checkoutOrder > div.modifyOrder {
 	display: flex;
 	flex-direction: column;
+}
+
+section.finalCheckout > ul > li:hover {
+	background-color: white;
+}
+
+section.finalCheckout > ul > li > div.productData {
+	
 }

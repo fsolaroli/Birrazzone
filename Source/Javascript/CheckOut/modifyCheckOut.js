@@ -1,10 +1,10 @@
 $(function() {
 
-	$("[class=modifyAddress]").click(function() {
+	$("[id=modifyAddress]").click(function() {
 		window.location = "../ShoppingCart/modifyCheckOutAddress.php?id=checkOut";
 	});
 
-	$("[class=modifyPayment]").click(function() {
+	$("[id=modifyPayment]").click(function() {
 		window.location = "../ShoppingCart/checkOutPayment.php";
 	});
 	
