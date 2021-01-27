@@ -67,8 +67,7 @@ class DatabaseHelper{
 										JOIN Birrificio ON Birrificio.IdBirrificio = Birra.IdBirrificio
 										WHERE Prezzo.DaData <= NOW()
 										AND Prezzo.AData > NOW()
-										AND LOCATE(?, Birra.NomeBirra)!=0
-										OR LOCATE(?, Birrificio.NomeBirrificio)!=0");
+										AND (LOCATE(?, Birra.NomeBirra)!=0 OR LOCATE(?, Birrificio.NomeBirrificio)!=0)");
 		$stmt->bind_param('ss',$searchTag, $searchTag);
 		$stmt->execute();
 		$result = $stmt->get_result();
