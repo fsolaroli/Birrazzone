@@ -6,7 +6,7 @@
 
 	<?php if($userAddress == null): ?>
 		<p>Non hai ancora inserito un indirizzo.</p>
-		<a href="modifyUserAddress.php"><button class="modify">Aggiungi un indirizzo</button></a>
+		<button class="modify">Aggiungi un indirizzo</button>
 	<?php endif; ?>
 
 	<?php if($userAddress != null): ?>
