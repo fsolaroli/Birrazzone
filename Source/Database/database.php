@@ -338,6 +338,17 @@ class DatabaseHelper{
 	}
 
 	public function rejectSellerRequest($SellerId) {
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
+										SET Birrificio.NomeBirrificio=?,
+											Birrificio.EmailBirrificio=CONCAT(?, '1', Birrificio.IdBirrificio),
+											Birrificio.PartitaIVA=Birrificio.IdBirrificio,
+											Birrificio.Localita=NULL,
+											Birrificio.DescrizioneBirrificio=NULL,
+											Birrificio.FotoBirrificio=NULL
+										WHERE Birrificio.IdBirrificio=?");
+		$stmt->bind_param('ssi', $this->NamePlaceHolder, $this->EmailPlaceHolder, $SellerId);
+		$stmt->execute();
+
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoMembershipBirrificio AS SMB
 										SET SMB.AData=NOW()
 										WHERE SMB.IdBirrificio=?
@@ -355,7 +366,7 @@ class DatabaseHelper{
 																						)
 																				values	(?, 3, NOW(), ?)");
 		$stmt->bind_param('is', $SellerId, $this->DistantFuture);
-		$stmt->execute();
+		return $stmt->execute();
 	}
 
 	public function getUser($UserId) {
@@ -627,6 +638,7 @@ class DatabaseHelper{
 											Birrificio.FotoBirrificio=NULL
 										WHERE Birrificio.IdBirrificio=?");
 		$stmt->bind_param('ssi', $this->NamePlaceHolder, $this->EmailPlaceHolder, $SellerId);
+		$stmt->execute();
 
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoMembershipBirrificio AS SMB
 										SET SMB.AData=NOW()
@@ -635,6 +647,7 @@ class DatabaseHelper{
 										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
 		$stmt->bind_param('i',$SellerId);
+		$stmt->execute();
 		
 		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoMembershipBirrificio	(
 																								IdBirrificio,
