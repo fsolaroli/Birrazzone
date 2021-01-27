@@ -44,7 +44,7 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 			<?php if($quantitaBirra > 0): ?>
 				<form onsubmit="return false;">
 					<label for="quantity" class="hidden">Quantità</label>
-					<input name="quantity" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="<?php echo $defaultQuantity;?>"></input>
+					<input name="quantity" id="quantity" type="number" min="0" max="<?php echo $quantitaBirra;?>" value="<?php echo $defaultQuantity;?>"></input>
 					<?php if(isUserLoggedIn()) : ?>
 						<input type="submit" name="add" value="Aggiungi al carrello"/>
 					<?php endif; ?>
@@ -52,7 +52,7 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 						<input type="submit" name="toLogin" value="Aggiungi al carrello"/>
 					<?php endif; ?>			
 				</form>
-				<div class = "errors"></div>
+				<div class = "errors"><ul></ul></div>
 			<?php endif; ?>
 		<?php endif; ?>
 	</section>

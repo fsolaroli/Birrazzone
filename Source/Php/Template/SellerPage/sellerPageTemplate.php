@@ -1,5 +1,5 @@
 <?php
-	if (isset($_GET["sellerId"]) && !empty($queryResult = $dbh->getSeller($_GET["sellerId"]))) {
+	if (isset($_GET["sellerId"]) && $_GET["sellerId"] != null && !empty($queryResult = $dbh->getSeller($_GET["sellerId"]))) {
 		$sellerData = $queryResult[0];
 		$shortDescriptionLenght = 50;
 		$numberOfBeerToShow = 4;
@@ -25,6 +25,7 @@
 
 <h1><?php echo $sellerData["NomeBirrificio"] ?></h1>
 <section>
+	<p id="sellerId" hidden><?php echo $_GET["sellerId"]; ?></p>
 	<ul>
 		<li class="center"><?php echo $sellerData["Localita"] ?></li>
 		<li class="photo"><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
@@ -70,5 +71,5 @@
 		</ul>
 	<?php endif; ?>
 
-	<a href="../Search/search.php?sellerId=<?php echo $product["IdBirrificio"]?>"><button>Vedi tutte le birre</button></a>
+	<button>Vedi tutte le birre</button>
 </section>

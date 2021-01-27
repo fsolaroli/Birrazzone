@@ -6,7 +6,7 @@ $(function() {
 				IdProduct: $("#productId").text()
 			}, function(error){
 				if(error != null){
-					$(".errors").html("<p><strong>QUANTITA' NON VALIDA</strong></p>");
+					$(".errors > ul").html("<li><strong>QUANTITA' NON VALIDA</strong></li>");
 				} else {
 					window.location="../ShoppingCart/userShoppingCart.php"
 				}
