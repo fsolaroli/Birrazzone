@@ -12,7 +12,7 @@ insert into birrazzone.Birrificio	(
 										1,
 										"Ca' del Brado",
 										"CaDelBrado@example.com",
-										"password",
+										"$2y$10$IEs1A7Cqg5ouzH4Td524T.3ETJKh9aTqsuxykC8FghQvQ20WHB4ae",
 										"10101010101",
 										"Rastignano, BO",
 										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor, dolor in cursus tempor, ipsum nisi consequat orci, ac tempor libero velit vitae tortor. Suspendisse vel nisi fringilla ligula.",
@@ -46,7 +46,7 @@ insert into birrazzone.Birrificio	(
 										2,
 										"Brewfist",
 										"Brewfist@example.com",
-										"password",
+										"$2y$10$ixdVeNabVGWPXvK5PkL21.QmrJYE80Xbpfg4bxwxcF9wOp4MWNwEW",
 										"11111110101",
 										"Codogno, LO",
 										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor, dolor in cursus tempor, ipsum nisi consequat orci, ac tempor libero velit vitae tortor. Suspendisse vel nisi fringilla ligula.",
@@ -80,7 +80,7 @@ insert into birrazzone.Birrificio	(
 										3,
 										"Dòg E Trì",
 										"DogETri@example.com",
-										"password",
+										"$2y$10$sf605xTN4bxqnjV9Ag77y.tQTpLU/qS5Tqd0mW9mSjxvOo2xLwAmO",
 										"12345678901",
 										"Medicina, BO",
 										"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor, dolor in cursus tempor, ipsum nisi consequat orci, ac tempor libero velit vitae tortor. Suspendisse vel nisi fringilla ligula.",
@@ -305,7 +305,7 @@ insert into birrazzone.Utente	(
 									1,
 									"Cicciopizzo Brullo",
 									"cicciopizzo.brullo@example.com",
-									"password"
+									"$2y$10$f3OTXsRPeuVNJfiKoqarzu953nCcmtfEBnend1L1v.uPmBEMqZxUS"
 								);
 
 insert into birrazzone.Utente	(
@@ -318,7 +318,7 @@ insert into birrazzone.Utente	(
 									2,
 									"Gennaro Bullo",
 									"gennaro.bullo@example.com",
-									"password"
+									"$2y$10$SuroG/OchgTZm1AO4uRgv.vZGycCTje5A6SP33jOZaiIKvuBGJekS"
 								);
 
 insert into birrazzone.Ordine	(

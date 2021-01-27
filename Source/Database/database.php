@@ -217,29 +217,39 @@ class DatabaseHelper{
 	}
 
 	public function checkUserLogin($email, $password) {
-		$stmt = $this->db->prepare ("	SELECT Utente.IdUtente FROM Utente
-										WHERE Utente.EmailUtente=?
-										AND Utente.PasswordUtente=?");
-		$stmt->bind_param('ss',$email, $password);
+		$stmt = $this->db->prepare ("	SELECT Utente.* FROM Utente
+										WHERE Utente.EmailUtente=?");
+		$stmt->bind_param('s',$email);
 		$stmt->execute();
 		$result = $stmt->get_result();
+		$users = $result->fetch_all(MYSQLI_ASSOC);
 		
-		return $result->fetch_all(MYSQLI_ASSOC);
+		foreach ($users as $user) {
+			if (password_verify($password, $user["PasswordUtente"])) {
+				return array($user);
+			}
+		}
+		return array();
 	}
 	
 	public function checkSellerLogin($email, $password) {
-		$stmt = $this->db->prepare ("	SELECT Birrificio.IdBirrificio FROM Birrificio
+		$stmt = $this->db->prepare ("	SELECT Birrificio.* FROM Birrificio
 										JOIN StatoMembershipBirrificio AS SMB ON SMB.IdBirrificio=Birrificio.IdBirrificio
 										WHERE Birrificio.EmailBirrificio=?
-										AND Birrificio.PasswordBirrificio=?
 										AND SMB.IdStatoMembership=4
 										AND SMB.DaData <= NOW()
 										AND SMB.AData > NOW()");
-		$stmt->bind_param('ss',$email, $password);
+		$stmt->bind_param('s',$email);
 		$stmt->execute();
 		$result = $stmt->get_result();		
+		$sellers = $result->fetch_all(MYSQLI_ASSOC);
 
-		return $result->fetch_all(MYSQLI_ASSOC);
+		foreach ($sellers as $seller) {
+			if (password_verify($password, $seller["PasswordBirrificio"])) {
+				return array($seller);
+			}
+		}
+		return array();
 	}
 
 	public function getAllSeller() {
@@ -397,13 +407,14 @@ class DatabaseHelper{
 	}
 
 	public function registerUser($name, $email, $password) {
+		$passwordHash = password_hash($password, PASSWORD_DEFAULT);
 		$stmt = $this->db->prepare ("	INSERT INTO birrazzone.Utente 	(
 																			NomeUtente,
 																			EmailUtente,
 																			PasswordUtente
 																		)
 																values	(?, ?, ?)");
-		$stmt->bind_param('sss',$name, $email, $password);
+		$stmt->bind_param('sss',$name, $email, $passwordHash);
 		return $stmt->execute();	
 	}
 
@@ -444,13 +455,21 @@ class DatabaseHelper{
 		return $stmt->execute();		
 	}
 
-	public function updateUserData($UserId, $name, $email, $password) {				
+	public function updateUserData($UserId, $name, $email) {				
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
 										SET Utente.NomeUtente=?,
-											Utente.EmailUtente=?,
-											Utente.PasswordUtente=?
+											Utente.EmailUtente=?
 										WHERE Utente.IdUtente=?");
-		$stmt->bind_param('sssi', $name, $email, $password, $UserId);
+		$stmt->bind_param('ssi', $name, $email, $UserId);
+		return $stmt->execute();
+	}
+
+	public function updateUserPassword($UserId, $password) {
+		$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Utente
+										SET Utente.PasswordUtente=?
+										WHERE Utente.IdUtente=?");
+		$stmt->bind_param('si', $passwordHash, $UserId);
 		return $stmt->execute();
 	}
 
@@ -574,7 +593,7 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);				
 	}
 
-	public function completeSellerRegistration($SellerId, $password) {		
+	public function completeSellerRegistration($SellerId, $password) {
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoMembershipBirrificio AS SMB
 										SET SMB.AData=NOW()
 										WHERE SMB.IdBirrificio=?
@@ -598,11 +617,12 @@ class DatabaseHelper{
 																							)");
 		$stmt->bind_param('is',$SellerId, $this->DistantFuture);
 		$stmt->execute();
-
+		
+		$passwordHash = password_hash($password, PASSWORD_DEFAULT);
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
 										SET Birrificio.PasswordBirrificio=?
 										WHERE Birrificio.IdBirrificio=?");
-		$stmt->bind_param('si',$password, $SellerId);
+		$stmt->bind_param('si',$passwordHash, $SellerId);
 		return $stmt->execute();
 	}
 
@@ -617,14 +637,22 @@ class DatabaseHelper{
 		return $result->fetch_all(MYSQLI_ASSOC);		
 	}
 
-	public function updateSellerAccountData($SellerId, $name, $email, $IVA, $password) {				
+	public function updateSellerAccountData($SellerId, $name, $email, $IVA) {				
 		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
 										SET Birrificio.NomeBirrificio=?,
 											Birrificio.EmailBirrificio=?,
-											Birrificio.PartitaIVA=?,
-											Birrificio.PasswordBirrificio=?
+											Birrificio.PartitaIVA=?
 										WHERE Birrificio.IdBirrificio=?");
-		$stmt->bind_param('ssssi', $name, $email, $IVA, $password, $SellerId);
+		$stmt->bind_param('sssi', $name, $email, $IVA, $SellerId);
+		return $stmt->execute();
+	}
+	
+	public function updateSellerPassword($SellerId, $password) {		
+		$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+		$stmt = $this->db->prepare ("	UPDATE birrazzone.Birrificio
+										SET Birrificio.PasswordBirrificio=?
+										WHERE Birrificio.IdBirrificio=?");
+		$stmt->bind_param('si', $passwordHash, $SellerId);
 		return $stmt->execute();
 	}
 

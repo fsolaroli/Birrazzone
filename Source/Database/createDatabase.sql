@@ -5,7 +5,7 @@ create table if not exists birrazzone.Birrificio (
 	IdBirrificio			int				not null auto_increment,
 	NomeBirrificio			varchar(30)		not null,
 	EmailBirrificio			varchar(50)		not null unique,
-	PasswordBirrificio		varchar(32),
+	PasswordBirrificio		char(60),
 	PartitaIVA				char(11)		not null unique,
 	Localita				varchar(30),
 	DescrizioneBirrificio	varchar(300),
@@ -74,7 +74,7 @@ create table if not exists birrazzone.Utente (
 	IdUtente		int				not null auto_increment,
 	NomeUtente		varchar(50)		not null,
 	EmailUtente		varchar(50)		not null unique,
-	PasswordUtente	varchar(32)		not null,
+	PasswordUtente	char(60)		not null,
 	IdIndirizzo		int,
 	primary key (IdUtente),
 	foreign key (IdIndirizzo) references birrazzone.Indirizzo (IdIndirizzo)

@@ -36,7 +36,7 @@ function checkIVAValidity($IVA, $sellerId=0) {
 	}
 }
 
-function checkPasswordValidity($password) {
+function checkPasswordValidity($password)	 {
 	return strlen($password) >= 8 && strlen($password) <= 32;
 }
 
