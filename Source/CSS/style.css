@@ -752,7 +752,7 @@ section.addToCart > strong {
 	}
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1520px) {
 	section.addToCart {
 		position: relative;
 		bottom: -70px;
