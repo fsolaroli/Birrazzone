@@ -791,6 +791,18 @@ section > ul.products > li > a > div.info-beer, section > ul.producers > li > a 
 	padding: 0 30px;
 }	
 
+@media screen and (max-width: 531px) {
+	section > ul.producers > li > a > div.info-brewery > ul > li > span.long-description {
+		display: none;
+	}	
+}
+
+@media screen and (min-width: 1024px) {
+	section > ul.producers > li > a > div.info-brewery > ul > li > span.short-description {
+		display: none;
+	}	
+}
+
 section > ul.products > li > a > div.info-beer {
 	display: flex;
 	flex-direction: column;

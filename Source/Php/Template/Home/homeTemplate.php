@@ -41,7 +41,7 @@
 							<li>
 								<span></span>
 								<span class="short-description"><?php echo substr($seller["DescrizioneBirrificio"], 0, ($descriptionLength / 2)); ?>...</span>
-								<span class="long-description"><?php echo substr($seller["DescrizioneBirrificio"], ($descriptionLength / 2), $descriptionLength); ?>...</span>
+								<span class="long-description"><?php echo substr($seller["DescrizioneBirrificio"], 0, $descriptionLength); ?>...</span>
 							</li>
 						</ul>
 					</div>
