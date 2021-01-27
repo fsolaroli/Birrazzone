@@ -870,6 +870,42 @@ class DatabaseHelper{
 		$stmt->bind_param('iisss',$UserId, $NotificationType, $Title, $Body, $this->DistantFuture);
 		return $stmt->execute();	
 	}
+
+	public function advanceOrderStatus($OrderId) {
+		$stmt = $this->db->prepare ("	SELECT Ordine.*, SO.* FROM Ordine
+										JOIN StatoEvasioneOrdine AS SEO ON SEO.IdOrdine = Ordine.IdOrdine
+										JOIN StatoOrdine AS SO ON SEO.IdStatoOrdine = SO.IdStatoOrdine
+										WHERE Ordine.IdOrdine = ?
+										AND SEO.DaData <= NOW()
+										AND SEO.AData > NOW()");
+		$stmt->bind_param('i',$OrderId);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$result = $result->fetch_all(MYSQLI_ASSOC)[0];
+
+		if($result["IdStatoOrdine"] < 4) {	
+			$newStatus = $result["IdStatoOrdine"] + 1;
+			$stmt = $this->db->prepare ("	UPDATE birrazzone.StatoEvasioneOrdine
+											SET StatoEvasioneOrdine.AData=NOW()
+											WHERE StatoEvasioneOrdine.IdOrdine=?
+											AND StatoEvasioneOrdine.DaData <= NOW()
+											AND StatoEvasioneOrdine.AData > NOW()");
+			$stmt->bind_param('i',$OrderId);
+			$stmt->execute();
+			
+			$stmt = $this->db->prepare ("	INSERT INTO birrazzone.StatoEvasioneOrdine	(
+																							IdOrdine,
+																							IdStatoOrdine,
+																							DaData,
+																							AData
+																						)
+																				values	( ?, ?, NOW(), ? )");
+			$stmt->bind_param('iis',$OrderId, $newStatus, $this->DistantFuture);
+			return $stmt->execute();
+		} else {
+			return false;
+		}
+	}
 }
 	
 ?>
