@@ -7,7 +7,7 @@
 
 <?php if(!empty($templateParams["birre"])): ?>
 <?php foreach($templateParams["birre"] as $birra): ?>
-	<section class="cart">
+	<section class="cart<?php if(array_search($birra, $templateParams["birre"]) == (sizeof($templateParams["birre"]) - 1)) { echo " overflow"; } ?>">
 		<p class="max<?php echo $birra["IdBirra"]?>" hidden><?php echo $dbh->getBeerQuantity($birra["IdBirra"]);?></p>
 		<img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"]; ?>" alt="FotoBirra"/>
 		<div class="del">
@@ -30,11 +30,13 @@
 		<?php $totaleCarrello +=  $birra["Totale"];?>
 	</section>
 <?php endforeach; ?>
-<section class="addToCart">
-	<div>
-		<p>Tipi di birre: <?php echo count($templateParams["birre"]); ?></p>
-		<p class="totCart">Totale: <?php echo $totaleCarrello;?>€</p> 
-		<div> <a href="checkOutAddress.php"> <button class="checkout" > Checkout </button> </a></div>
-	</div>
+<section>
+	<section class="checkout">
+		<ul>
+			<li><p>Tipi di birre:</p><p><?php echo count($templateParams["birre"]); ?></p></li>
+			<li><p>Totale:</p><p class="totCart"><?php echo $totaleCarrello;?>€</p></li>
+		</ul>
+		<button class="checkout"> Checkout </button>
+	</section>
 </section>
 <?php endif; ?>
