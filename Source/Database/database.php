@@ -871,6 +871,18 @@ class DatabaseHelper{
 		return $stmt->execute();	
 	}
 
+	public function getOpenOrders() {
+		$stmt = $this->db->prepare ("	SELECT Ordine.*, SO.* FROM Ordine
+										JOIN StatoEvasioneOrdine AS SEO ON SEO.IdOrdine = Ordine.IdOrdine
+										JOIN StatoOrdine AS SO ON SEO.IdStatoOrdine = SO.IdStatoOrdine
+										WHERE SEO.DaData <= NOW()
+										AND SEO.AData > NOW()
+										AND SEO.IdStatoOrdine < 4");
+		$stmt->execute();
+		$result = $stmt->get_result();
+		return $result->fetch_all(MYSQLI_ASSOC);	
+	}
+
 	public function advanceOrderStatus($OrderId) {
 		$stmt = $this->db->prepare ("	SELECT Ordine.*, SO.* FROM Ordine
 										JOIN StatoEvasioneOrdine AS SEO ON SEO.IdOrdine = Ordine.IdOrdine

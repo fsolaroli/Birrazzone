@@ -125,10 +125,10 @@ create table if not exists birrazzone.StatoOrdine (
 	primary key (IdStatoOrdine)
 );
 
-insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (1, 'ELABORAZIONE',	'In elaborazione');
-insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (2, 'SPEDITO', 		'Spedito');
-insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (3, 'CONSEGNA', 		'In consegna');
-insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (4, 'CONSEGNATO', 	'Consegnato');
+insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (1, 'ELABORAZIONE',	'in elaborazione');
+insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (2, 'SPEDITO', 		'stato Spedito');
+insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (3, 'CONSEGNA', 		'in consegna');
+insert into birrazzone.StatoOrdine (IdStatoOrdine, Codice, Descrizione) values (4, 'CONSEGNATO', 	'stato Consegnato');
 
 create table if not exists birrazzone.StatoEvasioneOrdine (
 	IdOrdine		int			not null,
