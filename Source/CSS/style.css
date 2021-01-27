@@ -767,7 +767,7 @@ section.addToCart > form > input {
 	margin: 0 10px;
 }
 
-section.overflow {
+section.overflow, section.cart:last-of-type {
 	margin-bottom: 100px;
 }
 
