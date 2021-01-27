@@ -2,6 +2,7 @@
 <h1>Amministratore</h1>
 
 <section>
+	<p id="<?php echo $idbirrificio?>" hidden><p>
 	<section>
 		<h2>Dati Account</h2>
 		<ul>

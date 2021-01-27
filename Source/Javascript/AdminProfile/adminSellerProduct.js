@@ -16,7 +16,8 @@ $(function() {
 	});
 
 	$("#deleteAccountConfermation").click(function (e) { 
-		$.post("../../ApiAJAX/AdminProfile/deleteBrewery.php", function() {
+		let IdBirrificio = $("p").attr("id");
+		$.post("../../ApiAJAX/AdminProfile/deleteBrewery.php", {IdBirrificio} ,function() {
 			$("main").html(`
 				<h2>Birrificio cancellato</h2>
 				<button>OK</button>
