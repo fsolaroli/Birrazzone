@@ -32,5 +32,5 @@ if(empty($sellerData)){
 		</ul>
 	</form>
 	
-	<div class="errors"></div>
+	<div class="errors"><ul></ul></div>
 </section>

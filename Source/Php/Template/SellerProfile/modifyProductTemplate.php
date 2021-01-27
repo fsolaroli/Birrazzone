@@ -9,6 +9,7 @@
 ?>
 
 <section>
+	<h2>Modifica dati birra</h2>
 	<form onsubmit="return false;">
 		<input type="hidden" name="productId" value="<?php echo $_GET["productId"] ?>">
 		<ul>
@@ -32,5 +33,5 @@
 		</ul>	
 	</form>
 	
-	<div class="errors"></div>
+	<div class="errors"><ul></ul></div>
 </section>

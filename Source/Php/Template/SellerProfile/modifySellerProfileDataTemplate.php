@@ -19,7 +19,7 @@
 			<li><div class="imageErrors"></div></li>
 	
 			<li class="label"><label for="description">Descrizione:</label></li>
-			<li class="input"><textarea id="description" name="description"><?php echo $sellerData["DescrizioneBirrificio"] ?></textarea></li>
+			<li class="input"><textarea id="description" name="description" maxlength="300"><?php echo $sellerData["DescrizioneBirrificio"] ?></textarea></li>
 	
 			<li class="submit">
 				<input type="submit" name="update" value="Aggiorna"/>
@@ -28,5 +28,5 @@
 		</ul>	
 	</form>
 	
-	<div class="errors"></div>
+	<div class="errors"><ul></ul></div>
 </section>
