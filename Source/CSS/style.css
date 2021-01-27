@@ -968,6 +968,7 @@ section.cart {
 
 section.cart > img.beerPhoto {
 	width: 30%;
+	height: 100%;
 	border-radius: 30px;
 }
 
