@@ -6,7 +6,6 @@ $(function() {
 
 	$("button.singleProduct").click(function(e){
 		let ProductId = $(this).attr("id");
-		console.log(ProductId);
 		window.location = "../../Site/AdminProfile/singleProduct.php?id="+ProductId;
 	});
 
