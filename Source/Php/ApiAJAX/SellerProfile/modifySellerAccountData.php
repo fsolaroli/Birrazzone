@@ -4,6 +4,10 @@ require_once("../../Site/baseConfiguration.php");
 
 if (isSellerLoggedIn()) {
 	if (isset($_POST["sellerName"]) && isset($_POST["email"]) && isset($_POST["IVA"])) {
+
+		if(!checkNameValidity($_POST["sellerName"])) {
+			$errors[3] = "LA RAGIONE SOCIALE DEVE ESSERE LUNGO MASSIMO 30 CARATTERI";
+		}	
 		if(!checkEmailValidity($_POST["email"], null, $_SESSION["sellerId"])) {
 			$errors["email"] = "EMAIL ERRATA O GIÀ UTILIZZATA";
 		}
