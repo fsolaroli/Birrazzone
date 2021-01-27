@@ -83,8 +83,8 @@ function manageAdminNotification() {
 		let id = $(this).attr("class").split(" ")[1];
 		$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: id , EmailBirrificio: $("li#" + id + " > div:nth-of-type(2) > ul > li:nth-of-type(2) > span:nth-of-type(2)").text() },
 			function (token) {
-				console.log("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token="+token);
 				$("li#" + id).hide();
+				console.log("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token="+token);
 			}, "json");
 	});
 
