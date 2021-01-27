@@ -3,7 +3,7 @@
 if(isset($_GET["id"])){
 	$idbirra = $_GET["id"];
 } else {
-	header("Location: ../Home/home.php"); //404
+	header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=La birra cercata è inesistente");
 }
 
 if(isset($_GET["quantity"])) {
@@ -21,14 +21,14 @@ $quantitaBirra = $dbh->getBeerQuantity($birra["IdBirra"]);
 <section>
 	<ul>
 		<li id="productId" hidden><?php echo $birra["IdBirra"]; ?></li>
-		<li><?php echo $birra["Tipologia"];?></li>
+		<li class="center"><?php echo $birra["Tipologia"];?></li>
 		<li class="photo"><img class="beerPhoto" src="<?php echo UPLOAD_DIR."Birre/".$birra["FotoBirra"] ?>" alt="FotoBirra"/></li>
 	</ul>
 </section>
 <section>
 	<section class="overflow">
 		<ul>
-			<li><a href="../SellerPage/sellerPage.php?sellerId=<?php echo $birrificio["IdBirrificio"]?>"><?php echo $birrificio["NomeBirrificio"] ?></a></li>
+			<li class="center"><a href="../SellerPage/sellerPage.php?sellerId=<?php echo $birrificio["IdBirrificio"]?>"><?php echo $birrificio["NomeBirrificio"] ?></a></li>
 			<li><?php echo $birra["Prezzo"];?>€ cad.</li>
 			<li><span>Formato: </span><span><?php echo $birra["Formato"];?></span></li>
 			<li><span>Grado Alcolico: </span><span><?php echo $birra["GradoAlcolico"];?></span></li>

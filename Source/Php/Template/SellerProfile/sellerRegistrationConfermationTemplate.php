@@ -1,7 +1,7 @@
 <?php
 $sellerData = $dbh->getSellerFromRegistrationToken($_GET["token"]);
 if(empty($sellerData)){
-	header("Location: ../Home/home.php");
+	header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=La richiesta cercata è inesistente");
 } else {
 	$sellerData = $sellerData[0];
 }

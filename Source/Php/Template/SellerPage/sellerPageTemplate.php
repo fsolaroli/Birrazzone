@@ -19,14 +19,14 @@
 			$beersToShow = $bestSellerProducts;
 		}
 	} else {
-		header("Location: ../Home/home.php"); //404
+		header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=Il birrificio cercato è inesistente");
 	}
 ?>
 
 <h1><?php echo $sellerData["NomeBirrificio"] ?></h1>
 <section>
 	<ul>
-		<li><?php echo $sellerData["Localita"] ?></li>
+		<li class="center"><?php echo $sellerData["Localita"] ?></li>
 		<li class="photo"><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
 		<li>
 			<div class="description">
