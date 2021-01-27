@@ -13,7 +13,7 @@ if (isUserLoggedIn()) {
 			$errors[0] = "IL CAMPO 'VIA' DEVE ESSERE LUNGO AL MASSIMO 40 CARATTERI";
 		}
 	
-		if(strlen($_POST["citta"]) > 30) {
+		if(strlen($_POST["citta"]) > 30 || strlen($_POST["citta"]) == 0) {
 			$errors[1] = "IL CAMPO 'CITTÀ' DEVE ESSERE LUNGO AL MASSIMO 30 CARATTERI";
 		}
 	

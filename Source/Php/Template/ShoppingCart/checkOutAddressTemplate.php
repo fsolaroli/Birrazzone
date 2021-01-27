@@ -11,7 +11,7 @@
 		</ul>
 	</form>
 	<p>Italia</p>
-	<div class="errors"></div>
+	<div class="errors"><ul></ul></div>
 	<div class="modifyaddress">
 		<button class="modify">Modifica Indirizzo</button>
    	</div>

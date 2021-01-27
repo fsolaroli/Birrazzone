@@ -9,7 +9,7 @@ if(!isUserLoggedIn()){
 if(isset($_POST["nometitolare"]) && isset($_POST["numerocarta"]) && isset($_POST["cvv"]) && isset($_POST["scadenza"])) {
 	$errors = null;
 
-	if(strlen($_POST["nometitolare"]) > 40) {
+	if(strlen($_POST["nometitolare"]) > 40 || strlen($_POST["nometitolare"]) == 0) {
 		$errors[0] = "IL CAMPO 'NOME TITOLARE CARTA' DEVE ESSERE LUNGO AL MASSIMO 40 CARATTERI";
 	}
 
