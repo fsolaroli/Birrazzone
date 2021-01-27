@@ -900,31 +900,46 @@ section > div.registration {
 /* Shopping Cart */
 /* ----------------------------------------------- */
 
-section > div > div.del > div > img.add{
+section.cart > div.del div.changeQuantity > img.add{
 	border-color: green;
 }
 
-section > div > div.del > div > img.remove{
+section.cart > div.del div.changeQuantity > img.remove {
 	border-color: red;
 
 }
 
-section > div > div.del > div > img.add, section > div > div.del > div > img.remove{
+section.cart > div.del div.changeQuantity > img.add, section > div.del div.changeQuantity > img.remove {
 	border-radius: 50%;
     width: 30px;
 	height: 30px;
 }
 
-section > div > div.del > div{
+section.cart > div.del, section.cart > div.del > div > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;	
+}
+
+section.cart > div.del > div, section.cart > div.del div.changeQuantity {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 }
 
-section > div > div.del > div > p{
-	flex-direction: column;
+section.cart > div.del > div > div {
+	width: 100%; 
 }
 
-section.cart{
+section.cart > div.del ul.productInfo {
+	text-align: center;
+}
+
+section.cart > div.del div.changeQuantity {
+	justify-content: space-around;
+}
+
+section.cart {
 	border-radius: 30px;
 	border-width: 3px;
 	display: flex;
@@ -933,19 +948,25 @@ section.cart{
 	padding-bottom: 5px;
 	max-width: 475px;
 	align-self: flex-start;
+	justify-content: space-between
 }
 
-section.cart > img.beerPhoto{
-	width: 40%;
+section.cart > img.beerPhoto {
+	width: 30%;
 	border-radius: 30px;
 }
 
-section.cart > div > div.del > div > img.delete{
-	width: 30px;
-	border-radius: 10px;
+section.cart > div.del > div {
+	width: 70%;
 }
 
-section > div > div.del > div > img.add:hover, section > div > div.del > div > img.remove:hover, section > div > div.del > div > img.delete:hover{
+section.cart > div.del > div img.delete {
+	width: 30px;
+	border-radius: 10px;
+	height: 100%;
+}
+
+section.cart > div.del div.changeQuantity > img.add:hover, section > div.del div.changeQuantity > img.remove:hover, section > div.del > div img.delete:hover {
 	background-color: #e4e2e2c6;
 }
 
