@@ -1,11 +1,11 @@
 function setAside() {
 	$("aside").html(`
 		<ul>
-			<li><a href="sellerNotifications.php"><button class="buttonMenu">Notifiche</button></a></li>
-			<li><a href="sellerAccountData.php"><button class="buttonMenu">Dati&nbsp;Account</button></a></li>
-			<li><a href="sellerProfileData.php"><button class="buttonMenu">Dati&nbsp;Birrificio</button></a></li>
-			<li><a href="sellerProducts.php"><button class="buttonMenu">Prodotti</button></a></li>
-			<li><a href="../../ApiAJAX/Utils/logOut.php"><button class="logOut">Log Out</button></a></li>
+			<li><a href="sellerNotifications.php">Notifiche</a></li>
+			<li><a href="sellerAccountData.php">Dati&nbsp;Account</a></li>
+			<li><a href="sellerProfileData.php">Dati&nbsp;Birrificio</a></li>
+			<li><a href="sellerProducts.php">Prodotti</a></li>
+			<li><a href="../../ApiAJAX/Utils/logOut.php">Log Out</a></li>
 		</ul>
 	`);
 

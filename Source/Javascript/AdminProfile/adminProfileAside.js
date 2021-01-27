@@ -1,10 +1,16 @@
 $(function () {
 	$("aside").html(`
 		<ul>
-			<li><a href="breweryList.php"><button class="buttonMenu">Birrifici</button></a></li>
-			<li><a href="adminNotifications.php"><button class="buttonMenu">Notifiche</button></a></li>
-			<li><a href="../../ApiAJAX/Utils/adminLogOut.php"><button class="buttonMenu">Log Out</button></a></li>
+			<li><a href="adminNotifications.php">Notifiche</a></li>
+			<li><a href="breweryList.php">Birrifici</a></li>
+			<li><a href="../../ApiAJAX/Utils/adminLogOut.php">Log Out</a></li>
 		</ul>`);
+
+	if ($("header img[alt='Notification']").html()!=null) {
+		$("aside > ul > li:first-of-type").addClass("notification");
+	} else {
+		$("aside > ul > li:first-of-type").removeClass("notification");
+	}
 
 	$("aside").hide();
 });

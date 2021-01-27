@@ -109,6 +109,12 @@ function hasNotification() {
 	}
 }
 
+function hasRequest() {
+	if(isAdminLoggedIn()) {
+		return !empty($dbh->getSellerRequest());
+	}
+}
+
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;
