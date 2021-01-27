@@ -38,7 +38,11 @@
 						<ul>
 							<li><?php echo $seller["NomeBirrificio"]; ?></li>
 							<li><?php echo $seller["Localita"]; ?></li>
-							<li><?php echo substr($seller["DescrizioneBirrificio"], 0, $descriptionLength); ?>...</li>
+							<li>
+								<span></span>
+								<span class="short-description"><?php echo substr($seller["DescrizioneBirrificio"], 0, ($descriptionLength / 2)); ?>...</span>
+								<span class="long-description"><?php echo substr($seller["DescrizioneBirrificio"], ($descriptionLength / 2), $descriptionLength); ?>...</span>
+							</li>
 						</ul>
 					</div>
 				</a>
