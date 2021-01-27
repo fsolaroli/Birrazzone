@@ -81,7 +81,9 @@
 				<?php foreach($sellersFound as $seller): ?>
 					<li>
 						<a href="../SellerPage/sellerPage.php?sellerId=<?php echo $seller["IdBirrificio"]; ?>">
-							<img class="breweryPhotoSearch" src="<?php echo UPLOAD_DIR."Birrifici/".$seller["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+							<?php if(!empty($sellerData["FotoBirrificio"])): ?>
+								<img class="breweryPhotoSearch" src="<?php echo UPLOAD_DIR."Birrifici/".$seller["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
+							<?php endif; ?>
 							<div class="info-brewery"> 
 								<ul>
 									<li><?php echo $seller["NomeBirrificio"]; ?></li>

@@ -25,20 +25,30 @@
 
 <h1><?php echo $sellerData["NomeBirrificio"] ?></h1>
 <section>
+	<h2>Dati birrifcio</h2>
 	<p id="sellerId" hidden><?php echo $_GET["sellerId"]; ?></p>
 	<ul>
-		<li class="center"><?php echo $sellerData["Localita"] ?></li>
-		<li class="photo"><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
-		<li>
-			<div class="description">
-				<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
-				<?php if($sellerData["DescrizioneBirrificio"] != substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght)) : ?>
-					<p id="fullDescription" hidden><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
-					<a href="javascript:void(0);" class="show">Mostra tutto</a>
-				<?php endif; ?>
-			</div>
-		</li>
-	</ul>	
+		<?php if(!empty($sellerData["Localita"])): ?>
+			<li class="center"><?php echo $sellerData["Localita"] ?></li>
+		<?php endif;?>
+		<?php if(!empty($sellerData["FotoBirrificio"])): ?>
+			<li class="photo"><img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/></li>
+		<?php endif;?>
+		<?php if(!empty($sellerData["DescrizioneBirrificio"])): ?>
+			<li>
+				<div class="description">
+					<p><?php echo substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght) ?></p>
+					<?php if($sellerData["DescrizioneBirrificio"] != substr($sellerData["DescrizioneBirrificio"], 0, $shortDescriptionLenght)) : ?>
+						<p id="fullDescription" hidden><?php echo $sellerData["DescrizioneBirrificio"] ?></p>
+						<a href="javascript:void(0);" class="show">Mostra tutto</a>
+						<?php endif; ?>
+				</div>
+			</li>
+		<?php endif;?>
+	</ul>
+	<?php if(empty($sellerData["Localita"]) && empty($sellerData["FotoBirrificio"]) && empty($sellerData["DescrizioneBirrificio"])): ?>
+		<p>Il vanditore non ha ancora inserito dati sul suo birrificio</p>
+	<?php endif;?>
 </section>
 <section>
 	<h2>Birre migliori</h2>
@@ -69,7 +79,7 @@
 				</li>
 			<?php endforeach; ?>
 		</ul>
-	<?php endif; ?>
-
 	<button>Vedi tutte le birre</button>
+	
+	<?php endif; ?>
 </section>
