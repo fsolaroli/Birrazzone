@@ -613,7 +613,7 @@ a.show {
 	color: #084E80;
 }
 
-a {
+button.modify, a {
 	align-self: flex-end;
 }
 
