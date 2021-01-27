@@ -50,9 +50,10 @@ function manageNotification() {
 	});
 
 	$("ul > li > div > button").click(function (e) { 
-		$.post("../../ApiAJAX/Utils/readNotification.php", { notificationId: $(this).attr("class").split(" ")[1]},
+		notificationId = $(this).attr("class").split(" ")[1];
+		$.post("../../ApiAJAX/Utils/readNotification.php", { notificationId: notificationId},
 			function () {
-				location.reload();
+				$("li#" + notificationId).hide();
 			}
 		);
 	});
@@ -83,14 +84,15 @@ function manageAdminNotification() {
 		$.post("../../ApiAJAX/Utils/acceptSellerRequest.php", { IdBirrificio: id , EmailBirrificio: $("li#" + id + " > div:nth-of-type(2) > ul > li:nth-of-type(2) > span:nth-of-type(2)").text() },
 			function (token) {
 				console.log("http://localhost/Progetto/Source/Php/Site/SellerProfile/sellerRegistrationConfermation.php?token="+token);
-				location.reload();
+				$("li#" + id).hide();
 			}, "json");
 	});
 
-	$("ul > li > button.reject").click(function (e) { 
-		$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: $(this).attr("class").split(" ")[1]},
+	$("ul > li > button.reject").click(function (e) {
+		let id = $(this).attr("class").split(" ")[1];
+		$.post("../../ApiAJAX/Utils/refuseSellerRequest.php", { IdBirrificio: id},
 			function () {
-				location.reload();
+				$("li#" + id).hide();
 			});
 	});
 }
