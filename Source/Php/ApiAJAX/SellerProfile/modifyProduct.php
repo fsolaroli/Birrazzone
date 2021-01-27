@@ -18,7 +18,7 @@ if (isSellerLoggedIn()) {
 		}
 
 		if(empty($errors)) {
-			$dbh->updateBeerData($_SESSION["sellerId"], basename($_POST["imagePath"]), $_POST["price"], $_POST["description"]);
+			$dbh->updateBeerData($_POST["productId"], basename($_POST["imagePath"]), $_POST["price"], $_POST["description"]);
 			echo json_encode(null);
 		} else {
 			echo json_encode($errors);
