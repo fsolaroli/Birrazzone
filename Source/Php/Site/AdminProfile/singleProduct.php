@@ -7,7 +7,7 @@ if(!isAdminLoggedIn()){
 	$templateParams["Titolo"] = "AdminPage - Prodotto";
 	$templateParams["Template"] = "AdminProfile/singleProductTemplate.php";
 	$templateParams["Javascript"] = array("AdminProfile/adminProfileAside.js");
-	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
+	$templateParams["HeaderType"] = "Admin"; //Profile, Login, Global
 
 	$idbirra= -1;
 	if(isset($_GET["id"])){

@@ -7,7 +7,7 @@ if(!isAdminLoggedIn()){
 	$templateParams["Titolo"] = "AdminPage - Notification";
 	$templateParams["Javascript"] = array("AdminProfile/adminNotifications.js","AdminProfile/adminProfileAside.js");
 	$templateParams["Template"] = "AdminProfile/adminNotificationsTemplate.php";
-	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
+	$templateParams["HeaderType"] = "Admin"; //Profile, Login, Global
 }
 require("../../Template/baseTemplate.php");
 ?>

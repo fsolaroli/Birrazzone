@@ -7,7 +7,7 @@ if(!isAdminLoggedIn()){
 	$templateParams["Titolo"] = "AdminPage - Lista Birrifici accettati";
 	$templateParams["Javascript"] = array("/AdminProfile/breweryList.js", "AdminProfile/adminProfileAside.js");
 	$templateParams["Template"] = "AdminProfile/breweryListTemplate.php";
-	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
+	$templateParams["HeaderType"] = "Admin"; //Profile, Login, Global
 }
 require("../../Template/baseTemplate.php");
 ?>
