@@ -927,12 +927,22 @@ section.cart > div.del > div, section.cart > div.del div.changeQuantity {
 	justify-content: space-between;
 }
 
-section.cart > div.del > div > div {
-	width: 100%; 
-}
-
 section.cart > div.del ul.productInfo {
 	text-align: center;
+	margin: 0;
+}
+
+section.cart > div.del ul.productInfo > li:first-of-type > a {
+	margin-bottom: 10px;
+}
+
+section.cart > div.del ul.productInfo > li:first-of-type {
+	font-size: 18pt;
+	margin: 0;
+}
+
+section.cart > div.del ul.productInfo > li:last-of-type {
+	font-size: 12pt;
 }
 
 section.cart > div.del div.changeQuantity {
@@ -956,17 +966,23 @@ section.cart > img.beerPhoto {
 	border-radius: 30px;
 }
 
-section.cart > div.del > div {
+section.cart > div.del {
 	width: 70%;
 }
 
-section.cart > div.del > div img.delete {
+section.cart > img.delete {
 	width: 30px;
+	margin: 5px 5px 0 0;
 	border-radius: 10px;
 	height: 100%;
 }
 
-section.cart > div.del div.changeQuantity > img.add:hover, section > div.del div.changeQuantity > img.remove:hover, section > div.del > div img.delete:hover {
+section.cart > div.del > p {
+	text-align: center;
+	margin-top: 10px;
+}
+
+section.cart > div.del div.changeQuantity > img.add:hover, section.cart > div.del div.changeQuantity > img.remove:hover, section.cart > img.delete:hover {
 	background-color: #e4e2e2c6;
 }
 
