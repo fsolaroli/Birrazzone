@@ -9,7 +9,7 @@ if (isSellerLoggedIn()) {
 			$errors[] = "NOME TROPPO LUNGO O MANCANTE";
 		}
 
-		if($_POST["imagePath"] == "") {
+		if(basename($_POST["imagePath"]) == "Collapse.png" || $_POST["imagePath"] == "") {
 			$errors[] = "INSERIRE UN'IMMAGINE";
 		}
 
