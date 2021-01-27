@@ -19,7 +19,7 @@
 			<p><?php echo $sellerData["PartitaIVA"] ?></p>
 		</li>
 	</ul>
-	<a href="modifySellerAccountData.php"><button class="modify">Modifica</button></a>
+	<button class="modify">Modifica</button>
 </section>
 <section class="delete">
 	<button id="deleteAccountConfermation" class="delete" hidden>Conferma eliminazione account</button>
