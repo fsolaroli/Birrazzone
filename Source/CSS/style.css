@@ -733,6 +733,11 @@ section.addToCart {
 	align-self: center;
 }
 
+section.addToCart > strong {
+	margin-bottom: 20px;
+	font-size: 20pt;
+}
+
 @media screen and (max-width: 531px) {
 	section.addToCart {
 		bottom: 66pt;
