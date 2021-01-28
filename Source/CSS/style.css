@@ -1020,7 +1020,7 @@ section.cart > section > div.del > p {
 	margin-top: 10px;
 }
 
-section.cart > section > div.del div.changeQuantity > img.add:hover, section.cart > div.del div.changeQuantity > img.remove:hover, section.cart > img.delete:hover {
+section.cart > section > div.del div.changeQuantity > img.add:hover, section.cart > section > div.del div.changeQuantity > img.remove:hover, section.cart > section > img.delete:hover {
 	background-color: #e4e2e2c6;
 }
 

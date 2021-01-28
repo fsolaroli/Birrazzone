@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_GET["id"])){
+if(isset($_GET["id"]) && !empty($dbh->getBeer($idbirra))){
 	$idbirra = $_GET["id"];
 } else {
 	header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=La birra cercata è inesistente");
