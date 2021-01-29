@@ -1,5 +1,5 @@
 $(function () {
-	$("aside").html(`
+	$("nav").html(`
 		<ul>
 			<li><a href="userNotifications.php">Notifiche</a></li>
 			<li><a href="../ShoppingCart/userShoppingCart.php">Carrello</a></li>
@@ -10,10 +10,10 @@ $(function () {
 		</ul>`);
 
 	if ($("header img[alt='Notification']").html()!=null) {
-		$("aside > ul > li:first-of-type").addClass("notification");
+		$("nav > ul > li:first-of-type").addClass("notification");
 	} else {
-		$("aside > ul > li:first-of-type").removeClass("notification");
+		$("nav > ul > li:first-of-type").removeClass("notification");
 	}
 
-	$("aside").hide();
+	$("nav").hide();
 });

@@ -6,7 +6,7 @@ if(!isUserLoggedIn()) {
 	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "Utente - Storico ordini";
-	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js", "UserProfile/userOrdersRedirect.js");
+	$templateParams["Javascript"] = array("UserProfile/userProfilenav.js", "UserProfile/userOrdersRedirect.js");
 	$templateParams["Template"] = "UserProfile/userOrdersTemplate.php";
 	$templateParams["HeaderType"] = "Profile";
 

@@ -5,7 +5,7 @@ if(!isSellerLoggedIn()){
 	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "ProfilePage - ModifyProfileData";
-	$templateParams["Javascript"] = array("SellerProfile/modifySellerProfileData.js", "SellerProfile/sellerProfileAside.js");
+	$templateParams["Javascript"] = array("SellerProfile/modifySellerProfileData.js", "SellerProfile/sellerProfilenav.js");
 	$templateParams["Template"] = "SellerProfile/modifySellerProfileDataTemplate.php";
 	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
 	

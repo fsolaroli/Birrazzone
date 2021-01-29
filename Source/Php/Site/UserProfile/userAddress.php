@@ -6,7 +6,7 @@ if(!isUserLoggedIn()) {
 	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "Utente - Indirizzo di fatturazione";
-	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js", "UserProfile/deleteAddress.js");
+	$templateParams["Javascript"] = array("UserProfile/userProfilenav.js", "UserProfile/deleteAddress.js");
 	$templateParams["Template"] = "UserProfile/userAddressTemplate.php";
 	$templateParams["HeaderType"] = "Profile";
 

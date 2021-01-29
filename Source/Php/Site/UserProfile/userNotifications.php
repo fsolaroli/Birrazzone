@@ -6,7 +6,7 @@ if(!isUserLoggedIn()) {
 	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "Utente - Notifiche";
-	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js", "UserProfile/userNotification.js");
+	$templateParams["Javascript"] = array("UserProfile/userProfilenav.js", "UserProfile/userNotification.js");
 	$templateParams["Template"] = "UserProfile/userNotificationsTemplate.php";
 	$templateParams["HeaderType"] = "Profile";
 

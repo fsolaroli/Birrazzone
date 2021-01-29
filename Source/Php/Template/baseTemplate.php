@@ -76,7 +76,7 @@
 			</div>
 		<?php endif; ?>
 	</header>
-	<aside hidden></aside>
+	<nav hidden></nav>
 	<div class="scroll">
 		<main>
 			<?php

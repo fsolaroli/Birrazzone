@@ -6,7 +6,7 @@ if(!isSellerLoggedIn()){
 	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "ProfilePage - AddNewProduct";
-	$templateParams["Javascript"] = array("SellerProfile/sellerProfileAside.js", "SellerProfile/newProduct.js");
+	$templateParams["Javascript"] = array("SellerProfile/sellerProfilenav.js", "SellerProfile/newProduct.js");
 	$templateParams["Template"] = "SellerProfile/newProductTemplate.php";
 	$templateParams["HeaderType"] = "Profile"; //Profile, Login, Global
 

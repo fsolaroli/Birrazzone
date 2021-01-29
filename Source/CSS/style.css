@@ -12,7 +12,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
+article, nav, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, nav, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -275,10 +275,10 @@ body footer > p:nth-of-type(2) {
 }
 
 /* ----------------------------------------------- */
-/* Aside */
+/* nav */
 /* ----------------------------------------------- */
 
-body > aside {
+body > nav {
 	align-self: flex-end;
 	position: fixed;
 	
@@ -289,7 +289,7 @@ body > aside {
 
 }
 
-body > aside > ul {
+body > nav > ul {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -298,11 +298,11 @@ body > aside > ul {
 	overflow-y: auto;
 }
 
-body > aside > ul > li {
+body > nav > ul > li {
 	padding: 20px 60px;
 }
 
-body > aside > ul > li > a, body > aside > ul > li > a:visited {
+body > nav > ul > li > a, body > nav > ul > li > a:visited {
 	width: 100%;
 	
 	border: 0;
@@ -316,16 +316,16 @@ body > aside > ul > li > a, body > aside > ul > li > a:visited {
 	background-color: transparent;
 }
 
-body > aside > ul > li:last-of-type > a {
+body > nav > ul > li:last-of-type > a {
 	color: #ff3b3b;
 }
 
-body > aside > ul > li > a:hover {
+body > nav > ul > li > a:hover {
 	background-color: transparent;
 	color: #e4e2e2c6;	
 }
 
-body > aside > ul > li:last-of-type > a:hover {
+body > nav > ul > li:last-of-type > a:hover {
 	color: #c11e1e;
 }
 
@@ -406,7 +406,7 @@ img#Profile[alt="Notification"], img#Admin[alt="Notification"] {
 	top: 3px;
 }
 
-aside > ul > li.notification {
+nav > ul > li.notification {
 	background-image: url("../../Immagini/Icone/Notification.png");
 	background-size: 12pt;
 	background-repeat: no-repeat;

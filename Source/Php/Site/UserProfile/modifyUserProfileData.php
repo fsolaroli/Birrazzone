@@ -6,7 +6,7 @@ if(!isUserLoggedIn()) {
 	header("Location: ../Login/login.php");
 } else {
 	$templateParams["Titolo"] = "Utente - Modifica dati personali";
-	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js", "UserProfile/modifyUserProfileData.js");
+	$templateParams["Javascript"] = array("UserProfile/userProfilenav.js", "UserProfile/modifyUserProfileData.js");
 	$templateParams["Template"] = "UserProfile/modifyUserProfileDataTemplate.php";
 	$templateParams["HeaderType"] = "Profile";
 

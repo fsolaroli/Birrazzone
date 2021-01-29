@@ -1,5 +1,5 @@
-function setAside() {
-	$("aside").html(`
+function setnav() {
+	$("nav").html(`
 		<ul>
 			<li><a href="sellerNotifications.php">Notifiche</a></li>
 			<li><a href="sellerAccountData.php">Dati&nbsp;Account</a></li>
@@ -10,14 +10,14 @@ function setAside() {
 	`);
 
 	if ($("header img[alt='Notification']").html()!=null) {
-		$("aside > ul > li:first-of-type").addClass("notification");
+		$("nav > ul > li:first-of-type").addClass("notification");
 	} else {
-		$("aside > ul > li:first-of-type").removeClass("notification");
+		$("nav > ul > li:first-of-type").removeClass("notification");
 	}
-	$("aside").hide();
+	$("nav").hide();
 
 }
 
 $(function () {
-	setAside();
+	setnav();
 });

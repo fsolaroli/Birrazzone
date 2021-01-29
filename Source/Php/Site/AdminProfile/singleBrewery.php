@@ -4,7 +4,7 @@ if(!isAdminLoggedIn()){
 	header("Location: ../login/adminLogin.php");
 }else{
 	$templateParams["Titolo"] = "AdminPage - Birrificio";
-	$templateParams["Javascript"] = array("AdminProfile/adminSellerProduct.js", "AdminProfile/adminProfileAside.js");
+	$templateParams["Javascript"] = array("AdminProfile/adminSellerProduct.js", "AdminProfile/adminProfilenav.js");
 	$templateParams["Template"] = "AdminProfile/singleBreweryTemplate.php";
 	$templateParams["HeaderType"] = "Admin"; //Profile, Login, Global
 

@@ -8,7 +8,7 @@ if(!isUserLoggedIn()) {
 	header("Location: ../../Site/Errors/errors.php?errorType=404&errorMessage=Ordine inesistente");
 } else {
 	$templateParams["Titolo"] = "Utente - Ordine";
-	$templateParams["Javascript"] = array("UserProfile/userProfileAside.js", "UserProfile/userSelectedOrder.js");
+	$templateParams["Javascript"] = array("UserProfile/userProfilenav.js", "UserProfile/userSelectedOrder.js");
 	$templateParams["Template"] = "UserProfile/userSelectedOrderTemplate.php";
 	$templateParams["HeaderType"] = "Profile";
 

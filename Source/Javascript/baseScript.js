@@ -8,11 +8,11 @@ function hideSearchBar(event) {
 	}
 }
 
-function showAside() {
-	if($("aside").is(":hidden")) {
-		$("aside").show('slide');
+function shownav() {
+	if($("nav").is(":hidden")) {
+		$("nav").show('slide');
 	} else {
-		$("aside").hide('slide');
+		$("nav").hide('slide');
 	}
 }
 
@@ -20,10 +20,10 @@ $(function() {
 	document.onwheel = hideSearchBar;
 
 	$("div.scroll").click(function (e) { 
-		$("aside").hide('slide');
+		$("nav").hide('slide');
 	});
 
 	$("header img[alt='Menu']").click(function(e) {
-		showAside();
+		shownav();
 	});
 });
