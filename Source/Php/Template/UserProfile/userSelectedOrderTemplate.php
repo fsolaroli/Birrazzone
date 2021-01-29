@@ -12,7 +12,7 @@
 <section>
 	<section>
 		<h3>Stato</h3>
-		<p><?php echo $orderInfo[0]["Descrizione"]; ?></p>
+		<p>Il tuo ordine è <?php echo $orderInfo[0]["Descrizione"]; ?></p>
 	</section>
 	
 	<section>

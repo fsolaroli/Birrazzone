@@ -18,7 +18,7 @@
 			<?php if(!empty($sellerData["FotoBirrificio"])): ?>
 				<img class="sellerPhoto" src="<?php echo UPLOAD_DIR."Birrifici/".$sellerData["FotoBirrificio"] ?>" alt="FotoBirrificio"/>
 			<?php endif;?>
-			<?php if(empty($sellerData["FotoBirra"])): ?>
+			<?php if(empty($sellerData["FotoBirrificio"])): ?>
 				<p>Inserisci una foto del tuo birrificio</p>
 			<?php endif;?>
 		</li>	
